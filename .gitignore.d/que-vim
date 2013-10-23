@@ -17,6 +17,7 @@
 !/.vim/ftplugin/javascript/jslint/runjslint.js
 !/.vim/ftplugin/javascript/jslint/runjslint.wsf
 !/.vim/ftplugin/javascript/jslint.vim
+!/.vim/notepad.vim
 !/.vim/php.vim
 !/.vim/plugin
 !/.vim/plugin/comments.vim

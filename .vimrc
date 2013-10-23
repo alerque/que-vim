@@ -89,7 +89,7 @@ map <F5> :set hls!<bar>set hls?<CR>
 
 if &filetype == ""
 "   setfiletype text
-    source ~/.notepad
+    source ~/.vimrc/notepad.vim
 endif
 
 if &filetype == "mail"
