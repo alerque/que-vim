@@ -40,7 +40,8 @@ set fo+=r
 "set listchars=tab:>-
 set ttymouse=xterm2
 set splitright
-set complete+=k/usr/dict/*
+"set complete+=k/usr/dict/*
+set shell=zsh\ -i
 
 nmap I :set paste<Cr>i
 "<esc>I sets paste mode
