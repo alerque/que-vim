@@ -1,5 +1,3 @@
-:version 6
-
 colorscheme ps_color
 
 if &term == "screen"
@@ -18,7 +16,7 @@ set showmatch	"show matchign brackets
 set smartcase
 set tabstop=4
 set shiftwidth=4
-set syntax=on
+syntax on
 set infercase
 set nohlsearch
 set matchpairs+=«:»
@@ -70,10 +68,6 @@ map <tab> >>	"indent when not in edit mode
 "map <tab> >>	"indent when not in edit mode
 
 imap <C-g> <C-x><C-f>	" File complete on ctrl g
-
-" safety for craig who can't remember to hit esc instead of f1
-map <F1> <Esc>
-imap <F1> <Esc>
 
 " alt+: on most machines
 map » :
