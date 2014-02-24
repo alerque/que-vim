@@ -6,6 +6,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " My plugins
+Bundle 'gcmt/wildfire.vim'
 
 " Execute vundle
 filetype plugin indent on
