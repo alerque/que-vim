@@ -9,11 +9,18 @@ Bundle 'gmarik/vundle'
 Bundle 'gcmt/wildfire.vim'
 Bundle 'ntpeters/vim-better-whitespace'
 Bundle 'sdanielf/vim-stdtabs'
+Bundle 'bling/vim-airline'
 
 " Execute vundle
 filetype plugin indent on
 
-colorscheme ps_color
+" Setup status bar
+set encoding=utf8
+set laststatus=2
+let g:airline_powerline_fonts = 1
+if has('autocmd')
+    autocmd GUIEnter * set guifont=Liberation\ Mono\ for\ Powerline\ 12
+endif
 
 if &term == "screen"
     "set t_kb=
