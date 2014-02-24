@@ -41,6 +41,8 @@ set splitright
 "set complete+=k/usr/dict/*
 set shell=zsh\ -i
 
+nnoremap gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
 nmap I :set paste<Cr>i
 "<esc>I sets paste mode
 nmap i :set nopaste<Cr>i
