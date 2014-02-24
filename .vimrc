@@ -1,4 +1,4 @@
-" Required vundle stuff
+"" Required vundle stuff
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle/
@@ -22,9 +22,7 @@ filetype plugin indent on
 set encoding=utf8
 set laststatus=2
 let g:airline_powerline_fonts = 1
-if has('autocmd')
-    autocmd GUIEnter * set guifont=Liberation\ Mono\ for\ Powerline\ 12
-endif
+set guifont=Liberation\ Mono\ for\ Powerline\ 12
 
 " Setup NeoComplete
 let g:acp_enableAtStartup = 0
@@ -48,11 +46,12 @@ set showcmd
 
 " Shut up
 set noerrorbells visualbell t_vb=
-if has('autocmd')
-  autocmd GUIEnter * set visualbell t_vb=
-endif
+autocmd GUIEnter * set visualbell t_vb=
 
 colorscheme vividchalk
+
+set guioptions=mr
+
 map - \cn
 map _ \cu
 
