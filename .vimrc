@@ -13,6 +13,7 @@ Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Shougo/neocomplete'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'scrooloose/nerdcommenter'
 
 " Execute vundle
 filetype plugin indent on
@@ -50,6 +51,9 @@ set noerrorbells visualbell t_vb=
 if has('autocmd')
   autocmd GUIEnter * set visualbell t_vb=
 endif
+
+map - \cn
+map _ \cu
 
 " << refactored to here
 
@@ -137,123 +141,6 @@ endif
 if &filetype == "mail"
     set nosmartindent
 endif
-
-function! PoundComment()
-    map - 0i# <ESC>j
-    map _ :s/^\s*# \=//g<CR>j
-    set comments=:#
-endfunction
-
-function! LispComment()
-    map - 0i; <ESC>j
-    map _ :s/^\s*; \=//g<CR>j
-    set comments=:;
-endfunction
-
-function! HTMLComment()
-    map - $a --><ESC>0i<!-- <ESC><CR>
-    map _ :s/^\s*<!-- \=//g<CR>:s/ \=-->[ \t]*$//g<CR>j
-    set tw=0 formatoptions=tcq
-endfunction
-
-function! CComment()
-    map - $a */<ESC>0i/* <ESC><CR>
-    map _ :s/^\s*\/\* \=//g<CR>:s/ \=\*\/[ \t]*$//g<CR>j
-    set nocindent comments=sr:/*,mb:*,ex:*/,://
-"   set nocindent comments=:/*,://
-endfunction
-
-function! TexComment()
-    map - 0i% <ESC>j
-    map _ :s/^\s*% \=//g<CR>j
-    set nocindent comments=sr:%,mb:%,el:%,://
-    set tw=72 formatoptions=tcqro
-endfunction
-
-function! CPlusPlusComment()
-    map - 0i// <ESC>j
-    map _ :s/^\s*\/\/ \=//g<CR>j
-    set nocindent comments=:\/\/
-endfunction
-
-function! VHDLComment()
-    map - 0i-- <ESC>j
-    map _ :s/^\s*-- \=//g<CR>j
-    set comments=:--
-endfunction
-
-" function! CDSLibComment()
-"   map - 0i-- <ESC>j
-"   map _ :s/^\s*-- \=//g<CR>j
-"   set nocindent comments=:--
-" endfunction
-
-function! SpiceComment()
-    map - 0i* <ESC>j
-    map _ :s/^\s*\* \=//g<CR>j
-    set comments=:*
-endfunction
-
-function! ConfigComment()
-    map - 0idnl <ESC>j
-    map _ :s/^\s*dnl \=//g<CR>j
-    set comments=:dnl
-endfunction
-
-function! VimComment()
-    map - 0i" <ESC>j
-    map _ :s/^\s*" \=//g<CR>j
-    set comments=:\"
-endfunction
-
-function! XDefaultsComment()
-    map - 0i! <ESC>j
-    map _ :s/^\s*! \=//g<CR>j
-    set comments=:\!
-endfunction
-
-function! PostscriptComment()
-    map - 0i%% <ESC>j
-    map _ :s/^\s*%%\= \=//g<CR>j
-    set comments=:\!
-endfunction
-
-function! FT_text()
-    call PoundComment()
-    set tw=72 formatoptions=tcq
-endfunction
-
-autocmd Filetype html               call HTMLComment()
-autocmd Filetype vhdl               call VHDLComment()
-autocmd Filetype c                  call CComment()
-autocmd Filetype synopsys           call CComment()
-autocmd Filetype css                call CComment()
-autocmd Filetype tex                call TexComment()
-autocmd Filetype cpp                call CPlusPlusComment()
-autocmd Filetype java               call CPlusPlusComment()
-autocmd Filetype verilog            call CPlusPlusComment()
-autocmd Filetype xdefaults          call XDefaultsComment()
-autocmd Filetype config             call ConfigComment()
-autocmd Filetype vim                call VimComment()
-autocmd Filetype lisp               call LispComment()
-autocmd Filetype skill              call LispComment()
-autocmd Filetype dosini             call LispComment()
-autocmd Filetype spice              call SpiceComment()
-autocmd Filetype perl               call PoundComment()
-autocmd Filetype apache             call PoundComment()
-autocmd Filetype csh                call PoundComment()
-autocmd Filetype sh                 call PoundComment()
-autocmd Filetype cdslib             call PoundComment()
-autocmd Filetype tcl                call PoundComment()
-autocmd Filetype xs                 call PoundComment()
-autocmd Filetype make               call PoundComment()
-autocmd Filetype conf               call PoundComment()
-autocmd Filetype fvwm               call PoundComment()
-autocmd Filetype samba              call PoundComment()
-autocmd Filetype php                call PoundComment()
-autocmd Filetype postscr            call PostscriptComment()
-autocmd Filetype text               call FT_text()
-autocmd Filetype zsh                call PoundComment()
 
 " function MyTabOrComplete()
 "     let col = col('.')-1
