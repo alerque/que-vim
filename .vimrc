@@ -8,6 +8,7 @@ Bundle 'gmarik/vundle'
 " My plugins
 Bundle 'gcmt/wildfire.vim'
 Bundle 'ntpeters/vim-better-whitespace'
+Bundle 'sdanielf/vim-stdtabs'
 
 " Execute vundle
 filetype plugin indent on
