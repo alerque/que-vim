@@ -45,7 +45,11 @@ endif
 " Show leader as typed (used for gitgutter)
 set showcmd
 
-" << refactored to here
+" Shut up
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+  autocmd GUIEnter * set visualbell t_vb=
+endif
 
 
 set nofoldenable
