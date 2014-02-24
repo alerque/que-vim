@@ -52,6 +52,7 @@ if has('autocmd')
   autocmd GUIEnter * set visualbell t_vb=
 endif
 
+colorscheme vividchalk
 map - \cn
 map _ \cu
 
