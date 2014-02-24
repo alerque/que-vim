@@ -53,7 +53,7 @@ endif
 
 " << refactored to here
 
-set nofoldenable
+" set nofoldenable
 set fencs=utf8,cp1254,latin1
 set autoindent
 set smartindent
@@ -61,8 +61,8 @@ set showmatch	"show matchign brackets
 "set smarttab
 "set cindent
 set smartcase
-set tabstop=4
-set shiftwidth=4
+" set tabstop=4
+" set shiftwidth=4
 syntax on
 set infercase
 set nohlsearch
@@ -73,7 +73,6 @@ set nowrap
 set backup
 set backupskip=
 set backupdir=.
-set noerrorbells
 set history=1000
 set ruler	"show ruller at bottom
 set scrolloff=1	"give context when scrolling
@@ -85,8 +84,7 @@ set fo+=r
 "set listchars=tab:>-
 set ttymouse=xterm2
 set splitright
-"set complete+=k/usr/dict/*
-" set shell=zsh\ -i
+set shell=zsh
 
 nnoremap gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
