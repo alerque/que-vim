@@ -12,6 +12,7 @@ Bundle 'sdanielf/vim-stdtabs'
 Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Shougo/neocomplete'
+Bundle 'airblade/vim-gitgutter'
 
 " Execute vundle
 filetype plugin indent on
@@ -40,6 +41,12 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 if !exists('g:neocomplete#sources#omni#input_patterns')
     let g:neocomplete#sources#omni#input_patterns = {}
 endif
+
+" Show leader as typed (used for gitgutter)
+set showcmd
+
+" << refactored to here
+
 
 set nofoldenable
 set enc=utf8
