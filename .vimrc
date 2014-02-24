@@ -1,3 +1,15 @@
+" Required vundle stuff
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+
+" My plugins
+
+" Execute vundle
+filetype plugin indent on
+
 colorscheme ps_color
 
 if &term == "screen"
