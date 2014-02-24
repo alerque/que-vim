@@ -10,6 +10,7 @@ Bundle 'gcmt/wildfire.vim'
 Bundle 'ntpeters/vim-better-whitespace'
 Bundle 'sdanielf/vim-stdtabs'
 Bundle 'bling/vim-airline'
+Bundle 'tpope/vim-fugitive'
 
 " Execute vundle
 filetype plugin indent on
