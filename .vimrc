@@ -50,7 +50,7 @@ autocmd GUIEnter * set visualbell t_vb=
 
 colorscheme vividchalk
 
-set guioptions=mr
+set guioptions=mraAeigt
 
 map - \cn
 map _ \cu
