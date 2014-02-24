@@ -51,9 +51,9 @@ if has('autocmd')
   autocmd GUIEnter * set visualbell t_vb=
 endif
 
+" << refactored to here
 
 set nofoldenable
-set enc=utf8
 set fencs=utf8,cp1254,latin1
 set autoindent
 set smartindent
@@ -86,7 +86,7 @@ set fo+=r
 set ttymouse=xterm2
 set splitright
 "set complete+=k/usr/dict/*
-set shell=zsh\ -i
+" set shell=zsh\ -i
 
 nnoremap gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
@@ -104,8 +104,8 @@ if fileType == 'php'
 endif
 
 ":command! -nargs=+ Calc :py print <args>
-":py from math import * 
-:command! -nargs=+ Calc :r! python -c "from math import *; print <args>" 
+":py from math import *
+:command! -nargs=+ Calc :r! python -c "from math import *; print <args>"
 
 "map ' `	" switch mark jumps so ' goes to column
 "map ` '	" and ` goes to row
@@ -116,7 +116,7 @@ map <space> <C-d>
 map <tab> >>	"indent when not in edit mode
 "map <tab> >>	"indent when not in edit mode
 
-imap <C-g> <C-x><C-f>	" File complete on ctrl g
+" imap <C-g> <C-x><C-f>	" File complete on ctrl g
 
 " alt+: on most machines
 map » :
@@ -257,15 +257,15 @@ autocmd Filetype postscr            call PostscriptComment()
 autocmd Filetype text               call FT_text()
 autocmd Filetype zsh                call PoundComment()
 
-function MyTabOrComplete()
-    let col = col('.')-1
-    if !col || getline('.')[col-1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<C-X>\<C-O>"
-    endif
-endfunction
-inoremap <Tab> <C-R>=MyTabOrComplete()<CR>
+" function MyTabOrComplete()
+"     let col = col('.')-1
+"     if !col || getline('.')[col-1] !~ '\k'
+"         return "\<tab>"
+"     else
+"         return "\<C-X>\<C-O>"
+"     endif
+" endfunction
+" inoremap <Tab> <C-R>=MyTabOrComplete()<CR>
 
 set nowrap
 
@@ -294,7 +294,7 @@ function FirstInPost (...) range
 endfunction
 
 " Command to be called.
-com Fip :set nosmartindent<Bar>:set tw=0<Bar>:%call FirstInPost() 
+com Fip :set nosmartindent<Bar>:set tw=0<Bar>:%call FirstInPost()
 
 function VeryBeautyQuote (...) range
   " The regular expression used to match quoted lines.
@@ -349,3 +349,4 @@ com Vbq :let strl = line('.')<Bar>:%call VeryBeautyQuote()<Bar>:exec strl
 "endif
 
 " vim: ts=30 sw=4
+
