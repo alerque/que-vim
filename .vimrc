@@ -22,7 +22,7 @@ filetype plugin indent on
 set encoding=utf8
 set laststatus=2
 let g:airline_powerline_fonts = 1
-set guifont=Liberation\ Mono\ for\ Powerline\ 12
+set guifont=Liberation\ Mono\ for\ Powerline\ 10
 
 " Setup NeoComplete
 let g:acp_enableAtStartup = 0
