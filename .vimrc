@@ -59,6 +59,8 @@ set guioptions=mraAeigt
 map - \cn
 map _ \cu
 
+cmap w!! w !sudo tee > /dev/null %
+
 " << refactored to here
 
 " set nofoldenable
