@@ -96,7 +96,7 @@ set ttymouse=xterm2
 set splitright
 set shell=zsh
 
-nnoremap gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 nmap I :set paste<Cr>i
 "<esc>I sets paste mode
