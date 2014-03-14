@@ -1,4 +1,4 @@
-"" Required vundle stuff
+" Required vundle stuff
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle/
@@ -60,6 +60,10 @@ map - \cn
 map _ \cu
 
 cmap w!! w !sudo tee > /dev/null %
+
+let g:tex_flavor = "latex"
+
+set mouse=a
 
 " << refactored to here
 
