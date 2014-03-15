@@ -16,6 +16,7 @@ if has('lua')
 endif
 Bundle 'airblade/vim-gitgutter'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'tpope/vim-eunuch'
 
 " Execute vundle
 filetype plugin indent on
