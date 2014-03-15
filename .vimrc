@@ -6,6 +6,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " My plugins
+Bundle 'tpope/vim-sensible'
 Bundle 'gcmt/wildfire.vim'
 Bundle 'ntpeters/vim-better-whitespace'
 Bundle 'sdanielf/vim-stdtabs'
@@ -16,7 +17,10 @@ if has('lua')
 endif
 Bundle 'airblade/vim-gitgutter'
 Bundle 'scrooloose/nerdcommenter'
+"Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-eunuch'
+Bundle 'tpope/vim-tbone'
 
 " Execute vundle
 filetype plugin indent on
