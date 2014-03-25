@@ -22,6 +22,7 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-tbone'
 Bundle 'tpope/vim-markdown'
+Bundle 'jcf/vim-latex'
 
 " Execute vundle
 filetype plugin indent on
