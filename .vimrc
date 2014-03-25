@@ -21,6 +21,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-tbone'
+Bundle 'tpope/vim-markdown'
 
 " Execute vundle
 filetype plugin indent on
