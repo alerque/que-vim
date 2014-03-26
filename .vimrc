@@ -1,4 +1,4 @@
-"" Required vundle stuff
+" Required vundle stuff
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle/
@@ -6,6 +6,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " My plugins
+Bundle 'tpope/vim-sensible'
 Bundle 'gcmt/wildfire.vim'
 Bundle 'ntpeters/vim-better-whitespace'
 Bundle 'sdanielf/vim-stdtabs'
@@ -16,6 +17,13 @@ if has('lua')
 endif
 Bundle 'airblade/vim-gitgutter'
 Bundle 'scrooloose/nerdcommenter'
+"Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-eunuch'
+Bundle 'tpope/vim-tbone'
+Bundle 'tpope/vim-markdown'
+"Bundle 'jcf/vim-latex'
+Bundle 'git://git.code.sf.net/p/atp-vim/code'
 
 " Execute vundle
 filetype plugin indent on
@@ -61,7 +69,10 @@ map _ \cu
 
 cmap w!! w !sudo tee > /dev/null %
 
+let g:tex_flavor = "latex"
+
 set mouse=a
+
 " << refactored to here
 
 " set nofoldenable
