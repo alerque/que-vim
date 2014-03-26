@@ -61,6 +61,7 @@ map _ \cu
 
 cmap w!! w !sudo tee > /dev/null %
 
+set mouse=a
 " << refactored to here
 
 " set nofoldenable
