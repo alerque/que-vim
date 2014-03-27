@@ -1,11 +1,11 @@
 *
 !/.gitignore.d
 !/.gitignore.d/que-vim
-!/.gvimrc
 !/.vim
 !/.vim/AutoFold.vim
 !/.vim/colors
 !/.vim/colors/ps_color.vim
+!/.vim/colors/vividchalk.vim
 !/.vim/doc
 !/.vim/doc/ps_color.txt
 !/.vim/doc/taglist.txt
