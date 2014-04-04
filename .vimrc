@@ -67,7 +67,12 @@ set guioptions=mraAeigt
 map - \cn
 map _ \cu
 
-cmap w!! w !sudo tee > /dev/null %
+function Sudowrite()
+    silent w !sudo tee % > /dev/null
+    e! %
+endfunction
+
+cmap w!! call Sudowrite()
 
 let g:tex_flavor = "latex"
 
