@@ -60,7 +60,11 @@ set showcmd
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
-colorscheme vividchalk
+if &diff
+    colorscheme ps_color
+else
+    colorscheme vividchalk
+endif
 
 set guioptions=mraAeigt
 
@@ -171,7 +175,7 @@ endif
 "     let col = col('.')-1
 "     if !col || getline('.')[col-1] !~ '\k'
 "         return "\<tab>"
-"     else
+""     else
 "         return "\<C-X>\<C-O>"
 "     endif
 " endfunction
