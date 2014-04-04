@@ -67,6 +67,8 @@ set guioptions=mraAeigt
 map - \cn
 map _ \cu
 
+map Q <Nop>
+
 function Sudowrite()
     silent w !sudo tee % > /dev/null
     e! %
