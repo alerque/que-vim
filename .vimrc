@@ -84,6 +84,70 @@ let g:tex_flavor = "latex"
 
 set mouse=a
 
+" http://www.vimbits.com/bits/20
+vnoremap < <gv
+vnoremap > >gv
+
+" http://www.vimbits.com/bits/11
+map Y y$
+
+" http://www.vimbits.com/bits/25
+nnoremap j gj
+nnoremap k gk
+
+" http://www.vimbits.com/bits/21
+noremap <silent><Leader>/ :nohls<CR>
+
+" https://gist.github.com/nocash/1988620
+augroup AutoReloadVimRC
+  au!
+  " automatically reload vimrc when it's saved
+  au BufWritePost $MYVIMRC so $MYVIMRC
+augroup END
+
+" http://www.vimbits.com/bits/90
+let mapleader = ","
+
+" http://www.vimbits.com/bits/92
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
+nnoremap <silent> g# g#zz
+
+" http://www.vimbits.com/bits/30
+cnoremap <C-j> <t_kd>
+cnoremap <C-k> <t_ku>
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+
+" http://www.vimbits.com/bits/170
+au InsertLeave * set nopaste
+
+" http://www.vimbits.com/bits/173
+autocmd FileType gitcommit DiffGitCached | wincmd p
+
+" http://www.vimbits.com/bits/223
+au VimResized * exe "normal! \<c-w>="
+
+" http://www.vimbits.com/bits/13
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
+
+" http://www.vimbits.com/bits/176
+nmap <leader>o o<ESC>k
+nmap <leader>O O<ESC>j
+
+" http://www.vimbits.com/bits/229
+autocmd BufRead COMMIT_EDITMSG setlocal spell!
+
+" http://www.vimbits.com/bits/125
+nnoremap ; :
+
 " << refactored to here
 
 " set nofoldenable
