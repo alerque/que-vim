@@ -106,7 +106,7 @@ augroup AutoReloadVimRC
 augroup END
 
 " http://www.vimbits.com/bits/90
-let mapleader = ","
+"let mapleader = ","
 
 " http://www.vimbits.com/bits/92
 nnoremap <silent> n nzz
