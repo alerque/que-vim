@@ -22,7 +22,7 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-tbone'
 Bundle 'tpope/vim-markdown'
-Bundle 'vim-scripts/taglist.vim'
+"Bundle 'vim-scripts/taglist.vim'
 "Bundle 'jcf/vim-latex'
 Bundle 'git://git.code.sf.net/p/atp-vim/code'
 
