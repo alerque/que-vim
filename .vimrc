@@ -74,12 +74,14 @@ map _ \cu
 
 map Q <Nop>
 
-function Sudowrite()
-    silent w !sudo tee % > /dev/null
-    e! %
-endfunction
+if !exists("*SudoWrite")
+    function SudoWrite()
+        silent w !sudo tee % > /dev/null
+        e! %
+    endfunction
+endif
 
-cmap w!! call Sudowrite()
+cmap w!! call SudoWrite()
 
 let g:tex_flavor = "latex"
 
@@ -248,74 +250,78 @@ endif
 
 set nowrap
 
-function FirstInPost (...) range
-  let cur = a:firstline
-  while cur <= a:lastline
-    let str = getline(cur)
-    if str == 'Subject: '
-      execute cur
-      :start!
-      break
-    endif
-    if str == 'To: '
-      execute cur
-      :start!
-      break
-    endif
-    " We have reached the end of the headers.
-    if str == ''
-        :start
-        normal gg/\n\njyypO
-        break
-    endif
-  let cur = cur + 1
-  endwhile
-endfunction
+if !exists("*FirstInPost")
+    function FirstInPost (...) range
+        let cur = a:firstline
+        while cur <= a:lastline
+            let str = getline(cur)
+            if str == 'Subject: '
+                execute cur
+                :start!
+                break
+            endif
+            if str == 'To: '
+                execute cur
+                :start!
+                break
+            endif
+            " We have reached the end of the headers.
+            if str == ''
+                :start
+                normal gg/\n\njyypO
+                break
+            endif
+            let cur = cur + 1
+        endwhile
+    endfunction
+endif
 
 " Command to be called.
 com Fip :set nosmartindent<Bar>:set tw=0<Bar>:%call FirstInPost()
 
-function VeryBeautyQuote (...) range
-  " The regular expression used to match quoted lines.
-  " NOTE: modify this regexp if you have special needs.
-  let re_quote = '^>\(\a\{-,3}[>|]\|[> \t|]\)\{,5}'
-  set report=30000 " do not report the number of changed lines.
-  let cur = a:firstline
-  while cur <= a:lastline
-     let str = getline(cur)
-     " Match the quote.
-     let comm = matchstr(str, re_quote)
-     let newcomm = comm
-     let commlen = strlen(comm)
-     let filelen = line('$')
-     if commlen > 0
-       let startl = cur
-       while newcomm == comm
-         " Strip the quote from this group of quoted lines.
-         let txt = substitute(str, re_quote, '', '')
-         call setline(cur, txt)
-         let cur = cur + 1
-         let str = getline(cur)
-         let newcomm = matchstr(str, re_quote)
-       endwhile
-       let cur = cur - 1
-       " Execute fmt for format the (un-)quoted lines.
-       " NOTE: you can call any other formatter that act like a command line
-       "       filter.
-       " NOTE: 72 is the maximum length of a single line, including
-       "       the length of the quote.
-       execute startl . ',' . cur . '!fmt -' . (72 - commlen)
-       " If the length of the file was changed, move the cursor accordingly.
-       let lendiff = filelen - line('$')
-       if lendiff != 0
-         let cur = cur - lendiff
-       endif
-       " Restore the stripped quote.
-       execute startl . ',' . cur . 's/^/' . comm . '/g'
-     endif
-   let cur = cur + 1
-  endwhile
-endfunction
+if !exists("*VeryBeautyQuote")
+    function VeryBeautyQuote (...) range
+    " The regular expression used to match quoted lines.
+    " NOTE: modify this regexp if you have special needs.
+    let re_quote = '^>\(\a\{-,3}[>|]\|[> \t|]\)\{,5}'
+    set report=30000 " do not report the number of changed lines.
+    let cur = a:firstline
+    while cur <= a:lastline
+        let str = getline(cur)
+        " Match the quote.
+        let comm = matchstr(str, re_quote)
+        let newcomm = comm
+        let commlen = strlen(comm)
+        let filelen = line('$')
+        if commlen > 0
+        let startl = cur
+        while newcomm == comm
+            " Strip the quote from this group of quoted lines.
+            let txt = substitute(str, re_quote, '', '')
+            call setline(cur, txt)
+            let cur = cur + 1
+            let str = getline(cur)
+            let newcomm = matchstr(str, re_quote)
+        endwhile
+        let cur = cur - 1
+        " Execute fmt for format the (un-)quoted lines.
+        " NOTE: you can call any other formatter that act like a command line
+        "       filter.
+        " NOTE: 72 is the maximum length of a single line, including
+        "       the length of the quote.
+        execute startl . ',' . cur . '!fmt -' . (72 - commlen)
+        " If the length of the file was changed, move the cursor accordingly.
+        let lendiff = filelen - line('$')
+        if lendiff != 0
+            let cur = cur - lendiff
+        endif
+        " Restore the stripped quote.
+        execute startl . ',' . cur . 's/^/' . comm . '/g'
+        endif
+    let cur = cur + 1
+    endwhile
+    endfunction
+endif
 
 " Execute this command to beautifully rearrange the quoted lines.
 com Vbq :let strl = line('.')<Bar>:%call VeryBeautyQuote()<Bar>:exec strl
@@ -328,4 +334,3 @@ com Vbq :let strl = line('.')<Bar>:%call VeryBeautyQuote()<Bar>:exec strl
 "endif
 
 " vim: ts=30 sw=4
-
