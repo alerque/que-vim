@@ -151,12 +151,18 @@ autocmd BufRead COMMIT_EDITMSG setlocal spell!
 " http://www.vimbits.com/bits/125
 nnoremap ; :
 
+set matchpairs+=ï¿½:ï¿½
+set matchpairs+=Â«:Â»
+
+" Use system clipboard for anonymous register
+set clipboard=unnamed
+
 " << refactored to here
 
 " set nofoldenable
 set fencs=utf8,cp1254,latin1
-set autoindent
-set smartindent
+"set autoindent
+"set smartindent
 set showmatch	"show matchign brackets
 "set smarttab
 "set cindent
@@ -166,10 +172,9 @@ set smartcase
 syntax on
 set infercase
 set nohlsearch
-set matchpairs+=«:»
 set shiftround
 set wildmenu
-set nowrap
+"set nowrap
 set backup
 set backupskip=
 set backupdir=.
@@ -217,8 +222,8 @@ map <tab> >>	"indent when not in edit mode
 " imap <C-g> <C-x><C-f>	" File complete on ctrl g
 
 " alt+: on most machines
-map » :
-imap » <Esc><Esc>:
+map ï¿½ :
+imap ï¿½ <Esc><Esc>:
 
 " alt+: on rhino
 map ; :
