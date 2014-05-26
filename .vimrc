@@ -32,8 +32,16 @@ filetype plugin indent on
 " Setup status bar
 set encoding=utf8
 set laststatus=2
-let g:airline_powerline_fonts = 1
-set guifont=Liberation\ Mono\ for\ Powerline\ 10
+
+" Do some special things for GVim/MacVim only
+if has('gui_running')
+    " Make sure we are using Powerline enabled fonts
+    let g:airline_powerline_fonts = 1
+    set guifont=Liberation\ Mono\ for\ Powerline\ 10
+
+    " Add a touch of breathing room per line
+    set linespace=2
+endif
 
 " Setup NeoComplete
 if has('lua')
@@ -149,7 +157,7 @@ nmap <leader>O O<ESC>j
 autocmd BufRead COMMIT_EDITMSG setlocal spell!
 
 " http://www.vimbits.com/bits/125
-nnoremap ; :
+"nnoremap ; :
 
 set matchpairs+=�:�
 set matchpairs+=«:»
@@ -157,32 +165,50 @@ set matchpairs+=«:»
 " Use system clipboard for anonymous register
 set clipboard=unnamed
 
+" Enable backspace over indent,eol,start,etc
+set backspace=2
+
+" Highlight search results
+set hlsearch
+
+" Do incremental search
+set incsearch
+
+" Ignore case of search unless they have a capital
+set ignorecase
+set smartcase
+
+" Give context when scrolling
+set scrolloff=1
+
+" Keep lots of command history
+set history=1000
+
+" Show ruller at bottom
+set ruler
+
+" Enably syntax coloring and related features
+syntax on
+
+" Highlight matchign brackets
+set showmatch
+
 " << refactored to here
 
-" set nofoldenable
 set fencs=utf8,cp1254,latin1
 "set autoindent
 "set smartindent
-set showmatch	"show matchign brackets
 "set smarttab
 "set cindent
-set smartcase
 " set tabstop=4
 " set shiftwidth=4
-syntax on
 set infercase
-set nohlsearch
 set shiftround
 set wildmenu
 "set nowrap
 set backup
 set backupskip=
 set backupdir=.
-set history=1000
-set ruler	"show ruller at bottom
-set scrolloff=1	"give context when scrolling
-set hlsearch	"highlight search results
-set backspace=2	"smart backspace
 set nostartofline
 set fo+=r
 "set list
@@ -216,7 +242,7 @@ endif
 "map <space> i_<esc>r
 map <space> <C-d>
 
-map <tab> >>	"indent when not in edit mode
+"map <tab> >>	"indent when not in edit mode
 "map <tab> >>	"indent when not in edit mode
 
 " imap <C-g> <C-x><C-f>	" File complete on ctrl g
