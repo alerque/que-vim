@@ -1,3 +1,6 @@
+" Vundle broken on ZSH, see https://github.com/gmarik/Vundle.vim/issues/175
+set shell=/bin/bash
+
 " Required vundle stuff
 set nocompatible
 filetype off
@@ -25,6 +28,9 @@ Bundle 'tpope/vim-markdown'
 "Bundle 'vim-scripts/taglist.vim'
 "Bundle 'jcf/vim-latex'
 Bundle 'git://git.code.sf.net/p/atp-vim/code'
+Bundle 'christoomey/vim-tmux-navigator'
+
+" To update run: vim +BundleInstall! +BundleClean! +all +qa
 
 " Execute vundle
 filetype plugin indent on
