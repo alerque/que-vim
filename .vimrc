@@ -29,6 +29,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'git://git.code.sf.net/p/atp-vim/code'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'kien/ctrlp.vim'
 
 " To update run: vim +BundleClean! +BundleInstall! +all +qa
 
@@ -206,6 +207,15 @@ let g:EasyMotion_smartcase = 1
 nmap s <Plug>(easymotion-s2)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
+
+" CTRL-P files ala https://github.com/kien/ctrlp.vim
+let g:ctrlp_map = '<Leader>f'
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ }
 
 " << refactored to here
 
