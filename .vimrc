@@ -18,7 +18,7 @@ Bundle 'tpope/vim-markdown'
 Bundle 'gcmt/wildfire.vim'
 Bundle 'ntpeters/vim-better-whitespace'
 Bundle 'sdanielf/vim-stdtabs'
-Bundle 'bling/vim-airline'
+"Bundle 'bling/vim-airline'
 if has('lua')
     Bundle 'Shougo/neocomplete'
 endif
@@ -43,7 +43,7 @@ set laststatus=2
 " Do some special things for GVim/MacVim only
 if has('gui_running')
     " Make sure we are using Powerline enabled fonts
-    let g:airline_powerline_fonts = 1
+    "let g:airline_powerline_fonts = 1
     set guifont=Liberation\ Mono\ for\ Powerline\ 10
 
     " Add a touch of breathing room per line
