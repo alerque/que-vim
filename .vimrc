@@ -1,5 +1,3 @@
-" Vundle broken on ZSH, see https://github.com/gmarik/Vundle.vim/issues/175
-set shell=/bin/bash
 
 " Required vundle stuff
 set nocompatible
@@ -9,28 +7,30 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " My plugins
+"Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-repeat.git'
 Bundle 'tpope/vim-sensible'
+Bundle 'tpope/vim-eunuch'
+Bundle 'tpope/vim-tbone'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-markdown'
 Bundle 'gcmt/wildfire.vim'
 Bundle 'ntpeters/vim-better-whitespace'
 Bundle 'sdanielf/vim-stdtabs'
 Bundle 'bling/vim-airline'
-Bundle 'tpope/vim-fugitive'
 if has('lua')
     Bundle 'Shougo/neocomplete'
 endif
 Bundle 'airblade/vim-gitgutter'
 Bundle 'scrooloose/nerdcommenter'
-"Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-eunuch'
-Bundle 'tpope/vim-tbone'
-Bundle 'tpope/vim-markdown'
 "Bundle 'vim-scripts/taglist.vim'
 "Bundle 'jcf/vim-latex'
 Bundle 'git://git.code.sf.net/p/atp-vim/code'
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'Lokaltog/vim-easymotion'
 
-" To update run: vim +BundleInstall! +BundleClean! +all +qa
+" To update run: vim +BundleClean! +BundleInstall! +all +qa
 
 " Execute vundle
 filetype plugin indent on
@@ -198,6 +198,14 @@ syntax on
 
 " Highlight matchign brackets
 set showmatch
+
+" Easy motino bindings ala https://github.com/Lokaltog/vim-easymotion
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_use_upper = 1
+let g:EasyMotion_smartcase = 1
+nmap s <Plug>(easymotion-s2)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
 
 " << refactored to here
 
