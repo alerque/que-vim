@@ -30,6 +30,7 @@ Bundle 'git://git.code.sf.net/p/atp-vim/code'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'kien/ctrlp.vim'
+Bundle 'wesQ3/vim-windowswap'
 
 " To update run: vim +BundleClean! +BundleInstall! +all +qa
 
@@ -216,6 +217,11 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(exe|so|dll)$',
   \ }
+
+" Swap windows around between panes
+let g:windowswap_map_keys = 0 "prevent default bindings
+nnoremap <silent> <leader>yw :call WindowSwap#MarkWindowSwap()<CR>
+nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
 
 " << refactored to here
 
