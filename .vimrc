@@ -51,6 +51,12 @@ if has('gui_running')
     set linespace=2
 endif
 
+" MacVim has slightly different font naming
+if has('gui_macvim')
+    set guifont=Literation\ Mono\ Powerline:h12
+    set transparency=15
+endif
+
 " Setup NeoComplete
 if has('lua')
     let g:acp_enableAtStartup = 0
@@ -80,6 +86,7 @@ autocmd GUIEnter * set visualbell t_vb=
 if &diff
     colorscheme ps_color
 else
+    "colorscheme torte
     colorscheme vividchalk
 endif
 
