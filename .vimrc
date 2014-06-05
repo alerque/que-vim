@@ -41,20 +41,23 @@ filetype plugin indent on
 set encoding=utf8
 set laststatus=2
 
+" Let airline know we have powerline patched fonts available
+let g:airline_powerline_fonts = 1
+
 " Do some special things for GVim/MacVim only
 if has('gui_running')
-    " Make sure we are using Powerline enabled fonts
-    let g:airline_powerline_fonts = 1
-    set guifont=Liberation\ Mono\ for\ Powerline\ 10
-
     " Add a touch of breathing room per line
     set linespace=2
-endif
 
-" MacVim has slightly different font naming
-if has('gui_macvim')
-    set guifont=Literation\ Mono\ Powerline:h12
-    set transparency=15
+    " Request powerline patched font
+    if has('gui_gtk2')
+        set guifont=Liberation\ Mono\ for\ Powerline\ 10
+    elseif has('gui_win32')
+        " TODO: pick out windows font
+    elseif has('gui_macvim')
+        set guifont=Literation\ Mono\ Powerline:h12
+        set transparency=15
+    endif
 endif
 
 " Setup NeoComplete
