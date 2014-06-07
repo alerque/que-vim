@@ -41,8 +41,9 @@ filetype plugin indent on
 set encoding=utf8
 set laststatus=2
 
-" Let airline know we have powerline patched fonts available
+" Configure airline to use powerline patched fonts and manage the tabbar too
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 " Do some special things for GVim/MacVim only
 if has('gui_running')
