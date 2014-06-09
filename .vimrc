@@ -11,6 +11,7 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-repeat.git'
 Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-eunuch'
+Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-tbone'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-fugitive'
@@ -31,6 +32,7 @@ Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'kien/ctrlp.vim'
 Bundle 'wesQ3/vim-windowswap'
+Bundle "sheerun/vim-polyglot"
 
 " To update run: vim +BundleClean! +BundleInstall! +all +qa
 
