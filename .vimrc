@@ -184,7 +184,7 @@ set matchpairs+=�:�
 set matchpairs+=«:»
 
 " Use system clipboard for anonymous register
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " Enable backspace over indent,eol,start,etc
 set backspace=2
