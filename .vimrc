@@ -348,10 +348,10 @@ if !exists("*FirstInPost")
             let cur = cur + 1
         endwhile
     endfunction
-endif
 
-" Command to be called.
-com Fip :set nosmartindent<Bar>:set tw=0<Bar>:%call FirstInPost()
+    " Command to be called.
+    com Fip :set nosmartindent<Bar>:set tw=0<Bar>:%call FirstInPost()
+endif
 
 if !exists("*VeryBeautyQuote")
     function VeryBeautyQuote (...) range
@@ -395,10 +395,10 @@ if !exists("*VeryBeautyQuote")
     let cur = cur + 1
     endwhile
     endfunction
-endif
 
-" Execute this command to beautifully rearrange the quoted lines.
-com Vbq :let strl = line('.')<Bar>:%call VeryBeautyQuote()<Bar>:exec strl
+    " Execute this command to beautifully rearrange the quoted lines.
+    com Vbq :let strl = line('.')<Bar>:%call VeryBeautyQuote()<Bar>:exec strl
+endif
 
 "let fileType = &ft
 "if fileType == 'php'
