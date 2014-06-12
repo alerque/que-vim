@@ -171,8 +171,8 @@ else
 endif
 
 " http://www.vimbits.com/bits/176
-nmap <leader>o o<ESC>k
-nmap <leader>O O<ESC>j
+nmap <leader>o o<ESC>
+nmap <leader>O O<ESC>
 
 " http://www.vimbits.com/bits/229
 autocmd BufRead COMMIT_EDITMSG setlocal spell!
