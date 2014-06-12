@@ -1,4 +1,3 @@
-
 " Required vundle stuff
 set nocompatible
 filetype off
@@ -33,6 +32,7 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'kien/ctrlp.vim'
 Bundle 'wesQ3/vim-windowswap'
 Bundle "sheerun/vim-polyglot"
+Bundle 'lordm/vim-browser-reload-linux'
 
 " To update run: vim +BundleClean! +BundleInstall! +all +qa
 
