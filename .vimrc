@@ -49,6 +49,9 @@ function! Goyo_before()
   silent !tmux resize-pane -Z
   set noshowmode
   set noshowcmd
+  set wrap
+  set linebreak
+  set nolist
 endfunction
 
 function! Goyo_after()
@@ -56,6 +59,8 @@ function! Goyo_after()
   silent !tmux resize-pane -Z
   set showmode
   set showcmd
+  set nowrap
+  set nolinebreak
 endfunction
 
 let g:goyo_callbacks = [function('Goyo_before'), function('Goyo_after')]
