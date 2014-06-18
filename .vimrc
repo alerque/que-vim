@@ -33,9 +33,32 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'wesQ3/vim-windowswap'
 Bundle 'sheerun/vim-polyglot'
 Bundle 'lordm/vim-browser-reload-linux'
-Bundle 'chrisbra/DistractFree'
+Bundle 'junegunn/goyo.vim'
 
 " To update run: vim +BundleClean! +BundleInstall! +all +qa
+
+" Setup discraction free mode including tmux integration
+let g:goyo_width = 80
+let g:goyo_margin_top = 2
+let g:goyo_margin_bottom = 2
+
+nnoremap <Leader>d :Goyo<CR>
+
+function! Goyo_before()
+  silent !tmux set status off
+  silent !tmux resize-pane -Z
+  set noshowmode
+  set noshowcmd
+endfunction
+
+function! Goyo_after()
+  silent !tmux set status on
+  silent !tmux resize-pane -Z
+  set showmode
+  set showcmd
+endfunction
+
+let g:goyo_callbacks = [function('Goyo_before'), function('Goyo_after')]
 
 " Execute vundle
 filetype plugin indent on
