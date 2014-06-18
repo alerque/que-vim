@@ -204,8 +204,13 @@ autocmd BufRead COMMIT_EDITMSG setlocal spell!
 " http://www.vimbits.com/bits/125
 "nnoremap ; :
 
+" Add some UTF8 character pairs that should match
 set matchpairs+=�:�
 set matchpairs+=«:»
+set matchpairs+=‹:›
+set matchpairs+=“:”
+set matchpairs+=‘:’
+set matchpairs+=►:◄
 
 " Use system clipboard for anonymous register
 set clipboard=unnamedplus
