@@ -31,8 +31,9 @@ Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'kien/ctrlp.vim'
 Bundle 'wesQ3/vim-windowswap'
-Bundle "sheerun/vim-polyglot"
+Bundle 'sheerun/vim-polyglot'
 Bundle 'lordm/vim-browser-reload-linux'
+Bundle 'chrisbra/DistractFree'
 
 " To update run: vim +BundleClean! +BundleInstall! +all +qa
 
