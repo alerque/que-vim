@@ -34,6 +34,7 @@ Bundle 'wesQ3/vim-windowswap'
 Bundle 'sheerun/vim-polyglot'
 Bundle 'lordm/vim-browser-reload-linux'
 Bundle 'junegunn/goyo.vim'
+Bundle 'tommcdo/vim-exchange'
 
 " To update run: vim +BundleClean! +BundleInstall! +all +qa
 
