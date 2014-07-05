@@ -35,6 +35,7 @@ Bundle 'sheerun/vim-polyglot'
 Bundle 'lordm/vim-browser-reload-linux'
 Bundle 'junegunn/goyo.vim'
 Bundle 'tommcdo/vim-exchange'
+Bundle 'nathanaelkane/vim-indent-guides'
 
 " To update run: vim +BundleClean! +BundleInstall! +all +qa
 
@@ -111,6 +112,11 @@ if has('lua')
         let g:neocomplete#sources#omni#input_patterns = {}
     endif
 endif
+
+" Setup indent guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 1
+let g:indent_guides_guide_size = 1
 
 " Show leader as typed (used for gitgutter)
 set showcmd
