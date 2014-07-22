@@ -35,15 +35,17 @@ Bundle 'wesQ3/vim-windowswap'
 Bundle 'sheerun/vim-polyglot'
 Bundle 'lordm/vim-browser-reload-linux'
 Bundle 'junegunn/goyo.vim'
+Bundle 'junegunn/limelight.vim'
 Bundle 'tommcdo/vim-exchange'
 Bundle 'nathanaelkane/vim-indent-guides'
 
 " To update run: vim +BundleClean! +BundleInstall! +all +qa
 
-" Setup discraction free mode including tmux integration
+" Setup discraction free mode including tmux integration and limelight
 let g:goyo_width = 80
 let g:goyo_margin_top = 2
 let g:goyo_margin_bottom = 2
+let g:limelight_default_coefficient = 0.7
 
 nnoremap <Leader>d :Goyo<CR>
 
@@ -55,6 +57,7 @@ function! Goyo_before()
   set wrap
   set linebreak
   set nolist
+  Limelight
 endfunction
 
 function! Goyo_after()
@@ -64,6 +67,7 @@ function! Goyo_after()
   set showcmd
   set nowrap
   set nolinebreak
+  Limelight!
 endfunction
 
 let g:goyo_callbacks = [function('Goyo_before'), function('Goyo_after')]
