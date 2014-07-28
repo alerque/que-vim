@@ -283,6 +283,8 @@ let g:windowswap_map_keys = 0 "prevent default bindings
 nnoremap <silent> <leader>yw :call WindowSwap#MarkWindowSwap()<CR>
 nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
 
+set diffopt=vertical,filler
+
 " << refactored to here
 
 set fencs=utf8,cp1254,latin1
