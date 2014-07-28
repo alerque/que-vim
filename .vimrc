@@ -45,7 +45,7 @@ Bundle 'nathanaelkane/vim-indent-guides'
 let g:goyo_width = 80
 let g:goyo_margin_top = 2
 let g:goyo_margin_bottom = 2
-let g:limelight_default_coefficient = 0.7
+let g:limelight_default_coefficient = 0.3
 
 nnoremap <Leader>d :Goyo<CR>
 
