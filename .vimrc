@@ -72,7 +72,14 @@ endfunction
 
 let g:goyo_callbacks = [function('Goyo_before'), function('Goyo_after')]
 
-" Execute vundle
+" Default indent style when no filetype specific style guide is in place
+set tabstop=4
+set shiftwidth=4
+set noexpandtab
+set cindent
+set autoindent
+
+" Execute vundle (must be after default whitespace setings)
 filetype plugin indent on
 
 " Setup status bar
@@ -288,12 +295,6 @@ set diffopt=vertical,filler
 " << refactored to here
 
 set fencs=utf8,cp1254,latin1
-"set autoindent
-"set smartindent
-"set smarttab
-"set cindent
-" set tabstop=4
-" set shiftwidth=4
 set infercase
 set shiftround
 set wildmenu
@@ -456,4 +457,4 @@ endif
 "    iab _G $_GET[']hi
 "endif
 
-" vim: ts=30 sw=4
+" vim: ts=4:sw=4:noet
