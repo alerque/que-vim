@@ -4,6 +4,8 @@
 !/.vim
 !/.vim/AutoFold.vim
 !/.vim/colors
+!/.vim/colors/distinguished.vim
+!/.vim/colors/molokai.vim
 !/.vim/colors/ps_color.vim
 !/.vim/colors/vividchalk.vim
 !/.vim/doc
@@ -23,7 +25,6 @@
 !/.vim/plugin/comments.vim
 !/.vim/plugin/eregex.vim
 !/.vim/plugin/HiCurLine.vim
-!/.vim/plugin/taglist.vim
 !/.vim/plugin/XMLFolding.vim
 !/.vimrc
 !/.vim/SimpleFold.vim
