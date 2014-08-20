@@ -290,9 +290,8 @@ let g:windowswap_map_keys = 0 "prevent default bindings
 nnoremap <silent> <leader>yw :call WindowSwap#MarkWindowSwap()<CR>
 nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
 
-" Don't save backups of *.gpg files
+" Setup editing of GPG encrypted files with safe*er* defaults than otherwise
 set backupskip+=*.gpg
-
 augroup encrypted
   au!
   " Disable swap files, and set binary file format before reading the file
@@ -316,6 +315,9 @@ augroup encrypted
     \ silent u |
     \ setlocal nobin
 augroup END
+
+" Autocompplete email addresses for mutt
+autocmd FileType mail setlocal omnifunc=mailcomplete#Complete
 
 " << refactored to here
 
