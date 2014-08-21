@@ -316,9 +316,6 @@ augroup encrypted
     \ setlocal nobin
 augroup END
 
-" Autocompplete email addresses for mutt
-autocmd FileType mail setlocal omnifunc=mailcomplete#Complete
-
 " << refactored to here
 
 set fencs=utf8,cp1254,latin1
@@ -400,35 +397,6 @@ endif
 " inoremap <Tab> <C-R>=MyTabOrComplete()<CR>
 
 set nowrap
-
-if !exists("*FirstInPost")
-	function FirstInPost (...) range
-		let cur = a:firstline
-		while cur <= a:lastline
-			let str = getline(cur)
-			if str == 'Subject: '
-				execute cur
-				:start!
-				break
-			endif
-			if str == 'To: '
-				execute cur
-				:start!
-				break
-			endif
-			" We have reached the end of the headers.
-			if str == ''
-				:start
-				normal gg/\n\njyypO
-				break
-			endif
-			let cur = cur + 1
-		endwhile
-	endfunction
-
-	" Command to be called.
-	com Fip :set nosmartindent<Bar>:set tw=0<Bar>:%call FirstInPost()
-endif
 
 if !exists("*VeryBeautyQuote")
 	function VeryBeautyQuote (...) range
