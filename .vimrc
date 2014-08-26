@@ -38,6 +38,7 @@ Bundle 'junegunn/goyo.vim'
 Bundle 'junegunn/limelight.vim'
 Bundle 'tommcdo/vim-exchange'
 Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'LucHermitte/local_vimrc'
 
 " To update run: vim +BundleClean! +BundleInstall! +all +qa
 
