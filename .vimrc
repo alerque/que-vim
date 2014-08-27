@@ -40,6 +40,7 @@ Bundle 'tommcdo/vim-exchange'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'alerque/lh-vim-lib'
 Bundle 'LucHermitte/local_vimrc'
+Bundle 'brookhong/DBGPavim'
 
 " To update run: vim +BundleClean! +BundleInstall! +all +qa
 
