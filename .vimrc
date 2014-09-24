@@ -107,6 +107,10 @@ if has('gui_running')
 		set guifont=Literation\ Mono\ Powerline:h12
 		set transparency=15
 	endif
+
+	"set guioptions=mraAeigt
+	set guioptions=
+	set guiheadroom=0
 endif
 
 " Setup NeoComplete
@@ -146,8 +150,6 @@ else
 	"colorscheme torte
 	colorscheme vividchalk
 endif
-
-set guioptions=mraAeigt
 
 map - \cn
 map _ \cu
