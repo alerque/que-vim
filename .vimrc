@@ -334,6 +334,9 @@ vnoremap <silent> # :<C-U>
   \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
 
+" Set default vimchant language to turkish (requires hunspell-tr)
+let g:vimchant_spellcheck_lang = 'tr'
+
 " << refactored to here
 
 set fencs=utf8,cp1254,latin1
