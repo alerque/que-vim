@@ -3,6 +3,8 @@
 !/.gitignore.d/que-vim
 !/.vim
 !/.vim/AutoFold.vim
+!/.vim/autoload
+!/.vim/autoload/vimchant.vim
 !/.vim/colors
 !/.vim/colors/distinguished.vim
 !/.vim/colors/molokai.vim
@@ -12,6 +14,7 @@
 !/.vim/doc/ps_color.txt
 !/.vim/doc/taglist.txt
 !/.vim/doc/tags
+!/.vim/doc/vimchant.txt
 !/.vim/ftplugin
 !/.vim/ftplugin/javascript
 !/.vim/ftplugin/javascript/jslint
@@ -25,6 +28,7 @@
 !/.vim/plugin/comments.vim
 !/.vim/plugin/eregex.vim
 !/.vim/plugin/HiCurLine.vim
+!/.vim/plugin/vimchant.vim
 !/.vim/plugin/XMLFolding.vim
 !/.vimrc
 !/.vim/SimpleFold.vim
