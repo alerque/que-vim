@@ -38,7 +38,7 @@ Bundle 'junegunn/goyo.vim'
 Bundle 'junegunn/limelight.vim'
 Bundle 'tommcdo/vim-exchange'
 Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'alerque/lh-vim-lib'
+Bundle 'vim-scripts/lh-vim-lib'
 Bundle 'LucHermitte/local_vimrc'
 Bundle 'brookhong/DBGPavim'
 
