@@ -1,7 +1,7 @@
 " Required vundle stuff
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
+set runtimepath+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 
@@ -181,13 +181,13 @@ nnoremap j gj
 nnoremap k gk
 
 " http://www.vimbits.com/bits/21
-noremap <silent><Leader>/ :nohls<CR>
+noremap <silent><Leader>/ :nohlsearch<CR>
 
 " https://gist.github.com/nocash/1988620
 augroup AutoReloadVimRC
-	au!
+	autocmd!
 	" automatically reload vimrc when it's saved
-	au BufWritePost $MYVIMRC so $MYVIMRC
+	autocmd BufWritePost $MYVIMRC so $MYVIMRC
 augroup END
 
 " http://www.vimbits.com/bits/90
@@ -208,19 +208,19 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
 " http://www.vimbits.com/bits/170
-au InsertLeave * set nopaste
+autocmd InsertLeave * set nopaste
 
 " http://www.vimbits.com/bits/173
 autocmd FileType gitcommit DiffGitCached | wincmd p
 
 " http://www.vimbits.com/bits/223
-au VimResized * exe "normal! \<c-w>="
+autocmd VimResized * exe "normal! \<c-w>="
 
 " http://www.vimbits.com/bits/13
 if exists('+colorcolumn')
 	set colorcolumn=80
 else
-	au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+	autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
 " http://www.vimbits.com/bits/176
@@ -298,7 +298,7 @@ nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
 " Setup editing of GPG encrypted files with safe*er* defaults than otherwise
 set backupskip+=*.gpg
 augroup encrypted
-  au!
+  autocmd!
   " Disable swap files, and set binary file format before reading the file
   autocmd BufReadPre,FileReadPre *.gpg
     \ set viminfo= |
@@ -348,7 +348,7 @@ set backup
 set backupskip=
 set backupdir=.
 set nostartofline
-set fo+=r
+set fold+=r
 "set list
 "set listchars=tab:>-
 set ttymouse=xterm2
@@ -396,7 +396,7 @@ map ; <Esc><Esc>:
 map <M-;> :
 imap <M-;> <Esc><Esc>:
 
-map <F5> :set hls!<bar>set hls?<CR>
+map <F5> :set hlsearch!<bar>set hlsearch?<CR>
 
 if &filetype == ""
 "   setfiletype text
