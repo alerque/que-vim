@@ -165,6 +165,9 @@ endif
 
 cmap w!! call SudoWrite()
 
+" Stop ATP from spawning files (see http://vi.stackexchange.com/a/472/267)
+let g:atp_ProjectScript = 0
+
 let g:tex_flavor = "latex"
 
 set mouse=a
