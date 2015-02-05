@@ -351,7 +351,7 @@ set backup
 set backupskip=
 set backupdir=.
 set nostartofline
-set fold+=r
+set fo+=r
 "set list
 "set listchars=tab:>-
 set ttymouse=xterm2
