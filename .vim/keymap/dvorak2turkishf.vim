@@ -51,7 +51,7 @@ L P
 ^ W
 | X
 A U
-O I
+O İ
 E E
 U A
 I Ü
