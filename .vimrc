@@ -287,7 +287,7 @@ map <Leader>k <Plug>(easymotion-k)
 " CTRL-P files ala https://github.com/kien/ctrlp.vim
 let g:ctrlp_map = '<Leader>f'
 let g:ctrlp_working_path_mode = 'ra'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*~
+set wildignore+=*.so,*.swp,*.zip,*.exe,*~
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_custom_ignore = {
 	\ 'dir':  '\v[\/]\.(git|hg|svn)$',
