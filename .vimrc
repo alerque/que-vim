@@ -362,6 +362,9 @@ set iminsert=0
 :highlight Cursor guifg=NONE guibg=Green
 :highlight lCursor guifg=NONE guibg=Cyan
 
+" Autocompile latex
+":autocmd BufWritePost *.tex silent execute ":!(arara % 2>&1; evince ../basili/<afile>:r-okuma.pdf) &"
+
 " << refactored to here
 
 set fencs=utf8,cp1254,latin1
