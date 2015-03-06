@@ -28,6 +28,7 @@ n l
 s y
 - ş
 ' j
+'' '
 q ö
 j v
 k c
@@ -48,6 +49,7 @@ C N
 R H
 L P
 ? Q
+¿ ?
 ^ W
 | X
 A U
