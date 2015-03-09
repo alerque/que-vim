@@ -42,6 +42,7 @@ Bundle 'vim-scripts/lh-vim-lib'
 Bundle 'LucHermitte/local_vimrc'
 Bundle 'brookhong/DBGPavim'
 Bundle 'editorconfig/editorconfig-vim'
+Bundle 'sjl/gundo.vim'
 
 " To update run: vim +BundleClean! +BundleInstall! +all +qa
 
@@ -364,6 +365,12 @@ set iminsert=0
 
 " Autocompile latex
 ":autocmd BufWritePost *.tex silent execute ":!(arara % 2>&1; evince ../basili/<afile>:r-okuma.pdf) &"
+
+" Add binding to activate Gundo plugin
+nnoremap U :GundoToggle<CR>
+let g:gundo_right = 1
+"let g:gundo_width = 40
+let g:gundo_preview_height = 20
 
 " << refactored to here
 
