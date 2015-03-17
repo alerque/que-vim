@@ -372,6 +372,9 @@ let g:gundo_right = 1
 "let g:gundo_width = 40
 let g:gundo_preview_height = 20
 
+" Map for pasting register 0
+xnoremap <leader>p "0p
+
 " << refactored to here
 
 set fencs=utf8,cp1254,latin1
