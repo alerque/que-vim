@@ -379,6 +379,13 @@ xnoremap <leader>p "0p
 imap <tab> <c-t>
 imap <s-tab> <c-d>
 
+" Configure line wrapping to indent broken lines, only break on words and not
+" reformat lines when editing
+set breakindent
+set linebreak
+set showbreak=…
+set formatoptions+=l
+
 " << refactored to here
 
 set fencs=utf8,cp1254,latin1
