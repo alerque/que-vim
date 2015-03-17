@@ -386,6 +386,11 @@ set linebreak
 set showbreak=…
 set formatoptions+=l
 
+" Add convenience function for switching buffers
+" http://vi.stackexchange.com/a/2595/267
+set wildmenu
+nnoremap gb :ls<CR>:b<Space>
+
 " << refactored to here
 
 set fencs=utf8,cp1254,latin1
