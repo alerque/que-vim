@@ -375,6 +375,10 @@ let g:gundo_preview_height = 20
 " Map for pasting register 0
 xnoremap <leader>p "0p
 
+" Map tab at start of line to indent commands
+imap <tab> <c-t>
+imap <s-tab> <c-d>
+
 " << refactored to here
 
 set fencs=utf8,cp1254,latin1
@@ -417,9 +421,6 @@ endif
 
 "map <space> i_<esc>r
 map <space> <C-d>
-
-"map <tab> >>	"indent when not in edit mode
-"map <tab> >>	"indent when not in edit mode
 
 " imap <C-g> <C-x><C-f>	" File complete on ctrl g
 
