@@ -60,7 +60,6 @@ function! Goyo_before()
 	set noshowmode
 	set noshowcmd
 	set wrap
-	set linebreak
 	set nolist
 	Limelight
 endfunction
@@ -71,7 +70,6 @@ function! Goyo_after()
 	set showmode
 	set showcmd
 	set nowrap
-	set nolinebreak
 	Limelight!
 endfunction
 
