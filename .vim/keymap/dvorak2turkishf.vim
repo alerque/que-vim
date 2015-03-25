@@ -71,5 +71,5 @@ X Ç
 B Z
 M S
 W B
-V .
-Z ,
+V :
+Z ;
