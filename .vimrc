@@ -46,6 +46,7 @@ Bundle 'sjl/gundo.vim'
 if has('neovim')
 	Bundle 'floobits/floobits-neovim'
 endif
+Bundle 'terryma/vim-multiple-cursors'
 
 " To update run: vim +BundleClean! +BundleInstall! +all +qa
 
