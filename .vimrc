@@ -43,6 +43,9 @@ Bundle 'LucHermitte/local_vimrc'
 Bundle 'brookhong/DBGPavim'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'sjl/gundo.vim'
+if has('neovim')
+	Bundle 'floobits/floobits-neovim'
+endif
 
 " To update run: vim +BundleClean! +BundleInstall! +all +qa
 
