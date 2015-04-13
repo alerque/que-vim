@@ -454,6 +454,8 @@ let g:NumberToggleTrigger="<leader>n"
 " Configure Vimux
 let g:VimuxOrientation = "h"
 let VimuxUseNearest = 1
+nnoremap <leader>p :VimuxPromptCommand<Cr>
+nnoremap <leader>l :VimuxRunLastCommand<Cr>
 
 " << refactored to here
 
