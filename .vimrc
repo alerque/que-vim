@@ -49,6 +49,7 @@ endif
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'vim-scripts/RelOps'
 Bundle 'jeffkreeftmeijer/vim-numbertoggle'
+Bundle 'benmills/vimux'
 
 " To update run: vim +BundleClean! +BundleInstall! +all +qa
 
@@ -449,6 +450,10 @@ endfunction
 
 " Binding to toggle numbering mode an and then between relative and absolute
 let g:NumberToggleTrigger="<leader>n"
+
+" Configure Vimux
+let g:VimuxOrientation = "h"
+let VimuxUseNearest = 1
 
 " << refactored to here
 
