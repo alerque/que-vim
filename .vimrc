@@ -47,6 +47,8 @@ if has('neovim')
 	Bundle 'floobits/floobits-neovim'
 endif
 Bundle 'terryma/vim-multiple-cursors'
+Bundle 'vim-scripts/RelOps'
+Bundle 'jeffkreeftmeijer/vim-numbertoggle'
 
 " To update run: vim +BundleClean! +BundleInstall! +all +qa
 
@@ -445,6 +447,8 @@ function! GetCompletions()
     endif
 endfunction
 
+" Binding to toggle numbering mode an and then between relative and absolute
+let g:NumberToggleTrigger="<leader>n"
 
 " << refactored to here
 
