@@ -126,9 +126,11 @@ if has('lua')
 	let g:acp_enableAtStartup = 0
 	let g:neocomplete#enable_at_startup = 1
 	let g:neocomplete#enable_smart_case = 1
+	let g:neocomplete#enable_auto_select = 1
+	let g:neocomplete#text_mode_filetypes = { '*.tex' : 1 }
+	set completeopt+=longest
 	inoremap <expr><C-g>	 neocomplete#undo_completion()
 	inoremap <expr><C-l>	 neocomplete#complete_common_string()
-	set completeopt+=longest
 	inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 	autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 	autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -372,8 +374,9 @@ let g:gundo_preview_height = 20
 xnoremap <leader>p "0p
 
 " Map tab at start of line to indent commands
-imap <tab> <c-t>
-imap <s-tab> <c-d>
+"imap <tab> <c-t>
+"imap <s-tab> <c-d>
+"let g:neocomplete#enable_at_startup = 0
 
 " Configure line wrapping to indent broken lines, only break on words and not
 " reformat lines when editing
