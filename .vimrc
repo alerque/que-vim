@@ -50,6 +50,7 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'vim-scripts/RelOps'
 Bundle 'jeffkreeftmeijer/vim-numbertoggle'
 Bundle 'benmills/vimux'
+Bundle 'swekaj/php-foldexpr.vim'
 
 " To update run: vim +BundleClean! +BundleInstall! +all +qa
 
