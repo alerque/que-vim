@@ -161,6 +161,18 @@ else
 	colorscheme vividchalk
 endif
 
+" Highlight current line
+set cursorline
+
+" Remove underline from cursor line in vividchalk
+autocmd ColorScheme * highlight CursorLine cterm=NONE
+
+" Set split separator to Unicode box drawing character
+set fillchars=vert:│
+
+" Match split background to tmux scheme
+autocmd ColorScheme * highlight VertSplit cterm=NONE ctermfg=Green ctermbg=NONE
+
 map - \cn
 map _ \cu
 
