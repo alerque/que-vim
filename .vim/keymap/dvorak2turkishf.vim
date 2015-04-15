@@ -15,7 +15,9 @@ r h
 l p
 / q
 @ w
+<M-@> @
 \\ x
+<M-\\> \
 a u
 o i
 e e
@@ -27,8 +29,10 @@ t m
 n l
 s y
 - ş
+<M--> -
+­ -
 ' j
-'' '
+<M-'> '
 q ö
 j v
 k c
@@ -39,7 +43,7 @@ w b
 v .
 z ,
 : F
-< G
+\< G
 > Ğ
 P I
 Y O
@@ -49,6 +53,7 @@ C N
 R H
 L P
 ? Q
+<M-?> ?
 ¿ ?
 ^ W
 | X
@@ -64,6 +69,7 @@ N L
 S Y
 _ Ş
 \" J
+<M-"> "
 Q Ö
 J V
 K C
@@ -73,3 +79,8 @@ M S
 W B
 V :
 Z ;
+
+" Because typeing Shift+Alt- on Advantage/DVORAK is not as good as normal
+" Turkish-F positions
+<M-[> "
+<M-8> ?
