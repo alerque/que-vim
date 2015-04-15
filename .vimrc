@@ -457,6 +457,22 @@ let VimuxUseNearest = 1
 nnoremap <leader>p :VimuxPromptCommand<Cr>
 nnoremap <leader>l :VimuxRunLastCommand<Cr>
 
+" Configure tmux navigator to use alt instead of control to match my tmux
+" (Uses Alt key fix from http://stackoverflow.com/a/10216459/313192)
+let c='a'
+while c <= 'z'
+  exec "set <A-".c.">=\e".c
+  exec "imap \e".c." <A-".c.">"
+  let c = nr2char(1+char2nr(c))
+endw
+set timeout ttimeoutlen=50
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <A-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <A-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <A-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <A-w> :TmuxNavigateLeft<cr>
+
 " << refactored to here
 
 set fencs=utf8,cp1254,latin1
