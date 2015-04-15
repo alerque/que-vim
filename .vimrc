@@ -474,6 +474,14 @@ nnoremap <silent> <A-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <A-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <A-w> :TmuxNavigateLeft<cr>
 
+" Fugitive bindings
+nnoremap <leader>gb :Gblame<Cr>
+nnoremap <leader>gs :Gstatus<Cr>
+nnoremap <leader>gc :Gcommit<Cr>
+nnoremap <leader>gl :Glog<Cr>
+nnoremap <leader>gw :Gwrite<Cr>
+nnoremap <leader>gd :Gvdiff<Cr>
+
 " << refactored to here
 
 set fencs=utf8,cp1254,latin1
