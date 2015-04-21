@@ -485,7 +485,7 @@ while c <= 'z'
   exec "imap \e".c." <A-".c.">"
   let c = nr2char(1+char2nr(c))
 endw
-set timeout ttimeoutlen=50
+set timeout ttimeoutlen=5
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <A-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
