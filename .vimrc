@@ -145,7 +145,10 @@ endif
 " Setup indent guides
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 1
-let g:indent_guides_guide_size = 1
+"let g:indent_guides_guide_size = 1
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,ColorScheme * highlight IndentGuidesOdd ctermbg=NONE
+autocmd VimEnter,ColorScheme * highlight IndentGuidesEven ctermbg=233
 
 " Show leader as typed (used for gitgutter)
 set showcmd
@@ -165,13 +168,13 @@ endif
 set cursorline
 
 " Remove underline from cursor line in vividchalk
-autocmd ColorScheme * highlight CursorLine cterm=NONE
+autocmd VimEnter,ColorScheme * highlight CursorLine cterm=NONE
 
 " Set split separator to Unicode box drawing character
 set fillchars=vert:│
 
 " Match split background to tmux scheme
-autocmd ColorScheme * highlight VertSplit cterm=NONE ctermfg=Green ctermbg=NONE
+autocmd VimEnter,ColorScheme * highlight VertSplit cterm=NONE ctermfg=Green ctermbg=NONE
 
 map - \cn
 map _ \cu
