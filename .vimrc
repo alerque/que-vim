@@ -469,6 +469,7 @@ endfunction
 
 " Binding to toggle numbering mode an and then between relative and absolute
 let g:NumberToggleTrigger="<leader>n"
+nnoremap <leader>N :set nonumber<Cr>
 
 " Configure Vimux
 let g:VimuxOrientation = "h"
