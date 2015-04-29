@@ -477,15 +477,19 @@ let VimuxUseNearest = 1
 nnoremap <leader>p :VimuxPromptCommand<Cr>
 nnoremap <leader>l :VimuxRunLastCommand<Cr>
 
+" Use Alt key fix from http://stackoverflow.com/a/10216459/313192)
+if !has('neovim')
+	let c='a'
+	while c <= 'z'
+	exec "set <A-".c.">=\e".c
+	exec "imap \e".c." <A-".c.">"
+	let c = nr2char(1+char2nr(c))
+	endw
+endif
+set timeout timeoutlen=3000
+set ttimeout ttimeoutlen=10
+
 " Configure tmux navigator to use alt instead of control to match my tmux
-" (Uses Alt key fix from http://stackoverflow.com/a/10216459/313192)
-let c='a'
-while c <= 'z'
-  exec "set <A-".c.">=\e".c
-  exec "imap \e".c." <A-".c.">"
-  let c = nr2char(1+char2nr(c))
-endw
-set timeout ttimeoutlen=5
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <A-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
