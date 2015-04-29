@@ -43,7 +43,7 @@ Bundle 'brookhong/DBGPavim'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'junegunn/fzf'
-if has('neovim')
+if has('nvim')
 	Bundle 'floobits/floobits-neovim'
 endif
 Bundle 'terryma/vim-multiple-cursors'
@@ -478,7 +478,7 @@ nnoremap <leader>p :VimuxPromptCommand<Cr>
 nnoremap <leader>l :VimuxRunLastCommand<Cr>
 
 " Use Alt key fix from http://stackoverflow.com/a/10216459/313192)
-if !has('neovim')
+if !has('nvim')
 	let c='a'
 	while c <= 'z'
 	exec "set <A-".c.">=\e".c
