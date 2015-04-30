@@ -213,13 +213,7 @@ map _ \cu
 
 map Q <Nop>
 
-if !exists("*SudoWrite")
-	function SudoWrite()
-		silent w !sudo tee % > /dev/null
-		e! %
-	endfunction
-endif
-
+" Shortcut to vim-eunuch's SudoWrite
 cmap w!! call SudoWrite()
 
 " Stop ATP from spawning files (see http://vi.stackexchange.com/a/472/267)
@@ -284,8 +278,8 @@ else
 endif
 
 " http://www.vimbits.com/bits/176
-nmap <leader>o o<ESC>
-nmap <leader>O O<ESC>
+nmap <leader>o :echo 'Obsolete: use ]\<Space\> from vim-unimpaired'<Cr>
+nmap <leader>O :echo 'Obsolete: use [\<Space\> from vim-unimpaired'<Cr>
 
 " http://www.vimbits.com/bits/229
 autocmd BufRead COMMIT_EDITMSG setlocal spell!
