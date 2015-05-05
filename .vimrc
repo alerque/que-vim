@@ -531,6 +531,9 @@ nnoremap <leader>gl :Glog<Cr>
 nnoremap <leader>gw :Gwrite<Cr>
 nnoremap <leader>gd :Gvdiff<Cr>
 
+" Shortcut to delete withoud clobbering the registers
+nnoremap <C-x> "_x
+
 " << refactored to here
 
 set fencs=utf8,cp1254,latin1
