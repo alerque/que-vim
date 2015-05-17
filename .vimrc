@@ -513,7 +513,7 @@ if !has('nvim')
 	endw
 endif
 set timeout timeoutlen=3000
-set ttimeout ttimeoutlen=10
+set nottimeout
 
 " Configure tmux navigator to use alt instead of control to match my tmux
 let g:tmux_navigator_no_mappings = 1
