@@ -54,6 +54,7 @@ Bundle 'jeffkreeftmeijer/vim-numbertoggle'
 Bundle 'benmills/vimux'
 Bundle 'swekaj/php-foldexpr.vim'
 Bundle 'reedes/vim-pencil'
+Bundle 'reedes/vim-lexical'
 
 " To update run: vim +BundleClean! +BundleInstall! +all +qa
 
@@ -537,10 +538,12 @@ nnoremap <C-x> "_x
 
 " Setup plugins for editing prose
 let g:airline_section_x = '%{PencilMode()}'
+let g:lexical#spell = 1
 augroup pencil
 	autocmd!
 	autocmd FileType markdown,mkd,text,tex
 				\| call pencil#init()
+				\| call lexical#init()
 augroup END
 
 " << refactored to here
