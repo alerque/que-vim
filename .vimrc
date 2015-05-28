@@ -55,6 +55,7 @@ Bundle 'benmills/vimux'
 Bundle 'swekaj/php-foldexpr.vim'
 Bundle 'reedes/vim-pencil'
 Bundle 'reedes/vim-lexical'
+Bundle 'reedes/vim-textobj-sentence'
 
 " To update run: vim +BundleClean! +BundleInstall! +all +qa
 
@@ -544,6 +545,7 @@ augroup pencil
 	autocmd FileType markdown,mkd,text,tex
 				\| call pencil#init()
 				\| call lexical#init()
+				\| call textobj#sentence#init()
 augroup END
 
 " << refactored to here
