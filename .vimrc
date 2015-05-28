@@ -55,6 +55,7 @@ Bundle 'benmills/vimux'
 Bundle 'swekaj/php-foldexpr.vim'
 Bundle 'reedes/vim-pencil'
 Bundle 'reedes/vim-lexical'
+Bundle 'reedes/vim-wordy'
 Bundle 'reedes/vim-textobj-sentence'
 
 " To update run: vim +BundleClean! +BundleInstall! +all +qa
@@ -540,6 +541,7 @@ nnoremap <C-x> "_x
 " Setup plugins for editing prose
 let g:airline_section_x = '%{PencilMode()}'
 let g:lexical#spell = 1
+nnoremap <silent> <leader>s :NextWordy<cr>
 augroup pencil
 	autocmd!
 	autocmd FileType markdown,mkd,text,tex
