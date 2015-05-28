@@ -53,6 +53,7 @@ Bundle 'vim-scripts/RelOps'
 Bundle 'jeffkreeftmeijer/vim-numbertoggle'
 Bundle 'benmills/vimux'
 Bundle 'swekaj/php-foldexpr.vim'
+Bundle 'reedes/vim-pencil'
 
 " To update run: vim +BundleClean! +BundleInstall! +all +qa
 
@@ -533,6 +534,14 @@ nnoremap <leader>gd :Gvdiff<Cr>
 
 " Shortcut to delete withoud clobbering the registers
 nnoremap <C-x> "_x
+
+" Setup plugins for editing prose
+let g:airline_section_x = '%{PencilMode()}'
+augroup pencil
+	autocmd!
+	autocmd FileType markdown,mkd,text,tex
+				\| call pencil#init()
+augroup END
 
 " << refactored to here
 
