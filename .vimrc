@@ -57,6 +57,7 @@ Bundle 'reedes/vim-pencil'
 Bundle 'reedes/vim-lexical'
 Bundle 'reedes/vim-wordy'
 Bundle 'reedes/vim-textobj-sentence'
+Bundle 'alerque/vim-sile'
 
 " To update run: vim +BundleClean! +BundleInstall! +all +qa
 
