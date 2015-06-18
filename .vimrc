@@ -197,7 +197,8 @@ if &diff
 	colorscheme ps_color
 else
 	"colorscheme torte
-	colorscheme vividchalk
+	"colorscheme vividchalk
+	colorscheme molokai
 endif
 
 " Highlight current line
