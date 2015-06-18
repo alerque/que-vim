@@ -565,7 +565,6 @@ set nostartofline
 set fo+=r
 "set list
 "set listchars=tab:>-
-set ttymouse=xterm2
 set splitright
 set shell=zsh
 
