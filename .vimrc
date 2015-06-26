@@ -58,6 +58,7 @@ Bundle 'reedes/vim-lexical'
 Bundle 'reedes/vim-wordy'
 Bundle 'reedes/vim-textobj-sentence'
 Bundle 'alerque/vim-sile'
+Bundle 'severin-lemaignan/vim-minimap'
 
 " To update run: vim +BundleClean! +BundleInstall! +all +qa
 
