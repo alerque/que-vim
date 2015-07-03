@@ -59,6 +59,7 @@ Bundle 'reedes/vim-wordy'
 Bundle 'reedes/vim-textobj-sentence'
 Bundle 'alerque/vim-sile'
 Bundle 'severin-lemaignan/vim-minimap'
+Bundle '907th/vim-auto-save'
 
 " To update run: vim +BundleClean! +BundleInstall! +all +qa
 
@@ -552,6 +553,12 @@ augroup pencil
 				\| call lexical#init()
 				\| call textobj#sentence#init()
 augroup END
+
+" Setup autosave plugin, off by default, enable with :AutoSaveToggle
+let g:auto_save = 0 
+let g:auto_save_in_insert_mode = 1
+let g:auto_save_events = ["InsertLeave", "TextChanged"]
+let g:auto_save_silent = 1
 
 " << refactored to here
 
