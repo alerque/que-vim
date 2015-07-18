@@ -29,7 +29,7 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'scrooloose/nerdcommenter'
 "Bundle 'vim-scripts/taglist.vim'
 "Bundle 'jcf/vim-latex'
-Bundle 'git://git.code.sf.net/p/atp-vim/code'
+"Bundle 'git://git.code.sf.net/p/atp-vim/code'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'wesQ3/vim-windowswap'
@@ -60,6 +60,7 @@ Bundle 'reedes/vim-textobj-sentence'
 Bundle 'alerque/vim-sile'
 Bundle 'severin-lemaignan/vim-minimap'
 Bundle '907th/vim-auto-save'
+Bundle 'lervag/vimtex'
 
 " To update run: vim +BundleClean! +BundleInstall! +all +qa
 
