@@ -567,6 +567,12 @@ let g:auto_save_in_insert_mode = 1
 let g:auto_save_events = ["InsertLeave", "TextChanged"]
 let g:auto_save_silent = 1
 
+" Explicitly enable True Color and cursor features for Neovim
+if has('nvim')
+	:let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+	:let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+endif
+
 " << refactored to here
 
 set fencs=utf8,cp1254,latin1
