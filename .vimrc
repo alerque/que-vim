@@ -61,6 +61,7 @@ Bundle 'alerque/vim-sile'
 Bundle 'severin-lemaignan/vim-minimap'
 Bundle '907th/vim-auto-save'
 Bundle 'lervag/vimtex'
+Bundle 'gisraptor/vim-lilypond-integrator'
 
 " To update run: vim +BundleClean! +BundleInstall! +all +qa
 
