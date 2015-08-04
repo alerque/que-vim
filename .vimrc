@@ -1,69 +1,80 @@
 " Required vundle stuff
 set nocompatible
 filetype off
-set runtimepath+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
+set runtimepath+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
 
 " My plugins
-"Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-repeat.git'
-Bundle 'tpope/vim-sensible'
-Bundle 'tpope/vim-eunuch'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-tbone'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-abolish'
-Bundle 'gcmt/wildfire.vim'
-Bundle 'ntpeters/vim-better-whitespace'
-Bundle 'sdanielf/vim-stdtabs'
-Bundle 'bling/vim-airline'
+"Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-repeat.git'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-tbone'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-abolish'
+Plugin 'gcmt/wildfire.vim'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'sdanielf/vim-stdtabs'
+Plugin 'bling/vim-airline'
 if has('lua')
-	Bundle 'Shougo/neocomplete'
+	Plugin 'Shougo/neocomplete'
 else
-	Bundle 'Shougo/neocomplcache'
+	Plugin 'Shougo/neocomplcache'
 endif
-Bundle 'airblade/vim-gitgutter'
-Bundle 'scrooloose/nerdcommenter'
-"Bundle 'vim-scripts/taglist.vim'
-"Bundle 'jcf/vim-latex'
-"Bundle 'git://git.code.sf.net/p/atp-vim/code'
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'wesQ3/vim-windowswap'
-Bundle 'sheerun/vim-polyglot'
-Bundle 'lordm/vim-browser-reload-linux'
-Bundle 'junegunn/goyo.vim'
-Bundle 'junegunn/limelight.vim'
-Bundle 'tommcdo/vim-exchange'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'vim-scripts/lh-vim-lib'
-Bundle 'LucHermitte/local_vimrc'
-Bundle 'brookhong/DBGPavim'
-Bundle 'editorconfig/editorconfig-vim'
-Bundle 'sjl/gundo.vim'
-Bundle 'junegunn/fzf'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'scrooloose/nerdcommenter'
+"Plugin 'vim-scripts/taglist.vim'
+"Plugin 'jcf/vim-latex'
+"Plugin 'git://git.code.sf.net/p/atp-vim/code'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'wesQ3/vim-windowswap'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'lordm/vim-browser-reload-linux'
+Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
+Plugin 'tommcdo/vim-exchange'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'vim-scripts/lh-vim-lib'
+Plugin 'LucHermitte/local_vimrc'
+Plugin 'brookhong/DBGPavim'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'sjl/gundo.vim'
+Plugin 'junegunn/fzf'
 if has('nvim')
-	Bundle 'floobits/floobits-neovim'
+	"Plugin 'floobits/floobits-neovim'
 endif
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'vim-scripts/RelOps'
-Bundle 'jeffkreeftmeijer/vim-numbertoggle'
-Bundle 'benmills/vimux'
-Bundle 'swekaj/php-foldexpr.vim'
-Bundle 'reedes/vim-pencil'
-Bundle 'reedes/vim-lexical'
-Bundle 'reedes/vim-wordy'
-Bundle 'reedes/vim-textobj-sentence'
-Bundle 'alerque/vim-sile'
-Bundle 'severin-lemaignan/vim-minimap'
-Bundle '907th/vim-auto-save'
-Bundle 'lervag/vimtex'
-Bundle 'gisraptor/vim-lilypond-integrator'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'vim-scripts/RelOps'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+Plugin 'benmills/vimux'
+Plugin 'swekaj/php-foldexpr.vim'
+Plugin 'reedes/vim-pencil'
+Plugin 'reedes/vim-lexical'
+Plugin 'reedes/vim-wordy'
+Plugin 'reedes/vim-textobj-sentence'
+Plugin 'alerque/vim-sile'
+Plugin 'severin-lemaignan/vim-minimap'
+Plugin '907th/vim-auto-save'
+Plugin 'lervag/vimtex'
+Plugin 'gisraptor/vim-lilypond-integrator'
 
-" To update run: vim +BundleClean! +BundleInstall! +all +qa
+" To update run: nvim +PluginClean! +PluginUpdate  +qa
+
+" Default indent style when no filetype specific style guide is in place
+set tabstop=4
+set shiftwidth=4
+set noexpandtab
+set cindent
+set autoindent
+
+" Execute vundle (must be after default whitespace setings)
+call vundle#end()
+filetype plugin indent on
 
 " Setup discraction free mode including tmux integration and limelight
 let g:goyo_width = 80
@@ -93,16 +104,6 @@ function! Goyo_after()
 endfunction
 
 let g:goyo_callbacks = [function('Goyo_before'), function('Goyo_after')]
-
-" Default indent style when no filetype specific style guide is in place
-set tabstop=4
-set shiftwidth=4
-set noexpandtab
-set cindent
-set autoindent
-
-" Execute vundle (must be after default whitespace setings)
-filetype plugin indent on
 
 " Setup status bar
 set encoding=utf8
