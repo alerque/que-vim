@@ -329,7 +329,7 @@ set ignorecase
 set smartcase
 
 " Give context when scrolling
-set scrolloff=1
+set scrolloff=2
 
 " Keep lots of command history
 set history=1000
