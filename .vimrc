@@ -62,6 +62,7 @@ Plugin 'severin-lemaignan/vim-minimap'
 Plugin '907th/vim-auto-save'
 Plugin 'lervag/vimtex'
 Plugin 'gisraptor/vim-lilypond-integrator'
+Plugin 'trusktr/seti.vim'
 
 " To update run: nvim +PluginClean! +PluginUpdate  +qa
 
