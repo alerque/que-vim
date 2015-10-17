@@ -81,6 +81,8 @@ W B
 V :
 Z ;
 
+<M-s> §
+
 " Because typeing Shift+Alt- on Advantage/DVORAK is not as good as normal
 " Turkish-F positions
 <M-[> "
