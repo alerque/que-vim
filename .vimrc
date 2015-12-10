@@ -68,6 +68,8 @@ Plugin '907th/vim-auto-save'
 Plugin 'lervag/vimtex'
 Plugin 'gisraptor/vim-lilypond-integrator'
 Plugin 'trusktr/seti.vim'
+Plugin 'vim-pandoc/vim-pandoc-syntax'
+Plugin 'vim-pandoc/vim-pandoc'
 
 " To update run: nvim +PluginClean! +PluginUpdate  +qa
 
