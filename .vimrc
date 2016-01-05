@@ -225,6 +225,11 @@ else
 	"colorscheme torte
 	"colorscheme vividchalk
 	colorscheme molokai
+	" NeoVim no longer has GUI running on first startup
+	" See issue https://github.com/neovim/neovim/issues/2953
+	if has('nvim')
+		autocmd VimEnter * colorscheme molokai
+	endif
 endif
 
 " Highlight current line
