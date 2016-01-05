@@ -591,8 +591,8 @@ let g:auto_save_silent = 1
 
 " Explicitly enable True Color and cursor features for Neovim
 if has('nvim')
-	:let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-	:let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+	let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+	let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 endif
 
 function! AddSubtract(char, back)
