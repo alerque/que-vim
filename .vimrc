@@ -580,6 +580,7 @@ augroup pencil
 	autocmd FileType pandoc,markdown,mkd,text,tex
 				\| call lexical#init()
 				\| call textobj#sentence#init()
+				"\| call pencil#init()
 augroup END
 
 " Setup autosave plugin, off by default, enable with :AutoSaveToggle
