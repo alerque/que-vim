@@ -573,7 +573,7 @@ nnoremap <leader>x "_x
 
 " Setup plugins for editing prose
 let g:airline_section_x = '%{PencilMode()}'
-let g:lexical#spell = 1
+let g:lexical#spell = 0
 nnoremap <silent> <leader>s :NextWordy<cr>
 augroup pencil
 	autocmd!
