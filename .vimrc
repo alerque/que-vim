@@ -381,6 +381,7 @@ augroup encrypted
   autocmd!
   " Disable swap files, and set binary file format before reading the file
   autocmd BufReadPre,FileReadPre *.gpg
+    \ set shada= |
     \ set viminfo= |
     \ setlocal noswapfile bin
   " Decrypt the contents after reading the file, reset binary file format
