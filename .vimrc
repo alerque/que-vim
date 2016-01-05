@@ -577,8 +577,7 @@ let g:lexical#spell = 1
 nnoremap <silent> <leader>s :NextWordy<cr>
 augroup pencil
 	autocmd!
-	autocmd FileType markdown,mkd,text,tex
-				\| call pencil#init()
+	autocmd FileType pandoc,markdown,mkd,text,tex
 				\| call lexical#init()
 				\| call textobj#sentence#init()
 augroup END
