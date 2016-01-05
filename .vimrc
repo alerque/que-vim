@@ -71,6 +71,7 @@ Plugin 'gisraptor/vim-lilypond-integrator'
 Plugin 'trusktr/seti.vim'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'benekastah/neomake'
 
 " To update run: nvim +PluginClean! +PluginUpdate  +qa
 
