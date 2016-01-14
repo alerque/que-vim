@@ -628,6 +628,8 @@ set fo+=r
 "set list
 "set listchars=tab:>-
 set splitright
+set diffopt+=vertical
+cabbrev help vert help
 set shell=zsh
 
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
