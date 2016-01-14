@@ -71,6 +71,7 @@ Plugin 'gisraptor/vim-lilypond-integrator'
 Plugin 'trusktr/seti.vim'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'vim-pandoc/vim-markdownfootnotes'
 Plugin 'benekastah/neomake'
 
 " To update run: nvim +PluginClean! +PluginUpdate  +qa
@@ -605,6 +606,12 @@ nnoremap <silent>         <C-a> :<C-u>call AddSubtract("\<C-a>", '')<CR>
 nnoremap <silent> <Leader><C-a> :<C-u>call AddSubtract("\<C-a>", 'b')<CR>
 nnoremap <silent>         <C-x> :<C-u>call AddSubtract("\<C-x>", '')<CR>
 nnoremap <silent> <Leader><C-x> :<C-u>call AddSubtract("\<C-x>", 'b')<CR>
+
+" Map Markdown Footnotes manually because its default of <leader>+f is taken
+imap <Leader>^ <Plug>AddVimFootnote
+nmap <Leader>^ <Plug>AddVimFootnote
+imap <Leader>@ <Plug>ReturnFromFootnote
+nmap <Leader>@ <Plug>ReturnFromFootnote
 
 " << refactored to here
 
