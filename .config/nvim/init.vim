@@ -1,80 +1,77 @@
-" Required vundle stuff
-set nocompatible
-filetype off
-set runtimepath+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+"set nocompatible
+" Manage plugins with vim-plug
+" https://github.com/junegunn/vim-plug
+call plug#begin()
 
 " My plugins
-"Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-repeat.git'
-Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-eunuch'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-tbone'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tommcdo/vim-fugitive-blame-ext'
-Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-abolish'
-Plugin 'gcmt/wildfire.vim'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'sdanielf/vim-stdtabs'
-Plugin 'bling/vim-airline'
+"Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat.git'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-tbone'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-fugitive'
+Plug 'tommcdo/vim-fugitive-blame-ext'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-abolish'
+Plug 'gcmt/wildfire.vim'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'sdanielf/vim-stdtabs'
+Plug 'bling/vim-airline'
 if has ('nvim')
-	Plugin 'Shougo/deoplete.nvim'
+	Plug 'Shougo/deoplete.nvim'
 else
 	if has('lua')
-		Plugin 'Shougo/neocomplete'
+		Plug 'Shougo/neocomplete'
 	else
-		Plugin 'Shougo/neocomplcache'
+		Plug 'Shougo/neocomplcache'
 	endif
 endif
-Plugin 'airblade/vim-gitgutter'
-Plugin 'scrooloose/nerdcommenter'
-"Plugin 'vim-scripts/taglist.vim'
-"Plugin 'jcf/vim-latex'
-"Plugin 'git://git.code.sf.net/p/atp-vim/code'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'wesQ3/vim-windowswap'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'lordm/vim-browser-reload-linux'
-Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/limelight.vim'
-Plugin 'tommcdo/vim-exchange'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'vim-scripts/lh-vim-lib'
-Plugin 'LucHermitte/local_vimrc'
-Plugin 'brookhong/DBGPavim'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'sjl/gundo.vim'
-Plugin 'junegunn/fzf'
+Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdcommenter'
+"Plug 'vim-scripts/taglist.vim'
+"Plug 'jcf/vim-latex'
+"Plug 'git://git.code.sf.net/p/atp-vim/code'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'wesQ3/vim-windowswap'
+Plug 'sheerun/vim-polyglot'
+Plug 'lordm/vim-browser-reload-linux'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'tommcdo/vim-exchange'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'vim-scripts/lh-vim-lib'
+Plug 'LucHermitte/local_vimrc'
+Plug 'brookhong/DBGPavim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'sjl/gundo.vim'
+Plug 'junegunn/fzf'
 if has('nvim')
-	"Plugin 'floobits/floobits-neovim'
+	"Plug 'floobits/floobits-neovim'
 endif
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'vim-scripts/RelOps'
-Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-Plugin 'benmills/vimux'
-Plugin 'swekaj/php-foldexpr.vim'
-Plugin 'reedes/vim-pencil'
-Plugin 'reedes/vim-lexical'
-Plugin 'reedes/vim-wordy'
-Plugin 'kana/vim-textobj-user'
-Plugin 'reedes/vim-textobj-sentence'
-Plugin 'alerque/vim-sile'
-Plugin 'severin-lemaignan/vim-minimap'
-Plugin '907th/vim-auto-save'
-Plugin 'lervag/vimtex'
-Plugin 'gisraptor/vim-lilypond-integrator'
-Plugin 'trusktr/seti.vim'
-Plugin 'vim-pandoc/vim-pandoc-syntax'
-Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'vim-pandoc/vim-markdownfootnotes'
-Plugin 'benekastah/neomake'
-
-" To update run: nvim +PluginClean! +PluginUpdate  +qa
+Plug 'terryma/vim-multiple-cursors'
+Plug 'vim-scripts/RelOps'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'benmills/vimux'
+Plug 'swekaj/php-foldexpr.vim'
+Plug 'reedes/vim-pencil'
+Plug 'reedes/vim-lexical'
+Plug 'reedes/vim-wordy'
+Plug 'kana/vim-textobj-user'
+Plug 'reedes/vim-textobj-sentence'
+Plug 'alerque/vim-sile'
+Plug 'severin-lemaignan/vim-minimap'
+Plug '907th/vim-auto-save'
+Plug 'lervag/vimtex'
+Plug 'gisraptor/vim-lilypond-integrator'
+Plug 'trusktr/seti.vim'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-markdownfootnotes'
+Plug 'benekastah/neomake'
+call plug#end()
 
 " Default indent style when no filetype specific style guide is in place
 set tabstop=4
@@ -82,11 +79,6 @@ set shiftwidth=4
 set noexpandtab
 set cindent
 set autoindent
-
-" Execute vundle (must be after default whitespace setings)
-call vundle#end()
-filetype plugin indent on
-
 " Setup discraction free mode including tmux integration and limelight
 let g:goyo_width = 80
 let g:goyo_margin_top = 2
