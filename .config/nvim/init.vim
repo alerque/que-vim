@@ -588,11 +588,6 @@ imap <M-;> <Esc><Esc>:
 
 map <F5> :set hlsearch!<bar>set hlsearch?<CR>
 
-if &filetype == ""
-"   setfiletype text
-	source ~/.vim/notepad.vim
-endif
-
 if &filetype == "mail"
 	set nosmartindent
 endif
