@@ -4,7 +4,7 @@ call plug#begin()
 
 " My plugins
 "Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-repeat.git'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
@@ -33,7 +33,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'tommcdo/vim-exchange'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'vim-scripts/lh-vim-lib'
+Plug 'LucHermitte/lh-vim-lib'
 Plug 'LucHermitte/local_vimrc'
 Plug 'brookhong/DBGPavim'
 Plug 'editorconfig/editorconfig-vim'
