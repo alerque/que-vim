@@ -1,4 +1,3 @@
-"set nocompatible
 " Manage plugins with vim-plug
 " https://github.com/junegunn/vim-plug
 call plug#begin()
@@ -19,15 +18,7 @@ Plug 'gcmt/wildfire.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'sdanielf/vim-stdtabs'
 Plug 'bling/vim-airline'
-if has ('nvim')
-	Plug 'Shougo/deoplete.nvim'
-else
-	if has('lua')
-		Plug 'Shougo/neocomplete'
-	else
-		Plug 'Shougo/neocomplcache'
-	endif
-endif
+Plug 'Shougo/deoplete.nvim'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdcommenter'
 "Plug 'vim-scripts/taglist.vim'
@@ -48,9 +39,7 @@ Plug 'brookhong/DBGPavim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'sjl/gundo.vim'
 Plug 'junegunn/fzf'
-if has('nvim')
-	"Plug 'floobits/floobits-neovim'
-endif
+"Plug 'floobits/floobits-neovim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-scripts/RelOps'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
@@ -109,7 +98,6 @@ endfunction
 let g:goyo_callbacks = [function('Goyo_before'), function('Goyo_after')]
 
 " Setup status bar
-set encoding=utf8
 set laststatus=2
 
 " Configure airline to use powerline patched fonts and manage the tabbar too
@@ -137,65 +125,7 @@ if has('gui_running')
 endif
 
 " Setup NeoComplete
-if has ('nvim')
-	let g:deoplete#enable_at_startup = 1
-else
-	if has('lua')
-		let g:acp_enableAtStartup = 0
-		let g:neocomplete#enable_at_startup = 1
-		let g:neocomplete#enable_smart_case = 1
-		let g:neocomplete#enable_auto_select = 1
-		let g:neocomplete#text_mode_filetypes = { '*.tex' : 1 }
-		set completeopt+=longest
-		inoremap <expr><C-g>	 neocomplete#undo_completion()
-		inoremap <expr><C-l>	 neocomplete#complete_common_string()
-		inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-		autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-		autocmd FileType html,markdown,pandoc setlocal omnifunc=htmlcomplete#CompleteTags
-		autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-		autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-		autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-		if !exists('g:neocomplete#sources#omni#input_patterns')
-			let g:neocomplete#sources#omni#input_patterns = {}
-		endif
-	else
-		let g:acp_enableAtStartup = 0
-		let g:neocomplcache_enable_at_startup = 0
-		let g:neocomplcache_enable_smart_case = 1
-		let g:neocomplcache_min_syntax_length = 3
-		let g:neocomplcache_eanble_fuzzy_completion = 1
-		let g:neocomplcache_enable_camel_case_completion = 1
-		let g:neocomplcache_enable_underbar_completion = 1
-		inoremap <expr><C-g>     neocomplcache#undo_completion()
-		inoremap <expr><C-l>     neocomplcache#complete_common_string()
-		inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-		function! s:my_cr_function()
-			return neocomplcache#smart_close_popup() . "\<CR>"
-			"return pumvisible() ? neocomplcache#smart_close_popup() : "\<CR>"
-		endfunction
-		inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-		inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-		inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-		inoremap <expr><C-y>  neocomplcache#close_popup()
-		inoremap <expr><C-e>  neocomplcache#cancel_popup()
-		autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-		autocmd FileType html,markdown,pandoc setlocal omnifunc=htmlcomplete#CompleteTags
-		autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-		autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-		autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-		if !exists('g:neocomplcache_force_omni_patterns')
-			let g:neocomplcache_force_omni_patterns = {}
-		endif
-		let g:neocomplcache_force_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-		let g:neocomplcache_force_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-		let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-		if !exists('g:neocomplcache_keyword_patterns')
-			let g:neocomplcache_keyword_patterns = {}
-		endif
-		let g:neocomplcache_keyword_patterns['default'] = '\k\+'
-		let g:neocomplcache_keyword_patterns['tex'] = '\k\+\|\\\a{\a\{1,2}}\|\\[[:alpha:]@][[:alnum:]@]*\%({\%([[:alnum:]:_]\+\*\?}\?\)\?\)\?\|\a[[:alnum:]:_]*\*\?'
-	endif
-endif
+let g:deoplete#enable_at_startup = 1
 
 " Setup indent guides
 let g:indent_guides_enable_on_vim_startup = 1
@@ -220,9 +150,7 @@ else
 	colorscheme molokai
 	" NeoVim no longer has GUI running on first startup
 	" See issue https://github.com/neovim/neovim/issues/2953
-	if has('nvim')
-		autocmd VimEnter * colorscheme molokai
-	endif
+	autocmd VimEnter * colorscheme molokai
 endif
 
 " Highlight current line
@@ -534,14 +462,12 @@ nnoremap <leader>p :VimuxPromptCommand<Cr>
 nnoremap <leader>l :VimuxRunLastCommand<Cr>
 
 " Use Alt key fix from http://stackoverflow.com/a/10216459/313192)
-if !has('nvim')
-	let c='a'
-	while c <= 'z'
-	exec "set <A-".c.">=\e".c
-	exec "imap \e".c." <A-".c.">"
-	let c = nr2char(1+char2nr(c))
-	endw
-endif
+"let c='a'
+"while c <= 'z'
+"exec "set <A-".c.">=\e".c
+"exec "imap \e".c." <A-".c.">"
+"let c = nr2char(1+char2nr(c))
+"endw
 set timeout timeoutlen=3000
 set nottimeout
 
@@ -583,10 +509,8 @@ let g:auto_save_events = ["InsertLeave", "TextChanged"]
 let g:auto_save_silent = 1
 
 " Explicitly enable True Color and cursor features for Neovim
-if has('nvim')
-	let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-	let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-endif
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 function! AddSubtract(char, back)
   let pattern = &nrformats =~ 'alpha' ? '[[:alpha:][:digit:]]' : '[[:digit:]]'
