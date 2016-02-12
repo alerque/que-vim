@@ -1,80 +1,66 @@
-" Required vundle stuff
-set nocompatible
-filetype off
-set runtimepath+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+" Manage plugins with vim-plug
+" https://github.com/junegunn/vim-plug
+call plug#begin()
 
 " My plugins
-"Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-repeat.git'
-Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-eunuch'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-tbone'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tommcdo/vim-fugitive-blame-ext'
-Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-abolish'
-Plugin 'gcmt/wildfire.vim'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'sdanielf/vim-stdtabs'
-Plugin 'bling/vim-airline'
-if has ('nvim')
-	Plugin 'Shougo/deoplete.nvim'
-else
-	if has('lua')
-		Plugin 'Shougo/neocomplete'
-	else
-		Plugin 'Shougo/neocomplcache'
-	endif
-endif
-Plugin 'airblade/vim-gitgutter'
-Plugin 'scrooloose/nerdcommenter'
-"Plugin 'vim-scripts/taglist.vim'
-"Plugin 'jcf/vim-latex'
-"Plugin 'git://git.code.sf.net/p/atp-vim/code'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'wesQ3/vim-windowswap'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'lordm/vim-browser-reload-linux'
-Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/limelight.vim'
-Plugin 'tommcdo/vim-exchange'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'vim-scripts/lh-vim-lib'
-Plugin 'LucHermitte/local_vimrc'
-Plugin 'brookhong/DBGPavim'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'sjl/gundo.vim'
-Plugin 'junegunn/fzf'
-if has('nvim')
-	"Plugin 'floobits/floobits-neovim'
-endif
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'vim-scripts/RelOps'
-Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-Plugin 'benmills/vimux'
-Plugin 'swekaj/php-foldexpr.vim'
-Plugin 'reedes/vim-pencil'
-Plugin 'reedes/vim-lexical'
-Plugin 'reedes/vim-wordy'
-Plugin 'kana/vim-textobj-user'
-Plugin 'reedes/vim-textobj-sentence'
-Plugin 'alerque/vim-sile'
-Plugin 'severin-lemaignan/vim-minimap'
-Plugin '907th/vim-auto-save'
-Plugin 'lervag/vimtex'
-Plugin 'gisraptor/vim-lilypond-integrator'
-Plugin 'trusktr/seti.vim'
-Plugin 'vim-pandoc/vim-pandoc-syntax'
-Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'vim-pandoc/vim-markdownfootnotes'
-Plugin 'benekastah/neomake'
-
-" To update run: nvim +PluginClean! +PluginUpdate  +qa
+"Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-tbone'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-fugitive'
+Plug 'tommcdo/vim-fugitive-blame-ext'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-abolish'
+Plug 'gcmt/wildfire.vim'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'sdanielf/vim-stdtabs'
+Plug 'bling/vim-airline'
+Plug 'Shougo/deoplete.nvim'
+Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdcommenter'
+"Plug 'vim-scripts/taglist.vim'
+"Plug 'jcf/vim-latex'
+"Plug 'git://git.code.sf.net/p/atp-vim/code'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'wesQ3/vim-windowswap'
+Plug 'sheerun/vim-polyglot'
+Plug 'lordm/vim-browser-reload-linux'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'tommcdo/vim-exchange'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'LucHermitte/lh-vim-lib'
+Plug 'LucHermitte/local_vimrc'
+Plug 'brookhong/DBGPavim'
+"Plug 'editorconfig/editorconfig-vim'
+Plug 'sjl/gundo.vim'
+Plug 'junegunn/fzf'
+"Plug 'floobits/floobits-neovim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'vim-scripts/RelOps'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'benmills/vimux'
+Plug 'swekaj/php-foldexpr.vim'
+Plug 'reedes/vim-pencil'
+Plug 'reedes/vim-lexical'
+Plug 'reedes/vim-wordy'
+Plug 'kana/vim-textobj-user'
+Plug 'reedes/vim-textobj-sentence'
+Plug 'alerque/vim-sile'
+Plug 'severin-lemaignan/vim-minimap'
+Plug '907th/vim-auto-save'
+Plug 'lervag/vimtex'
+Plug 'gisraptor/vim-lilypond-integrator'
+Plug 'trusktr/seti.vim'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-markdownfootnotes'
+Plug 'benekastah/neomake'
+call plug#end()
 
 " Default indent style when no filetype specific style guide is in place
 set tabstop=4
@@ -82,11 +68,6 @@ set shiftwidth=4
 set noexpandtab
 set cindent
 set autoindent
-
-" Execute vundle (must be after default whitespace setings)
-call vundle#end()
-filetype plugin indent on
-
 " Setup discraction free mode including tmux integration and limelight
 let g:goyo_width = 80
 let g:goyo_margin_top = 2
@@ -117,7 +98,6 @@ endfunction
 let g:goyo_callbacks = [function('Goyo_before'), function('Goyo_after')]
 
 " Setup status bar
-set encoding=utf8
 set laststatus=2
 
 " Configure airline to use powerline patched fonts and manage the tabbar too
@@ -145,65 +125,7 @@ if has('gui_running')
 endif
 
 " Setup NeoComplete
-if has ('nvim')
-	let g:deoplete#enable_at_startup = 1
-else
-	if has('lua')
-		let g:acp_enableAtStartup = 0
-		let g:neocomplete#enable_at_startup = 1
-		let g:neocomplete#enable_smart_case = 1
-		let g:neocomplete#enable_auto_select = 1
-		let g:neocomplete#text_mode_filetypes = { '*.tex' : 1 }
-		set completeopt+=longest
-		inoremap <expr><C-g>	 neocomplete#undo_completion()
-		inoremap <expr><C-l>	 neocomplete#complete_common_string()
-		inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-		autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-		autocmd FileType html,markdown,pandoc setlocal omnifunc=htmlcomplete#CompleteTags
-		autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-		autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-		autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-		if !exists('g:neocomplete#sources#omni#input_patterns')
-			let g:neocomplete#sources#omni#input_patterns = {}
-		endif
-	else
-		let g:acp_enableAtStartup = 0
-		let g:neocomplcache_enable_at_startup = 0
-		let g:neocomplcache_enable_smart_case = 1
-		let g:neocomplcache_min_syntax_length = 3
-		let g:neocomplcache_eanble_fuzzy_completion = 1
-		let g:neocomplcache_enable_camel_case_completion = 1
-		let g:neocomplcache_enable_underbar_completion = 1
-		inoremap <expr><C-g>     neocomplcache#undo_completion()
-		inoremap <expr><C-l>     neocomplcache#complete_common_string()
-		inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-		function! s:my_cr_function()
-			return neocomplcache#smart_close_popup() . "\<CR>"
-			"return pumvisible() ? neocomplcache#smart_close_popup() : "\<CR>"
-		endfunction
-		inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-		inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-		inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-		inoremap <expr><C-y>  neocomplcache#close_popup()
-		inoremap <expr><C-e>  neocomplcache#cancel_popup()
-		autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-		autocmd FileType html,markdown,pandoc setlocal omnifunc=htmlcomplete#CompleteTags
-		autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-		autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-		autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-		if !exists('g:neocomplcache_force_omni_patterns')
-			let g:neocomplcache_force_omni_patterns = {}
-		endif
-		let g:neocomplcache_force_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-		let g:neocomplcache_force_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-		let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-		if !exists('g:neocomplcache_keyword_patterns')
-			let g:neocomplcache_keyword_patterns = {}
-		endif
-		let g:neocomplcache_keyword_patterns['default'] = '\k\+'
-		let g:neocomplcache_keyword_patterns['tex'] = '\k\+\|\\\a{\a\{1,2}}\|\\[[:alpha:]@][[:alnum:]@]*\%({\%([[:alnum:]:_]\+\*\?}\?\)\?\)\?\|\a[[:alnum:]:_]*\*\?'
-	endif
-endif
+let g:deoplete#enable_at_startup = 1
 
 " Setup indent guides
 let g:indent_guides_enable_on_vim_startup = 1
@@ -228,9 +150,7 @@ else
 	colorscheme molokai
 	" NeoVim no longer has GUI running on first startup
 	" See issue https://github.com/neovim/neovim/issues/2953
-	if has('nvim')
-		autocmd VimEnter * colorscheme molokai
-	endif
+	autocmd VimEnter * colorscheme molokai
 endif
 
 " Highlight current line
@@ -542,14 +462,12 @@ nnoremap <leader>p :VimuxPromptCommand<Cr>
 nnoremap <leader>l :VimuxRunLastCommand<Cr>
 
 " Use Alt key fix from http://stackoverflow.com/a/10216459/313192)
-if !has('nvim')
-	let c='a'
-	while c <= 'z'
-	exec "set <A-".c.">=\e".c
-	exec "imap \e".c." <A-".c.">"
-	let c = nr2char(1+char2nr(c))
-	endw
-endif
+"let c='a'
+"while c <= 'z'
+"exec "set <A-".c.">=\e".c
+"exec "imap \e".c." <A-".c.">"
+"let c = nr2char(1+char2nr(c))
+"endw
 set timeout timeoutlen=3000
 set nottimeout
 
@@ -591,10 +509,8 @@ let g:auto_save_events = ["InsertLeave", "TextChanged"]
 let g:auto_save_silent = 1
 
 " Explicitly enable True Color and cursor features for Neovim
-if has('nvim')
-	let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-	let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-endif
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 function! AddSubtract(char, back)
   let pattern = &nrformats =~ 'alpha' ? '[[:alpha:][:digit:]]' : '[[:digit:]]'
@@ -671,11 +587,6 @@ map <M-;> :
 imap <M-;> <Esc><Esc>:
 
 map <F5> :set hlsearch!<bar>set hlsearch?<CR>
-
-if &filetype == ""
-"   setfiletype text
-	source ~/.vim/notepad.vim
-endif
 
 if &filetype == "mail"
 	set nosmartindent
