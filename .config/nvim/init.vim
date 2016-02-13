@@ -12,7 +12,7 @@ Plug 'tpope/vim-tbone'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'tommcdo/vim-fugitive-blame-ext'
-Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-markdown', { 'for': ['markdown', 'pandoc'] }
 Plug 'tpope/vim-abolish'
 Plug 'gcmt/wildfire.vim'
 Plug 'ntpeters/vim-better-whitespace'
@@ -33,8 +33,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'tommcdo/vim-exchange'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'LucHermitte/lh-vim-lib'
-Plug 'LucHermitte/local_vimrc'
+Plug 'LucHermitte/lh-vim-lib' | Plug 'LucHermitte/local_vimrc'
 Plug 'brookhong/DBGPavim'
 "Plug 'editorconfig/editorconfig-vim'
 Plug 'sjl/gundo.vim'
@@ -50,15 +49,15 @@ Plug 'reedes/vim-lexical'
 Plug 'reedes/vim-wordy'
 Plug 'kana/vim-textobj-user'
 Plug 'reedes/vim-textobj-sentence'
-Plug 'alerque/vim-sile'
+Plug 'alerque/vim-sile', { 'for': 'sile' }
 Plug 'severin-lemaignan/vim-minimap'
 Plug '907th/vim-auto-save'
-Plug 'lervag/vimtex'
-Plug 'gisraptor/vim-lilypond-integrator'
+Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'gisraptor/vim-lilypond-integrator', { 'for': 'lilypond' }
 Plug 'trusktr/seti.vim'
-Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-markdownfootnotes'
+Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'pandoc' }
+Plug 'vim-pandoc/vim-pandoc', { 'for': 'pandoc' }
+Plug 'vim-pandoc/vim-markdownfootnotes', { 'for': 'pandoc' }
 Plug 'benekastah/neomake'
 Plug 'junegunn/vim-easy-align'
 call plug#end()
