@@ -60,6 +60,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-markdownfootnotes'
 Plug 'benekastah/neomake'
+Plug 'junegunn/vim-easy-align'
 call plug#end()
 
 " Default indent style when no filetype specific style guide is in place
@@ -528,6 +529,10 @@ imap <Leader>^ <Plug>AddVimFootnote
 nmap <Leader>^ <Plug>AddVimFootnote
 imap <Leader>@ <Plug>ReturnFromFootnote
 nmap <Leader>@ <Plug>ReturnFromFootnote
+
+" Mappings for Easy Alignment plugin
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " << refactored to here
 
