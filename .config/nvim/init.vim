@@ -60,6 +60,7 @@ Plug 'vim-pandoc/vim-pandoc', { 'for': 'pandoc' }
 Plug 'vim-pandoc/vim-markdownfootnotes', { 'for': 'pandoc' }
 Plug 'benekastah/neomake'
 Plug 'junegunn/vim-easy-align'
+Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 call plug#end()
 
 " Default indent style when no filetype specific style guide is in place
