@@ -61,6 +61,7 @@ Plug 'vim-pandoc/vim-markdownfootnotes', { 'for': 'pandoc' }
 Plug 'benekastah/neomake'
 Plug 'junegunn/vim-easy-align'
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
+Plug 'cazador481/fakeclip.neovim'
 call plug#end()
 
 " Default indent style when no filetype specific style guide is in place
@@ -254,7 +255,8 @@ set matchpairs+=‘:’
 set matchpairs+=►:◄
 
 " Use system clipboard for anonymous register
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
+let g:vim_fakeclip_tmux_plus=1
 
 " Enable backspace over indent,eol,start,etc
 set backspace=2
