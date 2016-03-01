@@ -62,6 +62,7 @@ Plug 'benekastah/neomake'
 Plug 'junegunn/vim-easy-align'
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 Plug 'cazador481/fakeclip.neovim'
+Plug 'majutsushi/tagbar'
 call plug#end()
 
 " Default indent style when no filetype specific style guide is in place
@@ -535,6 +536,9 @@ nmap <Leader>@ <Plug>ReturnFromFootnote
 " Mappings for Easy Alignment plugin
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+
+" Mapping to pull up ctags based navigator
+nmap \t :TagbarToggle<CR>
 
 " << refactored to here
 
