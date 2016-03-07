@@ -534,8 +534,8 @@ imap <Leader>@ <Plug>ReturnFromFootnote
 nmap <Leader>@ <Plug>ReturnFromFootnote
 
 " Mappings for Easy Alignment plugin
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
+xmap gA <Plug>(EasyAlign)
+nmap gA <Plug>(EasyAlign)
 
 " Mapping to pull up ctags based navigator
 nmap \t :TagbarToggle<CR>
