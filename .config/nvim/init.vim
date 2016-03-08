@@ -14,6 +14,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tommcdo/vim-fugitive-blame-ext'
 Plug 'tpope/vim-markdown', { 'for': ['markdown'] }
 Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-speeddating'
 Plug 'gcmt/wildfire.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'sdanielf/vim-stdtabs'
@@ -546,6 +547,9 @@ nmap \t :TagbarToggle<CR>
 let g:markdown_criticmarkup = 0
 let g:pandoc#syntax#critic_markup = 0
 "let g:markdown_criticmarkup_force_colors = 1
+
+" Setup 8 digit numbers as date format even without dashes
+au! User * SpeedDatingFormat %Y%m%d
 
 " << refactored to here
 
