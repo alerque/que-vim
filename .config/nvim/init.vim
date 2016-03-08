@@ -12,7 +12,7 @@ Plug 'tpope/vim-tbone'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'tommcdo/vim-fugitive-blame-ext'
-Plug 'tpope/vim-markdown', { 'for': ['markdown', 'pandoc'] }
+Plug 'tpope/vim-markdown', { 'for': ['markdown'] }
 Plug 'tpope/vim-abolish'
 Plug 'gcmt/wildfire.vim'
 Plug 'ntpeters/vim-better-whitespace'
@@ -58,6 +58,7 @@ Plug 'trusktr/seti.vim'
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'pandoc' }
 Plug 'vim-pandoc/vim-pandoc', { 'for': 'pandoc' }
 Plug 'vim-pandoc/vim-markdownfootnotes', { 'for': 'pandoc' }
+Plug 'vim-pandoc/vim-criticmarkup', { 'for': ['markdown', 'pandoc'] }
 Plug 'benekastah/neomake'
 Plug 'junegunn/vim-easy-align'
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
