@@ -15,6 +15,7 @@ Plug 'tommcdo/vim-fugitive-blame-ext'
 Plug 'tpope/vim-markdown', { 'for': ['markdown'] }
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-characterize'
 Plug 'gcmt/wildfire.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'sdanielf/vim-stdtabs'
