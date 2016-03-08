@@ -541,6 +541,12 @@ nmap gA <Plug>(EasyAlign)
 " Mapping to pull up ctags based navigator
 nmap \t :TagbarToggle<CR>
 
+" Disable CriticMarkup support in plugins that have it in favor of the
+" dedicated plugin that injects it as an addition.
+let g:markdown_criticmarkup = 0
+let g:pandoc#syntax#critic_markup = 0
+"let g:markdown_criticmarkup_force_colors = 1
+
 " << refactored to here
 
 set fencs=utf8,cp1254,latin1
