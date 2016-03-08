@@ -57,8 +57,8 @@ Plug '907th/vim-auto-save'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'gisraptor/vim-lilypond-integrator', { 'for': 'lilypond' }
 Plug 'trusktr/seti.vim'
-Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'pandoc' }
-Plug 'vim-pandoc/vim-pandoc', { 'for': 'pandoc' }
+Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': ['markdown', 'pandoc'] }
+Plug 'vim-pandoc/vim-pandoc', { 'for': ['markdown', 'pandoc'] }
 Plug 'vim-pandoc/vim-markdownfootnotes', { 'for': 'pandoc' }
 Plug 'vim-pandoc/vim-criticmarkup', { 'for': ['markdown', 'pandoc'] }
 Plug 'benekastah/neomake'
