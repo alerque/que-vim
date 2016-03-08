@@ -501,12 +501,15 @@ nnoremap <leader>x "_x
 let g:airline_section_x = '%{PencilMode()}'
 let g:lexical#spell = 0
 nnoremap <silent> <leader>s :NextWordy<cr>
+let g:pencil#wrapModeDefault = 'soft'
+let g:pencil#concealcursor = 'nc'
+let g:pencil#conceallevel = 2
 augroup pencil
 	autocmd!
-	autocmd FileType pandoc,markdown,mkd,text,tex
-				\| call lexical#init()
-				\| call textobj#sentence#init()
-				"\| call pencil#init()
+	autocmd FileType pandoc,markdown,mkd,text,tex,sile
+		\  call lexical#init()
+		\| call textobj#sentence#init()
+		\| call pencil#init()
 augroup END
 
 " Setup autosave plugin, off by default, enable with :AutoSaveToggle
