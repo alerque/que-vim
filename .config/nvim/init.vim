@@ -581,7 +581,7 @@ function! QueMutt()
 
 	" Jump throuph things that get filled in
 	map <C-n> :%call quemutt#FirstInPost()<CR>
-	imap <C-n> <Esc>%call quemutt#FirstInPost<CR>
+	imap <C-n> <Esc>:%call quemutt#FirstInPost()<CR>
 endfunction
 
 " << refactored to here
