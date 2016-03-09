@@ -544,6 +544,46 @@ let g:pandoc#syntax#critic_markup = 0
 " Setup 8 digit numbers as date format even without dashes
 au! User * SpeedDatingFormat %Y%m%d
 
+
+aug mutt_mail
+	au!
+	au FileType mail call QueMutt()
+	au VimEnter * doautoa FileType | %call quemutt#FirstInPost()
+aug END
+
+function! QueMutt()
+	command! Reflow call quemutt#FixFlowed()
+	autocmd mutt_mail BufWritePre * call quemutt#FixIndented()
+	autocmd mutt_mail BufReadPost * call quemutt#FixFlowed()
+	set wrap
+	set nosmartindent
+	set textwidth=72
+	set linebreak
+	set formatoptions=2tcqaw
+	set digraph
+	set spell!
+	set display+=lastline
+
+	" Less comments
+	"set comments=n:>,n::,n:#,n:%,n:\|
+
+	" Open folds so our field jumper doesn't choke
+	normal zr
+
+	" Autocomplete email addresses for mutt
+	DeopleteEnable
+	set omnifunc=mailcomplete#Complete
+	let g:deoplete#omni_patterns.mail = ['^\u\l\+: \w\w\w\+']
+
+	" Move around by line even in wrapped lines
+	map j gj
+	map k gk
+
+	" Jump throuph things that get filled in
+	map <C-n> :%call quemutt#FirstInPost()<CR>
+	imap <C-n> <Esc>%call quemutt#FirstInPost<CR>
+endfunction
+
 " << refactored to here
 
 set fencs=utf8,cp1254,latin1
@@ -602,10 +642,6 @@ map <M-;> :
 imap <M-;> <Esc><Esc>:
 
 map <F5> :set hlsearch!<bar>set hlsearch?<CR>
-
-if &filetype == "mail"
-	set nosmartindent
-endif
 
 " function MyTabOrComplete()
 "	 let col = col('.')-1
