@@ -548,13 +548,13 @@ au! User * SpeedDatingFormat %Y%m%d
 aug mutt_mail
 	au!
 	au FileType mail call QueMutt()
-	au VimEnter * doautoa FileType | %call quemutt#FirstInPost()
+	au VimEnter * doautoa FileType
 aug END
 
 function! QueMutt()
 	command! Reflow call quemutt#FixFlowed()
 	autocmd mutt_mail BufWritePre * call quemutt#FixIndented()
-	autocmd mutt_mail BufReadPost * call quemutt#FixFlowed()
+	autocmd mutt_mail BufReadPost * call quemutt#FixFlowed() | %call quemutt#FirstInPost()
 	set wrap
 	set nosmartindent
 	set textwidth=72
