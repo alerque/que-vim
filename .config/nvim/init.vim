@@ -66,6 +66,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 Plug 'cazador481/fakeclip.neovim'
 Plug 'majutsushi/tagbar'
+Plug 'vim-scripts/PreserveNoEOL'
 call plug#end()
 
 " Default indent style when no filetype specific style guide is in place
@@ -583,6 +584,9 @@ function! QueMutt()
 	map <C-n> :%call quemutt#FirstInPost()<CR>
 	imap <C-n> <Esc>:%call quemutt#FirstInPost()<CR>
 endfunction
+
+" Don't add trailing new lines if the file didn't have one when opened
+let g:PreserveNoEOL = 1
 
 " << refactored to here
 
