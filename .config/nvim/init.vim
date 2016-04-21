@@ -285,9 +285,6 @@ set history=1000
 " Show ruller at bottom
 set ruler
 
-" Enably syntax coloring and related features
-syntax on
-
 " Highlight matchign brackets
 set showmatch
 
