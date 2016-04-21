@@ -533,6 +533,22 @@ nmap gA <Plug>(EasyAlign)
 " Mapping to pull up ctags based navigator
 nmap \t :TagbarToggle<CR>
 
+" Add support for markdown files in tagbar.
+let g:tagbar_type_markdown = {
+    \ 'ctagstype': 'markdown',
+    \ 'ctagsbin' : 'markdown2ctags',
+    \ 'ctagsargs' : '-f - --sort=yes',
+    \ 'kinds' : [
+        \ 's:sections',
+        \ 'i:images'
+    \ ],
+    \ 'sro' : '|',
+    \ 'kind2scope' : {
+        \ 's' : 'section',
+    \ },
+    \ 'sort': 0,
+	\ }
+
 " Disable CriticMarkup support in plugins that have it in favor of the
 " dedicated plugin that injects it as an addition.
 let g:markdown_criticmarkup = 0
