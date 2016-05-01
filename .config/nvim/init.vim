@@ -601,6 +601,12 @@ endfunction
 " Don't add trailing new lines if the file didn't have one when opened
 let g:PreserveNoEOL = 1
 
+" For poor laptop and other pathetic (non Kinesis Advantage) map CTRL-e to Esc
+nnoremap <C-e> <Esc>
+vnoremap <C-e> <Esc>gV
+onoremap <C-e> <Esc>
+inoremap <C-e> <Esc>`^
+
 " << refactored to here
 
 set fencs=utf8,cp1254,latin1
