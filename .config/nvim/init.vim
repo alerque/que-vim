@@ -585,7 +585,7 @@ function! QueMutt()
 	normal zr
 
 	" Autocomplete email addresses for mutt
-	DeopleteEnable
+	call deoplete#enable()
 	set omnifunc=mailcomplete#Complete
 	let g:deoplete#omni_patterns.mail = ['^\(To\|Cc\|Bcc\|From\|Reply-To\)\+: \w\w\w\+']
 
