@@ -4,7 +4,7 @@
 let b:keymap_name = "dvorak2turkishf"
 loadkeymap
 ; f
-, g
+\, g
 . ğ
 p ı
 y o
@@ -14,9 +14,7 @@ c n
 r h
 l p
 / q
-<M-/> ?
 @ w
-<M-@> @
 \\ x
 <M-\\> \
 a u
@@ -30,10 +28,8 @@ t m
 n l
 s y
 - ş
-<M--> -
 ­ -
 ' j
-<M-'> '
 q ö
 j v
 k c
@@ -54,7 +50,6 @@ C N
 R H
 L P
 ? Q
-<M-?> ?
 ¿ ?
 ^ W
 | X
@@ -70,7 +65,6 @@ N L
 S Y
 _ Ş
 \" J
-<M-"> "
 Q Ö
 J V
 K C
@@ -81,6 +75,13 @@ W B
 V :
 Z ;
 
+" Helpers to get some things from the DVP positions using Alt
+<M-/> ?
+<M-@> @
+<M--> -
+<M-'> '
+<M-?> ?
+<M-"> "
 <M-s> §
 
 " Because typeing Shift+Alt- on Advantage/DVORAK is not as good as normal
