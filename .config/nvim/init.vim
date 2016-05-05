@@ -561,9 +561,13 @@ let g:markdown_criticmarkup = 0
 let g:pandoc#syntax#critic_markup = 0
 "let g:markdown_criticmarkup_force_colors = 1
 
+" Configure handling of smart (curly) quotes across plugins
+let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}", "ip", "it", "iq", "aq", "iQ", "aQ"]
+map <silent> <leader>qc <Plug>ReplaceWithCurly
+map <silent> <leader>qs <Plug>ReplaceWithStraight
+
 " Setup 8 digit numbers as date format even without dashes
 au! User * SpeedDatingFormat %Y%m%d
-
 
 aug mutt_mail
 	au!
