@@ -2,6 +2,11 @@
 " https://github.com/junegunn/vim-plug
 call plug#begin()
 
+" Map Neovim's external plugin update function (no args) to vim-plug's (1 arg)
+function! DoRemote(arg)
+	UpdateRemotePlugins
+endfunction
+
 " My plugins
 "Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
@@ -20,7 +25,7 @@ Plug 'gcmt/wildfire.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'sdanielf/vim-stdtabs'
 Plug 'vim-airline/vim-airline'
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdcommenter'
 "Plug 'vim-scripts/taglist.vim'
