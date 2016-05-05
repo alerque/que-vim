@@ -28,6 +28,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/syntastic'
 "Plug 'vim-scripts/taglist.vim'
 "Plug 'jcf/vim-latex'
 "Plug 'git://git.code.sf.net/p/atp-vim/code'
@@ -611,6 +612,15 @@ nnoremap <C-e> <Esc>
 vnoremap <C-e> <Esc>gV
 onoremap <C-e> <Esc>
 inoremap <C-e> <Esc>`^
+
+" Configure Syntastic
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_ignore_files = ['^/usr/', '*node_modules*', '*vendor*', '*build*', '*LOCAL*', '*BASE', '*REMOTE*']
+let g:syntastic_quiet_messages = { "level": "[]", "file": ['*_LOCAL_*', '*_BASE_*', '*_REMOTE_*']  }
 
 " << refactored to here
 
