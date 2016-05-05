@@ -57,6 +57,7 @@ Plug 'reedes/vim-lexical'
 Plug 'reedes/vim-wordy'
 Plug 'kana/vim-textobj-user'
 Plug 'reedes/vim-textobj-sentence'
+Plug 'reedes/vim-textobj-quote'
 Plug 'alerque/vim-sile', { 'for': 'sile' }
 Plug 'severin-lemaignan/vim-minimap'
 Plug '907th/vim-auto-save'
@@ -261,8 +262,6 @@ autocmd BufRead COMMIT_EDITMSG setlocal spell!
 set matchpairs+=�:�
 set matchpairs+=«:»
 set matchpairs+=‹:›
-set matchpairs+=“:”
-set matchpairs+=‘:’
 set matchpairs+=►:◄
 
 " Use system clipboard for anonymous register
@@ -513,6 +512,7 @@ augroup pencil
 	autocmd FileType pandoc,markdown,mkd,text,tex,sile
 		\  call lexical#init()
 		\| call textobj#sentence#init()
+		\| call textobj#quote#init()
 		\| call pencil#init()
 augroup END
 
