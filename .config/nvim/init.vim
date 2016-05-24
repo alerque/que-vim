@@ -12,7 +12,7 @@ endfunction
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-surround'
+Plug 'alerque/vim-surround'
 Plug 'tpope/vim-tbone'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
