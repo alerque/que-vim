@@ -627,6 +627,14 @@ let g:syntastic_warning_symbol='⚠'
 let g:syntastic_ignore_files = ['^/usr/', '*node_modules*', '*vendor*', '*build*', '*LOCAL*', '*BASE', '*REMOTE*']
 let g:syntastic_quiet_messages = { "level": "[]", "file": ['*_LOCAL_*', '*_BASE_*', '*_REMOTE_*']  }
 
+
+" Configure NERD Commenter
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDAltDelims_c = 1
+" let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
 " << refactored to here
 
 set fencs=utf8,cp1254,latin1
