@@ -631,7 +631,8 @@ let g:syntastic_quiet_messages = { "level": "[]", "file": ['*_LOCAL_*', '*_BASE_
 " Mapping to toggle educate (smart quote) mode from vim-textobj-quote
 map <Leader>e :ToggleEducate<CR>
 
-" Configure NERD Commenter
+au VimEnter * if &diff | execute 'windo set wrap' | endif
+
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
