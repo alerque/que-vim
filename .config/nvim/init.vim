@@ -268,7 +268,7 @@ set matchpairs+=►:◄
 
 " Use system clipboard for anonymous register
 set clipboard+=unnamedplus
-let g:vim_fakeclip_tmux_plus=1
+let g:vim_fakeclip_tmux_plus = 0
 
 " Enable backspace over indent,eol,start,etc
 set backspace=2
