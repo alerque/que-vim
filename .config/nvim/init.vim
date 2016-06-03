@@ -167,6 +167,7 @@ else
 	" See issue https://github.com/neovim/neovim/issues/2953
 	autocmd VimEnter * colorscheme molokai
 endif
+let g:molokai_italic = 0
 
 " Highlight current line
 set cursorline
