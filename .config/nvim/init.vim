@@ -639,6 +639,9 @@ let g:NERDDefaultAlign = 'left'
 let g:NERDAltDelims_c = 1
 " let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 
+" Force GitGutter to always show the sign column
+let g:gitgutter_sign_column_always = 1
+
 " << refactored to here
 
 set fencs=utf8,cp1254,latin1
