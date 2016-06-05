@@ -508,7 +508,7 @@ let g:lexical#spell = 0
 nnoremap <silent> <leader>s :NextWordy<cr>
 let g:pencil#wrapModeDefault = 'soft'
 let g:pencil#concealcursor = 'nc'
-let g:pencil#conceallevel = 2
+let g:pencil#conceallevel = 0
 augroup pencil
 	autocmd!
 	autocmd FileType pandoc,markdown,mkd,text,tex,sile
