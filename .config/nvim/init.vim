@@ -74,7 +74,7 @@ Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 Plug 'cazador481/fakeclip.neovim'
 Plug 'majutsushi/tagbar'
 Plug 'rust-lang/rust.vim'
-Plug 'vim-scripts/PreserveNoEOL'
+" Plug 'vim-scripts/PreserveNoEOL'
 call plug#end()
 
 " Default indent style when no filetype specific style guide is in place
