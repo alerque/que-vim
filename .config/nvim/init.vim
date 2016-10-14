@@ -33,7 +33,7 @@ Plug 'scrooloose/syntastic'
 "Plug 'jcf/vim-latex'
 "Plug 'git://git.code.sf.net/p/atp-vim/code'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'Lokaltog/vim-easymotion'
+Plug 'justinmk/vim-sneak'
 Plug 'wesQ3/vim-windowswap'
 Plug 'sheerun/vim-polyglot'
 Plug 'lordm/vim-browser-reload-linux'
@@ -295,13 +295,10 @@ set ruler
 " Highlight matchign brackets
 set showmatch
 
-" Easy motino bindings ala https://github.com/Lokaltog/vim-easymotion
-let g:EasyMotion_do_mapping = 0
-let g:EasyMotion_use_upper = 1
-let g:EasyMotion_smartcase = 1
-nmap s <Plug>(easymotion-s2)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
+" Setup sneak (in leu of EasyMotion)
+let g:sneak#streak = 1
+let g:sneak#use_ic_scs = 1
+let g:sneak#target_labels = "aoeuiypqjkxsnthdfgcrlbmwvzAOEUIYPQJKXSNTHDFGCRLBMWVZ"
 
 " Swap windows around between panes
 let g:windowswap_map_keys = 0 "prevent default bindings
