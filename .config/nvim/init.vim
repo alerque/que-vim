@@ -57,7 +57,7 @@ Plug 'reedes/vim-lexical'
 Plug 'reedes/vim-wordy'
 Plug 'kana/vim-textobj-user'
 Plug 'reedes/vim-textobj-sentence'
-Plug 'reedes/vim-textobj-quote', { 'for': [ 'markdown', 'pandoc'] }
+Plug 'reedes/vim-textobj-quote'
 Plug 'alerque/vim-sile', { 'for': 'sile' }
 Plug 'severin-lemaignan/vim-minimap'
 Plug '907th/vim-auto-save'
@@ -511,7 +511,7 @@ augroup pencil
 	autocmd FileType pandoc,markdown,mkd,text,tex,sile
 		\  call lexical#init()
 		\| call textobj#sentence#init()
-		\| call textobj#quote#init()
+		\| call textobj#quote#init({'educate': 0})
 		\| call pencil#init()
 augroup END
 
