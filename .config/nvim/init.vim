@@ -58,6 +58,7 @@ Plug 'reedes/vim-wordy'
 Plug 'kana/vim-textobj-user'
 Plug 'reedes/vim-textobj-sentence'
 Plug 'reedes/vim-textobj-quote'
+Plug 'reedes/vim-wheel'
 Plug 'alerque/vim-sile', { 'for': 'sile' }
 Plug 'severin-lemaignan/vim-minimap'
 Plug '907th/vim-auto-save'
