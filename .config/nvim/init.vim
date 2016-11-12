@@ -640,6 +640,9 @@ let g:NERDAltDelims_c = 1
 " Force GitGutter to always show the sign column
 let g:gitgutter_sign_column_always = 1
 
+" Unset F option from campatability mode so we can use Alt keys in keymaps
+set cpoptions-=F
+
 " << refactored to here
 
 set fencs=utf8,cp1254,latin1

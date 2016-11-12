@@ -2,9 +2,10 @@
 " See: http://vim.wikia.com/wiki/Insert-mode_only_Caps_Lock
 " See: http://vi.stackexchange.com/q/2260/267
 let b:keymap_name = "dvorak2turkishf"
+
 loadkeymap
 ; f
-\, g
+, g
 . ğ
 p ı
 y o
@@ -16,7 +17,6 @@ l p
 / q
 @ w
 \\ x
-<M-\\> \
 a u
 o i
 e e
@@ -40,7 +40,7 @@ w b
 v .
 z ,
 : F
-\< G
+< G
 > Ğ
 P I
 Y O
@@ -83,6 +83,7 @@ Z ;
 <M-?> ?
 <M-"> "
 <M-s> §
+<M-\\> \
 
 " Because typeing Shift+Alt- on Advantage/DVORAK is not as good as normal
 " Turkish-F positions
