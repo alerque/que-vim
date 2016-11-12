@@ -559,7 +559,7 @@ let g:tagbar_type_markdown = {
 " dedicated plugin that injects it as an addition.
 let g:markdown_criticmarkup = 0
 let g:pandoc#syntax#critic_markup = 0
-"let g:markdown_criticmarkup_force_colors = 1
+let g:markdown_criticmarkup_force_colors = 1
 
 " Configure handling of smart (curly) quotes across plugins
 let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}", "ip", "it", "iq", "aq", "iQ", "aQ"]
