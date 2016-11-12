@@ -509,7 +509,7 @@ let g:pencil#concealcursor = 'nc'
 let g:pencil#conceallevel = 0
 augroup pencil
 	autocmd!
-	autocmd FileType pandoc,markdown,mkd,text,tex,sile
+	autocmd FileType pandoc,markdown,mkd,text,tex,sile,usfm
 		\  call lexical#init()
 		\| call textobj#sentence#init()
 		\| call textobj#quote#init({'educate': 0})
