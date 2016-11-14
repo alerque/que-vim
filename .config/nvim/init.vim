@@ -81,6 +81,7 @@ call plug#end()
 " Default indent style when no filetype specific style guide is in place
 set tabstop=4
 set shiftwidth=4
+set shiftround
 set noexpandtab
 set cindent
 set autoindent
@@ -283,6 +284,7 @@ set incsearch
 " Ignore case of search unless they have a capital
 set ignorecase
 set smartcase
+set infercase
 
 " Give context when scrolling
 set scrolloff=2
@@ -650,29 +652,26 @@ set cpoptions-=F
 " works. Adds Windows' Turkish encoding to defaults as check if Latin 1 fails.
 set fileencodings=ucs-bom,utf8,default,latin1,cp1254
 
-" << refactored to here
-
-set infercase
-set shiftround
-set wildmenu
-"set nowrap
+" Explicitly enable creation of backup files
 set backup
-set backupskip=
-set backupdir=.
+
+" Done reset cursor to the start of lines after linewise commands
 set nostartofline
-"set list
-"set listchars=tab:>-
+
+" Setup verticle split behavior
 set splitright
 set diffopt+=vertical
 cabbrev help vert help
-set shell=zsh
 
+" Add macro to re-select the last affected block
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
+" <esc>I sets paste mode
 nmap I :set paste<Cr>i
-"<esc>I sets paste mode
+" <esc>i clears paste mode
 nmap i :set nopaste<Cr>i
-"<esc>i clears paste mode
+
+" << refactored to here
 
 let fileType = &ft
 if fileType == 'php'
