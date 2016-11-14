@@ -85,6 +85,10 @@ set shiftround
 set noexpandtab
 set cindent
 set autoindent
+
+" Don't wrap long lines by default (override for prose file types & Goyo mode)
+set nowrap
+
 " Setup discraction free mode including tmux integration and limelight
 let g:goyo_width = 80
 let g:goyo_margin_top = 2
@@ -677,35 +681,13 @@ nmap i :set nopaste<Cr>i
 " Map space to page down in normal mode
 map <space> <C-d>
 
-" << refactored to here
-
-
-" imap <C-g> <C-x><C-f>	" File complete on ctrl g
-
-" alt+: on most machines
-map � :
-imap � <Esc><Esc>:
-
-" alt+: on rhino
-map ; :
-map ; <Esc><Esc>:
-
+" Use Alt+; as shortcut co command prompt (modern terminal + nvim only, see
+" git gistory for how to do this on older systems).
 map <M-;> :
 imap <M-;> <Esc><Esc>:
 
+" Toggle search result highlighting
 map <F5> :set hlsearch!<bar>set hlsearch?<CR>
-
-" function MyTabOrComplete()
-"	 let col = col('.')-1
-"	 if !col || getline('.')[col-1] !~ '\k'
-"		 return "\<tab>"
-""	 else
-"		 return "\<C-X>\<C-O>"
-"	 endif
-" endfunction
-" inoremap <Tab> <C-R>=MyTabOrComplete()<CR>
-
-set nowrap
 
 if !exists("*VeryBeautyQuote")
 	function VeryBeautyQuote (...) range
@@ -753,12 +735,5 @@ if !exists("*VeryBeautyQuote")
 	" Execute this command to beautifully rearrange the quoted lines.
 	com Vbq :let strl = line('.')<Bar>:%call VeryBeautyQuote()<Bar>:exec strl
 endif
-
-"let fileType = &ft
-"if fileType == 'php'
-"	iab _S $_SERVER[']hi
-"	iab _P $_POST[']hi
-"	iab _G $_GET[']hi
-"endif
 
 " vim: ts=4:sw=4:noet
