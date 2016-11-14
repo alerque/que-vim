@@ -387,12 +387,15 @@ xnoremap <leader>p "0p
 "imap <s-tab> <c-d>
 "let g:neocomplete#enable_at_startup = 0
 
-" Configure line wrapping to indent broken lines, only break on words and not
-" reformat lines when editing
+" Configure line wrapping to indent broken lines, only break on words, don't
+" reformat long lines when editing, include comment leader wher reformatting,
+" avoid single letter words at the end of lines, use the 2nd line in
+" paragraphs for indent reference, and don't add space between multi-byte
+" characters when joining.
 set breakindent
 set linebreak
 set showbreak=…
-set formatoptions+=l
+set formatoptions+=lr12B
 
 " Fuzzy finder FZF (replacing ctrlp because it's faster)
 nnoremap <silent> <Leader>f :FZF<CR>
@@ -657,7 +660,6 @@ set backup
 set backupskip=
 set backupdir=.
 set nostartofline
-set fo+=r
 "set list
 "set listchars=tab:>-
 set splitright
