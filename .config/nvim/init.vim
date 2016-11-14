@@ -671,17 +671,14 @@ nmap I :set paste<Cr>i
 " <esc>i clears paste mode
 nmap i :set nopaste<Cr>i
 
+" Do and insert results of fancy math equations via python
+:command! -nargs=+ Calc :r! python -c "from math import *; print (<args>)"
+
+" Map space to page down in normal mode
+map <space> <C-d>
+
 " << refactored to here
 
-":command! -nargs=+ Calc :py print <args>
-":py from math import *
-:command! -nargs=+ Calc :r! python -c "from math import *; print <args>"
-
-"map ' `	" switch mark jumps so ' goes to column
-"map ` '	" and ` goes to row
-
-"map <space> i_<esc>r
-map <space> <C-d>
 
 " imap <C-g> <C-x><C-f>	" File complete on ctrl g
 
