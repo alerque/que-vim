@@ -643,9 +643,12 @@ let g:gitgutter_sign_column_always = 1
 " Unset F option from campatability mode so we can use Alt keys in keymaps
 set cpoptions-=F
 
+" Set file encoding, first checking for byte order mark, then seeing if UTF8
+" works. Adds Windows' Turkish encoding to defaults as check if Latin 1 fails.
+set fileencodings=ucs-bom,utf8,default,latin1,cp1254
+
 " << refactored to here
 
-set fencs=utf8,cp1254,latin1
 set infercase
 set shiftround
 set wildmenu
