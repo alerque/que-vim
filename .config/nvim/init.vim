@@ -673,14 +673,6 @@ nmap i :set nopaste<Cr>i
 
 " << refactored to here
 
-let fileType = &ft
-if fileType == 'php'
-	set kp=/home/users/caleb/bin/phpman
-	"iab _S $_SERVER[']i
-	"iab _P $_POST[']i
-	"iab _G $_GET[']i
-endif
-
 ":command! -nargs=+ Calc :py print <args>
 ":py from math import *
 :command! -nargs=+ Calc :r! python -c "from math import *; print <args>"
