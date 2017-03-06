@@ -736,4 +736,7 @@ if !exists("*VeryBeautyQuote")
 	com Vbq :let strl = line('.')<Bar>:%call VeryBeautyQuote()<Bar>:exec strl
 endif
 
+" Default to having folds open on buffer load
+set foldlevelstart=10
+
 " vim: ts=4:sw=4:noet
