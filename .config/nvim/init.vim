@@ -75,7 +75,7 @@ Plug 'cazador481/fakeclip.neovim'
 Plug 'majutsushi/tagbar'
 Plug 'rust-lang/rust.vim'
 Plug 'bluz71/vim-moonfly-colors'
-Plug 'tomasr/molokai'
+Plug 'justinmk/molokai'
 " Plug 'vim-scripts/PreserveNoEOL'
 call plug#end()
 
