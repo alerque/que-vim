@@ -74,6 +74,7 @@ Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 Plug 'cazador481/fakeclip.neovim'
 Plug 'majutsushi/tagbar'
 Plug 'rust-lang/rust.vim'
+Plug 'tomasr/molokai'
 " Plug 'vim-scripts/PreserveNoEOL'
 call plug#end()
 
