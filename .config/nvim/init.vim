@@ -164,13 +164,8 @@ set showcmd
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
-if &diff
-	colorscheme ps_color
-else
-	"colorscheme torte
-	"colorscheme vividchalk
-	colorscheme molokai
-endif
+" Run my favorite color scheme
+colorscheme molokai
 let g:molokai_italic = 0
 
 " Highlight current line
