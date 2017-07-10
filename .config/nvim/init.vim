@@ -170,9 +170,6 @@ else
 	"colorscheme torte
 	"colorscheme vividchalk
 	colorscheme molokai
-	" NeoVim no longer has GUI running on first startup
-	" See issue https://github.com/neovim/neovim/issues/2953
-	autocmd VimEnter * colorscheme molokai
 endif
 let g:molokai_italic = 0
 
