@@ -171,6 +171,14 @@ let g:molokai_italic = 0
 " Highlight current line
 set cursorline
 
+" Disable cursorline when entering diff mode
+" https://vi.stackexchange.com/a/12852/267
+augroup MyCursorLine
+  au!
+  au FilterWritePost * if &diff | let &cul=0 |endif
+  au BufEnter * if !&diff | let &cul=1 |endif
+augroup end
+
 " Remove underline from cursor line in vividchalk
 autocmd VimEnter,ColorScheme * highlight CursorLine cterm=NONE
 
