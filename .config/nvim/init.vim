@@ -530,6 +530,7 @@ augroup END
 let g:auto_save = 0
 let g:auto_save_in_insert_mode = 1
 let g:auto_save_events = ["InsertLeave", "TextChanged"]
+let g:auto_save_events = [ "CursorHold", "CursorHoldI", "CompleteDone", "InsertLeave" ]
 let g:auto_save_silent = 1
 
 " Explicitly enable True Color and cursor features for Neovim
