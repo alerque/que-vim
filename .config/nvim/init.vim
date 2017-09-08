@@ -648,7 +648,7 @@ let g:NERDAltDelims_c = 1
 " let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 
 " Force GitGutter to always show the sign column
-let g:gitgutter_sign_column_always = 1
+set signcolumn=yes
 
 " Unset F option from campatability mode so we can use Alt keys in keymaps
 set cpoptions-=F
