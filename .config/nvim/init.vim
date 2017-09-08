@@ -77,6 +77,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'bluz71/vim-moonfly-colors'
 Plug 'justinmk/molokai'
 " Plug 'vim-scripts/PreserveNoEOL'
+Plug 'equalsraf/neovim-gui-shim'
 call plug#end()
 
 " Default indent style when no filetype specific style guide is in place
@@ -128,16 +129,15 @@ let g:airline#extensions#tabline#enabled = 1
 
 " Do some special things for GVim/MacVim only
 if has('gui_running')
-	" Add a touch of breathing room per line
-	set linespace=2
+	" See ginit.vim for GoNVIM config
 
 	" Request powerline patched font
 	if has('gui_gtk2')
-		set guifont=Liberation\ Mono\ for\ Powerline\ 10
+		set guifont=Hack\ 10
 	elseif has('gui_win32')
 		" TODO: pick out windows font
 	elseif has('gui_macvim')
-		set guifont=Literation\ Mono\ Powerline:h12
+		set guifont=Hack:h10
 		set transparency=15
 	endif
 

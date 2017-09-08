@@ -21,6 +21,7 @@
 !/.config/nvim/ftplugin/javascript/jslint/runjslint.js
 !/.config/nvim/ftplugin/javascript/jslint/runjslint.wsf
 !/.config/nvim/ftplugin/javascript/jslint.vim
+!/.config/nvim/ginit.vim
 !/.config/nvim/init.vim
 !/.config/nvim/keymap
 !/.config/nvim/keymap/dvorak2turkishf.vim
