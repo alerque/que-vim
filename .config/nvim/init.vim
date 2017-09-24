@@ -356,11 +356,11 @@ vnoremap <silent> # :<C-U>
 " Set default vimchant language to turkish (requires hunspell-tr)
 let g:vimchant_spellcheck_lang = 'tr'
 
-" Alternate insert mode with Turkish-F keyboard emulation (from Dvorak)
+" Alternate insert mode with Turkish-F keyboard emulation (from Programer's Dvorak)
 " See: http://vim.wikia.com/wiki/Insert-mode_only_Caps_Lock
 " See: http://vi.stackexchange.com/q/2260/267
 set imsearch=-1
-set keymap=dvorak2turkishf
+set keymap=dvp2ptf
 set iminsert=0
 "autocmd InsertLeave * set iminsert=0
 "nnoremap <leader>i :set iminsert=1<Cr>i

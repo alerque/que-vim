@@ -1,7 +1,7 @@
 " Alternate insert mode with Turkish-F keyboard emulation (from Dvorak)
 " See: http://vim.wikia.com/wiki/Insert-mode_only_Caps_Lock
 " See: http://vi.stackexchange.com/q/2260/267
-let b:keymap_name = "dvorak2turkishf"
+let b:keymap_name = "dvp2ptf"
 
 loadkeymap
 ; f
