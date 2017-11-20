@@ -286,6 +286,9 @@ set hlsearch
 " Do incremental search
 set incsearch
 
+" Show live feedback durring commands via split pane
+set inccommand=split
+
 " Ignore case of search unless they have a capital
 set ignorecase
 set smartcase
