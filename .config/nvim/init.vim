@@ -78,6 +78,7 @@ Plug 'bluz71/vim-moonfly-colors'
 Plug 'justinmk/molokai'
 " Plug 'vim-scripts/PreserveNoEOL'
 Plug 'equalsraf/neovim-gui-shim'
+Plug 'machakann/vim-highlightedyank'
 call plug#end()
 
 " Default indent style when no filetype specific style guide is in place
