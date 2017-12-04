@@ -77,7 +77,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'bluz71/vim-moonfly-colors'
 Plug 'justinmk/molokai'
 " Plug 'vim-scripts/PreserveNoEOL'
-Plug 'equalsraf/neovim-gui-shim'
+Plug 'equalsraf/neovim-gui-shim' 
 Plug 'machakann/vim-highlightedyank'
 call plug#end()
 
@@ -173,7 +173,7 @@ let g:molokai_italic = 0
 set cursorline
 
 " Disable cursorline when entering diff mode
-" https://vi.stackexchange.com/a/12852/267
+" https://vi.stackexchange.com/a/12852/267 
 augroup MyCursorLine
   au!
   au FilterWritePost * if &diff | let &cul=0 |endif
@@ -441,14 +441,14 @@ function! CmdLineDirComplete(prefix, options, rawdir)
     if isdirectory(expand(l:dirprefix))
         return join(a:prefix + map(fzf#run({
                     \'options': a:options . ' --select-1  --query=' .
-                    \ a:rawdir[matchend(a:rawdir,"^.*/"):len(a:rawdir)],
+                    \ a:rawdir[matchend(a:rawdir,"^.*/"):len(a:rawdir)], 
                     \'dir': expand(l:dirprefix)
-                    \}),
+                    \}), 
                     \'"' . escape(l:dirprefix, " ") . '" . escape(v:val, " ")'))
     else
         return join(a:prefix + map(fzf#run({
                     \'options': a:options . ' --query='. a:rawdir }),
-                    \'escape(v:val, " ")'))
+                    \'escape(v:val, " ")')) 
         "dropped --select-1 to speed things up on a long query
 endfunction
 
@@ -463,15 +463,15 @@ function! GetCompletions()
                 \ '^ed\=i\=t\=$\|^spl\=i\=t\=$\|^tabed\=i\=t\=$\|^arged\=i\=t\=$\|^vsp\=l\=i\=t\=$'
                 "single-argument file commands
         return CmdLineDirComplete(l:Prefix, "",l:cmdline_list[-1])
-    elseif len(l:Prefix) > 0 && l:Prefix[0] =~
-                \ '^arg\=s\=$\|^ne\=x\=t\=$\|^sne\=x\=t\=$\|^argad\=d\=$'
+    elseif len(l:Prefix) > 0 && l:Prefix[0] =~ 
+                \ '^arg\=s\=$\|^ne\=x\=t\=$\|^sne\=x\=t\=$\|^argad\=d\=$'  
                 "multi-argument file commands
         return CmdLineDirComplete(l:Prefix, '--multi', l:cmdline_list[-1])
-    else
+    else 
         return join(l:Prefix + fzf#run({
-                    \'source':l:FZF_Cmd_Completion_List,
+                    \'source':l:FZF_Cmd_Completion_List, 
                     \'options': '--select-1 --query='.shellescape(l:cmdline_list[-1])
-                    \}))
+                    \})) 
     endif
 endfunction
 
@@ -531,7 +531,7 @@ augroup pencil
 augroup END
 
 " Setup autosave plugin, off by default, enable with :AutoSaveToggle
-let g:auto_save = 0
+let g:auto_save = 0 
 let g:auto_save_in_insert_mode = 1
 let g:auto_save_events = ["InsertLeave", "TextChanged"]
 let g:auto_save_events = [ "CursorHold", "CursorHoldI", "CompleteDone", "InsertLeave" ]
