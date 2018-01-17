@@ -78,8 +78,9 @@ Plug 'rust-lang/rust.vim'
 Plug 'bluz71/vim-moonfly-colors'
 Plug 'justinmk/molokai'
 " Plug 'vim-scripts/PreserveNoEOL'
-Plug 'equalsraf/neovim-gui-shim' 
+Plug 'equalsraf/neovim-gui-shim'
 Plug 'machakann/vim-highlightedyank'
+Plug 'pangloss/vim-javascript'
 call plug#end()
 
 " Default indent style when no filetype specific style guide is in place
@@ -745,5 +746,8 @@ endif
 
 " Default to having folds open on buffer load
 set foldlevelstart=10
+
+" Setup extras in JS syntax plugin
+let g:javascript_plugin_jsdoc = 1
 
 " vim: ts=4:sw=4:noet
