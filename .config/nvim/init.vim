@@ -25,6 +25,7 @@ Plug 'gcmt/wildfire.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'sdanielf/vim-stdtabs'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdcommenter'
