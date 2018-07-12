@@ -204,6 +204,9 @@ let g:atp_ProjectScript = 0
 let g:tex_flavor = "latex"
 let g:atp_developer = 1
 
+" Stop vim-polyglot from loading for TeX, using vimtex instead
+let g:polyglot_disabled = ['latex']
+
 set mouse=a
 
 " http://www.vimbits.com/bits/20
