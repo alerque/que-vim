@@ -614,7 +614,9 @@ function! QueMutt()
 	" Autocomplete email addresses for mutt
 	call deoplete#enable()
 	set omnifunc=mailcomplete#Complete
-	let g:deoplete#omni_patterns.mail = ['^\(To\|Cc\|Bcc\|From\|Reply-To\)\+: \w\w\w\+']
+	call deoplete#custom#option('omni_patterns', {
+		\ 'mail': '^\(To\|Cc\|Bcc\|From\|Reply-To\)\+: \w\w\w\+',
+		\})
 
 	" Move around by line even in wrapped lines
 	map j gj
