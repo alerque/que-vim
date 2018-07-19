@@ -191,8 +191,8 @@ set fillchars=vert:│
 " Match split background to tmux scheme
 autocmd VimEnter,ColorScheme * highlight VertSplit cterm=NONE ctermfg=Green ctermbg=NONE
 
-map - \cn
-map _ \cu
+map - <Leader>cn
+map _ <Leader>cu
 
 map Q <Nop>
 
