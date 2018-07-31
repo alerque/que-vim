@@ -127,6 +127,7 @@ let g:goyo_callbacks = [function('Goyo_before'), function('Goyo_after')]
 set laststatus=2
 
 " Configure airline to use powerline patched fonts and manage the tabbar too
+let g:airline_theme = 'molokai'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
@@ -490,7 +491,6 @@ let VimuxUseNearest = 1
 nnoremap <leader>p :VimuxPromptCommand<Cr>
 nnoremap <leader>l :VimuxRunLastCommand<Cr>
 
-set timeout timeoutlen=3000
 set nottimeout
 
 " Configure tmux navigator to use alt instead of control to match my tmux
