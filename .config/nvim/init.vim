@@ -82,6 +82,7 @@ Plug 'equalsraf/neovim-gui-shim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'pangloss/vim-javascript'
 Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
+Plug 'djoshea/vim-autoread'
 call plug#end()
 
 " Default indent style when no filetype specific style guide is in place
