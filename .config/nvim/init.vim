@@ -200,7 +200,7 @@ map _ <Leader>cu
 map Q <Nop>
 
 " Shortcut to vim-eunuch's SudoWrite
-cmap w!! call SudoWrite()
+cmap w!! SudoWrite
 
 " Stop ATP from spawning files (see http://vi.stackexchange.com/a/472/267)
 let g:atp_ProjectScript = 0
