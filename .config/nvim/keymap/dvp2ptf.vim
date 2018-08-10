@@ -16,7 +16,7 @@ r h
 l p
 / q
 @ w
-\\ x
+<Bslash> x
 a u
 o i
 e e
@@ -76,16 +76,19 @@ V :
 Z ;
 
 " Helpers to get some things from the DVP positions using Alt
-<M-/> ?
 <M-@> @
+<M-^> ^
 <M--> -
+<M-_> _
 <M-'> '
 <M-?> ?
 <M-"> "
 <M-s> §
-<M-\\> \
+<M-Bslash> \\
+<M-|> |
 
 " Because typeing Shift+Alt- on Advantage/DVORAK is not as good as normal
 " Turkish-F positions
 <M-[> "
-<M-8> ?
+<M-/> ?
+<M-?> /
