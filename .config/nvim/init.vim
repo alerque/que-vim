@@ -690,7 +690,7 @@ nmap i :set nopaste<Cr>i
 map <space> <C-d>
 
 " Use Alt+; as shortcut co command prompt (modern terminal + nvim only, see
-" git gistory for how to do this on older systems).
+" git history for how to do this on older systems).
 map <M-;> :
 imap <M-;> <Esc><Esc>:
 
