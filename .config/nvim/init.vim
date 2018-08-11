@@ -17,6 +17,7 @@ Plug 'tpope/vim-tbone'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'tommcdo/vim-fugitive-blame-ext'
+Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'tpope/vim-markdown', { 'for': ['markdown'] }
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-speeddating'
@@ -510,6 +511,9 @@ nnoremap <leader>gc :Gcommit<Cr>
 nnoremap <leader>gl :Glog<Cr>
 nnoremap <leader>gw :Gwrite<Cr>
 nnoremap <leader>gd :Gvdiff<Cr>
+
+let g:fugitive_gitlab_domains = ['https://gitlab.com', 'https://gitlab.alerque.com']
+" let g:gitlab_api_keys = {'gitlab.com': 'mytoken1', 'my.gitlab.private': 'mytoken2' }
 
 " Shortcut to delete withoud clobbering the registers
 nnoremap <leader>x "_x
