@@ -84,6 +84,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'pangloss/vim-javascript'
 Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
 Plug 'djoshea/vim-autoread'
+Plug 'christoomey/vim-titlecase'
 call plug#end()
 
 " Default indent style when no filetype specific style guide is in place
@@ -753,5 +754,11 @@ set foldlevelstart=10
 
 " Setup extras in JS syntax plugin
 let g:javascript_plugin_jsdoc = 1
+
+" Default title case key bindings conflict with tab control
+let g:titlecase_map_keys = 0
+nmap <leader>gt <Plug>Titlecase
+vmap <leader>gt <Plug>Titlecase
+nmap <leader>gT <Plug>TitlecaseLine
 
 " vim: ts=4:sw=4:noet
