@@ -177,7 +177,7 @@ colorscheme molokai
 let g:molokai_italic = 0
 
 " Highlight current line
-set cursorline
+set nocursorline
 
 " Disable cursorline when entering diff mode
 " https://vi.stackexchange.com/a/12852/267 
