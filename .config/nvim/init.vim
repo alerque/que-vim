@@ -68,7 +68,7 @@ Plug 'gisraptor/vim-lilypond-integrator', { 'for': 'lilypond' }
 Plug 'trusktr/seti.vim'
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': ['markdown', 'pandoc'] }
 Plug 'vim-pandoc/vim-pandoc', { 'for': ['markdown', 'pandoc'] }
-Plug 'vim-pandoc/vim-markdownfootnotes', { 'for': 'pandoc' }
+Plug 'vim-pandoc/vim-markdownfootnotes', { 'for': ['markdown', 'pandoc'] }
 Plug 'vim-pandoc/vim-criticmarkup', { 'for': ['markdown', 'pandoc'] }
 Plug 'benekastah/neomake'
 Plug 'junegunn/vim-easy-align'
@@ -544,9 +544,10 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 " Map Markdown Footnotes manually because its default of <leader>+f is taken
-imap <Leader>^ <Plug>AddVimFootnote
+" inoreabbrev [] <c-o>:exe "normal \<Plug>AddVimFootnote"<cr>
+imap ^^ <Plug>AddVimFootnote
 nmap <Leader>^ <Plug>AddVimFootnote
-imap <Leader>@ <Plug>ReturnFromFootnote
+imap @@ <Plug>ReturnFromFootnote
 nmap <Leader>@ <Plug>ReturnFromFootnote
 
 " Mappings for Easy Alignment plugin
