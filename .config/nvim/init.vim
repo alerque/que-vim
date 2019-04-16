@@ -8,7 +8,6 @@ function! DoRemote(arg)
 endfunction
 
 " My plugins
-"Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-eunuch'
@@ -18,7 +17,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'tommcdo/vim-fugitive-blame-ext'
 Plug 'shumphrey/fugitive-gitlab.vim'
-Plug 'tpope/vim-markdown', { 'for': ['markdown'] }
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-characterize'
@@ -571,11 +569,6 @@ let g:tagbar_type_markdown = {
     \ 'sort': 0,
 	\ }
 
-" Disable CriticMarkup support in plugins that have it in favor of the
-" dedicated plugin that injects it as an addition.
-let g:markdown_criticmarkup = 0
-let g:pandoc#syntax#critic_markup = 0
-let g:markdown_criticmarkup_force_colors = 1
 
 " Configure handling of smart (curly) quotes across plugins
 let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}", "ip", "it", "iq", "aq", "iQ", "aQ"]
