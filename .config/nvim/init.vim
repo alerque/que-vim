@@ -569,6 +569,8 @@ let g:tagbar_type_markdown = {
     \ 'sort': 0,
 	\ }
 
+let g:markdown_fenced_languages = ['html', 'css', 'bash=sh', 'lua', 'python', 'latex=tex']
+let g:pandoc#syntax#codeblocks#embeds#langs = ['html', 'css', 'bash=sh', 'lua', 'python', 'latex=tex']
 
 " Configure handling of smart (curly) quotes across plugins
 let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}", "ip", "it", "iq", "aq", "iQ", "aQ"]
