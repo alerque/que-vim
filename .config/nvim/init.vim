@@ -574,6 +574,9 @@ let g:tagbar_type_markdown = {
 let g:markdown_fenced_languages = ['html', 'css', 'bash=sh', 'lua', 'python', 'latex=tex']
 let g:pandoc#syntax#codeblocks#embeds#langs = ['html', 'css', 'bash=sh', 'lua', 'python', 'latex=tex']
 
+" I use fenced div more than definition lists, see https://github.com/vim-pandoc/vim-pandoc-syntax/issues/236
+let g:pandoc#syntax#use_definition_lists = 0
+
 " Configure handling of smart (curly) quotes across plugins
 let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}", "ip", "it", "iq", "aq", "iQ", "aQ"]
 map <silent> <leader>qc <Plug>ReplaceWithCurly
