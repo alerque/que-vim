@@ -85,6 +85,8 @@ Plug 'djoshea/vim-autoread'
 Plug 'christoomey/vim-titlecase'
 Plug 'zhimsel/vim-stay'
 Plug 'konfekt/fastfold'
+Plug 'meain/vim-package-info', { 'do': 'npm install' }
+Plug 'w0rp/ale'
 call plug#end()
 
 " Default indent style when no filetype specific style guide is in place
