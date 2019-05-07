@@ -524,6 +524,7 @@ nnoremap <leader>gw :Gwrite<Cr>
 nnoremap <leader>gd :Gvdiff<Cr>
 
 let g:fugitive_gitlab_domains = ['https://gitlab.com', 'https://gitlab.alerque.com']
+let g:fugitive_gitlab_ssh_user = 'gitlab'
 try
 	let g:private_keys = system("gpg --use-agent --decrypt --quiet --no-tty --batch $HOME/.private/keys.vim.gpg")
 	execute g:private_keys
