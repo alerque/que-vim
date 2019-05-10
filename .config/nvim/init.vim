@@ -136,6 +136,7 @@ set laststatus=2
 let g:airline_theme = 'molokai'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#wordcount#filetypes = 'pandoc'
 
 " Do some special things for GVim/MacVim only
 if has('gui_running')
@@ -560,7 +561,7 @@ nmap gA <Plug>(EasyAlign)
 nmap \t :TagbarToggle<CR>
 
 " Add support for markdown files in tagbar.
-let g:tagbar_type_markdown = {
+let g:tagbar_type_pandoc = {
     \ 'ctagstype': 'markdown',
     \ 'ctagsbin' : 'markdown2ctags',
     \ 'ctagsargs' : '-f - --sort=yes',
