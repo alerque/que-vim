@@ -650,6 +650,9 @@ function! QueMutt()
 	" Jump throuph things that get filled in
 	map <C-n> :%call quemutt#FirstInPost()<CR>
 	imap <C-n> <Esc>:%call quemutt#FirstInPost()<CR>
+
+	" Disable whitespace highlighting
+	DisableWhitespace
 endfunction
 
 " Don't add trailing new lines if the file didn't have one when opened
