@@ -101,34 +101,43 @@ set autoindent
 " Don't wrap long lines by default (override for prose file types & Goyo mode)
 set nowrap
 
-" Setup discraction free mode including tmux integration and limelight
-let g:goyo_width = 80
+" Setup discraction free mode including tmux integration
+let g:goyo_width = '90%'
+" let g:goyo_height = '100%'
 let g:goyo_margin_top = 2
 let g:goyo_margin_bottom = 2
-let g:limelight_default_coefficient = 0.3
-
 nnoremap <Leader>r :Goyo<CR>
 
-function! Goyo_before()
+function! s:goyo_enter()
 	silent !tmux set status off
 	silent !tmux resize-pane -Z
 	set noshowmode
 	set noshowcmd
 	set wrap
 	set nolist
-	Limelight
+	set scrolloff=999
 endfunction
 
-function! Goyo_after()
+function! s:goyo_leave()
 	silent !tmux set status on
 	silent !tmux resize-pane -Z
 	set showmode
 	set showcmd
 	set nowrap
-	Limelight!
+	set scrolloff=2
 endfunction
 
-let g:goyo_callbacks = [function('Goyo_before'), function('Goyo_after')]
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+" " Setup extra color focus tools to integrate with distraction free mode
+let g:limelight_default_coefficient = 0.6
+let g:limelight_priority = -1
+" let g:limelight_paragraph_span = 1
+autocmd User GoyoEnter Limelight
+autocmd User GoyoLeave Limelight!
+nmap <Leader>l <Plug>(Limelight)
+xmap <Leader>l <Plug>(Limelight)
 
 " Setup status bar
 set laststatus=2
