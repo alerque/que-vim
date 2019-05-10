@@ -87,6 +87,7 @@ Plug 'zhimsel/vim-stay'
 Plug 'konfekt/fastfold'
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
 Plug 'w0rp/ale'
+Plug 'FooSoft/vim-argwrap'
 call plug#end()
 
 " Default indent style when no filetype specific style guide is in place
@@ -589,6 +590,13 @@ map <silent> <leader>qs <Plug>ReplaceWithStraight
 
 " Setup 8 digit numbers as date format even without dashes
 au! User * SpeedDatingFormat %Y%m%d
+
+" Bindings for argwrap
+nmap <Leader>W :ArgWrap<Cr>
+augroup argwrap
+	autocmd!
+	autocmd FileType vim :let b:argwrap_line_prefix = '\ '
+augroup END
 
 aug mutt_mail
 	au!
