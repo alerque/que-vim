@@ -526,7 +526,7 @@ nnoremap <leader>x "_x
 
 " Setup plugins for editing prose
 let g:lexical#spell = 0
-nnoremap <silent> <leader>s :NextWordy<cr>
+nnoremap <silent> <leader>W :NextWordy<cr>
 let g:pencil#wrapModeDefault = 'soft'
 let g:pencil#concealcursor = 'nc'
 let g:pencil#conceallevel = 0
@@ -545,6 +545,7 @@ let g:auto_save_in_insert_mode = 1
 let g:auto_save_events = ["InsertLeave", "TextChanged"]
 let g:auto_save_events = [ "CursorHold", "CursorHoldI", "CompleteDone", "InsertLeave" ]
 let g:auto_save_silent = 1
+nmap <Leader>s :AutoSaveToggle<Cr>
 
 " Explicitly enable True Color and cursor features for Neovim
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -595,7 +596,7 @@ map <silent> <leader>qs <Plug>ReplaceWithStraight
 au! User * SpeedDatingFormat %Y%m%d
 
 " Bindings for argwrap
-nmap <Leader>W :ArgWrap<Cr>
+nmap <Leader>w :ArgWrap<Cr>
 augroup argwrap
 	autocmd!
 	autocmd FileType vim :let b:argwrap_line_prefix = '\ '
