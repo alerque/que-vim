@@ -328,7 +328,7 @@ set ruler
 set showmatch
 
 " Setup sneak (in leu of EasyMotion)
-let g:sneak#streak = 1
+let g:sneak#label = 1
 let g:sneak#use_ic_scs = 1
 let g:sneak#target_labels = "aoeuiypqjkxsnthdfgcrlbmwvzAOEUIYPQJKXSNTHDFGCRLBMWVZ"
 
