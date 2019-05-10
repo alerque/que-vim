@@ -136,8 +136,12 @@ set laststatus=2
 " Configure airline to use powerline patched fonts and manage the tabbar too
 let g:airline_theme = 'molokai'
 let g:airline_powerline_fonts = 1
+let g:airline_skip_empty_sections = 0
+let g:airline_section_y = airline#section#create_right(['%{PencilMode()}', '%{g:auto_save == 1}'])
+let g:airline#extensions#whitespace#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#wordcount#filetypes = 'pandoc'
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#wordcount#filetypes = ['markdown', 'mkd', 'pandoc', 'sile', 'tex', 'mail', 'org', 'rst', 'text', 'asciidoc','usfm']
 
 " Do some special things for GVim/MacVim only
 if has('gui_running')
@@ -521,7 +525,6 @@ endtry
 nnoremap <leader>x "_x
 
 " Setup plugins for editing prose
-let g:airline_section_x = '%{PencilMode()}'
 let g:lexical#spell = 0
 nnoremap <silent> <leader>s :NextWordy<cr>
 let g:pencil#wrapModeDefault = 'soft'
