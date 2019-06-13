@@ -88,6 +88,7 @@ Plug 'konfekt/fastfold'
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
 Plug 'w0rp/ale'
 Plug 'FooSoft/vim-argwrap'
+Plug 'ledger/vim-ledger'
 call plug#end()
 
 " Default indent style when no filetype specific style guide is in place
@@ -786,5 +787,19 @@ let g:titlecase_map_keys = 0
 nmap <leader>gt <Plug>Titlecase
 vmap <leader>gt <Plug>Titlecase
 nmap <leader>gT <Plug>TitlecaseLine
+
+" Ledger stuff
+let g:ledger_align_at = 50
+let g:ledger_default_commodity = "₺"
+let g:ledger_decimal_sep = ','
+let g:ledger_detailed_first = 1
+let g:ledger_fold_blanks = 1
+let g:ledger_bin = 'hledger'
+let g:ledger_extra_options = '-x'
+au FileType ledger noremap <Leader>h vap:!hledger -f- print -x<Cr>
+au FileType ledger noremap <Leader>l vip:!ledger -f - print<Cr>
+au FileType ledger inoremap <silent> <Tab> <C-r>=ledger#autocomplete_and_align()<Cr>
+au FileType ledger vnoremap <silent> <Tab> :LedgerAlign<Cr>
+
 
 " vim: ts=4:sw=4:noet
