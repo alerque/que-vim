@@ -89,6 +89,7 @@ Plug 'meain/vim-package-info', { 'do': 'npm install' }
 Plug 'w0rp/ale'
 Plug 'FooSoft/vim-argwrap'
 Plug 'ledger/vim-ledger'
+Plug 'andymass/vim-matchup'
 call plug#end()
 
 " Default indent style when no filetype specific style guide is in place
@@ -801,5 +802,8 @@ au FileType ledger noremap <Leader>l vip:!ledger -f - print<Cr>
 au FileType ledger inoremap <silent> <Tab> <C-r>=ledger#autocomplete_and_align()<Cr>
 au FileType ledger vnoremap <silent> <Tab> :LedgerAlign<Cr>
 
+" Matchup
+let g:matchup_matchparen_deferred = 1
+let g:matchup_matchparen_hi_surround_always = 1
 
 " vim: ts=4:sw=4:noet
