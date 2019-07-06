@@ -565,10 +565,13 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 " Map Markdown Footnotes manually because its default of <leader>+f is taken
 " inoreabbrev [] <c-o>:exe "normal \<Plug>AddVimFootnote"<cr>
-imap ^^ <Plug>AddVimFootnote
-nmap <Leader>^ <Plug>AddVimFootnote
-imap @@ <Plug>ReturnFromFootnote
-nmap <Leader>@ <Plug>ReturnFromFootnote
+augroup pandocbindings
+	autocmd! pandocbindings
+	autocmd FileType markdown,pandoc imap <buffer> ^^ <Plug>AddVimFootnote
+	autocmd FileType markdown,pandoc nmap <buffer> <Leader>^ <Plug>AddVimFootnote
+	autocmd FileType markdown,pandoc imap <buffer> @@ <Plug>ReturnFromFootnote
+	autocmd FileType markdown,pandoc nmap <buffer> <Leader>@ <Plug>ReturnFromFootnote
+augroup end
 
 " Mappings for Easy Alignment plugin
 xmap gA <Plug>(EasyAlign)
@@ -797,10 +800,16 @@ let g:ledger_detailed_first = 1
 let g:ledger_fold_blanks = 1
 let g:ledger_bin = 'hledger'
 let g:ledger_extra_options = '-x'
-au FileType ledger noremap <Leader>h vap:!hledger -f- print -x<Cr>
-au FileType ledger noremap <Leader>l vip:!ledger -f - print<Cr>
-au FileType ledger inoremap <silent> <Tab> <C-r>=ledger#autocomplete_and_align()<Cr>
-au FileType ledger vnoremap <silent> <Tab> :LedgerAlign<Cr>
+
+augroup ledgerbindings
+	autocmd! ledgerbindings
+	autocmd FileType ledger noremap <buffer> <Leader>h vap:!hledger -f- print -x<Cr>
+	autocmd FileType ledger noremap <buffer> <Leader>l vip:!ledger -f - print<Cr>
+	autocmd FileType ledger inoremap <buffer> <silent> <Tab> <C-r>=ledger#autocomplete_and_align()<Cr>
+	autocmd FileType ledger vnoremap <buffer> <silent> <Tab> :LedgerAlign<Cr>
+	autocmd FileType ledger nmap <buffer> <C-o> <Plug>SpeedDatingDown
+	autocmd FileType ledger 1SpeedDatingFormat %Y/%m/%d
+augroup end
 
 " Matchup
 let g:matchup_matchparen_deferred = 1
