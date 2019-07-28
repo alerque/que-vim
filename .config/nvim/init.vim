@@ -92,6 +92,7 @@ Plug 'ledger/vim-ledger'
 Plug 'andymass/vim-matchup'
 Plug 'Konfekt/vim-sentence-chopper'
 Plug 'Konfekt/FastFold'
+Plug 'Konfekt/vim-DetectSpellLang'
 call plug#end()
 
 " Default indent style when no filetype specific style guide is in place
@@ -821,5 +822,8 @@ let g:matchup_matchparen_hi_surround_always = 1
 let g:punctuation_marks = '.;:?!'
 let g:latexindent = 0
 onoremap <silent> . :<c-u>call search('\v\C%(%([^[:digit:]IVX]\|[)''"])\zs[.]\|[,;:!?])[[:space:])''"]\|[.,;:!?]$','W')<CR>
+
+" Spellcheck language guesser
+let g:guesslang_langs = [ 'en', 'tr', 'ru' ]
 
 " vim: ts=4:sw=4:noet
