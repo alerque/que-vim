@@ -90,6 +90,7 @@ Plug 'w0rp/ale'
 Plug 'FooSoft/vim-argwrap'
 Plug 'ledger/vim-ledger'
 Plug 'andymass/vim-matchup'
+Plug 'Konfekt/vim-sentence-chopper'
 call plug#end()
 
 " Default indent style when no filetype specific style guide is in place
@@ -814,5 +815,10 @@ augroup end
 " Matchup
 let g:matchup_matchparen_deferred = 1
 let g:matchup_matchparen_hi_surround_always = 1
+
+" Sentence chopper
+let g:punctuation_marks = '.;:?!'
+let g:latexindent = 0
+onoremap <silent> . :<c-u>call search('\v\C%(%([^[:digit:]IVX]\|[)''"])\zs[.]\|[,;:!?])[[:space:])''"]\|[.,;:!?]$','W')<CR>
 
 " vim: ts=4:sw=4:noet
