@@ -91,6 +91,7 @@ Plug 'FooSoft/vim-argwrap'
 Plug 'ledger/vim-ledger'
 Plug 'andymass/vim-matchup'
 Plug 'Konfekt/vim-sentence-chopper'
+Plug 'Konfekt/FastFold'
 call plug#end()
 
 " Default indent style when no filetype specific style guide is in place
