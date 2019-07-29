@@ -93,6 +93,9 @@ Plug 'andymass/vim-matchup'
 Plug 'Konfekt/vim-sentence-chopper'
 Plug 'Konfekt/FastFold'
 Plug 'Konfekt/vim-DetectSpellLang'
+Plug 'Konfekt/vim-unicode-homoglyphs'
+Plug 'Konfekt/vim-smartbraces'
+Plug 'Konfekt/vim-select-replace'
 call plug#end()
 
 " Default indent style when no filetype specific style guide is in place
