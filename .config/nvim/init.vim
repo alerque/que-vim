@@ -834,4 +834,7 @@ onoremap <silent> . :<c-u>call search('\v\C%(%([^[:digit:]IVX]\|[)''"])\zs[.]\|[
 " Spellcheck language guesser
 let g:guesslang_langs = [ 'en', 'tr', 'ru' ]
 
+" This is useful but slows down big files a lot
+let g:is_homoglyph_on = 0
+
 " vim: ts=4:sw=4:noet
