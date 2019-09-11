@@ -712,6 +712,11 @@ set backup
 " Done reset cursor to the start of lines after linewise commands
 set nostartofline
 
+" If shinny new vim, use better diff options
+if has('nvim-0.3.2') || has("patch-8.1.0360")
+	set diffopt+=algorithm:histogram,indent-heuristic
+endif
+
 " Setup verticle split behavior
 set splitright
 set diffopt+=vertical
