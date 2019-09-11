@@ -96,6 +96,8 @@ Plug 'Konfekt/vim-DetectSpellLang'
 Plug 'Konfekt/vim-unicode-homoglyphs'
 Plug 'Konfekt/vim-smartbraces'
 Plug 'Konfekt/vim-select-replace'
+Plug 'glts/vim-magnum'
+Plug 'glts/vim-radical'
 call plug#end()
 
 " Default indent style when no filetype specific style guide is in place
