@@ -71,7 +71,6 @@ Plug 'vim-pandoc/vim-markdownfootnotes', { 'for': ['markdown', 'pandoc'] }
 Plug 'benekastah/neomake'
 Plug 'junegunn/vim-easy-align'
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
-Plug 'cazador481/fakeclip.neovim'
 Plug 'majutsushi/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'rust-lang/rust.vim'
@@ -307,8 +306,7 @@ set matchpairs+=‹:›
 set matchpairs+=►:◄
 
 " Use system clipboard for anonymous register
-"set clipboard+=unnamedplus
-let g:vim_fakeclip_tmux_plus = 0
+set clipboard+=unnamedplus
 
 " Enable backspace over indent,eol,start,etc
 set backspace=2
