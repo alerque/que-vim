@@ -85,7 +85,6 @@ Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
 Plug 'djoshea/vim-autoread'
 Plug 'christoomey/vim-titlecase'
 Plug 'zhimsel/vim-stay'
-Plug 'konfekt/fastfold'
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
 Plug 'w0rp/ale'
 Plug 'FooSoft/vim-argwrap'
