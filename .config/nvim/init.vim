@@ -843,4 +843,13 @@ let g:guesslang_langs = [ 'en', 'tr', 'ru' ]
 " This is useful but slows down big files a lot
 let g:is_homoglyph_on = 0
 
+" Configure smartbrace key so it doesn't clobber vim default
+" See https://github.com/Konfekt/vim-smartbraces/issues/4
+nmap  g{  <Plug>(smartbraces-OpenBrace)
+nmap  g}  <Plug>(smartbraces-CloseBrace)
+xmap  g{  <Plug>(smartbraces-OpenBrace)
+xmap  g}  <Plug>(smartbraces-CloseBrace)
+omap  g{  <Plug>(smartbraces-OpenBrace)
+omap  g}  <Plug>(smartbraces-CloseBrace)
+
 " vim: ts=4:sw=4:noet
