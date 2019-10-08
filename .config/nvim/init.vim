@@ -806,6 +806,7 @@ vmap <leader>gt <Plug>Titlecase
 nmap <leader>gT <Plug>TitlecaseLine
 
 " Ledger stuff
+let g:ledger_maxwidth = 80
 let g:ledger_align_at = 50
 let g:ledger_default_commodity = "₺"
 let g:ledger_decimal_sep = ','
@@ -813,6 +814,9 @@ let g:ledger_detailed_first = 1
 let g:ledger_fold_blanks = 1
 let g:ledger_bin = 'hledger'
 let g:ledger_extra_options = '-x'
+let g:ledger_accounts_generate = 1
+let g:ledger_accounts_cmd = 'make _vim_accounts'
+let g:ledger_descriptions_cmd = 'make _vim_descriptions'
 
 augroup ledgerbindings
 	autocmd! ledgerbindings
