@@ -438,28 +438,11 @@ set linebreak
 set showbreak=…
 set formatoptions+=lr12B
 
-" Fuzzy finder FZF (replacing ctrlp because it's faster)
-nnoremap <silent> <Leader>f :FZF<CR>
+" File & buffer finder (was ctrlp, then fzf, now clap)
+nnoremap <silent> <Leader>f :Clap! files<Cr>
+nnoremap <silent> <Leader>b :Clap! buffers ++ef=fzf +async<Cr>
 
-function! s:buflist()
-  redir => ls
-  silent ls
-  redir END
-  return split(ls, '\n')
-endfunction
-
-function! s:bufopen(e)
-  execute 'buffer' matchstr(a:e, '^[ 0-9]*')
-endfunction
-
-nnoremap <silent> gb :call fzf#run({
-\   'source':  reverse(<sid>buflist()),
-\   'sink':    function('<sid>bufopen'),
-\   'options': '+m',
-\   'down':    len(<sid>buflist()) + 2
-\ })<CR>
-
-cnoremap <silent> <c-tab> <c-\>eGetCompletions()<cr>
+cnoremap <silent> <C-Tab> <C-\>eGetCompletions()<Cr>
 "add an extra <cr> at the end of this line to automatically accept the fzf-selected completions.
 
 function! Lister()
