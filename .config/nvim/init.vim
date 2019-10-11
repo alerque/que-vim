@@ -501,6 +501,7 @@ let VimuxUseNearest = 1
 nnoremap <leader>p :VimuxPromptCommand<Cr>
 nnoremap <leader>l :VimuxRunLastCommand<Cr>
 
+set timeout timeoutlen=3000
 set nottimeout
 
 " Configure tmux navigator to use alt instead of control to match my tmux
@@ -683,9 +684,11 @@ let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDAltDelims_c = 1
 " let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+let s:spacePreStr = ' '
 
 " Force GitGutter to always show the sign column
 set signcolumn=yes
+let g:gitgutter_highlight_linenrs = 1
 
 " Unset F option from campatability mode so we can use Alt keys in keymaps
 set cpoptions-=F
