@@ -442,6 +442,8 @@ set formatoptions+=lr12B
 nnoremap <silent> <Leader>f :Clap! files<Cr>
 nnoremap <silent> <Leader>b :Clap! buffers ++ef=fzf +async<Cr>
 
+let g:clap_open_action = { 'ctrl-t': 'tab split', 'ctrl-h': 'split', 'ctrl-v': 'vsplit' }
+
 cnoremap <silent> <C-Tab> <C-\>eGetCompletions()<Cr>
 "add an extra <cr> at the end of this line to automatically accept the fzf-selected completions.
 
