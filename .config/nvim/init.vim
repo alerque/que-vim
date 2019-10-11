@@ -99,6 +99,7 @@ Plug 'Konfekt/vim-select-replace'
 Plug 'glts/vim-magnum'
 Plug 'glts/vim-radical'
 Plug 'projectfluent/fluent.vim'
+Plug 'glacambre/firenvim'
 call plug#end()
 
 " Default indent style when no filetype specific style guide is in place
@@ -836,5 +837,15 @@ xmap  g{  <Plug>(smartbraces-OpenBrace)
 xmap  g}  <Plug>(smartbraces-CloseBrace)
 omap  g{  <Plug>(smartbraces-OpenBrace)
 omap  g}  <Plug>(smartbraces-CloseBrace)
+
+" Configure Firenvim. To enable in Firefox install plugin from:
+" https://addons.mozilla.org/en-US/firefox/addon/firenvim/
+" Plus setup system with:
+" $ nvim --headless -c "call firenvim#install(0)" -c "quit"
+au BufEnter github.com_*.txt set filetype=markdown
+au BufEnter gitlab.com_*.txt set filetype=markdown
+au BufEnter *stackoverflow.com_*.txt set filetype=markdown
+au BufEnter *.stackexchange.com_*.txt set filetype=markdown
+au BufEnter gitlab.alerque.com_*.txt set filetype=pandoc
 
 " vim: ts=4:sw=4:noet
