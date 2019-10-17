@@ -443,6 +443,7 @@ set formatoptions+=lr12B
 " File & buffer finder (was ctrlp, then fzf, now clap)
 nnoremap <silent> <Leader>f :Clap! files<Cr>
 nnoremap <silent> <Leader>b :Clap! buffers ++ef=fzf +async<Cr>
+nnoremap <silent> <Leader>l :Clap! lines<Cr>
 
 let g:clap_open_action = { 'ctrl-t': 'tab split', 'ctrl-h': 'split', 'ctrl-v': 'vsplit' }
 
@@ -500,7 +501,7 @@ nnoremap <Leader>N :set nonumber norelativenumber<Cr>
 let g:VimuxOrientation = "h"
 let VimuxUseNearest = 1
 nnoremap <leader>p :VimuxPromptCommand<Cr>
-nnoremap <leader>l :VimuxRunLastCommand<Cr>
+" nnoremap <leader>l :VimuxRunLastCommand<Cr>
 
 set timeout timeoutlen=3000
 set nottimeout
