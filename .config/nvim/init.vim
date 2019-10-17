@@ -100,7 +100,7 @@ Plug 'Konfekt/vim-select-replace'
 Plug 'glts/vim-magnum'
 Plug 'glts/vim-radical'
 Plug 'projectfluent/fluent.vim'
-Plug 'glacambre/firenvim'
+Plug 'glacambre/firenvim', { 'do': function('firenvim#install') }
 call plug#end()
 
 " Default indent style when no filetype specific style guide is in place
