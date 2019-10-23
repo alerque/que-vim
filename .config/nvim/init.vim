@@ -893,11 +893,24 @@ omap  g}  <Plug>(smartbraces-CloseBrace)
 " https://addons.mozilla.org/en-US/firefox/addon/firenvim/
 " Plus setup system with:
 " $ nvim --headless -c "call firenvim#install(0)" -c "quit"
-au BufEnter github.com_*.txt set filetype=markdown
-au BufEnter gitlab.com_*.txt set filetype=markdown
-au BufEnter *stackoverflow.com_*.txt set filetype=markdown
-au BufEnter *.stackexchange.com_*.txt set filetype=markdown
-au BufEnter gitlab.alerque.com_*.txt set filetype=pandoc
+function! OnUIEnter(event)
+	let l:ui = nvim_get_chan_info(a:event.chan)
+	if has_key(l:ui, 'client') && has_key(l:ui.client, "name")
+		if l:ui.client.name == "Firenvim"
+			set showtabline=0
+			set laststatus=0
+		endif
+	endif
+endfunction
+augroup Firenvim
+	autocmd!
+	autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
+	autocmd BufEnter github.com_*.txt set filetype=markdown
+	autocmd BufEnter gitlab.com_*.txt set filetype=markdown
+	autocmd BufEnter *stackoverflow.com_*.txt set filetype=markdown
+	autocmd BufEnter *.stackexchange.com_*.txt set filetype=markdown
+	autocmd BufEnter gitlab.alerque.com_*.txt set filetype=pandoc
+augroup END
 
 " colorizer.lua
 set termguicolors
