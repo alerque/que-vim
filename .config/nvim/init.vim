@@ -101,6 +101,7 @@ Plug 'glts/vim-magnum'
 Plug 'glts/vim-radical'
 Plug 'projectfluent/fluent.vim'
 Plug 'glacambre/firenvim', { 'do': function('firenvim#install') }
+Plug 'norcalli/nvim-colorizer.lua'
 call plug#end()
 
 " Default indent style when no filetype specific style guide is in place
@@ -897,5 +898,9 @@ au BufEnter gitlab.com_*.txt set filetype=markdown
 au BufEnter *stackoverflow.com_*.txt set filetype=markdown
 au BufEnter *.stackexchange.com_*.txt set filetype=markdown
 au BufEnter gitlab.alerque.com_*.txt set filetype=pandoc
+
+" colorizer.lua
+set termguicolors
+lua require'colorizer'.setup()
 
 " vim: ts=4:sw=4:noet
