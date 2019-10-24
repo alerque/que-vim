@@ -82,7 +82,6 @@ Plug 'justinmk/molokai'
 Plug 'equalsraf/neovim-gui-shim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'pangloss/vim-javascript'
-Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
 Plug 'djoshea/vim-autoread'
 Plug 'christoomey/vim-titlecase'
 Plug 'zhimsel/vim-stay'
