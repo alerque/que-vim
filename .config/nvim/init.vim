@@ -904,6 +904,7 @@ function! OnUIEnter(event)
 		if l:ui.client.name == "Firenvim"
 			set showtabline=0
 			set laststatus=0
+			AutoSaveToggle
 		endif
 	endif
 endfunction
