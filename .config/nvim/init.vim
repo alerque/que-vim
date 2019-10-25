@@ -913,6 +913,17 @@ augroup END
 
 " colorizer.lua
 set termguicolors
-lua require'colorizer'.setup()
+lua << EOC
+require 'colorizer'.setup {
+	'*',
+	'!vim-plug',
+	'!gitcommit',
+	css = {
+		rgb_fn = true,
+		hsl_fn = true,
+		css_fn = true
+	}
+}
+EOC
 
 " vim: ts=4:sw=4:noet
