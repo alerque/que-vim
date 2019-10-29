@@ -897,7 +897,7 @@ omap  g}  <Plug>(smartbraces-CloseBrace)
 " Configure Firenvim. To enable in Firefox install plugin from:
 " https://addons.mozilla.org/en-US/firefox/addon/firenvim/
 " Plus setup system with:
-" $ nvim --headless -c "call firenvim#install(0)" -c "quit"
+" $ nvim --headless "+call firenvim#install(0) | q"
 function! OnUIEnter(event)
 	let l:ui = nvim_get_chan_info(a:event.chan)
 	if has_key(l:ui, 'client') && has_key(l:ui.client, "name")
