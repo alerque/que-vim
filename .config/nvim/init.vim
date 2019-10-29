@@ -905,6 +905,7 @@ function! OnUIEnter(event)
 			set showtabline=0
 			set laststatus=0
 			AutoSaveToggle
+			set guifont=Hack\ Nerd\ Font
 		endif
 	endif
 endfunction
