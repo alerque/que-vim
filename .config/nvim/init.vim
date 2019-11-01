@@ -955,9 +955,20 @@ EOC
 
 " vim-asterisk bindings
 let g:asterisk#keeppos = 1
-map *  <Plug>(asterisk-z*)
-map #  <Plug>(asterisk-z#)
-map g* <Plug>(asterisk-gz*)
-map g# <Plug>(asterisk-gz#)
+
+nmap *  <Plug>(asterisk-z*)
+nmap #  <Plug>(asterisk-z#)
+nmap g* <Plug>(asterisk-gz*)
+nmap g# <Plug>(asterisk-gz#)
+
+xmap *  <Plug>(asterisk-z*)
+xmap #  <Plug>(asterisk-z#)
+xmap g* <Plug>(asterisk-gz*)
+xmap g# <Plug>(asterisk-gz#)
+
+omap *  <plug>(vim-select-replace-star)
+omap g* <plug>(vim-select-replace-g-star)
+omap #  <plug>(vim-select-replace-hash)
+omap g# <plug>(vim-select-replace-g-hash)
 
 " vim: ts=4:sw=4:noet
