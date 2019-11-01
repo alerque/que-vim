@@ -114,6 +114,7 @@ Plug 'glts/vim-radical'
 Plug 'projectfluent/fluent.vim'
 Plug 'glacambre/firenvim', { 'do': function('firenvim#install') }
 Plug 'norcalli/nvim-colorizer.lua'
+Plug 'haya14busa/vim-asterisk'
 call plug#end()
 
 " Default indent style when no filetype specific style guide is in place
@@ -950,5 +951,12 @@ require 'colorizer'.setup {
 	}
 }
 EOC
+
+" vim-asterisk bindings
+let g:asterisk#keeppos = 1
+map *  <Plug>(asterisk-z*)
+map #  <Plug>(asterisk-z#)
+map g* <Plug>(asterisk-gz*)
+map g# <Plug>(asterisk-gz#)
 
 " vim: ts=4:sw=4:noet
