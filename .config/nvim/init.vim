@@ -116,6 +116,8 @@ Plug 'projectfluent/fluent.vim'
 Plug 'glacambre/firenvim', { 'do': function('firenvim#install') }
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'haya14busa/vim-asterisk'
+Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'stefandtw/quickfix-reflector.vim'
 call plug#end()
 
 " Default indent style when no filetype specific style guide is in place
