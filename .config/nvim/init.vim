@@ -1,3 +1,13 @@
+" Setup lists for use in configuring plugins later
+let g:markdown_filetypes =
+			\ ['markdown', 'mkd', 'pandoc']
+
+let g:prose_filetypes = g:markdown_filetypes +
+			\ ['sile', 'tex', 'mail', 'org', 'rst', 'text', 'asciidoc', 'usfm']
+
+let g:markdown_embeded =
+			\ ['html', 'css', 'bash=sh', 'lua', 'python', 'latex=tex']
+
 " Manage plugins with vim-plug
 " https://github.com/junegunn/vim-plug
 call plug#begin()
@@ -67,9 +77,9 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'gisraptor/vim-lilypond-integrator', { 'for': 'lilypond' }
 Plug 'trusktr/seti.vim'
 Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-criticmarkup', { 'for': ['markdown', 'pandoc'] }
-Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': ['markdown', 'pandoc'] }
-Plug 'vim-pandoc/vim-markdownfootnotes', { 'for': ['markdown', 'pandoc'] }
+Plug 'vim-pandoc/vim-criticmarkup', { 'for': g:prose_filetypes }
+Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': g:markdown_filetypes }
+Plug 'vim-pandoc/vim-markdownfootnotes', { 'for': g:markdown_filetypes }
 Plug 'benekastah/neomake'
 Plug 'junegunn/vim-easy-align'
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
@@ -163,7 +173,7 @@ let g:airline_section_y = airline#section#create_right(['%{PencilMode()}', '%{g:
 let g:airline#extensions#whitespace#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-let g:airline#extensions#wordcount#filetypes = ['markdown', 'mkd', 'pandoc', 'sile', 'tex', 'mail', 'org', 'rst', 'text', 'asciidoc','usfm']
+let g:airline#extensions#wordcount#filetypes = g:prose_filetypes
 
 " Hide instead of unload abandoned buffers, showing them in airline
 set hidden
@@ -550,17 +560,17 @@ let g:pencil#concealcursor = 'nc'
 let g:pencil#conceallevel = 0
 augroup pencil
 	autocmd!
-	autocmd FileType pandoc,markdown,mkd,text,tex,sile,usfm
-		\  call lexical#init()
-		\| call textobj#sentence#init()
-		\| call textobj#quote#init({'educate': 0})
-		\| call pencil#init()
+	let prose_filetypes = join(g:prose_filetypes, ',')
+	execute "autocmd FileType " . prose_filetypes . " call lexical#init()"
+	execute "autocmd FileType " . prose_filetypes . " call textobj#sentence#init()"
+	execute "autocmd FileType " . prose_filetypes . " call textobj#quote#init({ 'educate': 0 })"
+	execute "autocmd FileType " . prose_filetypes . " call pencil#init()"
 augroup END
 
 " Setup autosave plugin, off by default, enable with :AutoSaveToggle
 let g:auto_save = 0
 let g:auto_save_in_insert_mode = 1
-let g:auto_save_events = ["InsertLeave", "TextChanged"]
+let g:auto_save_events = [ "InsertLeave", "TextChanged" ]
 let g:auto_save_events = [ "CursorHold", "CursorHoldI", "CompleteDone", "InsertLeave" ]
 let g:auto_save_silent = 1
 nmap <Leader>s :AutoSaveToggle<Cr>
@@ -602,8 +612,8 @@ let g:tagbar_type_pandoc = {
     \ 'sort': 0,
 	\ }
 
-let g:markdown_fenced_languages = ['html', 'css', 'bash=sh', 'lua', 'python', 'latex=tex']
-let g:pandoc#syntax#codeblocks#embeds#langs = ['html', 'css', 'bash=sh', 'lua', 'python', 'latex=tex']
+let g:markdown_fenced_languages = g:markdown_embeded
+let g:pandoc#syntax#codeblocks#embeds#langs = g:markdown_embeded
 
 " I use fenced div more than definition lists, see https://github.com/vim-pandoc/vim-pandoc-syntax/issues/236
 let g:pandoc#syntax#use_definition_lists = 0
