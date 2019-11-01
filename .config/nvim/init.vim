@@ -10,6 +10,10 @@ let g:prose_filetypes = g:markdown_filetypes +
 let g:markdown_embeded =
 			\ ['html', 'css', 'bash=sh', 'lua', 'python', 'latex=tex']
 
+augroup QueInit
+	autocmd!
+augroup END
+
 " Manage plugins with vim-plug
 " https://github.com/junegunn/vim-plug
 call plug#begin()
@@ -159,15 +163,15 @@ function! s:goyo_leave()
 	set scrolloff=2
 endfunction
 
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
+autocmd QueInit User GoyoEnter nested call <SID>goyo_enter()
+autocmd QueInit User GoyoLeave nested call <SID>goyo_leave()
+autocmd QueInit User GoyoEnter Limelight
+autocmd QueInit User GoyoLeave Limelight!
 
 " " Setup extra color focus tools to integrate with distraction free mode
 let g:limelight_default_coefficient = 0.6
 let g:limelight_priority = -1
 " let g:limelight_paragraph_span = 1
-autocmd User GoyoEnter Limelight
-autocmd User GoyoLeave Limelight!
 nmap <Leader>l <Plug>(Limelight)
 xmap <Leader>l <Plug>(Limelight)
 
@@ -214,15 +218,15 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 1
 "let g:indent_guides_guide_size = 1
 let g:indent_guides_auto_colors = 0
-autocmd VimEnter,ColorScheme * highlight IndentGuidesOdd ctermbg=NONE
-autocmd VimEnter,ColorScheme * highlight IndentGuidesEven ctermbg=233
+autocmd QueInit VimEnter,ColorScheme * highlight IndentGuidesOdd ctermbg=NONE
+autocmd QueInit VimEnter,ColorScheme * highlight IndentGuidesEven ctermbg=233
 
 " Show leader as typed (used for gitgutter)
 set showcmd
 
 " Shut up
 set noerrorbells visualbell t_vb=
-autocmd GUIEnter * set visualbell t_vb=
+autocmd QueInit GUIEnter * set visualbell t_vb=
 
 " Run my favorite color scheme
 silent colorscheme molokai
@@ -239,7 +243,7 @@ au OptionSet diff let &cul=!v:option_new
 set fillchars=vert:│
 
 " Match split background to tmux scheme
-autocmd VimEnter,ColorScheme * highlight VertSplit cterm=NONE ctermfg=Green ctermbg=NONE
+autocmd QueInit VimEnter,ColorScheme * highlight VertSplit cterm=NONE ctermfg=Green ctermbg=NONE
 
 map - <Leader>cn
 map _ <Leader>cu
@@ -274,11 +278,8 @@ nnoremap k gk
 noremap <silent><Leader>/ :nohlsearch<CR>
 
 " https://gist.github.com/nocash/1988620
-augroup AutoReloadVimRC
-	autocmd!
-	" automatically reload vimrc when it's saved
-	autocmd BufWritePost $MYVIMRC so $MYVIMRC
-augroup END
+" automatically reload vimrc when it's saved
+autocmd QueInit BufWritePost $MYVIMRC so $MYVIMRC
 
 " http://www.vimbits.com/bits/90
 "let mapleader = ','
@@ -298,19 +299,19 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
 " http://www.vimbits.com/bits/170
-autocmd InsertLeave * set nopaste
+autocmd QueInit InsertLeave * set nopaste
 
 " http://www.vimbits.com/bits/173
-autocmd FileType gitcommit DiffGitCached | wincmd p
+autocmd QueInit FileType gitcommit DiffGitCached | wincmd p
 
 " http://www.vimbits.com/bits/223
-autocmd VimResized * exe "normal! \<c-w>="
+autocmd QueInit VimResized * exe "normal! \<c-w>="
 
 " http://www.vimbits.com/bits/13
 if exists('+colorcolumn')
 	set colorcolumn=80
 else
-	autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+	autocmd QueInit BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
 " http://www.vimbits.com/bits/176
@@ -318,7 +319,7 @@ nmap <leader>o :echo 'Obsolete: use ]\<Space\> from vim-unimpaired'<Cr>
 nmap <leader>O :echo 'Obsolete: use [\<Space\> from vim-unimpaired'<Cr>
 
 " http://www.vimbits.com/bits/229
-autocmd BufRead COMMIT_EDITMSG setlocal spell!
+autocmd QueInit BufRead COMMIT_EDITMSG setlocal spell!
 
 " http://www.vimbits.com/bits/125
 "nnoremap ; :
@@ -373,30 +374,31 @@ nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
 
 " Setup editing of GPG encrypted files with safe*er* defaults than otherwise
 set backupskip+=*.gpg
-augroup encrypted
-  autocmd!
-  " Disable swap files, and set binary file format before reading the file
-  autocmd BufReadPre,FileReadPre *.gpg
-    \ set shada= |
-    \ set viminfo= |
-    \ setlocal noswapfile bin
-  " Decrypt the contents after reading the file, reset binary file format
-  " and run any BufReadPost autocmds matching the file name without the .gpg
-  " extension
-  autocmd BufReadPost,FileReadPost *.gpg
-    \ execute "'[,']!gpg --quiet --no-tty --decrypt --default-recipient-self" |
-    \ setlocal nobin |
-    \ execute 'doautocmd BufReadPost ' . expand('%:r')
-  " Set binary file format and encrypt the contents before writing the file
-  autocmd BufWritePre,FileWritePre *.gpg
-    \ setlocal bin |
-    \ '[,']!gpg --encrypt --default-recipient-self
-  " After writing the file, do an :undo to revert the encryption in the
-  " buffer, and reset binary file format
-  autocmd BufWritePost,FileWritePost *.gpg
-    \ silent u |
-    \ setlocal nobin
-augroup END
+
+" Disable swap files, and set binary file format before reading the file
+autocmd QueInit BufReadPre,FileReadPre *.gpg
+			\ set shada=  |
+			\ set viminfo= |
+			\ setlocal noswapfile bin
+
+" Decrypt the contents after reading the file, reset binary file format
+" and run any BufReadPost autocmds matching the file name without the .gpg
+" extension
+autocmd QueInit BufReadPost,FileReadPost *.gpg
+			\ execute "'[,']!gpg --quiet --no-tty --decrypt --default-recipient-self" |
+			\ setlocal nobin |
+			\ execute 'doautocmd BufReadPost ' . expand('%:r')
+
+" Set binary file format and encrypt the contents before writing the file
+autocmd QueInit BufWritePre,FileWritePre *.gpg
+			\ setlocal bin |
+			\ '[,']!gpg --encrypt --default-recipient-self
+
+" After writing the file, do an :undo to revert the encryption in the
+" buffer, and reset binary file format
+autocmd QueInit BufWritePost,FileWritePost *.gpg
+			\ silent u |
+			\ setlocal nobin
 
 " Search for selected text, forwards or backwards.
 " http://vim.wikia.com/wiki/Search_for_visually_selected_text
@@ -570,14 +572,11 @@ nnoremap <silent> <leader>W :NextWordy<cr>
 let g:pencil#wrapModeDefault = 'soft'
 let g:pencil#concealcursor = 'nc'
 let g:pencil#conceallevel = 0
-augroup pencil
-	autocmd!
-	let prose_filetypes = join(g:prose_filetypes, ',')
-	execute 'autocmd FileType ' . prose_filetypes . ' call lexical#init()'
-	execute 'autocmd FileType ' . prose_filetypes . ' call textobj#sentence#init()'
-	execute 'autocmd FileType ' . prose_filetypes . " call textobj#quote#init({ 'educate': 0 })"
-	execute 'autocmd FileType ' . prose_filetypes . ' call pencil#init()'
-augroup END
+let prose_filetypes = join(g:prose_filetypes, ',')
+execute 'autocmd QueInit FileType ' . prose_filetypes . ' call lexical#init()'
+execute 'autocmd QueInit FileType ' . prose_filetypes . ' call textobj#sentence#init()'
+execute 'autocmd QueInit FileType ' . prose_filetypes . " call textobj#quote#init({ 'educate': 0 })"
+execute 'autocmd QueInit FileType ' . prose_filetypes . ' call pencil#init()'
 
 " Setup autosave plugin, off by default, enable with :AutoSaveToggle
 let g:auto_save = 0
@@ -593,13 +592,10 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 " Map Markdown Footnotes manually because its default of <leader>+f is taken
 " inoreabbrev [] <c-o>:exe "normal \<Plug>AddVimFootnote"<cr>
-augroup pandocbindings
-	autocmd! pandocbindings
-	autocmd FileType markdown,pandoc imap <buffer> ^^ <Plug>AddVimFootnote
-	autocmd FileType markdown,pandoc nmap <buffer> <Leader>^ <Plug>AddVimFootnote
-	autocmd FileType markdown,pandoc imap <buffer> @@ <Plug>ReturnFromFootnote
-	autocmd FileType markdown,pandoc nmap <buffer> <Leader>@ <Plug>ReturnFromFootnote
-augroup end
+autocmd QueInit FileType markdown,pandoc imap <buffer> ^^ <Plug>AddVimFootnote
+autocmd QueInit FileType markdown,pandoc nmap <buffer> <Leader>^ <Plug>AddVimFootnote
+autocmd QueInit FileType markdown,pandoc imap <buffer> @@ <Plug>ReturnFromFootnote
+autocmd QueInit FileType markdown,pandoc nmap <buffer> <Leader>@ <Plug>ReturnFromFootnote
 
 " Mappings for Easy Alignment plugin
 xmap gA <Plug>(EasyAlign)
@@ -634,14 +630,11 @@ let g:pandoc#syntax#use_definition_lists = 0
 let g:wildfire_objects = ["i'", 'i"', 'iq', 'aq', 'iQ', 'aQ', 'i)', 'i]', 'i}', 'i<', 'if', 'af', 'it', 'at', 'ip', 'ae']
 
 " Setup 8 digit numbers as date format even without dashes
-au! User * SpeedDatingFormat %Y%m%d
+autocmd QueInit User * SpeedDatingFormat %Y%m%d
 
 " Bindings for argwrap
 nmap <Leader>w :ArgWrap<Cr>
-augroup argwrap
-	autocmd!
-	autocmd FileType vim :let b:argwrap_line_prefix = '\ '
-augroup END
+autocmd QueInit FileType vim :let b:argwrap_line_prefix = '\ '
 
 aug mutt_mail
 	au!
@@ -708,7 +701,7 @@ let g:syntastic_quiet_messages = { 'level': '[]', 'file': ['*_LOCAL_*', '*_BASE_
 " Mapping to toggle educate (smart quote) mode from vim-textobj-quote
 map <Leader>e :ToggleEducate<CR>
 
-au VimEnter * if &diff | execute 'windo set wrap' | endif
+autocmd QueInit VimEnter * if &diff | execute 'windo set wrap' | endif
 
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
@@ -838,15 +831,12 @@ let g:ledger_accounts_generate = 1
 let g:ledger_accounts_cmd = 'make _vim_accounts'
 let g:ledger_descriptions_cmd = 'make _vim_descriptions'
 
-augroup ledgerbindings
-	autocmd! ledgerbindings
-	autocmd FileType ledger noremap <buffer> <Leader>h vap:!hledger -f- print -x<Cr>
-	autocmd FileType ledger noremap <buffer> <Leader>l vip:!ledger -f - print<Cr>
-	autocmd FileType ledger inoremap <buffer> <silent> <Tab> <C-r>=ledger#autocomplete_and_align()<Cr>
-	autocmd FileType ledger vnoremap <buffer> <silent> <Tab> :LedgerAlign<Cr>
-	autocmd FileType ledger nmap <buffer> <C-o> <Plug>SpeedDatingDown
-	autocmd FileType ledger 1SpeedDatingFormat %Y/%m/%d
-augroup end
+autocmd QueInit FileType ledger noremap <buffer> <Leader>h vap:!hledger -f- print -x<Cr>
+autocmd QueInit FileType ledger noremap <buffer> <Leader>l vip:!ledger -f - print<Cr>
+autocmd QueInit FileType ledger inoremap <buffer> <silent> <Tab> <C-r>=ledger#autocomplete_and_align()<Cr>
+autocmd QueInit FileType ledger vnoremap <buffer> <silent> <Tab> :LedgerAlign<Cr>
+autocmd QueInit FileType ledger nmap <buffer> <C-o> <Plug>SpeedDatingDown
+autocmd QueInit FileType ledger 1SpeedDatingFormat %Y/%m/%d
 
 " Matchup
 let g:matchup_matchparen_deferred = 1
@@ -933,15 +923,12 @@ function! OnUIEnter(event)
 		endif
 	endif
 endfunction
-augroup Firenvim
-	autocmd!
-	autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
-	autocmd BufEnter github.com_*.txt set filetype=markdown
-	autocmd BufEnter gitlab.com_*.txt set filetype=markdown
-	autocmd BufEnter *stackoverflow.com_*.txt set filetype=markdown
-	autocmd BufEnter *.stackexchange.com_*.txt set filetype=markdown
-	autocmd BufEnter gitlab.alerque.com_*.txt set filetype=pandoc
-augroup END
+autocmd QueInit UIEnter * call OnUIEnter(deepcopy(v:event))
+autocmd QueInit BufEnter github.com_*.txt set filetype=markdown
+autocmd QueInit BufEnter gitlab.com_*.txt set filetype=markdown
+autocmd QueInit BufEnter *stackoverflow.com_*.txt set filetype=markdown
+autocmd QueInit BufEnter *.stackexchange.com_*.txt set filetype=markdown
+autocmd QueInit BufEnter gitlab.alerque.com_*.txt set filetype=pandoc
 
 " colorizer.lua
 set termguicolors
