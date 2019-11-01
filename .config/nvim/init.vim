@@ -904,8 +904,9 @@ function! OnUIEnter(event)
 		if l:ui.client.name == "Firenvim"
 			set showtabline=0
 			set laststatus=0
+			set spell
 			AutoSaveToggle
-			set guifont=Hack\ Nerd\ Font
+			set guifont=Hack\ Nerd\ Font:h9
 		endif
 	endif
 endfunction
