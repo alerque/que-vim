@@ -251,7 +251,7 @@ cmap w!! SudoWrite
 
 " Stop ATP from spawning files (see http://vi.stackexchange.com/a/472/267)
 let g:atp_ProjectScript = 0
-let g:tex_flavor = "latex"
+let g:tex_flavor = 'latex'
 let g:atp_developer = 1
 
 " Stop vim-polyglot from loading for TeX, using vimtex instead
@@ -281,7 +281,7 @@ augroup AutoReloadVimRC
 augroup END
 
 " http://www.vimbits.com/bits/90
-"let mapleader = ","
+"let mapleader = ','
 
 " http://www.vimbits.com/bits/92
 nnoremap <silent> n nzz
@@ -364,7 +364,7 @@ set showmatch
 " Setup sneak (in leu of EasyMotion)
 let g:sneak#label = 1
 let g:sneak#use_ic_scs = 1
-let g:sneak#target_labels = "aoeuiypqjkxsnthdfgcrlbmwvzAOEUIYPQJKXSNTHDFGCRLBMWVZ"
+let g:sneak#target_labels = 'aoeuiypqjkxsnthdfgcrlbmwvzAOEUIYPQJKXSNTHDFGCRLBMWVZ'
 
 " Swap windows around between panes
 let g:windowswap_map_keys = 0 "prevent default bindings
@@ -386,7 +386,7 @@ augroup encrypted
   autocmd BufReadPost,FileReadPost *.gpg
     \ execute "'[,']!gpg --quiet --no-tty --decrypt --default-recipient-self" |
     \ setlocal nobin |
-    \ execute "doautocmd BufReadPost " . expand("%:r")
+    \ execute 'doautocmd BufReadPost ' . expand('%:r')
   " Set binary file format and encrypt the contents before writing the file
   autocmd BufWritePre,FileWritePre *.gpg
     \ setlocal bin |
@@ -483,18 +483,20 @@ function! Lister()
 endfunction
 
 function! CmdLineDirComplete(prefix, options, rawdir)
-    let l:dirprefix = matchstr(a:rawdir,"^.*/")
+    let l:dirprefix = matchstr(a:rawdir,'^.*/')
     if isdirectory(expand(l:dirprefix))
         return join(a:prefix + map(fzf#run({
                     \'options': a:options . ' --select-1  --query=' .
-                    \ a:rawdir[matchend(a:rawdir,"^.*/"):len(a:rawdir)],
+                    \ a:rawdir[matchend(a:rawdir,'^.*/'):len(a:rawdir)],
                     \'dir': expand(l:dirprefix)
                     \}),
-                    \'"' . escape(l:dirprefix, " ") . '" . escape(v:val, " ")'))
+                    \'"' . escape(l:dirprefix, ' ') . '" . escape(v:val, " ")'))
     else
-        return join(a:prefix + map(fzf#run({
-                    \'options': a:options . ' --query='. a:rawdir }),
-                    \'escape(v:val, " ")'))
+		return join(a:prefix + map(fzf#run({
+					\ 'options': a:options . ' --query='. a:rawdir
+					\ }),
+					\ 'escape(v:val, " ")')
+					\ )
         "dropped --select-1 to speed things up on a long query
 	endif
 endfunction
@@ -503,14 +505,14 @@ function! GetCompletions()
     let g:FZF_Cmd_Completion_Pre_List = []
     let l:cmdline_list = split(getcmdline(), '\(\\\zs\)\@<!\& ', 1)
     let l:Prefix = l:cmdline_list[0:-2]
-    execute "silent normal! :" . getcmdline() . "\<c-a>\<c-\>eLister()\<cr>\<c-c>"
+    execute 'silent normal! :' . getcmdline() . "\<c-a>\<c-\>eLister()\<cr>\<c-c>"
     let l:FZF_Cmd_Completion_List = g:FZF_Cmd_Completion_Pre_List[len(l:Prefix):-1]
     unlet g:FZF_Cmd_Completion_Pre_List
-    if len(l:Prefix) > 0 && l:Prefix[0] =~
+    if len(l:Prefix) > 0 && l:Prefix[0] =~#
                 \ '^ed\=i\=t\=$\|^spl\=i\=t\=$\|^tabed\=i\=t\=$\|^arged\=i\=t\=$\|^vsp\=l\=i\=t\=$'
                 "single-argument file commands
-        return CmdLineDirComplete(l:Prefix, "",l:cmdline_list[-1])
-    elseif len(l:Prefix) > 0 && l:Prefix[0] =~
+        return CmdLineDirComplete(l:Prefix, '', l:cmdline_list[-1])
+    elseif len(l:Prefix) > 0 && l:Prefix[0] =~#
                 \ '^arg\=s\=$\|^ne\=x\=t\=$\|^sne\=x\=t\=$\|^argad\=d\=$'
                 "multi-argument file commands
         return CmdLineDirComplete(l:Prefix, '--multi', l:cmdline_list[-1])
@@ -527,7 +529,7 @@ nnoremap <Leader>n :set number relativenumber!<Cr>
 nnoremap <Leader>N :set nonumber norelativenumber<Cr>
 
 " Configure Vimux
-let g:VimuxOrientation = "h"
+let g:VimuxOrientation = 'h'
 let VimuxUseNearest = 1
 nnoremap <leader>p :VimuxPromptCommand<Cr>
 " nnoremap <leader>l :VimuxRunLastCommand<Cr>
@@ -554,7 +556,7 @@ nnoremap <leader>gd :Gvdiff<Cr>
 let g:fugitive_gitlab_domains = ['https://gitlab.com', 'https://gitlab.alerque.com']
 let g:fugitive_gitlab_ssh_user = 'gitlab'
 try
-	let g:private_keys = system("gpg --use-agent --decrypt --quiet --no-tty --batch $HOME/.private/keys.vim.gpg")
+	let g:private_keys = system('gpg --use-agent --decrypt --quiet --no-tty --batch $HOME/.private/keys.vim.gpg')
 	execute g:private_keys
 catch
 endtry
@@ -571,17 +573,17 @@ let g:pencil#conceallevel = 0
 augroup pencil
 	autocmd!
 	let prose_filetypes = join(g:prose_filetypes, ',')
-	execute "autocmd FileType " . prose_filetypes . " call lexical#init()"
-	execute "autocmd FileType " . prose_filetypes . " call textobj#sentence#init()"
-	execute "autocmd FileType " . prose_filetypes . " call textobj#quote#init({ 'educate': 0 })"
-	execute "autocmd FileType " . prose_filetypes . " call pencil#init()"
+	execute 'autocmd FileType ' . prose_filetypes . ' call lexical#init()'
+	execute 'autocmd FileType ' . prose_filetypes . ' call textobj#sentence#init()'
+	execute 'autocmd FileType ' . prose_filetypes . " call textobj#quote#init({ 'educate': 0 })"
+	execute 'autocmd FileType ' . prose_filetypes . ' call pencil#init()'
 augroup END
 
 " Setup autosave plugin, off by default, enable with :AutoSaveToggle
 let g:auto_save = 0
 let g:auto_save_in_insert_mode = 1
-let g:auto_save_events = [ "InsertLeave", "TextChanged" ]
-let g:auto_save_events = [ "CursorHold", "CursorHoldI", "CompleteDone", "InsertLeave" ]
+let g:auto_save_events = [ 'InsertLeave', 'TextChanged' ]
+let g:auto_save_events = [ 'CursorHold', 'CursorHoldI', 'CompleteDone', 'InsertLeave' ]
 let g:auto_save_silent = 1
 nmap <Leader>s :AutoSaveToggle<Cr>
 
@@ -701,7 +703,7 @@ let g:syntastic_aggregate_errors = 1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_ignore_files = ['^/usr/', '*node_modules*', '*vendor*', '*build*', '*LOCAL*', '*BASE', '*REMOTE*']
-let g:syntastic_quiet_messages = { "level": "[]", "file": ['*_LOCAL_*', '*_BASE_*', '*_REMOTE_*']  }
+let g:syntastic_quiet_messages = { 'level': '[]', 'file': ['*_LOCAL_*', '*_BASE_*', '*_REMOTE_*']  }
 
 " Mapping to toggle educate (smart quote) mode from vim-textobj-quote
 map <Leader>e :ToggleEducate<CR>
@@ -733,7 +735,7 @@ set backup
 set nostartofline
 
 " If shinny new vim, use better diff options
-if has('nvim-0.3.2') || has("patch-8.1.0360")
+if has('nvim-0.3.2') || has('patch-8.1.0360')
 	set diffopt+=algorithm:histogram,indent-heuristic
 endif
 
@@ -751,7 +753,7 @@ nmap I :set paste<Cr>i
 nmap i :set nopaste<Cr>i
 
 " Do and insert results of fancy math equations via python
-:command! -nargs=+ Calc :r! python -c "from math import *; print (<args>)"
+:command! -nargs=+ Calc :r! python -c 'from math import *; print (<args>)'
 
 " Map space to page down in normal mode
 map <space> <C-d>
@@ -764,7 +766,7 @@ imap <M-;> <Esc><Esc>:
 " Toggle search result highlighting
 map <F5> :set hlsearch!<bar>set hlsearch?<CR>
 
-if !exists("*VeryBeautyQuote")
+if !exists('*VeryBeautyQuote')
 	function VeryBeautyQuote (...) range
 	" The regular expression used to match quoted lines.
 	" NOTE: modify this regexp if you have special needs.
@@ -826,7 +828,7 @@ nmap <leader>gT <Plug>TitlecaseLine
 " Ledger stuff
 let g:ledger_maxwidth = 80
 let g:ledger_align_at = 50
-let g:ledger_default_commodity = "₺"
+let g:ledger_default_commodity = '₺'
 let g:ledger_decimal_sep = ','
 let g:ledger_detailed_first = 1
 let g:ledger_fold_blanks = 1
@@ -873,7 +875,7 @@ let g:VM_extended_mappings          = 1
 let g:VM_no_meta_mappings           = 1
 let g:VM_reselect_first_insert      = 1
 let g:VM_reselect_first_always      = 1
-let g:VM_case_setting               = "smart"
+let g:VM_case_setting               = 'smart'
 let g:VM_pick_first_after_n_cursors = 0
 let g:VM_dynamic_synmaxcol          = 20
 let g:VM_disable_syntax_in_imode    = 0
@@ -921,8 +923,8 @@ omap  g}  <Plug>(smartbraces-CloseBrace)
 " $ nvim --headless "+call firenvim#install(0) | q"
 function! OnUIEnter(event)
 	let l:ui = nvim_get_chan_info(a:event.chan)
-	if has_key(l:ui, 'client') && has_key(l:ui.client, "name")
-		if l:ui.client.name == "Firenvim"
+	if has_key(l:ui, 'client') && has_key(l:ui.client, 'name')
+		if l:ui.client.name ==# 'Firenvim'
 			set showtabline=0
 			set laststatus=0
 			set spell
