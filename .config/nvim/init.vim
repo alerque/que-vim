@@ -494,6 +494,7 @@ function! CmdLineDirComplete(prefix, options, rawdir)
                     \'options': a:options . ' --query='. a:rawdir }),
                     \'escape(v:val, " ")'))
         "dropped --select-1 to speed things up on a long query
+	endif
 endfunction
 
 function! GetCompletions()
@@ -892,7 +893,7 @@ function! MacroBefore(...)
 	unmap T
 	unmap ,
 	unmap ;
-endfunction!
+endfunction
 
 function! MacroAfter(...)
 	map f <Plug>Sneak_f
@@ -901,7 +902,7 @@ function! MacroAfter(...)
 	map T <Plug>Sneak_T
 	map , <Plug>Sneak_,
 	map ; <Plug>Sneak_;
-endfunction!
+endfunction
 
 " Configure smartbrace key so it doesn't clobber vim default
 " See https://github.com/Konfekt/vim-smartbraces/issues/4
