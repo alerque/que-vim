@@ -72,6 +72,8 @@ Plug 'kana/vim-textobj-entire'
 Plug 'reedes/vim-textobj-sentence'
 Plug 'reedes/vim-textobj-quote'
 Plug 'reedes/vim-wheel'
+Plug 'kana/vim-textobj-function'
+Plug 'haya14busa/vim-textobj-function-syntax'
 Plug 'alerque/vim-sile', { 'for': 'sile' }
 Plug 'severin-lemaignan/vim-minimap'
 Plug '907th/vim-auto-save'
@@ -622,7 +624,7 @@ let g:pandoc#syntax#codeblocks#embeds#langs = g:markdown_embeded
 let g:pandoc#syntax#use_definition_lists = 0
 
 " Change default order a nd add smart quote objects to wildfire
-let g:wildfire_objects = ["i'", 'i"', 'i)', 'i]', 'i}', 'ip', 'it', 'iq', 'aq', 'iQ', 'aQ']
+let g:wildfire_objects = ["i'", 'i"', 'iq', 'aq', 'iQ', 'aQ', 'i)', 'i]', 'i}', 'i<', 'if', 'af', 'it', 'at', 'ip', 'ae']
 
 " Setup 8 digit numbers as date format even without dashes
 au! User * SpeedDatingFormat %Y%m%d
