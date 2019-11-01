@@ -165,6 +165,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#wordcount#filetypes = ['markdown', 'mkd', 'pandoc', 'sile', 'tex', 'mail', 'org', 'rst', 'text', 'asciidoc','usfm']
 
+" Hide instead of unload abandoned buffers, showing them in airline
+set hidden
+
 " Do some special things for GVim/MacVim only
 if has('gui_running')
 	" See ginit.vim for GoNVIM config
