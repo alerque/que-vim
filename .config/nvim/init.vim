@@ -1,3 +1,5 @@
+scriptencoding utf8
+
 " Setup lists for use in configuring plugins later
 let g:markdown_filetypes =
 			\ ['markdown', 'mkd', 'pandoc']
@@ -662,7 +664,7 @@ function! QueMutt()
 	"set comments=n:>,n::,n:#,n:%,n:\|
 
 	" Open folds so our field jumper doesn't choke
-	normal zr
+	normal! zr
 
 	" Autocomplete email addresses for mutt
 	call deoplete#enable()
