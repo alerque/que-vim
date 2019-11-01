@@ -621,10 +621,8 @@ let g:pandoc#syntax#codeblocks#embeds#langs = g:markdown_embeded
 " I use fenced div more than definition lists, see https://github.com/vim-pandoc/vim-pandoc-syntax/issues/236
 let g:pandoc#syntax#use_definition_lists = 0
 
-" Configure handling of smart (curly) quotes across plugins
-let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}", "ip", "it", "iq", "aq", "iQ", "aQ"]
-map <silent> <leader>qc <Plug>ReplaceWithCurly
-map <silent> <leader>qs <Plug>ReplaceWithStraight
+" Change default order a nd add smart quote objects to wildfire
+let g:wildfire_objects = ["i'", 'i"', 'i)', 'i]', 'i}', 'ip', 'it', 'iq', 'aq', 'iQ', 'aQ']
 
 " Setup 8 digit numbers as date format even without dashes
 au! User * SpeedDatingFormat %Y%m%d
