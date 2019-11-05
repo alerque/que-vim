@@ -964,4 +964,18 @@ omap g* <plug>(vim-select-replace-g-star)
 omap #  <plug>(vim-select-replace-hash)
 omap g# <plug>(vim-select-replace-g-hash)
 
+set diffopt+=iwhite
+set diffexpr=DiffW()
+function DiffW()
+  let opt = ""
+   if &diffopt =~ "icase"
+     let opt = opt . "-i "
+   endif
+   if &diffopt =~ "iwhite"
+     let opt = opt . "-w " " swapped vim's -b with -w
+   endif
+   silent execute "!diff -a --binary " . opt .
+     \ v:fname_in . " " . v:fname_new .  " > " . v:fname_out
+endfunction
+
 " vim: ts=4:sw=4:noet
