@@ -474,6 +474,7 @@ nnoremap <silent> !l :Clap! lines<Cr>
 nnoremap <silent> !m :Clap! marks<Cr>
 nnoremap <silent> !p :Clap! yanks<Cr>
 nnoremap <silent> !w :Clap! windows<Cr>
+nnoremap <silent> !r :Clap! registers<Cr>
 
 let g:clap_open_action = { 'ctrl-t': 'tab split', 'ctrl-h': 'split', 'ctrl-v': 'vsplit' }
 
@@ -831,7 +832,7 @@ let g:ledger_accounts_generate = 1
 let g:ledger_accounts_cmd = 'make _vim_accounts'
 let g:ledger_descriptions_cmd = 'make _vim_descriptions'
 
-autocmd QueInit FileType ledger noremap <buffer> <Leader>h vap:!hledger -f- print -x<Cr>
+autocmd QueInit FileType ledger noremap <buffer> <Leader>h vip:!hledger -f- print -x<Cr>
 autocmd QueInit FileType ledger noremap <buffer> <Leader>l vip:!ledger -f - print<Cr>
 autocmd QueInit FileType ledger inoremap <buffer> <silent> <Tab> <C-r>=ledger#autocomplete_and_align()<Cr>
 autocmd QueInit FileType ledger vnoremap <buffer> <silent> <Tab> :LedgerAlign<Cr>
