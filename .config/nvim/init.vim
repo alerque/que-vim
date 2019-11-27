@@ -569,18 +569,21 @@ endtry
 nnoremap <leader>x "_x
 
 " Setup plugins for editing prose
+function! QueProse()
+	call lexical#init()
+	call textobj#sentence#init()
+	call textobj#quote#init({ 'educate': 0 })
+	call pencil#init()
+	nnoremap <buffer> <silent> <leader>W :NextWordy<cr>
+	inoremap <buffer> <expr> <C-e> wordchipper#chipWith('dE')
+	inoremap <buffer> <expr> <C-w> wordchipper#chipWith('dB')
+endfunction
 let g:lexical#spell = 0
-nnoremap <silent> <leader>W :NextWordy<cr>
 let g:pencil#wrapModeDefault = 'soft'
 let g:pencil#concealcursor = 'nc'
 let g:pencil#conceallevel = 0
 let prose_filetypes = join(g:prose_filetypes, ',')
-execute 'autocmd QueInit FileType ' . prose_filetypes . ' call lexical#init()'
-execute 'autocmd QueInit FileType ' . prose_filetypes . ' call textobj#sentence#init()'
-execute 'autocmd QueInit FileType ' . prose_filetypes . " call textobj#quote#init({ 'educate': 0 })"
-execute 'autocmd QueInit FileType ' . prose_filetypes . ' call pencil#init()'
-execute 'autocmd QueInit FileType ' . prose_filetypes . " inoremap <buffer> <expr> <C-e> wordchipper#chipWith('dE')"
-execute 'autocmd QueInit FileType ' . prose_filetypes . " inoremap <buffer> <expr> <C-w> wordchipper#chipWith('dB')"
+execute 'autocmd QueInit FileType ' . prose_filetypes . ' call QueProse()'
 
 " Setup autosave plugin, off by default, enable with :AutoSaveToggle
 let g:auto_save = 0
