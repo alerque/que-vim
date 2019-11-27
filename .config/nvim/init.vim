@@ -78,6 +78,7 @@ Plug 'kana/vim-textobj-entire'
 Plug 'reedes/vim-textobj-sentence'
 Plug 'reedes/vim-textobj-quote'
 Plug 'reedes/vim-wheel'
+Plug 'reedes/vim-wordchipper'
 Plug 'kana/vim-textobj-function'
 Plug 'haya14busa/vim-textobj-function-syntax'
 Plug 'alerque/vim-sile', { 'for': 'sile' }
@@ -334,7 +335,7 @@ set matchpairs+=►:◄
 set clipboard+=unnamedplus
 
 " Enable backspace over indent,eol,start,etc
-set backspace=2
+set backspace=indent,eol,start
 
 " Highlight search results
 set hlsearch
@@ -578,6 +579,8 @@ execute 'autocmd QueInit FileType ' . prose_filetypes . ' call lexical#init()'
 execute 'autocmd QueInit FileType ' . prose_filetypes . ' call textobj#sentence#init()'
 execute 'autocmd QueInit FileType ' . prose_filetypes . " call textobj#quote#init({ 'educate': 0 })"
 execute 'autocmd QueInit FileType ' . prose_filetypes . ' call pencil#init()'
+execute 'autocmd QueInit FileType ' . prose_filetypes . " inoremap <buffer> <expr> <C-e> wordchipper#chipWith('dE')"
+execute 'autocmd QueInit FileType ' . prose_filetypes . " inoremap <buffer> <expr> <C-w> wordchipper#chipWith('dB')"
 
 " Setup autosave plugin, off by default, enable with :AutoSaveToggle
 let g:auto_save = 0
