@@ -45,7 +45,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'airblade/vim-gitgutter'
-Plug 'scrooloose/nerdcommenter'
+Plug 'preservim/nerdcommenter'
 Plug 'scrooloose/syntastic'
 "Plug 'jcf/vim-latex'
 "Plug 'git://git.code.sf.net/p/atp-vim/code'
