@@ -81,7 +81,7 @@ Plug 'reedes/vim-wheel'
 Plug 'reedes/vim-wordchipper'
 Plug 'kana/vim-textobj-function'
 Plug 'haya14busa/vim-textobj-function-syntax'
-Plug 'alerque/vim-sile', { 'for': 'sile' }
+Plug 'sile-typesetter/vim-sile'
 Plug 'severin-lemaignan/vim-minimap'
 Plug '907th/vim-auto-save'
 Plug 'lervag/vimtex', { 'for': 'tex' }
