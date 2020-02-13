@@ -973,4 +973,6 @@ function DiffW()
                 \ v:fname_in . " " . v:fname_new .  " > " . v:fname_out
 endfunction
 
+let g:strip_only_modified_lines = 1
+
 " vim: ts=4:sw=4:et
