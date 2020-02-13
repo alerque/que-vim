@@ -111,8 +111,8 @@ Plug 'ledger/vim-ledger'
 Plug 'andymass/vim-matchup'
 Plug 'Konfekt/vim-sentence-chopper'
 Plug 'Konfekt/FastFold'
-Plug 'Konfekt/vim-DetectSpellLang'
-Plug 'Konfekt/vim-unicode-homoglyphs'
+Plug 'Konfekt/vim-DetectSpellLang', { 'for': g:prose_filetypes }
+Plug 'Konfekt/vim-unicode-homoglyphs', { 'for': g:prose_filetypes }
 Plug 'Konfekt/vim-smartbraces'
 Plug 'Konfekt/vim-select-replace'
 Plug 'glts/vim-magnum'
