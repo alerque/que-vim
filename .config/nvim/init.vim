@@ -1,29 +1,29 @@
+" Make our vimscript linter happy and handle Unicode properly
 scriptencoding utf8
 
-" Setup lists for use in configuring plugins later
+" Group some filetypes for use in selectively loading plugins
 let g:markdown_filetypes =
-			\ ['markdown', 'mkd', 'pandoc']
+            \ ['markdown', 'mkd', 'pandoc']
 
 let g:prose_filetypes = g:markdown_filetypes +
-			\ ['sile', 'tex', 'mail', 'org', 'rst', 'text', 'asciidoc', 'usfm']
+            \ ['sile', 'tex', 'mail', 'org', 'rst', 'text', 'asciidoc', 'usfm']
 
 let g:markdown_embeded =
-			\ ['html', 'css', 'bash=sh', 'lua', 'python', 'latex=tex']
+            \ ['html', 'css', 'bash=sh', 'lua', 'python', 'latex=tex']
 
 augroup QueInit
-	autocmd!
+    autocmd!
 augroup END
 
 " Manage plugins with vim-plug
 " https://github.com/junegunn/vim-plug
 call plug#begin()
 
-" Map Neovim's external plugin update function (no args) to vim-plug's (1 arg)
+" Map vim-plug's external plugin update function (1 arg) to Neovim's (no args)
 function! DoRemote(arg)
-	UpdateRemotePlugins
+    UpdateRemotePlugins
 endfunction
 
-" My plugins
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-eunuch'
@@ -379,7 +379,7 @@ set backupskip+=*.gpg
 
 " Disable swap files, and set binary file format before reading the file
 autocmd QueInit BufReadPre,FileReadPre *.gpg
-			\ set shada=  |
+			\ set shada= |
 			\ set viminfo= |
 			\ setlocal noswapfile bin
 
@@ -467,53 +467,53 @@ nnoremap <silent> !r :Clap! registers<Cr>
 
 let g:clap_open_action = { 'ctrl-t': 'tab split', 'ctrl-h': 'split', 'ctrl-v': 'vsplit' }
 
-cnoremap <silent> <C-Tab> <C-\>eGetCompletions()<Cr>
+" cnoremap <silent> <C-Tab> <C-\>eGetCompletions()<Cr>
 "add an extra <cr> at the end of this line to automatically accept the fzf-selected completions.
 
 function! Lister()
-    call extend(g:FZF_Cmd_Completion_Pre_List,split(getcmdline(),'\(\\\zs\)\@<!\& '))
+	call extend(g:FZF_Cmd_Completion_Pre_List,split(getcmdline(),'\(\\\zs\)\@<!\& '))
 endfunction
 
 function! CmdLineDirComplete(prefix, options, rawdir)
-    let l:dirprefix = matchstr(a:rawdir,'^.*/')
-    if isdirectory(expand(l:dirprefix))
-        return join(a:prefix + map(fzf#run({
-                    \'options': a:options . ' --select-1  --query=' .
-                    \ a:rawdir[matchend(a:rawdir,'^.*/'):len(a:rawdir)],
-                    \'dir': expand(l:dirprefix)
-                    \}),
-                    \'"' . escape(l:dirprefix, ' ') . '" . escape(v:val, " ")'))
-    else
+	let l:dirprefix = matchstr(a:rawdir,'^.*/')
+	if isdirectory(expand(l:dirprefix))
+		return join(a:prefix + map(fzf#run({
+					\'options': a:options . ' --select-1  --query=' .
+					\ a:rawdir[matchend(a:rawdir,'^.*/'):len(a:rawdir)],
+					\'dir': expand(l:dirprefix)
+					\}),
+					\'"' . escape(l:dirprefix, ' ') . '" . escape(v:val, " ")'))
+	else
 		return join(a:prefix + map(fzf#run({
 					\ 'options': a:options . ' --query='. a:rawdir
 					\ }),
 					\ 'escape(v:val, " ")')
 					\ )
-        "dropped --select-1 to speed things up on a long query
+		"dropped --select-1 to speed things up on a long query
 	endif
 endfunction
 
 function! GetCompletions()
-    let g:FZF_Cmd_Completion_Pre_List = []
-    let l:cmdline_list = split(getcmdline(), '\(\\\zs\)\@<!\& ', 1)
-    let l:Prefix = l:cmdline_list[0:-2]
-    execute 'silent normal! :' . getcmdline() . "\<c-a>\<c-\>eLister()\<cr>\<c-c>"
-    let l:FZF_Cmd_Completion_List = g:FZF_Cmd_Completion_Pre_List[len(l:Prefix):-1]
-    unlet g:FZF_Cmd_Completion_Pre_List
-    if len(l:Prefix) > 0 && l:Prefix[0] =~#
-                \ '^ed\=i\=t\=$\|^spl\=i\=t\=$\|^tabed\=i\=t\=$\|^arged\=i\=t\=$\|^vsp\=l\=i\=t\=$'
-                "single-argument file commands
-        return CmdLineDirComplete(l:Prefix, '', l:cmdline_list[-1])
-    elseif len(l:Prefix) > 0 && l:Prefix[0] =~#
-                \ '^arg\=s\=$\|^ne\=x\=t\=$\|^sne\=x\=t\=$\|^argad\=d\=$'
-                "multi-argument file commands
-        return CmdLineDirComplete(l:Prefix, '--multi', l:cmdline_list[-1])
-    else
-        return join(l:Prefix + fzf#run({
-                    \'source':l:FZF_Cmd_Completion_List,
-                    \'options': '--select-1 --query='.shellescape(l:cmdline_list[-1])
-                    \}))
-    endif
+	let g:FZF_Cmd_Completion_Pre_List = []
+	let l:cmdline_list = split(getcmdline(), '\(\\\zs\)\@<!\& ', 1)
+	let l:Prefix = l:cmdline_list[0:-2]
+	execute 'silent normal! :' . getcmdline() . "\<c-a>\<c-\>eLister()\<cr>\<c-c>"
+	let l:FZF_Cmd_Completion_List = g:FZF_Cmd_Completion_Pre_List[len(l:Prefix):-1]
+	unlet g:FZF_Cmd_Completion_Pre_List
+	if len(l:Prefix) > 0 && l:Prefix[0] =~#
+				\ '^ed\=i\=t\=$\|^spl\=i\=t\=$\|^tabed\=i\=t\=$\|^arged\=i\=t\=$\|^vsp\=l\=i\=t\=$'
+		"single-argument file commands
+		return CmdLineDirComplete(l:Prefix, '', l:cmdline_list[-1])
+	elseif len(l:Prefix) > 0 && l:Prefix[0] =~#
+				\ '^arg\=s\=$\|^ne\=x\=t\=$\|^sne\=x\=t\=$\|^argad\=d\=$'
+		"multi-argument file commands
+		return CmdLineDirComplete(l:Prefix, '--multi', l:cmdline_list[-1])
+	else
+		return join(l:Prefix + fzf#run({
+					\'source':l:FZF_Cmd_Completion_List,
+					\'options': '--select-1 --query='.shellescape(l:cmdline_list[-1])
+					\}))
+	endif
 endfunction
 
 " Binding to toggle numbering mode an and then between relative and absolute
@@ -961,15 +961,15 @@ omap g# <plug>(vim-select-replace-g-hash)
 set diffopt+=iwhite
 set diffexpr=DiffW()
 function DiffW()
-  let opt = ""
-   if &diffopt =~ "icase"
-     let opt = opt . "-i "
-   endif
-   if &diffopt =~ "iwhite"
-     let opt = opt . "-w " " swapped vim's -b with -w
-   endif
-   silent execute "!diff -a --binary " . opt .
-     \ v:fname_in . " " . v:fname_new .  " > " . v:fname_out
+    let opt = ""
+    if &diffopt =~ "icase"
+        let opt = opt . "-i "
+    endif
+    if &diffopt =~ "iwhite"
+        let opt = opt . "-w " " swapped vim's -b with -w
+    endif
+    silent execute "!diff -a --binary " . opt .
+                \ v:fname_in . " " . v:fname_new .  " > " . v:fname_out
 endfunction
 
-" vim: ts=4:sw=4:noet
+" vim: ts=4:sw=4:et
