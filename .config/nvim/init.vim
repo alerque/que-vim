@@ -403,6 +403,9 @@ autocmd QueInit BufWritePost,FileWritePost *.gpg
 " Set default vimchant language to turkish (requires hunspell-tr)
 let g:vimchant_spellcheck_lang = 'tr'
 
+let g:detectspelllang_langs = {}
+let g:detectspelllang_langs.aspell = [ "en_US", "tr_TR" ]
+
 " Alternate insert mode with Turkish-F keyboard emulation (from Programer's Dvorak)
 " See: http://vim.wikia.com/wiki/Insert-mode_only_Caps_Lock
 " See: http://vi.stackexchange.com/q/2260/267
