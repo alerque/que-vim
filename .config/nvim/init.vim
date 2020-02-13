@@ -456,7 +456,7 @@ set formatoptions+=lr12B
 
 " File & buffer finder (was ctrlp, then fzf, now clap)
 nnoremap <silent> !! :Clap! <Cr>
-nnoremap <silent> !b :Clap! buffers ++ef=fzf +async<Cr>
+nnoremap <silent> !b :Clap! buffers<Cr>
 nnoremap <silent> !f :Clap! files<Cr>
 nnoremap <silent> !g :Clap! grep<Cr>
 nnoremap <silent> !h :Clap! history<Cr>
