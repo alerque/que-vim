@@ -137,6 +137,10 @@ set autoindent
 " Don't wrap long lines by default (override for prose file types & Goyo mode)
 set nowrap
 
+" Set custom list characters
+set list
+set listchars=tab:⇥\ ,trail:␠,nbsp:⍽
+
 " Setup discraction free mode including tmux integration
 let g:goyo_width = '90%'
 " let g:goyo_height = '100%'
@@ -160,6 +164,7 @@ function! s:goyo_leave()
 	set showmode
 	set showcmd
 	set nowrap
+	set list
 	set scrolloff=2
 endfunction
 
