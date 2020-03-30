@@ -907,24 +907,50 @@ omap  g}  <Plug>(smartbraces-CloseBrace)
 " https://addons.mozilla.org/en-US/firefox/addon/firenvim/
 " Plus setup system with:
 " $ nvim --headless "+call firenvim#install(0) | q"
-function! OnUIEnter(event)
-	let l:ui = nvim_get_chan_info(a:event.chan)
-	if has_key(l:ui, 'client') && has_key(l:ui.client, 'name')
-		if l:ui.client.name ==# 'Firenvim'
-			set showtabline=0
-			set laststatus=0
-			set spell
-			AutoSaveToggle
-			set guifont=Hack\ Nerd\ Font:h9
-		endif
-	endif
+function! s:IsFirenvimActive(event) abort
+  if !exists('*nvim_get_chan_info')
+    return 0
+  endif
+  let l:ui = nvim_get_chan_info(a:event.chan)
+  return has_key(l:ui, 'client') && has_key(l:ui.client, 'name') &&
+      \ l:ui.client.name =~? 'Firenvim'
 endfunction
-autocmd QueInit UIEnter * call OnUIEnter(deepcopy(v:event))
+
+function! OnUIEnter(event) abort
+  if s:IsFirenvimActive(a:event)
+    set guifont=Hack\ Nerd\ Font:h9
+    set showtabline=0
+    set laststatus=0
+    set spell
+    AutoSaveToggle
+	nnoremap <Esc><Esc> :call firenvim#focus_page()<CR>
+	nnoremap <C-z> :call firenvim#hide_frame()<CR>
+	nnoremap <C-z> :call firenvim#hide_frame()<CR>
+  endif
+endfunction
+autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
+
+let g:firenvim_config = {
+    \ 'globalSettings': {
+    \  },
+    \ 'localSettings': {
+        \ '.*': {
+            \ 'cmdline': 'firenvim',
+            \ 'priority': 0,
+            \ 'selector': 'textarea',
+            \ 'takeover': 'always',
+        \ },
+    \ }
+\ }
+let fc = g:firenvim_config['localSettings']
+let fc['https://twitter\.com/'] = { 'takeover': 'never', 'priority': 1 }
+let fc['https://.*stackoverflow\.com/'] = { 'takeover': 'never', 'priority': 1 }
+let fc['https://.*stackexchange\.com/'] = { 'takeover': 'never', 'priority': 1 }
+
 autocmd QueInit BufEnter github.com_*.txt set filetype=markdown
 autocmd QueInit BufEnter gitlab.com_*.txt set filetype=markdown
-autocmd QueInit BufEnter *stackoverflow.com_*.txt set filetype=markdown
-autocmd QueInit BufEnter *.stackexchange.com_*.txt set filetype=markdown
 autocmd QueInit BufEnter gitlab.alerque.com_*.txt set filetype=pandoc
+autocmd QueInit BufEnter gitter.im_*.txt set filetype=markdown | inoremap <CR> <Esc>:w<CR>:call firenvim#press_keys("<LT>CR>")<CR>ggdGa
 
 " colorizer.lua
 set termguicolors
