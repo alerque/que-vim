@@ -118,7 +118,7 @@ Plug 'Konfekt/vim-select-replace'
 Plug 'glts/vim-magnum'
 Plug 'glts/vim-radical'
 Plug 'projectfluent/fluent.vim'
-Plug 'glacambre/firenvim', { 'do': function('firenvim#install') }
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'haya14busa/vim-asterisk'
 Plug 'vim-scripts/ReplaceWithRegister'
@@ -955,7 +955,7 @@ let fc['https://.*stackexchange\.com/'] = { 'takeover': 'never', 'priority': 1 }
 autocmd QueInit BufEnter github.com_*.txt set filetype=markdown
 autocmd QueInit BufEnter gitlab.com_*.txt set filetype=markdown
 autocmd QueInit BufEnter gitlab.alerque.com_*.txt set filetype=pandoc
-autocmd QueInit BufEnter gitter.im_*.txt set filetype=markdown | inoremap <CR> <Esc>:w<CR>:call firenvim#press_keys("<LT>CR>")<CR>ggdGa
+autocmd QueInit BufEnter gitter.im_*.txt set filetype=markdown | nnoremap <leader><Cr> write<Cr>:call firenvim#press_keys("<Lt>CR>")<cR>ggdGa
 
 " colorizer.lua
 set termguicolors
