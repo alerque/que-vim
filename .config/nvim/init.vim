@@ -124,6 +124,7 @@ Plug 'haya14busa/vim-asterisk'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'stefandtw/quickfix-reflector.vim'
 Plug 'tridactyl/vim-tridactyl'
+Plug 'ekalinin/Dockerfile.vim'
 call plug#end()
 
 " Default indent style when no filetype specific style guide is in place
