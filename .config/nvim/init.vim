@@ -90,6 +90,8 @@ Plug '907th/vim-auto-save'
 Plug 'lervag/vimtex'
 Plug 'gisraptor/vim-lilypond-integrator', { 'for': 'lilypond' }
 Plug 'trusktr/seti.vim'
+Plug 'godlygeek/tabular' " required for plasticboy/vim-markdown
+Plug 'plasticboy/vim-markdown', { 'for': g:markdown_filetypes }
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-criticmarkup', { 'for': g:prose_filetypes }
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': g:markdown_filetypes }
