@@ -15,6 +15,9 @@ augroup QueInit
     autocmd!
 augroup END
 
+" Some vim plugins have broken repos that my git config flunks via fsck
+let $GIT_CONFIG_NOSYSTEM = 1
+
 " Manage plugins with vim-plug
 " https://github.com/junegunn/vim-plug
 call plug#begin()
@@ -126,6 +129,9 @@ Plug 'stefandtw/quickfix-reflector.vim'
 Plug 'tridactyl/vim-tridactyl'
 Plug 'ekalinin/Dockerfile.vim'
 call plug#end()
+
+" Return to regularly scheduled Git configuration
+unlet $GIT_CONFIG_NOSYSTEM
 
 " Default indent style when no filetype specific style guide is in place
 set tabstop=4
