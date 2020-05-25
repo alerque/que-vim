@@ -709,6 +709,13 @@ let g:syntastic_warning_symbol='⚠'
 let g:syntastic_ignore_files = ['^/usr/', '*node_modules*', '*vendor*', '*build*', '*LOCAL*', '*BASE', '*REMOTE*']
 let g:syntastic_quiet_messages = { 'level': '[]', 'file': ['*_LOCAL_*', '*_BASE_*', '*_REMOTE_*']  }
 
+" Configure Rust.vim
+let g:rustfmt_autosave = 1
+let g:rust_conceal = 1
+
+syn match rustRightArrowTail contained "-" conceal cchar=⟼
+syn match rustFatRightArrowTail contained "=" conceal cchar=⟾
+
 " Mapping to toggle educate (smart quote) mode from vim-textobj-quote
 map <Leader>e :ToggleEducate<CR>
 
