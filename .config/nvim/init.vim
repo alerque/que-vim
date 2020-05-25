@@ -87,7 +87,7 @@ Plug 'haya14busa/vim-textobj-function-syntax'
 Plug 'sile-typesetter/vim-sile'
 Plug 'severin-lemaignan/vim-minimap'
 Plug '907th/vim-auto-save'
-Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'lervag/vimtex'
 Plug 'gisraptor/vim-lilypond-integrator', { 'for': 'lilypond' }
 Plug 'trusktr/seti.vim'
 Plug 'vim-pandoc/vim-pandoc'
