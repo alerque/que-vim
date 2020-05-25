@@ -90,6 +90,7 @@ Plug '907th/vim-auto-save'
 Plug 'lervag/vimtex'
 Plug 'gisraptor/vim-lilypond-integrator', { 'for': 'lilypond' }
 Plug 'trusktr/seti.vim'
+Plug 'alerque/vim-commonmark', { 'do': 'make' }
 Plug 'godlygeek/tabular' " required for plasticboy/vim-markdown
 Plug 'plasticboy/vim-markdown', { 'for': g:markdown_filetypes }
 Plug 'vim-pandoc/vim-pandoc'
