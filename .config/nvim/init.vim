@@ -955,22 +955,29 @@ function! OnUIEnter(event) abort
 endfunction
 autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
 
+let s:fc = {}
+let s:fc['.*'] = {
+			\ 'priority': 0,
+			\ 'cmdline': 'firenvim',
+			\ 'selector': 'textarea, div[role="textbox"]',
+			\ 'takeover': 'always',
+			\ }
+let s:fc['https://twitter\.com/'] = {
+			\ 'priority': 1 ,
+			\ 'takeover': 'never',
+			\ }
+let s:fc['https://.*stackoverflow\.com/'] = {
+			\ 'priority': 1 ,
+			\ 'takeover': 'never',
+			\ }
+let s:fc['https://.*stackexchange\.com/'] = {
+			\ 'priority': 1 ,
+			\ 'takeover': 'never',
+			\ }
 let g:firenvim_config = {
-    \ 'globalSettings': {
-    \  },
-    \ 'localSettings': {
-        \ '.*': {
-            \ 'cmdline': 'firenvim',
-            \ 'priority': 0,
-            \ 'selector': 'textarea',
-            \ 'takeover': 'always',
-        \ },
-    \ }
-\ }
-let fc = g:firenvim_config['localSettings']
-let fc['https://twitter\.com/'] = { 'takeover': 'never', 'priority': 1 }
-let fc['https://.*stackoverflow\.com/'] = { 'takeover': 'never', 'priority': 1 }
-let fc['https://.*stackexchange\.com/'] = { 'takeover': 'never', 'priority': 1 }
+			\ 'globalSettings': {},
+			\ 'localSettings': s:fc,
+			\ }
 
 autocmd QueInit BufEnter github.com_*.txt set filetype=markdown
 autocmd QueInit BufEnter gitlab.com_*.txt set filetype=markdown
