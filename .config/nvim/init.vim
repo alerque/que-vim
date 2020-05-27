@@ -637,6 +637,9 @@ let g:pandoc#syntax#codeblocks#embeds#langs = g:markdown_embeded
 " I use fenced div more than definition lists, see https://github.com/vim-pandoc/vim-pandoc-syntax/issues/236
 let g:pandoc#syntax#use_definition_lists = 0
 
+" Configure CommonMark syntax
+let g:commonmark#extensions#all = 1
+
 " Change default order a nd add smart quote objects to wildfire
 let g:wildfire_objects = ["i'", 'i"', 'iq', 'aq', 'iQ', 'aQ', 'i)', 'i]', 'i}', 'i<', 'if', 'af', 'it', 'at', 'ip', 'ae']
 
