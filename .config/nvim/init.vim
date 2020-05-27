@@ -921,12 +921,12 @@ endfunction
 
 " Configure smartbrace key so it doesn't clobber vim default
 " See https://github.com/Konfekt/vim-smartbraces/issues/4
-nmap  g{  <Plug>(smartbraces-OpenBrace)
-nmap  g}  <Plug>(smartbraces-CloseBrace)
-xmap  g{  <Plug>(smartbraces-OpenBrace)
-xmap  g}  <Plug>(smartbraces-CloseBrace)
-omap  g{  <Plug>(smartbraces-OpenBrace)
-omap  g}  <Plug>(smartbraces-CloseBrace)
+nmap g{ <Plug>(smartbraces-OpenBrace)
+nmap g} <Plug>(smartbraces-CloseBrace)
+xmap g{ <Plug>(smartbraces-OpenBrace)
+xmap g} <Plug>(smartbraces-CloseBrace)
+omap g{ <Plug>(smartbraces-OpenBrace)
+omap g} <Plug>(smartbraces-CloseBrace)
 
 " Configure Firenvim. To enable in Firefox install plugin from:
 " https://addons.mozilla.org/en-US/firefox/addon/firenvim/
