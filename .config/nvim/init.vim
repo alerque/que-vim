@@ -100,7 +100,7 @@ Plug 'vim-pandoc/vim-markdownfootnotes', { 'for': g:markdown_filetypes }
 Plug 'benekastah/neomake'
 Plug 'junegunn/vim-easy-align'
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
-Plug 'majutsushi/tagbar'
+Plug 'preservim/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'rust-lang/rust.vim'
 Plug 'justinmk/molokai'
