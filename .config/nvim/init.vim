@@ -14,7 +14,8 @@ let g:markdown_embeded =
 " Stop vim-polyglot from loading for
 " - TeX, using vimtex instead
 " - CSV, which makes a useless power grab for TSV and sets useless conceals
-let g:polyglot_disabled = ['csv', 'latex']
+" - Lua, we load the relevant plugin directly to get all features
+let g:polyglot_disabled = ['csv', 'latex', 'lua']
 
 augroup QueInit
     autocmd!
@@ -136,6 +137,7 @@ Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'stefandtw/quickfix-reflector.vim'
 Plug 'tridactyl/vim-tridactyl'
 Plug 'ekalinin/Dockerfile.vim'
+Plug 'tbastos/vim-lua'
 call plug#end()
 
 " Return to regularly scheduled Git configuration
