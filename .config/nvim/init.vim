@@ -11,6 +11,11 @@ let g:prose_filetypes = g:markdown_filetypes +
 let g:markdown_embeded =
             \ ['html', 'css', 'bash=sh', 'lua', 'python', 'latex=tex']
 
+" Stop vim-polyglot from loading for
+" - TeX, using vimtex instead
+" - CSV, which makes a useless power grab for TSV and sets useless conceals
+let g:polyglot_disabled = ['csv', 'latex']
+
 augroup QueInit
     autocmd!
 augroup END
@@ -272,9 +277,6 @@ cmap w!! SudoWrite
 let g:atp_ProjectScript = 0
 let g:tex_flavor = 'latex'
 let g:atp_developer = 1
-
-" Stop vim-polyglot from loading for TeX, using vimtex instead
-let g:polyglot_disabled = ['latex']
 
 set mouse=a
 
