@@ -973,6 +973,14 @@ let s:fc['https://.*stackoverflow\.com/'] = {
 			\ 'priority': 1 ,
 			\ 'takeover': 'never',
 			\ }
+let s:fc['https://gitter\.im'] = {
+			\ 'priority': 1 ,
+			\ 'takeover': 'never',
+			\ }
+let s:fc['https://mattermost\.alerque\.com/'] = {
+			\ 'priority': 1 ,
+			\ 'takeover': 'never',
+			\ }
 let s:fc['https://.*stackexchange\.com/'] = {
 			\ 'priority': 1 ,
 			\ 'takeover': 'never',
