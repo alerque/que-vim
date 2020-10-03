@@ -952,6 +952,7 @@ function! OnUIEnter(event) abort
     set showtabline=0
     set laststatus=0
     set spell
+    set spelllang=en
     AutoSaveToggle
 	nnoremap <Esc><Esc> :call firenvim#focus_page()<CR>
 	nnoremap <C-z> :call firenvim#hide_frame()<CR>
