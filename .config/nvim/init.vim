@@ -138,6 +138,7 @@ Plug 'stefandtw/quickfix-reflector.vim'
 Plug 'tridactyl/vim-tridactyl'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'tbastos/vim-lua'
+Plug 'leafo/moonscript-vim'
 call plug#end()
 
 " Return to regularly scheduled Git configuration
