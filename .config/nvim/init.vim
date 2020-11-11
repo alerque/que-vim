@@ -998,7 +998,13 @@ let s:fc['https://.*stackexchange\.com/'] = {
 			\ 'takeover': 'never',
 			\ }
 let g:firenvim_config = {
-			\ 'globalSettings': {},
+			\ 'globalSettings': {
+				\ 'ignoreKeys': {
+					\ 'all': ['<C-Tab>'],
+				\ },
+				\ '<C-w>': 'noop',
+				\ '<C-n>': 'default',
+			\ },
 			\ 'localSettings': s:fc,
 			\ }
 
