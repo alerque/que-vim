@@ -1062,4 +1062,6 @@ endfunction
 
 let g:strip_only_modified_lines = 1
 
+au BufNewFile,BufRead git-revise-todo       setf gitrebase
+
 " vim: ts=4:sw=4:et
