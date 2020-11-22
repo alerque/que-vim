@@ -12,10 +12,11 @@ let g:markdown_embeded =
             \ ['html', 'css', 'bash=sh', 'lua', 'python', 'latex=tex']
 
 " Stop vim-polyglot from loading for
-" - TeX, using vimtex instead
 " - CSV, which makes a useless power grab for TSV and sets useless conceals
-" - Lua, we load the relevant plugin directly to get all features
-let g:polyglot_disabled = ['csv', 'latex', 'lua']
+" - Lua, loading full plugin directly for freshness
+" - Rust, loading full plugin directly for freshness
+" - TeX, using vimtex instead
+let g:polyglot_disabled = ['csv', 'lua', 'latex', 'rust']
 
 augroup QueInit
     autocmd!
