@@ -9,7 +9,7 @@ let g:prose_filetypes = g:markdown_filetypes +
             \ ['sile', 'tex', 'mail', 'org', 'rst', 'text', 'asciidoc', 'usfm']
 
 let g:markdown_embeded =
-            \ ['html', 'css', 'bash=sh', 'lua', 'python', 'latex=tex']
+            \ ['html', 'css', 'bash=sh', 'lua', 'python', 'latex=tex', 'rust']
 
 " Stop vim-polyglot from loading for
 " - CSV, which makes a useless power grab for TSV and sets useless conceals
