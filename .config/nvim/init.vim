@@ -860,7 +860,7 @@ let g:ledger_accounts_generate = 1
 let g:ledger_accounts_cmd = 'make _vim_accounts'
 let g:ledger_descriptions_cmd = 'make _vim_descriptions'
 
-autocmd QueInit FileType ledger noremap <buffer> <Leader>h vap:!hledger -f- print -x<Cr> <bar> vap:LedgerAlign<Cr>
+autocmd QueInit FileType ledger noremap <buffer> <Leader>h vip:!hledger -f- print -x<Cr> <bar> vip:LedgerAlign<Cr>
 autocmd QueInit FileType ledger inoremap <buffer> <silent> <Tab> <C-r>=ledger#autocomplete_and_align()<Cr>
 autocmd QueInit FileType ledger vnoremap <buffer> <silent> <Tab> :LedgerAlign<Cr>
 autocmd QueInit FileType ledger nmap <buffer> <C-o> <Plug>SpeedDatingDown
