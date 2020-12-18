@@ -864,7 +864,7 @@ autocmd QueInit FileType ledger noremap <buffer> <Leader>h vip:!hledger -f- prin
 autocmd QueInit FileType ledger inoremap <buffer> <silent> <Tab> <C-r>=ledger#autocomplete_and_align()<Cr>
 autocmd QueInit FileType ledger vnoremap <buffer> <silent> <Tab> :LedgerAlign<Cr>
 autocmd QueInit FileType ledger nmap <buffer> <C-o> <Plug>SpeedDatingDown
-autocmd QueInit FileType ledger 1SpeedDatingFormat %Y/%m/%d
+autocmd QueInit FileType ledger SpeedDatingFormat %Y-%m-%d
 
 " Matchup
 let g:matchup_matchparen_deferred = 1
