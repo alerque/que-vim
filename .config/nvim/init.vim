@@ -886,45 +886,9 @@ let g:multi_cursor_exit_from_visual_mode = 0
 let g:multi_cursor_exit_from_insert_mode = 0
 
 " vim-visual-multi configuration
-let g:VM_default_mappings           = 1
-let g:VM_sublime_mappings           = 0
-let g:VM_mouse_mappings             = 1
-let g:VM_extended_mappings          = 1
-let g:VM_no_meta_mappings           = 1
-let g:VM_reselect_first_insert      = 1
-let g:VM_reselect_first_always      = 1
-let g:VM_case_setting               = 'smart'
-let g:VM_pick_first_after_n_cursors = 0
-let g:VM_dynamic_synmaxcol          = 20
-let g:VM_disable_syntax_in_imode    = 0
-let g:VM_exit_on_1_cursor_left      = 0
-let g:VM_manual_infoline            = 0
-
-fun! VM_before_auto()
-	call MacroBefore()
-endfun
-
-fun! VM_after_auto()
-	call MacroAfter()
-endfun
-
-function! MacroBefore(...)
-	unmap f
-	unmap F
-	unmap t
-	unmap T
-	unmap ,
-	unmap ;
-endfunction
-
-function! MacroAfter(...)
-	map f <Plug>Sneak_f
-	map F <Plug>Sneak_F
-	map t <Plug>Sneak_t
-	map T <Plug>Sneak_T
-	map , <Plug>Sneak_,
-	map ; <Plug>Sneak_;
-endfunction
+let g:VM_mouse_mappings = 1
+let g:VM_skip_shorter_lines = 1
+let g:VM_skip_empty_lines = 1
 
 " Configure smartbrace key so it doesn't clobber vim default
 " See https://github.com/Konfekt/vim-smartbraces/issues/4
