@@ -910,13 +910,14 @@ function! s:IsFirenvimActive(event) abort
     return 0
   endif
   let l:ui = nvim_get_chan_info(a:event.chan)
-  return has_key(l:ui, 'client') && has_key(l:ui.client, 'name') &&
+  return has_key(l:ui, 'client') &&
+      \ has_key(l:ui.client, 'name') &&
       \ l:ui.client.name =~? 'Firenvim'
 endfunction
 
 function! OnUIEnter(event) abort
   if s:IsFirenvimActive(a:event)
-    set guifont=Hack\ Nerd\ Font:h9
+    set guifont=Hack\ Nerd\ Font:h14
     set showtabline=0
     set laststatus=0
     set spell
@@ -927,14 +928,14 @@ function! OnUIEnter(event) abort
 	nnoremap <C-z> :call firenvim#hide_frame()<CR>
   endif
 endfunction
+
 autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
 
 let s:fc = {}
 let s:fc['.*'] = {
 			\ 'priority': 0,
-			\ 'cmdline': 'firenvim',
 			\ 'selector': 'textarea, div[role="textbox"]',
-			\ 'takeover': 'always',
+			\ 'takeover': 'once',
 			\ }
 let s:fc['https://twitter\.com/'] = {
 			\ 'priority': 1 ,
@@ -945,6 +946,14 @@ let s:fc['https://.*stackoverflow\.com/'] = {
 			\ 'takeover': 'never',
 			\ }
 let s:fc['https://gitter\.im'] = {
+			\ 'priority': 1 ,
+			\ 'takeover': 'never',
+			\ }
+let s:fc['https://mail\.google\.com/mail/'] = {
+			\ 'priority': 1 ,
+			\ 'takeover': 'never',
+			\ }
+let s:fc['https://keep\.google\.com/'] = {
 			\ 'priority': 1 ,
 			\ 'takeover': 'never',
 			\ }
