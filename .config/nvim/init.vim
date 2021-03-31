@@ -143,6 +143,7 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'tbastos/vim-lua'
 Plug 'leafo/moonscript-vim'
 Plug 'junegunn/vader.vim'
+
 call plug#end()
 
 " Return to regularly scheduled Git configuration
@@ -209,11 +210,14 @@ set laststatus=2
 let g:airline_theme = 'molokai'
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 0
-let g:airline_section_y = airline#section#create_right(['%{PencilMode()}', '%{g:auto_save == 1}'])
 let g:airline#extensions#whitespace#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#wordcount#filetypes = g:prose_filetypes
+if exists('airline#section#create_right')
+	let g:airline_section_y =
+				\ airline#section#create_right(['%{PencilMode()}', '%{g:auto_save == 1}'])
+endif
 
 " Hide instead of unload abandoned buffers, showing them in airline
 set hidden
@@ -256,7 +260,7 @@ set noerrorbells visualbell t_vb=
 autocmd QueInit GUIEnter * set visualbell t_vb=
 
 " Run my favorite color scheme
-silent colorscheme molokai
+silent! colorscheme molokai
 let g:molokai_italic = 0
 
 " Highlight current line
@@ -654,7 +658,9 @@ let g:commonmark#extensions#all = 1
 let g:wildfire_objects = ["i'", 'i"', 'iq', 'aq', 'iQ', 'aQ', 'i)', 'i]', 'i}', 'i<', 'if', 'af', 'it', 'at', 'ip', 'ae']
 
 " Setup 8 digit numbers as date format even without dashes
-autocmd QueInit User * SpeedDatingFormat %Y%m%d
+if exists(':SpeedDatingFormat')
+	autocmd QueInit User * SpeedDatingFormat %Y%m%d
+endif
 
 " Bindings for argwrap
 nmap <Leader>w :ArgWrap<Cr>
@@ -992,16 +998,19 @@ autocmd QueInit BufEnter gitter.im_*.txt set filetype=markdown | nnoremap <leade
 " colorizer.lua
 set termguicolors
 lua << EOC
-require 'colorizer'.setup {
-	'*',
-	'!vim-plug',
-	'!gitcommit',
-	css = {
-		rgb_fn = true,
-		hsl_fn = true,
-		css_fn = true
+local function load_colorizer ()
+	require 'colorizer'.setup {
+		'*',
+		'!vim-plug',
+		'!gitcommit',
+		css = {
+			rgb_fn = true,
+			hsl_fn = true,
+			css_fn = true
+		}
 	}
-}
+end
+pcall(load_colorizer)
 EOC
 
 " vim-asterisk bindings
