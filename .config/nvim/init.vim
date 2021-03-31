@@ -50,7 +50,7 @@ Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'tommcdo/vim-fugitive-blame-ext'
 Plug 'gcmt/wildfire.vim'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'sdanielf/vim-stdtabs'
+" Plug 'sdanielf/vim-stdtabs'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
