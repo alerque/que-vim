@@ -144,6 +144,7 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'tbastos/vim-lua'
 Plug 'leafo/moonscript-vim'
 Plug 'junegunn/vader.vim'
+Plug 'egberts/vim-syntax-bind-named'
 
 call plug#end()
 
