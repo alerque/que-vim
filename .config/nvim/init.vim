@@ -945,6 +945,10 @@ let s:fc['.*'] = {
 			\ 'selector': 'textarea, div[role="textbox"]',
 			\ 'takeover': 'once',
 			\ }
+let s:fc['https://app\.element\.io'] = {
+			\ 'priority': 1 ,
+			\ 'takeover': 'never',
+			\ }
 let s:fc['https://twitter\.com/'] = {
 			\ 'priority': 1 ,
 			\ 'takeover': 'never',
