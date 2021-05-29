@@ -598,7 +598,7 @@ function! QueProse()
 	inoremap <buffer> <expr> <C-e> wordchipper#chipWith('dE')
 	inoremap <buffer> <expr> <C-w> wordchipper#chipWith('dB')
 endfunction
-let g:lexical#spell = 0
+let g:lexical#spell = 1
 let g:pencil#wrapModeDefault = 'soft'
 let g:pencil#concealcursor = 'nc'
 let g:pencil#conceallevel = 0
@@ -926,14 +926,15 @@ endfunction
 function! OnUIEnter(event) abort
   if s:IsFirenvimActive(a:event)
     set guifont=Hack\ Nerd\ Font:h14
+    let b:syntastic_skip_checks = 1
     set showtabline=0
     set laststatus=0
     set spell
-    set spelllang=en
+    " set spelllang=en
     AutoSaveToggle
-	nnoremap <Esc><Esc> :call firenvim#focus_page()<CR>
-	nnoremap <C-z> :call firenvim#hide_frame()<CR>
-	nnoremap <C-z> :call firenvim#hide_frame()<CR>
+    nnoremap <Esc><Esc> :call firenvim#focus_page()<CR>
+    nnoremap <C-z> :call firenvim#hide_frame()<CR>
+    nnoremap <C-z> :call firenvim#hide_frame()<CR>
   endif
 endfunction
 
