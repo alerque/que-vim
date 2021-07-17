@@ -34,18 +34,7 @@ function! DoRemote(arg)
     UpdateRemotePlugins
 endfunction
 
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-eunuch'
 Plug 'alerque/vim-surround' " Forked from tpope to work with vim-textobj-quote
-Plug 'tpope/vim-tbone'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-speeddating'
-Plug 'tpope/vim-characterize'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'tommcdo/vim-fugitive-blame-ext'
 Plug 'gcmt/wildfire.vim'
