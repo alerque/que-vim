@@ -12,6 +12,7 @@
 !/.config/nvim/init.lua
 !/.config/nvim/keymap/dvp2ptf.vim
 !/.config/nvim/legacy_init.vim
+!/.config/nvim/lua/plugins.lua
 !/.config/nvim/notepad.vim
 !/.config/nvim/php.vim
 !/.config/nvim/plugin/comments.vim
