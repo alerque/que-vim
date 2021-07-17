@@ -145,6 +145,7 @@ Plug 'tbastos/vim-lua'
 Plug 'leafo/moonscript-vim'
 Plug 'junegunn/vader.vim'
 Plug 'egberts/vim-syntax-bind-named'
+Plug 'neovim/nvim-lspconfig'
 
 call plug#end()
 
@@ -1059,5 +1060,8 @@ endfunction
 let g:strip_only_modified_lines = 1
 
 au BufNewFile,BufRead git-revise-todo       setf gitrebase
+
+" LSP
+lua require('lspconfig').lua_lsp.setup{}
 
 " vim: ts=4:sw=4:et
