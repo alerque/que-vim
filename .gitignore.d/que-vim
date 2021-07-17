@@ -8,6 +8,7 @@
 !/.config/nvim/doc/ps_color.txt
 !/.config/nvim/doc/taglist.txt
 !/.config/nvim/doc/tags
+!/.config/nvim/.editorconfig
 !/.config/nvim/ginit.vim
 !/.config/nvim/init.lua
 !/.config/nvim/keymap/dvp2ptf.vim
