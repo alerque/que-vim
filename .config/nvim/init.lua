@@ -1,4 +1,7 @@
-local configdir = vim.fn.stdpath("config")
+local cmd = vim.cmd
+local fn = vim.fn
+
+local fmt = string.format
 
 -- Source legacy init.vim
-vim.cmd("source " .. configdir .. "/legacy_init.vim")
+cmd(fmt("source %s/legacy_init.vim", fn.stdpath("config")))
