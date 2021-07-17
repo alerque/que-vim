@@ -1,8 +1,53 @@
 local execute = vim.api.nvim_command
 local cmd = vim.cmd
 local fn = vim.fn
+local g = vim.g
 
 local fmt = string.format
+
+-- Group some filetypes for use in selectively loading plugins
+g.markdown_filetypes = {
+  "markdown",
+  "mkd",
+  "pandoc",
+}
+
+_prose = {
+  "asciidoc",
+  "mail",
+  "org",
+  "rst",
+  "sile",
+  "tex",
+  "text",
+  "usfm",
+}
+for _, v in ipairs(g.markdown_filetypes) do
+  _prose[#_prose+1] = v
+end
+g.prose_filetypes = _prose
+
+g.markdown_embeded = {
+  'bash=sh',
+  'css',
+  'html',
+  'latex=tex',
+  'lua',
+  'python',
+  'rust',
+}
+
+-- Stop vim-polyglot from loading for
+-- - CSV, which makes a useless power grab for TSV and sets useless conceals
+-- - TeX, using vimtex instead
+-- - Lua, loading full plugin directly for freshness
+-- - Rust, loading full plugin directly for freshness
+g.polyglot_disabled = {
+  'csv',
+  'latex',
+  'lua',
+  'rust',
+}
 
 -- Source legacy init.vim
 cmd(fmt("source %s/legacy_init.vim", fn.stdpath("config")))

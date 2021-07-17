@@ -1,23 +1,6 @@
 " Make our vimscript linter happy and handle Unicode properly
 scriptencoding utf8
 
-" Group some filetypes for use in selectively loading plugins
-let g:markdown_filetypes =
-            \ ['markdown', 'mkd', 'pandoc']
-
-let g:prose_filetypes = g:markdown_filetypes +
-            \ ['sile', 'tex', 'mail', 'org', 'rst', 'text', 'asciidoc', 'usfm']
-
-let g:markdown_embeded =
-            \ ['html', 'css', 'bash=sh', 'lua', 'python', 'latex=tex', 'rust']
-
-" Stop vim-polyglot from loading for
-" - CSV, which makes a useless power grab for TSV and sets useless conceals
-" - Lua, loading full plugin directly for freshness
-" - Rust, loading full plugin directly for freshness
-" - TeX, using vimtex instead
-let g:polyglot_disabled = ['csv', 'lua', 'latex', 'rust']
-
 augroup QueInit
     autocmd!
 augroup END
