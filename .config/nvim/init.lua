@@ -15,3 +15,5 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 local plugins = require("plugins")
+
+cmd("autocmd BufWritePost plugins.lua source <afile> | PackerSync")
