@@ -297,10 +297,6 @@ nnoremap k gk
 " http://www.vimbits.com/bits/21
 noremap <silent><Leader>/ :nohlsearch<CR>
 
-" https://gist.github.com/nocash/1988620
-" automatically reload vimrc when it's saved
-autocmd QueInit BufWritePost $MYVIMRC so $MYVIMRC
-
 " http://www.vimbits.com/bits/90
 "let mapleader = ','
 
