@@ -384,14 +384,14 @@ autocmd QueInit BufReadPre,FileReadPre *.gpg
 " and run any BufReadPost autocmds matching the file name without the .gpg
 " extension
 autocmd QueInit BufReadPost,FileReadPost *.gpg
-			\ execute "'[,']!gpg --quiet --no-tty --decrypt --default-recipient-self" |
+			\ execute "'[,']!gpg --quiet --no-tty --decrypt 2> /dev/null" |
 			\ setlocal nobin |
 			\ execute 'doautocmd BufReadPost ' . expand('%:r')
 
 " Set binary file format and encrypt the contents before writing the file
 autocmd QueInit BufWritePre,FileWritePre *.gpg
 			\ setlocal bin |
-			\ '[,']!gpg --encrypt --default-recipient-self
+			\ '[,']!gpg --quiet --no-tty --encrypt --default-recipient-self
 
 " After writing the file, do an :undo to revert the encryption in the
 " buffer, and reset binary file format
