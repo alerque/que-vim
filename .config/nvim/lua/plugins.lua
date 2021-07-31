@@ -11,4 +11,6 @@ return require("packer").startup(function()
   use("tpope/vim-endwise")
   use("tpope/vim-fugitive")
   use("tpope/vim-rhubarb")
+
+  use("norcalli/nvim-colorizer.lua")
 end)

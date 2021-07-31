@@ -2,6 +2,7 @@ local execute = vim.api.nvim_command
 local cmd = vim.cmd
 local fn = vim.fn
 local g = vim.g
+local o = vim.o
 
 local fmt = string.format
 
@@ -62,3 +63,15 @@ end
 local plugins = require("plugins")
 
 cmd("autocmd BufWritePost plugins.lua source <afile> | PackerSync")
+
+o.termguicolors = true
+require("colorizer").setup {
+  '*',
+  '!vim-plug',
+  '!gitcommit',
+  css = {
+    rgb_fn = true,
+    hsl_fn = true,
+    css_fn = true
+  }
+}

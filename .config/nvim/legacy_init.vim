@@ -107,7 +107,6 @@ Plug 'glts/vim-magnum'
 Plug 'glts/vim-radical'
 Plug 'projectfluent/fluent.vim'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-Plug 'norcalli/nvim-colorizer.lua'
 Plug 'haya14busa/vim-asterisk'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'stefandtw/quickfix-reflector.vim'
@@ -975,23 +974,6 @@ autocmd QueInit BufEnter gitlab.com_*.txt set filetype=markdown
 autocmd QueInit BufEnter gitlab.alerque.com_*.txt set filetype=pandoc
 autocmd QueInit BufEnter gitter.im_*.txt set filetype=markdown | nnoremap <leader><Cr> write<Cr>:call firenvim#press_keys("<Lt>CR>")<cR>ggdGa
 
-" colorizer.lua
-set termguicolors
-lua << EOC
-local function load_colorizer ()
-	require 'colorizer'.setup {
-		'*',
-		'!vim-plug',
-		'!gitcommit',
-		css = {
-			rgb_fn = true,
-			hsl_fn = true,
-			css_fn = true
-		}
-	}
-end
-pcall(load_colorizer)
-EOC
 
 " vim-asterisk bindings
 let g:asterisk#keeppos = 1
