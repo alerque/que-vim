@@ -918,7 +918,15 @@ let s:fc['https://app\.element\.io'] = {
 			\ 'priority': 1 ,
 			\ 'takeover': 'never',
 			\ }
+let s:fc['https://gab\.com/'] = {
+			\ 'priority': 1 ,
+			\ 'takeover': 'never',
+			\ }
 let s:fc['https://twitter\.com/'] = {
+			\ 'priority': 1 ,
+			\ 'takeover': 'never',
+			\ }
+let s:fc['https://tweetdeck\.twitter\.com/'] = {
 			\ 'priority': 1 ,
 			\ 'takeover': 'never',
 			\ }
@@ -950,6 +958,10 @@ let s:fc['https://mattermost\.alerque\.com/'] = {
 			\ 'priority': 1 ,
 			\ 'takeover': 'never',
 			\ }
+let s:fc['https://mattermost\.coko\.foundation/'] = {
+			\ 'priority': 1 ,
+			\ 'takeover': 'never',
+			\ }
 let s:fc['https://discord\.com/'] = {
 			\ 'priority': 1 ,
 			\ 'takeover': 'never',
@@ -959,6 +971,10 @@ let s:fc['https://app\.slack\.com/'] = {
 			\ 'takeover': 'never',
 			\ }
 let s:fc['https://.*stackexchange\.com/'] = {
+			\ 'priority': 1 ,
+			\ 'takeover': 'never',
+			\ }
+let s:fc['https://web.whatsapp.com/'] = {
 			\ 'priority': 1 ,
 			\ 'takeover': 'never',
 			\ }
