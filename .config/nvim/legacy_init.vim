@@ -950,10 +950,6 @@ let s:fc['https://mastodon\.social/'] = {
 			\ 'priority': 1 ,
 			\ 'takeover': 'never',
 			\ }
-let s:fc['https://mastodon.social\.com/'] = {
-			\ 'priority': 1 ,
-			\ 'takeover': 'never',
-			\ }
 let s:fc['https://mattermost\.alerque\.com/'] = {
 			\ 'priority': 1 ,
 			\ 'takeover': 'never',
