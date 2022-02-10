@@ -17,7 +17,6 @@ function! DoRemote(arg)
     UpdateRemotePlugins
 endfunction
 
-Plug 'alerque/vim-surround' " Forked from tpope to work with vim-textobj-quote
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'tommcdo/vim-fugitive-blame-ext'
 Plug 'gcmt/wildfire.vim'
@@ -73,7 +72,7 @@ Plug 'lervag/vimtex'
 Plug 'gisraptor/vim-lilypond-integrator', { 'for': 'lilypond' }
 Plug 'trusktr/seti.vim'
 Plug 'alerque/vim-commonmark', { 'do': 'make' }
-Plug 'godlygeek/tabular' " required for plasticboy/vim-markdown
+Plug 'godlygeek/tabular' " required for preservim/vim-markdown
 Plug 'preservim/vim-markdown', { 'for': g:markdown_filetypes }
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-criticmarkup', { 'for': g:prose_filetypes }

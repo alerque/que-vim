@@ -1,5 +1,6 @@
 return require("packer").startup(function()
   use("wbthomason/packer.nvim")
+
   use("tpope/vim-repeat")
   use("tpope/vim-sensible")
   use("tpope/vim-eunuch")
@@ -11,6 +12,8 @@ return require("packer").startup(function()
   use("tpope/vim-endwise")
   use("tpope/vim-fugitive")
   use("tpope/vim-rhubarb")
+
+  use("alerque/vim-surround") -- Forked from tpope to work with vim-textobj-quote
 
   use("norcalli/nvim-colorizer.lua")
 end)
