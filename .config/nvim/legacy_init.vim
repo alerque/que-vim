@@ -10,7 +10,7 @@ let $GIT_CONFIG_NOSYSTEM = 1
 
 " Manage plugins with vim-plug
 " https://github.com/junegunn/vim-plug
-call plug#begin()
+call plug#begin('~/.config/nvim/plugged')
 
 " Map vim-plug's external plugin update function (1 arg) to Neovim's (no args)
 function! DoRemote(arg)
