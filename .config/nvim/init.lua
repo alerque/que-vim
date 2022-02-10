@@ -77,3 +77,9 @@ require("colorizer").setup {
     css_fn = true
   }
 }
+
+require("nvim-treesitter.configs").setup({
+  highlight = {
+    enabled = true,
+  },
+})

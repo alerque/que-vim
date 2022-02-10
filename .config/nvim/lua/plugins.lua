@@ -15,5 +15,9 @@ return require("packer").startup(function()
 
   use("alerque/vim-surround") -- Forked from tpope to work with vim-textobj-quote
 
+  use("nvim-treesitter/nvim-treesitter")
+  use("neovim/nvim-lspconfig")
+
   use("norcalli/nvim-colorizer.lua")
 end)
+
