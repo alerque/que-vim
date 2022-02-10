@@ -6,6 +6,8 @@ local o = vim.o
 
 local fmt = string.format
 
+local rtp = vim.split(package.path, ';')
+
 -- Group some filetypes for use in selectively loading plugins
 g.markdown_filetypes = {
   "markdown",
