@@ -268,9 +268,6 @@ set mouse=a
 vnoremap < <gv
 vnoremap > >gv
 
-" http://www.vimbits.com/bits/11
-map Y y$
-
 " http://www.vimbits.com/bits/25
 nnoremap j gj
 nnoremap k gk
