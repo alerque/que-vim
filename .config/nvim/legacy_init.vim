@@ -74,7 +74,7 @@ Plug 'gisraptor/vim-lilypond-integrator', { 'for': 'lilypond' }
 Plug 'trusktr/seti.vim'
 Plug 'alerque/vim-commonmark', { 'do': 'make' }
 Plug 'godlygeek/tabular' " required for plasticboy/vim-markdown
-Plug 'plasticboy/vim-markdown', { 'for': g:markdown_filetypes }
+Plug 'preservim/vim-markdown', { 'for': g:markdown_filetypes }
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-criticmarkup', { 'for': g:prose_filetypes }
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': g:markdown_filetypes }
