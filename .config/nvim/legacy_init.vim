@@ -539,7 +539,7 @@ nnoremap <leader>gs :Gstatus<Cr>
 nnoremap <leader>gc :Gcommit<Cr>
 nnoremap <leader>gl :Glog<Cr>
 nnoremap <leader>gw :Gwrite<Cr>
-nnoremap <leader>gd :Gvdiff<Cr>
+nnoremap <leader>gd :Gvdiffsplit!<Cr>
 
 let g:fugitive_gitlab_domains = ['https://gitlab.com', 'https://gitlab.alerque.com']
 let g:fugitive_gitlab_ssh_user = 'gitlab'
