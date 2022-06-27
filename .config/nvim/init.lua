@@ -1,4 +1,5 @@
 local execute = vim.api.nvim_command
+local map = vim.keymap.set
 local cmd = vim.cmd
 local fn = vim.fn
 local g = vim.g
@@ -61,6 +62,10 @@ if fn.empty(fn.glob(install_path)) > 0 then
   fn.system({"git", "clone", "https://github.com/wbthomason/packer.nvim", install_path})
   execute("packadd packer.nvim")
 end
+
+-- Remap co-pilot completion
+g.copilot_no_tab_map = true
+map('i', '<c-p>', 'copilot#Accept', { noremap = true, silent = true })
 
 local plugins = require("plugins")
 

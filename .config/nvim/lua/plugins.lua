@@ -19,5 +19,8 @@ return require("packer").startup(function()
   use("neovim/nvim-lspconfig")
 
   use("norcalli/nvim-colorizer.lua")
+
+  use("github/copilot.vim")
+
 end)
 
