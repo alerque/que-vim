@@ -20,10 +20,10 @@ return require("packer").startup(function(use)
   use { "neovim/nvim-lspconfig" }
 
   use {
-    "norcalli/nvim-colorizer.lua",
+    "NvChad/nvim-colorizer.lua",
     config = function ()
       vim.o.termguicolors = true
-      require("colorizer").setup {
+      require("colorizer").setup({
         "*",
         "!vim-plug",
         "!gitcommit",
@@ -32,7 +32,10 @@ return require("packer").startup(function(use)
           hsl_fn = true,
           css_fn = true
         }
-      }
+      }, {
+        mode = "virtualtext",
+        virtualtext = '■'
+      })
     end
   }
 
