@@ -19,7 +19,22 @@ return require("packer").startup(function(use)
   use { "nvim-treesitter/nvim-treesitter" }
   use { "neovim/nvim-lspconfig" }
 
-  use { "norcalli/nvim-colorizer.lua" }
+  use {
+    "norcalli/nvim-colorizer.lua",
+    config = function ()
+      vim.o.termguicolors = true
+      require("colorizer").setup {
+        "*",
+        "!vim-plug",
+        "!gitcommit",
+        css = {
+          rgb_fn = true,
+          hsl_fn = true,
+          css_fn = true
+        }
+      }
+    end
+  }
 
   use { "github/copilot.vim" }
 

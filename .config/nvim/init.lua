@@ -71,17 +71,6 @@ local plugins = require("plugins")
 
 cmd("autocmd BufWritePost plugins.lua source <afile> | PackerSync")
 
-o.termguicolors = true
-require("colorizer").setup {
-  '*',
-  '!vim-plug',
-  '!gitcommit',
-  css = {
-    rgb_fn = true,
-    hsl_fn = true,
-    css_fn = true
-  }
-}
 
 require("nvim-treesitter.configs").setup({
   highlight = {
