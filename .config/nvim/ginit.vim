@@ -6,3 +6,6 @@ endif
 
 " Font config for neovim-ghk
 call rpcnotify(1, 'Gui', 'Font', 'Hack 14')
+
+" Font config for neovide
+set guifont=Hack:h9

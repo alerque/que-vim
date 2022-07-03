@@ -891,8 +891,8 @@ endfunction
 
 function! OnUIEnter(event) abort
   if s:IsFirenvimActive(a:event)
-    set guifont=Hack\ Nerd\ Font:h14
-    let b:syntastic_skip_checks = 1
+    set guifont=Hack\ Nerd\ Font:h12
+    let g:syntastic_skip_checks = 1
     set showtabline=0
     set laststatus=0
     set spell
