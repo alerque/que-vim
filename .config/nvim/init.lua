@@ -63,10 +63,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
   execute("packadd packer.nvim")
 end
 
--- Remap co-pilot completion
-g.copilot_no_tab_map = true
-map('i', '<c-p>', 'copilot#Accept', { noremap = true, silent = true })
-
 local plugins = require("plugins")
 
 cmd("autocmd BufWritePost plugins.lua source <afile> | PackerSync")

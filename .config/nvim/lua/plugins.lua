@@ -44,7 +44,16 @@ return require("packer").startup(function(use)
     end
   }
 
-  use { "github/copilot.vim" }
+  use {
+    "github/copilot.vim",
+    config = function ()
+      vim.g.copilot_no_tab_map = true
+      vim.g.coppilot_filetypes = {
+        ledger = false
+      }
+      map("i", "<C-Right>", "copilot#Accept()", { noremap = true, silent = true, expr = true })
+    end
+  }
 
 end)
 
