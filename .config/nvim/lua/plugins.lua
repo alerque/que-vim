@@ -23,19 +23,24 @@ return require("packer").startup(function(use)
     "NvChad/nvim-colorizer.lua",
     config = function ()
       vim.o.termguicolors = true
-      require("colorizer").setup({
-        "*",
-        "!vim-plug",
-        "!gitcommit",
-        css = {
-          rgb_fn = true,
-          hsl_fn = true,
-          css_fn = true
+      require("colorizer").setup {
+        filetypes = {
+          "*",
+          "!markdown",
+          "!pandoc",
+          "!vim-plug",
+          "!gitcommit",
+          css = {
+            rgb_fn = true,
+            hsl_fn = true,
+            css_fn = true
+          }
+        },
+        user_default_options = {
+          mode = "virtualtext",
+          virtualtext = '■'
         }
-      }, {
-        mode = "virtualtext",
-        virtualtext = '■'
-      })
+      }
     end
   }
 
