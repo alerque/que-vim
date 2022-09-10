@@ -79,7 +79,7 @@ return require("packer").startup(function(use)
     config = function()
       local lspconfig = require("lspconfig")
       local on_attach = function(_, bufnr)
-        vim.o.omnifinc = "v:lua.vim.lsp.omnifunc"
+        vim.o.omnifunc = "v:lua.vim.lsp.omnifunc"
         local opts = { noremap = true, silent = true }
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
@@ -116,7 +116,7 @@ return require("packer").startup(function(use)
             -- path = vim.split(package.path, ';'),
           },
           diagnostics = {
-            globals = { 'vim' },
+            globals = { 'vim', 'SILE', 'CASILE', 'pl', 'luautf8' },
           },
           workspace = {
             library = vim.api.nvim_get_runtime_file("", true),
