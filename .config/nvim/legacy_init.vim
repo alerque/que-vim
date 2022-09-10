@@ -44,7 +44,6 @@ Plug 'brookhong/DBGPavim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'sjl/gundo.vim'
 Plug 'junegunn/fzf.vim'
-Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'mg979/vim-visual-multi'
 Plug 'vim-scripts/RelOps'
@@ -448,21 +447,6 @@ set breakindent
 set linebreak
 set showbreak=…
 set formatoptions+=lr12B
-
-" File & buffer finder (was ctrlp, then fzf, now clap)
-nnoremap <silent> !! :Clap! <Cr>
-nnoremap <silent> !b :Clap! buffers<Cr>
-nnoremap <silent> !f :Clap! files --hidden<Cr>
-nnoremap <silent> !g :Clap! grep<Cr>
-nnoremap <silent> !h :Clap! history<Cr>
-nnoremap <silent> !l :Clap! lines<Cr>
-nnoremap <silent> !m :Clap! marks<Cr>
-nnoremap <silent> !p :Clap! yanks<Cr>
-nnoremap <silent> !w :Clap! windows<Cr>
-nnoremap <silent> !r :Clap! registers<Cr>
-
-let g:clap_open_action = { 'ctrl-t': 'tab split', 'ctrl-h': 'split', 'ctrl-v': 'vsplit' }
-let g:clap_provider_grep_opts = '-H --no-heading --vimgrep --smart-case --hidden'
 
 " cnoremap <silent> <C-Tab> <C-\>eGetCompletions()<Cr>
 "add an extra <cr> at the end of this line to automatically accept the fzf-selected completions.
