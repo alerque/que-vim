@@ -85,13 +85,30 @@ return require("packer").startup(function(use)
       end
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-      local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'gopls' }
+      local servers = { 'rust_analyzer', 'pyright', 'sumneko_lua' }
       for _, lsp in ipairs(servers) do
         lspconfig[lsp].setup {
           on_attach = on_attach,
           capabilities = capabilities,
         }
       end
+      lspconfig.sumneko_lua.setup {
+        Lua = {
+          runtime = {
+            version = 'LuaJIT',
+            -- path = vim.split(package.path, ';'),
+          },
+          diagnostics = {
+            globals = { 'vim' },
+          },
+          workspace = {
+            library = vim.api.nvim_get_runtime_file("", true),
+          },
+          telemetry = {
+            enable = false,
+          }
+        }
+      }
       local runtime_path = vim.split(package.path, ';')
       table.insert(runtime_path, 'lua/?.lua')
       table.insert(runtime_path, 'lua/?/init.lua')
@@ -141,10 +158,10 @@ return require("packer").startup(function(use)
           }
         },
         sources = {
-          { name = "nvim_lsp" },
           { name = "calc" },
-          { name = "treesitter" },
+          { name = "nvim_lsp" },
           { name = "nvim_lua" },
+          { name = "treesitter" },
         }
       }
     end
