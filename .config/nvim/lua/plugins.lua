@@ -18,15 +18,16 @@ return require("packer").startup(function(use)
     config = function ()
       local telescope = require("telescope")
       local builtin = require("telescope.builtin")
+      local theme = require("telescope.themes").get_ivy({})
       telescope.setup {
-        defaults = {
+        defaults = vim.tbl_deep_extend("force", theme, {
           mappings = {
             i = {
               ["<C-?>"] = "which_key",
               ["<C-h>"] = "select_horizontal"
             }
           }
-        },
+        })
       }
       telescope.load_extension("fzy_native")
       vim.keymap.set("n", "!!", builtin.builtin, { noremap = true })
