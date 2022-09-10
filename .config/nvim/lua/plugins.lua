@@ -75,7 +75,29 @@ return require("packer").startup(function(use)
     end
   }
 
-  use { "neovim/nvim-lspconfig" }
+  use { "neovim/nvim-lspconfig",
+    config = function()
+      local lspconfig = require("lspconfig")
+      local on_attach = function(_, bufnr)
+        vim.o.omnifinc = "v:lua.vim.lsp.omnifunc"
+        local opts = { noremap = true, silent = true }
+        vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+      end
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+      local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'gopls' }
+      for _, lsp in ipairs(servers) do
+        lspconfig[lsp].setup {
+          on_attach = on_attach,
+          capabilities = capabilities,
+        }
+      end
+      local runtime_path = vim.split(package.path, ';')
+      table.insert(runtime_path, 'lua/?.lua')
+      table.insert(runtime_path, 'lua/?/init.lua')
+      vim.o.completeopt = 'menuone,noselect'
+    end
+  }
 
   use {
     "NvChad/nvim-colorizer.lua",
@@ -122,6 +144,7 @@ return require("packer").startup(function(use)
           { name = "nvim_lsp" },
           { name = "calc" },
           { name = "treesitter" },
+          { name = "nvim_lua" },
         }
       }
     end
