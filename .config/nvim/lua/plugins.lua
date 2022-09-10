@@ -64,7 +64,17 @@ return require("packer").startup(function(use)
 
   use { "rbong/vim-buffest" }
 
-  use { "nvim-treesitter/nvim-treesitter" }
+  use { "nvim-treesitter/nvim-treesitter",
+    config = function()
+      local treesitter = require("nvim-treesitter.configs")
+      treesitter.setup {
+        highlight = {
+          enabled = true,
+        },
+      }
+    end
+  }
+
   use { "neovim/nvim-lspconfig" }
 
   use {
@@ -111,6 +121,7 @@ return require("packer").startup(function(use)
         sources = {
           { name = "nvim_lsp" },
           { name = "calc" },
+          { name = "treesitter" },
         }
       }
     end

@@ -66,10 +66,3 @@ end
 local plugins = require("plugins")
 
 cmd("autocmd BufWritePost plugins.lua source <afile> | PackerSync")
-
-
-require("nvim-treesitter.configs").setup({
-  highlight = {
-    enabled = true,
-  },
-})
