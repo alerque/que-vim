@@ -975,6 +975,10 @@ let s:fc['https://web.whatsapp.com/'] = {
 			\ 'priority': 1 ,
 			\ 'takeover': 'never',
 			\ }
+let s:fc['https://console.hetzner.cloud'] = {
+			\ 'priority': 1 ,
+			\ 'takeover': 'never',
+			\ }
 let g:firenvim_config = {
 			\ 'globalSettings': {
 				\ 'ignoreKeys': {
