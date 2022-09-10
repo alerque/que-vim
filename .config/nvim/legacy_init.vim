@@ -24,7 +24,6 @@ Plug 'ntpeters/vim-better-whitespace'
 " Plug 'sdanielf/vim-stdtabs'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdcommenter'
 Plug 'vim-syntastic/syntastic'
@@ -212,9 +211,6 @@ if has('gui_running')
 	set guioptions=
 	set guiheadroom=0
 endif
-
-" Setup NeoComplete
-let g:deoplete#enable_at_startup = 1
 
 " Setup indent guides
 let g:indent_guides_enable_on_vim_startup = 1
@@ -643,9 +639,9 @@ function! QueMutt()
 	normal! zr
 
 	" Autocomplete email addresses for mutt
-	call deoplete#enable()
+	" call deoplete#enable()
 	set omnifunc=mailcomplete#Complete
-	call deoplete#custom#option('omni_patterns', {
+	" call deoplete#custom#option('omni_patterns', {
 		\ 'mail': '^\(To\|Cc\|Bcc\|From\|Reply-To\)\+: \w\w\w\+',
 		\})
 
@@ -820,7 +816,6 @@ let g:ledger_accounts_generate = 0
 let g:ledger_accounts_cmd = 'make _vim_accounts'
 let g:ledger_descriptions_cmd = 'make _vim_descriptions'
 
-autocmd QueInit FileType ledger call deoplete#disable()
 autocmd QueInit FileType ledger noremap <buffer> <Leader>h vip:!hledger -f- print -x<Cr> <bar> vip:LedgerAlign<Cr>
 autocmd QueInit FileType ledger inoremap <buffer> <silent> <Tab> <C-r>=ledger#autocomplete_and_align()<Cr>
 autocmd QueInit FileType ledger vnoremap <buffer> <silent> <Tab> :LedgerAlign<Cr>
