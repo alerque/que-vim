@@ -843,6 +843,7 @@ autocmd QueInit FileType ledger vnoremap <buffer> <silent> <Tab> :LedgerAlign<Cr
 autocmd QueInit FileType ledger SpeedDatingFormat %Y-%m-%d
 autocmd QueInit FileType ledger inoremap <buffer> <silent> <C-t> <Esc>A  ₺<Esc>:LedgerAlign<Cr>A
 autocmd QueInit FileType ledger inoremap <buffer> <silent> <C-d> <Esc>A  $<Esc>:LedgerAlign<Cr>A
+autocmd QueInit FileType ledger set noet
 
 " Matchup
 let g:matchup_matchparen_deferred = 1
