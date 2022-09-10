@@ -12,11 +12,10 @@ return require("packer").startup(function(use)
   use { "tpope/vim-endwise" }
   use { "tpope/vim-fugitive" }
   use { "tpope/vim-rhubarb" }
-
-  use { "rbong/vim-buffest" }
-
   -- Forked from tpope to work with vim-textobj-quote
   use { "alerque/vim-surround" }
+
+  use { "rbong/vim-buffest" }
 
   use { "nvim-treesitter/nvim-treesitter" }
   use { "neovim/nvim-lspconfig" }
@@ -53,7 +52,7 @@ return require("packer").startup(function(use)
       vim.g.coppilot_filetypes = {
         ledger = false
       }
-      map("i", "<C-Right>", "copilot#Accept()", { noremap = true, silent = true, expr = true })
+      vim.keymap.set("i", "<C-Right>", "copilot#Accept()", { noremap = true, silent = true, expr = true })
     end
   }
 

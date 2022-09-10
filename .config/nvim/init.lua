@@ -1,8 +1,8 @@
-local execute = vim.api.nvim_command
-local map = vim.keymap.set
 local cmd = vim.cmd
+local execute = vim.api.nvim_command
 local fn = vim.fn
 local g = vim.g
+local map = vim.keymap.set
 local o = vim.o
 
 local fmt = string.format
