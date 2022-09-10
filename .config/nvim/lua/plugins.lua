@@ -158,6 +158,7 @@ return require("packer").startup(function(use)
           }
         },
         sources = {
+          { name = "buffer" },
           { name = "calc" },
           { name = "nvim_lsp" },
           { name = "nvim_lua" },
@@ -166,6 +167,7 @@ return require("packer").startup(function(use)
       }
     end
   }
+  use { "hrsh7th/cmp-buffer" }
   use { "hrsh7th/cmp-calc" }
   use { "hrsh7th/cmp-nvim-lsp" }
 
