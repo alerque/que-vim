@@ -242,6 +242,7 @@ set nocursorline
 " Disable cursorline when entering diff mode
 " https://vi.stackexchange.com/a/12852/267
 au OptionSet diff let &cul=!v:option_new
+au OptionSet diff set nofoldenable
 
 " Set split separator to Unicode box drawing character
 set fillchars=vert:│
@@ -810,7 +811,8 @@ if !exists('*VeryBeautyQuote')
 endif
 
 " Default to having folds open on buffer load
-set foldlevelstart=10
+set foldlevelstart=0
+set nofoldenable
 
 " Setup extras in JS syntax plugin
 let g:javascript_plugin_jsdoc = 1
