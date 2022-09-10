@@ -13,6 +13,8 @@ return require("packer").startup(function(use)
   use { "tpope/vim-fugitive" }
   use { "tpope/vim-rhubarb" }
 
+  use { "rbong/vim-buffest" }
+
   -- Forked from tpope to work with vim-textobj-quote
   use { "alerque/vim-surround" }
 
