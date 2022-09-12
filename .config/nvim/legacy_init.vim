@@ -35,8 +35,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'mg979/vim-visual-multi'
-Plug 'vim-scripts/RelOps'
-" Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'preservim/vimux'
 Plug 'jtdowney/vimux-cargo'
 Plug 'swekaj/php-foldexpr.vim'
@@ -54,11 +52,9 @@ Plug 'preservim/vim-wordchipper'
 Plug 'rbonvall/vim-textobj-latex'
 Plug 'haya14busa/vim-textobj-function-syntax'
 Plug 'sile-typesetter/vim-sile'
-Plug 'severin-lemaignan/vim-minimap'
 Plug '907th/vim-auto-save'
 Plug 'lervag/vimtex'
 Plug 'gisraptor/vim-lilypond-integrator', { 'for': 'lilypond' }
-Plug 'trusktr/seti.vim'
 Plug 'alerque/vim-commonmark', { 'do': 'make' }
 Plug 'godlygeek/tabular' " required for preservim/vim-markdown
 Plug 'preservim/vim-markdown', { 'for': g:markdown_filetypes }
