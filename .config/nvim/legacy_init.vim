@@ -17,7 +17,6 @@ function! DoRemote(arg)
     UpdateRemotePlugins
 endfunction
 
-Plug 'gcmt/wildfire.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -568,9 +567,6 @@ let g:pandoc#syntax#use_definition_lists = 0
 
 " Configure CommonMark syntax
 let g:commonmark#extensions#all = 1
-
-" Change default order a nd add smart quote objects to wildfire
-let g:wildfire_objects = ["i'", 'i"', 'iq', 'aq', 'iQ', 'aQ', 'i)', 'i]', 'i}', 'i<', 'if', 'af', 'it', 'at', 'ip', 'ae']
 
 " Setup 8 digit numbers as date format even without dashes
 if exists(':SpeedDatingFormat')

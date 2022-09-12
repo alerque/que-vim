@@ -102,6 +102,14 @@ return require("packer").startup(function (use)
     after = "vim-fugitive"
   }
 
+  use { "gcmt/wildfire.vim",
+    config = function ()
+      vim.g.wildfire_objects = {
+        "i'", 'i"', "iq", "aq", "iQ", "aQ", "i)", "i }", "i}", "i<", "if", "af", "it", "at", "ip", "ae"
+      }
+    end
+  }
+
   use { "nvim-treesitter/nvim-treesitter",
     config = function ()
       local treesitter = require("nvim-treesitter.configs")
