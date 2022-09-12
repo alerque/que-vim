@@ -320,6 +320,7 @@ return require("packer").startup(function (use)
 
   use { "lewis6991/gitsigns.nvim",
     config = function ()
+      vim.o.signcolumn = "yes"
       require("gitsigns").setup {
         on_attach = function (buffnr)
           local gs = package.loaded.gitsigns
