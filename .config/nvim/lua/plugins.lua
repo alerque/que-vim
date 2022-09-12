@@ -53,20 +53,56 @@ return require("packer").startup(function(use)
   }
 
   use { "tpope/vim-repeat" }
+
   use { "tpope/vim-sensible" }
+
   use { "tpope/vim-eunuch" }
+
   use { "tpope/vim-tbone" }
+
   use { "tpope/vim-unimpaired" }
+
   use { "tpope/vim-abolish" }
+
   use { "tpope/vim-speeddating" }
+
   use { "tpope/vim-characterize" }
+
   use { "tpope/vim-endwise" }
-  use { "tpope/vim-fugitive" }
+
+  use { "tpope/vim-fugitive",
+    config = function ()
+      local map = function (mode, l, r)
+        local opts = { noremap = true, silent = true}
+        vim.keymap.set(mode, l, r, opts)
+      end
+      map("n", "<leader>gb", ":Git blame<CR>")
+      map("n", "<leader>gc", ":Git commit<CR>")
+      map("n", "<leader>gl", ":Git log<CR>")
+      map("n", "<leader>gw", ":Gwrite<CR>")
+      map("n", "<leader>gs", ":Git status!<CR>")
+      map("n", "<leader>gd", ":Gvdiffsplit!<CR>")
+    end
+  }
+
   use { "tpope/vim-rhubarb" }
+
   -- Forked from tpope to work with vim-textobj-quote
   use { "alerque/vim-surround" }
 
   use { "rbong/vim-buffest" }
+
+  use { "shumphrey/fugitive-gitlab.vim",
+    after = "vim-fugitive",
+    config = function ()
+      vim.g.fugitive_gitlab_domains = { "https://gitlab.com", "https://gitlab.alerque.com" }
+      vim.g.fugitive_gitlab_ssh_user = "gitlab"
+    end
+  }
+
+  use { "tommcdo/vim-fugitive-blame-ext",
+    after = "vim-fugitive"
+  }
 
   use { "nvim-treesitter/nvim-treesitter",
     config = function()

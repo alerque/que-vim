@@ -17,8 +17,6 @@ function! DoRemote(arg)
     UpdateRemotePlugins
 endfunction
 
-Plug 'shumphrey/fugitive-gitlab.vim'
-Plug 'tommcdo/vim-fugitive-blame-ext'
 Plug 'gcmt/wildfire.vim'
 Plug 'ntpeters/vim-better-whitespace'
 " Plug 'sdanielf/vim-stdtabs'
@@ -510,21 +508,11 @@ nnoremap <silent> <A-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <A-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <A-w> :TmuxNavigateLeft<cr>
 
-" Fugitive bindings
-nnoremap <leader>gb :Gblame<Cr>
-nnoremap <leader>gs :Gstatus<Cr>
-nnoremap <leader>gc :Gcommit<Cr>
-nnoremap <leader>gl :Glog<Cr>
-nnoremap <leader>gw :Gwrite<Cr>
-nnoremap <leader>gd :Gvdiffsplit!<Cr>
-
-let g:fugitive_gitlab_domains = ['https://gitlab.com', 'https://gitlab.alerque.com']
-let g:fugitive_gitlab_ssh_user = 'gitlab'
-try
-	let g:private_keys = system('gpg --use-agent --decrypt --quiet --no-tty --batch $HOME/.private/keys.vim.gpg')
-	execute g:private_keys
-catch
-endtry
+" try
+"     let g:private_keys = system('gpg --use-agent --decrypt --quiet --no-tty --batch $HOME/.private/keys.vim.gpg')
+"     execute g:private_keys
+" catch
+" endtry
 
 " Shortcut to delete withoud clobbering the registers
 nnoremap <leader>x "_x
