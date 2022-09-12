@@ -1,23 +1,6 @@
 " Make our vimscript linter happy and handle Unicode properly
 scriptencoding utf8
 
-" Group some filetypes for use in selectively loading plugins
-let g:markdown_filetypes =
-            \ ['markdown', 'mkd', 'pandoc']
-
-let g:prose_filetypes = g:markdown_filetypes +
-            \ ['sile', 'tex', 'mail', 'org', 'rst', 'text', 'asciidoc', 'usfm']
-
-let g:markdown_embeded =
-            \ ['html', 'css', 'bash=sh', 'lua', 'python', 'latex=tex', 'rust']
-
-" Stop vim-polyglot from loading for
-" - CSV, which makes a useless power grab for TSV and sets useless conceals
-" - Lua, loading full plugin directly for freshness
-" - Rust, loading full plugin directly for freshness
-" - TeX, using vimtex instead
-let g:polyglot_disabled = ['csv', 'lua', 'latex', 'rust']
-
 augroup QueInit
     autocmd!
 augroup END
@@ -27,57 +10,35 @@ let $GIT_CONFIG_NOSYSTEM = 1
 
 " Manage plugins with vim-plug
 " https://github.com/junegunn/vim-plug
-call plug#begin()
+call plug#begin('~/.config/nvim/plugged')
 
 " Map vim-plug's external plugin update function (1 arg) to Neovim's (no args)
 function! DoRemote(arg)
     UpdateRemotePlugins
 endfunction
 
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-eunuch'
-Plug 'alerque/vim-surround' " Forked from tpope to work with vim-textobj-quote
-Plug 'tpope/vim-tbone'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-speeddating'
-Plug 'tpope/vim-characterize'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
-Plug 'shumphrey/fugitive-gitlab.vim'
-Plug 'tommcdo/vim-fugitive-blame-ext'
 Plug 'gcmt/wildfire.vim'
 Plug 'ntpeters/vim-better-whitespace'
-" Plug 'sdanielf/vim-stdtabs'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdcommenter'
 Plug 'vim-syntastic/syntastic'
 "Plug 'jcf/vim-latex'
 "Plug 'git://git.code.sf.net/p/atp-vim/code'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'justinmk/vim-sneak'
-Plug 'wesQ3/vim-windowswap'
 Plug 'sheerun/vim-polyglot'
-Plug 'lordm/vim-browser-reload-linux'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'tommcdo/vim-exchange'
+" Plug 'tommcdo/vim-exchange'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'LucHermitte/lh-vim-lib' | Plug 'LucHermitte/local_vimrc'
-Plug 'brookhong/DBGPavim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'sjl/gundo.vim'
 Plug 'junegunn/fzf.vim'
-Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'mg979/vim-visual-multi'
 Plug 'vim-scripts/RelOps'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
+" Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'preservim/vimux'
 Plug 'jtdowney/vimux-cargo'
 Plug 'swekaj/php-foldexpr.vim'
@@ -101,8 +62,8 @@ Plug 'lervag/vimtex'
 Plug 'gisraptor/vim-lilypond-integrator', { 'for': 'lilypond' }
 Plug 'trusktr/seti.vim'
 Plug 'alerque/vim-commonmark', { 'do': 'make' }
-Plug 'godlygeek/tabular' " required for plasticboy/vim-markdown
-Plug 'plasticboy/vim-markdown', { 'for': g:markdown_filetypes }
+Plug 'godlygeek/tabular' " required for preservim/vim-markdown
+Plug 'preservim/vim-markdown', { 'for': g:markdown_filetypes }
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-criticmarkup', { 'for': g:prose_filetypes }
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': g:markdown_filetypes }
@@ -135,17 +96,16 @@ Plug 'glts/vim-magnum'
 Plug 'glts/vim-radical'
 Plug 'projectfluent/fluent.vim'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-Plug 'norcalli/nvim-colorizer.lua'
 Plug 'haya14busa/vim-asterisk'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'stefandtw/quickfix-reflector.vim'
 Plug 'tridactyl/vim-tridactyl'
 Plug 'ekalinin/Dockerfile.vim'
-Plug 'tbastos/vim-lua'
+" Enabled by vim-polyglot, see https://github.com/tbastos/vim-lua/issues/14
+" Plug 'tbastos/vim-lua'
 Plug 'leafo/moonscript-vim'
 Plug 'junegunn/vader.vim'
 Plug 'egberts/vim-syntax-bind-named'
-Plug 'neovim/nvim-lspconfig'
 
 call plug#end()
 
@@ -244,9 +204,6 @@ if has('gui_running')
 	set guiheadroom=0
 endif
 
-" Setup NeoComplete
-let g:deoplete#enable_at_startup = 1
-
 " Setup indent guides
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 1
@@ -254,9 +211,6 @@ let g:indent_guides_start_level = 1
 let g:indent_guides_auto_colors = 0
 autocmd QueInit VimEnter,ColorScheme * highlight IndentGuidesOdd ctermbg=NONE
 autocmd QueInit VimEnter,ColorScheme * highlight IndentGuidesEven ctermbg=233
-
-" Show leader as typed (used for gitgutter)
-set showcmd
 
 " Shut up
 set noerrorbells visualbell t_vb=
@@ -272,6 +226,7 @@ set nocursorline
 " Disable cursorline when entering diff mode
 " https://vi.stackexchange.com/a/12852/267
 au OptionSet diff let &cul=!v:option_new
+au OptionSet diff set nofoldenable
 
 " Set split separator to Unicode box drawing character
 set fillchars=vert:│
@@ -298,19 +253,12 @@ set mouse=a
 vnoremap < <gv
 vnoremap > >gv
 
-" http://www.vimbits.com/bits/11
-map Y y$
-
 " http://www.vimbits.com/bits/25
 nnoremap j gj
 nnoremap k gk
 
 " http://www.vimbits.com/bits/21
 noremap <silent><Leader>/ :nohlsearch<CR>
-
-" https://gist.github.com/nocash/1988620
-" automatically reload vimrc when it's saved
-autocmd QueInit BufWritePost $MYVIMRC so $MYVIMRC
 
 " http://www.vimbits.com/bits/90
 "let mapleader = ','
@@ -398,11 +346,6 @@ let g:sneak#label = 1
 let g:sneak#use_ic_scs = 1
 let g:sneak#target_labels = 'aoeuiypqjkxsnthdfgcrlbmwvzAOEUIYPQJKXSNTHDFGCRLBMWVZ'
 
-" Swap windows around between panes
-let g:windowswap_map_keys = 0 "prevent default bindings
-nnoremap <silent> <leader>yw :call WindowSwap#MarkWindowSwap()<CR>
-nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
-
 " Setup editing of GPG encrypted files with safe*er* defaults than otherwise
 set backupskip+=*.gpg
 
@@ -416,14 +359,14 @@ autocmd QueInit BufReadPre,FileReadPre *.gpg
 " and run any BufReadPost autocmds matching the file name without the .gpg
 " extension
 autocmd QueInit BufReadPost,FileReadPost *.gpg
-			\ execute "'[,']!gpg --quiet --no-tty --decrypt --default-recipient-self" |
+			\ execute "'[,']!gpg --quiet --no-tty --decrypt 2> /dev/null" |
 			\ setlocal nobin |
 			\ execute 'doautocmd BufReadPost ' . expand('%:r')
 
 " Set binary file format and encrypt the contents before writing the file
 autocmd QueInit BufWritePre,FileWritePre *.gpg
 			\ setlocal bin |
-			\ '[,']!gpg --encrypt --default-recipient-self
+			\ '[,']!gpg --quiet --no-tty --encrypt --default-recipient-self
 
 " After writing the file, do an :undo to revert the encryption in the
 " buffer, and reset binary file format
@@ -461,12 +404,6 @@ set iminsert=0
 " Autocompile latex
 ":autocmd BufWritePost *.tex silent execute ":!(arara % 2>&1; evince ../basili/<afile>:r-okuma.pdf) &"
 
-" Add binding to activate Gundo plugin
-nnoremap U :GundoToggle<CR>
-let g:gundo_right = 1
-"let g:gundo_width = 40
-let g:gundo_preview_height = 20
-
 " Map for pasting register 0
 xnoremap <leader>p "0p
 
@@ -484,21 +421,6 @@ set breakindent
 set linebreak
 set showbreak=…
 set formatoptions+=lr12B
-
-" File & buffer finder (was ctrlp, then fzf, now clap)
-nnoremap <silent> !! :Clap! <Cr>
-nnoremap <silent> !b :Clap! buffers<Cr>
-nnoremap <silent> !f :Clap! files --hidden<Cr>
-nnoremap <silent> !g :Clap! grep<Cr>
-nnoremap <silent> !h :Clap! history<Cr>
-nnoremap <silent> !l :Clap! lines<Cr>
-nnoremap <silent> !m :Clap! marks<Cr>
-nnoremap <silent> !p :Clap! yanks<Cr>
-nnoremap <silent> !w :Clap! windows<Cr>
-nnoremap <silent> !r :Clap! registers<Cr>
-
-let g:clap_open_action = { 'ctrl-t': 'tab split', 'ctrl-h': 'split', 'ctrl-v': 'vsplit' }
-let g:clap_provider_grep_opts = '-H --no-heading --vimgrep --smart-case --hidden'
 
 " cnoremap <silent> <C-Tab> <C-\>eGetCompletions()<Cr>
 "add an extra <cr> at the end of this line to automatically accept the fzf-selected completions.
@@ -570,21 +492,11 @@ nnoremap <silent> <A-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <A-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <A-w> :TmuxNavigateLeft<cr>
 
-" Fugitive bindings
-nnoremap <leader>gb :Gblame<Cr>
-nnoremap <leader>gs :Gstatus<Cr>
-nnoremap <leader>gc :Gcommit<Cr>
-nnoremap <leader>gl :Glog<Cr>
-nnoremap <leader>gw :Gwrite<Cr>
-nnoremap <leader>gd :Gvdiff<Cr>
-
-let g:fugitive_gitlab_domains = ['https://gitlab.com', 'https://gitlab.alerque.com']
-let g:fugitive_gitlab_ssh_user = 'gitlab'
-try
-	let g:private_keys = system('gpg --use-agent --decrypt --quiet --no-tty --batch $HOME/.private/keys.vim.gpg')
-	execute g:private_keys
-catch
-endtry
+" try
+"     let g:private_keys = system('gpg --use-agent --decrypt --quiet --no-tty --batch $HOME/.private/keys.vim.gpg')
+"     execute g:private_keys
+" catch
+" endtry
 
 " Shortcut to delete withoud clobbering the registers
 nnoremap <leader>x "_x
@@ -695,9 +607,9 @@ function! QueMutt()
 	normal! zr
 
 	" Autocomplete email addresses for mutt
-	call deoplete#enable()
+	" call deoplete#enable()
 	set omnifunc=mailcomplete#Complete
-	call deoplete#custom#option('omni_patterns', {
+	" call deoplete#custom#option('omni_patterns', {
 		\ 'mail': '^\(To\|Cc\|Bcc\|From\|Reply-To\)\+: \w\w\w\+',
 		\})
 
@@ -749,10 +661,6 @@ let g:NERDDefaultAlign = 'left'
 let g:NERDAltDelims_c = 1
 " let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 let s:spacePreStr = ' '
-
-" Force GitGutter to always show the sign column
-set signcolumn=yes
-let g:gitgutter_highlight_linenrs = 1
 
 " Unset F option from campatability mode so we can use Alt keys in keymaps
 set cpoptions-=F
@@ -847,7 +755,8 @@ if !exists('*VeryBeautyQuote')
 endif
 
 " Default to having folds open on buffer load
-set foldlevelstart=10
+set foldlevelstart=0
+set nofoldenable
 
 " Setup extras in JS syntax plugin
 let g:javascript_plugin_jsdoc = 1
@@ -867,15 +776,17 @@ let g:ledger_detailed_first = 1
 let g:ledger_fold_blanks = 1
 let g:ledger_bin = 'hledger'
 let g:ledger_extra_options = '-x'
-let g:ledger_accounts_generate = 1
+let g:ledger_accounts_generate = 0
 let g:ledger_accounts_cmd = 'make _vim_accounts'
 let g:ledger_descriptions_cmd = 'make _vim_descriptions'
 
 autocmd QueInit FileType ledger noremap <buffer> <Leader>h vip:!hledger -f- print -x<Cr> <bar> vip:LedgerAlign<Cr>
 autocmd QueInit FileType ledger inoremap <buffer> <silent> <Tab> <C-r>=ledger#autocomplete_and_align()<Cr>
 autocmd QueInit FileType ledger vnoremap <buffer> <silent> <Tab> :LedgerAlign<Cr>
-autocmd QueInit FileType ledger nmap <buffer> <C-o> <Plug>SpeedDatingDown
 autocmd QueInit FileType ledger SpeedDatingFormat %Y-%m-%d
+autocmd QueInit FileType ledger inoremap <buffer> <silent> <C-t> <Esc>A  ₺<Esc>:LedgerAlign<Cr>A
+autocmd QueInit FileType ledger inoremap <buffer> <silent> <C-d> <Esc>A  $<Esc>:LedgerAlign<Cr>A
+autocmd QueInit FileType ledger set noet
 
 " Matchup
 let g:matchup_matchparen_deferred = 1
@@ -926,8 +837,8 @@ endfunction
 
 function! OnUIEnter(event) abort
   if s:IsFirenvimActive(a:event)
-    set guifont=Hack\ Nerd\ Font:h14
-    let b:syntastic_skip_checks = 1
+    set guifont=Hack\ Nerd\ Font:h12
+    let g:syntastic_skip_checks = 1
     set showtabline=0
     set laststatus=0
     set spell
@@ -951,7 +862,15 @@ let s:fc['https://app\.element\.io'] = {
 			\ 'priority': 1 ,
 			\ 'takeover': 'never',
 			\ }
+let s:fc['https://gab\.com/'] = {
+			\ 'priority': 1 ,
+			\ 'takeover': 'never',
+			\ }
 let s:fc['https://twitter\.com/'] = {
+			\ 'priority': 1 ,
+			\ 'takeover': 'never',
+			\ }
+let s:fc['https://tweetdeck\.twitter\.com/'] = {
 			\ 'priority': 1 ,
 			\ 'takeover': 'never',
 			\ }
@@ -979,6 +898,10 @@ let s:fc['https://mattermost\.alerque\.com/'] = {
 			\ 'priority': 1 ,
 			\ 'takeover': 'never',
 			\ }
+let s:fc['https://mattermost\.coko\.foundation/'] = {
+			\ 'priority': 1 ,
+			\ 'takeover': 'never',
+			\ }
 let s:fc['https://discord\.com/'] = {
 			\ 'priority': 1 ,
 			\ 'takeover': 'never',
@@ -988,6 +911,14 @@ let s:fc['https://app\.slack\.com/'] = {
 			\ 'takeover': 'never',
 			\ }
 let s:fc['https://.*stackexchange\.com/'] = {
+			\ 'priority': 1 ,
+			\ 'takeover': 'never',
+			\ }
+let s:fc['https://web.whatsapp.com/'] = {
+			\ 'priority': 1 ,
+			\ 'takeover': 'never',
+			\ }
+let s:fc['https://console.hetzner.cloud'] = {
 			\ 'priority': 1 ,
 			\ 'takeover': 'never',
 			\ }
@@ -1007,23 +938,6 @@ autocmd QueInit BufEnter gitlab.com_*.txt set filetype=markdown
 autocmd QueInit BufEnter gitlab.alerque.com_*.txt set filetype=pandoc
 autocmd QueInit BufEnter gitter.im_*.txt set filetype=markdown | nnoremap <leader><Cr> write<Cr>:call firenvim#press_keys("<Lt>CR>")<cR>ggdGa
 
-" colorizer.lua
-set termguicolors
-lua << EOC
-local function load_colorizer ()
-	require 'colorizer'.setup {
-		'*',
-		'!vim-plug',
-		'!gitcommit',
-		css = {
-			rgb_fn = true,
-			hsl_fn = true,
-			css_fn = true
-		}
-	}
-end
-pcall(load_colorizer)
-EOC
 
 " vim-asterisk bindings
 let g:asterisk#keeppos = 1
@@ -1061,7 +975,7 @@ let g:strip_only_modified_lines = 1
 
 au BufNewFile,BufRead git-revise-todo       setf gitrebase
 
-" LSP
-lua require('lspconfig').lua_lsp.setup{}
+
+set laststatus=3
 
 " vim: ts=4:sw=4:et
