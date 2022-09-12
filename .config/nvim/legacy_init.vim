@@ -72,7 +72,6 @@ Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 Plug 'preservim/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'rust-lang/rust.vim'
-Plug 'justinmk/molokai'
 Plug 'equalsraf/neovim-gui-shim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'pangloss/vim-javascript'
@@ -205,10 +204,6 @@ endif
 " Shut up
 set noerrorbells visualbell t_vb=
 autocmd QueInit GUIEnter * set visualbell t_vb=
-
-" Run my favorite color scheme
-silent! colorscheme molokai
-let g:molokai_italic = 0
 
 " Highlight current line
 set nocursorline

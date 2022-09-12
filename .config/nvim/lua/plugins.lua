@@ -286,6 +286,14 @@ return require("packer").startup(function (use)
     end
   }
 
+
+  use { "justinmk/molokai",
+    config = function ()
+      vim.g.molokai_italic = 0
+      vim.cmd [[colorscheme molokai]]
+    end
+  }
+
   use { "NvChad/nvim-colorizer.lua",
     config = function ()
       vim.o.termguicolors = true
