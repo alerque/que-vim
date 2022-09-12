@@ -19,7 +19,6 @@ endfunction
 
 Plug 'gcmt/wildfire.vim'
 Plug 'ntpeters/vim-better-whitespace'
-" Plug 'sdanielf/vim-stdtabs'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdcommenter'
@@ -28,22 +27,18 @@ Plug 'vim-syntastic/syntastic'
 "Plug 'git://git.code.sf.net/p/atp-vim/code'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'justinmk/vim-sneak'
-Plug 'wesQ3/vim-windowswap'
 Plug 'sheerun/vim-polyglot'
-Plug 'lordm/vim-browser-reload-linux'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'tommcdo/vim-exchange'
+" Plug 'tommcdo/vim-exchange'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'LucHermitte/lh-vim-lib' | Plug 'LucHermitte/local_vimrc'
-Plug 'brookhong/DBGPavim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'sjl/gundo.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'mg979/vim-visual-multi'
 Plug 'vim-scripts/RelOps'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
+" Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'preservim/vimux'
 Plug 'jtdowney/vimux-cargo'
 Plug 'swekaj/php-foldexpr.vim'
@@ -351,11 +346,6 @@ let g:sneak#label = 1
 let g:sneak#use_ic_scs = 1
 let g:sneak#target_labels = 'aoeuiypqjkxsnthdfgcrlbmwvzAOEUIYPQJKXSNTHDFGCRLBMWVZ'
 
-" Swap windows around between panes
-let g:windowswap_map_keys = 0 "prevent default bindings
-nnoremap <silent> <leader>yw :call WindowSwap#MarkWindowSwap()<CR>
-nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
-
 " Setup editing of GPG encrypted files with safe*er* defaults than otherwise
 set backupskip+=*.gpg
 
@@ -413,12 +403,6 @@ set iminsert=0
 
 " Autocompile latex
 ":autocmd BufWritePost *.tex silent execute ":!(arara % 2>&1; evince ../basili/<afile>:r-okuma.pdf) &"
-
-" Add binding to activate Gundo plugin
-nnoremap U :GundoToggle<CR>
-let g:gundo_right = 1
-"let g:gundo_width = 40
-let g:gundo_preview_height = 20
 
 " Map for pasting register 0
 xnoremap <leader>p "0p
