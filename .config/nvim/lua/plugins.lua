@@ -1,8 +1,8 @@
-return require("packer").startup(function(use)
+return require("packer").startup(function (use)
   use { "wbthomason/packer.nvim" }
 
   use { "kyazdani42/nvim-web-devicons",
-    config = function()
+    config = function ()
       require("nvim-web-devicons").setup {
         default = true
       }
@@ -31,8 +31,7 @@ return require("packer").startup(function(use)
       }
       telescope.load_extension("fzy_native")
       local map = function (mode, l, r)
-        local opts = { noremap = true, silent = true }
-        vim.keymap.set(mode, l, r, opts)
+        vim.keymap.set(mode, l, r, { noremap = true, silent = true })
       end
       map("n", "!!", builtin.builtin)
       map("n", "!b", builtin.buffers)
@@ -73,8 +72,7 @@ return require("packer").startup(function(use)
   use { "tpope/vim-fugitive",
     config = function ()
       local map = function (mode, l, r)
-        local opts = { noremap = true, silent = true}
-        vim.keymap.set(mode, l, r, opts)
+        vim.keymap.set(mode, l, r, { noremap = true, silent = true })
       end
       map("n", "<leader>gb", ":Git blame<CR>")
       map("n", "<leader>gc", ":Git commit<CR>")
@@ -105,7 +103,7 @@ return require("packer").startup(function(use)
   }
 
   use { "nvim-treesitter/nvim-treesitter",
-    config = function()
+    config = function ()
       local treesitter = require("nvim-treesitter.configs")
       treesitter.setup {
         highlight = {
@@ -173,13 +171,12 @@ return require("packer").startup(function(use)
     requires = {
       "hrsh7th/cmp-nvim-lsp"
     },
-    config = function()
+    config = function ()
       local lspconfig = require("lspconfig")
-      local on_attach = function(_, buffnr)
+      local on_attach = function (_, buffnr)
         vim.o.omnifunc = "v:lua.vim.lsp.omnifunc"
         local map = function (mode, l, r)
-          local opts = { noremap = true, silent = true, buffer = buffnr }
-          vim.keymap.set(mode, l, r, opts)
+          vim.keymap.set(mode, l, r, { noremap = true, silent = true, buffer = buffnr })
         end
         map('n', 'gD', vim.lsp.buf.declaration)
         map('n', 'gd', vim.lsp.buf.definition)
@@ -285,8 +282,7 @@ return require("packer").startup(function(use)
         on_attach = function (buffnr)
           local gs = package.loaded.gitsigns
           local map = function (mode, l, r)
-            local opts = { noremap = true, silent = true, buffer = buffnr }
-            vim.keymap.set(mode, l, r, opts)
+            vim.keymap.set(mode, l, r, { noremap = true, silent = true, buffer = buffnr })
           end
           map({"n", "v"}, "<leader>hs", gs.stage_hunk)
           map({"n", "v"}, "<leader>hr", gs.reset_hunk)
