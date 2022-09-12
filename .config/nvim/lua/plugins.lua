@@ -10,11 +10,12 @@ return require("packer").startup(function(use)
   }
 
   -- required by telescope
-  use { "nvim-lua/plenary.nvim" }
-
-  use { "nvim-telescope/telescope-fzy-native.nvim" }
   use { "nvim-lua/telescope.nvim",
     branch = "0.1.x",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope-fzy-native.nvim"
+    },
     config = function ()
       local telescope = require("telescope")
       local builtin = require("telescope.builtin")
@@ -75,10 +76,67 @@ return require("packer").startup(function(use)
     end
   }
 
+  use { "rafamadriz/friendly-snippets",
+    module = { "cmp", "cmp_nvim_lsp" },
+    event = "InsertEnter",
+  }
+
+  use { "hrsh7th/nvim-cmp",
+    after = "friendly-snippets",
+    requires = {
+      "hrsh7th/cmp-nvim-lua",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-calc",
+      "L3MON4D3/LuaSnip",
+    },
+    config = function ()
+      local cmp = require("cmp")
+      cmp.setup {
+        snippet = {
+          expand = function (args)
+            require("luasnip").lsp_expand(args.body)
+          end
+        },
+        mapping = {
+          ["<C-p>"] = cmp.mapping.select_prev_item(),
+          ["<C-n>"] = cmp.mapping.select_next_item(),
+          ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+          ["<C-f>"] = cmp.mapping.scroll_docs(4),
+          ["<C-e>"] = cmp.mapping.close(),
+          -- ["<Tab>"] = cmp.mapping.complete(),
+          ["<Tab>"] = cmp.mapping.confirm {
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = true
+          }
+        },
+        sources = {
+          -- { name = "emoji" }
+          { name = "path" },
+          { name = "spell" },
+          -- { name = "tags" },
+          { name = "nvim_lua" },
+          { name = "luasnip" },
+          { name = "nvim_lsp" },
+          { name = "treesitter" },
+          { name = "path" },
+          { name = "buffer" },
+          { name = "calc" },
+        }
+      }
+    end
+  }
+
+  use { "saadparwaiz1/cmp_luasnip" }
+
   use { "neovim/nvim-lspconfig",
+    requires = {
+      "hrsh7th/cmp-nvim-lsp"
+    },
     config = function()
       local lspconfig = require("lspconfig")
-      local on_attach = function(_, bufnr)
+      local on_attach = function(_, _)
         vim.o.omnifunc = "v:lua.vim.lsp.omnifunc"
         local opts = { noremap = true, silent = true }
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
@@ -109,27 +167,49 @@ return require("packer").startup(function(use)
           capabilities = capabilities,
         }
       end
+      local runtime_path = vim.split(package.path, ';')
+      -- table.insert(runtime_path, 'lua/?.lua')
+      -- table.insert(runtime_path, 'lua/?/init.lua')
+      -- vim.tbl_deep_extend("force", lspconfig.sumneko_lua.setup, {
       lspconfig.sumneko_lua.setup {
-        Lua = {
-          runtime = {
-            version = 'LuaJIT',
-            -- path = vim.split(package.path, ';'),
-          },
-          diagnostics = {
-            globals = { 'vim', 'SILE', 'CASILE', 'pl', 'luautf8' },
-          },
-          workspace = {
-            library = vim.api.nvim_get_runtime_file("", true),
-          },
-          telemetry = {
-            enable = false,
+        on_attach = on_attach,
+        capabilities = capabilities,
+        settings = {
+          Lua = {
+            runtime = {
+              version = 'LuaJIT',
+              path = runtime_path
+            },
+            diagnostics = {
+              globals = { 'vim' },
+            },
+            workspace = {
+              library = vim.api.nvim_get_runtime_file("", true),
+            },
+            completion = {
+              -- callSnippet = "Both",
+              displayContext = 2,
+            },
+            hint = {
+              enable = true,
+            },
+            telemetry = {
+              enable = false,
+            }
           }
         }
       }
-      local runtime_path = vim.split(package.path, ';')
-      table.insert(runtime_path, 'lua/?.lua')
-      table.insert(runtime_path, 'lua/?/init.lua')
       vim.o.completeopt = 'menuone,noselect'
+    end
+  }
+
+  use { "github/copilot.vim",
+    config = function ()
+      vim.g.copilot_no_tab_map = true
+      vim.g.coppilot_filetypes = {
+        ledger = false
+      }
+      vim.keymap.set("i", "<C-Right>", "copilot#Accept()", { noremap = true, silent = true, expr = true })
     end
   }
 
@@ -155,46 +235,6 @@ return require("packer").startup(function(use)
           virtualtext = '■'
         }
       }
-    end
-  }
-
-  use { "hrsh7th/nvim-cmp",
-    config = function ()
-      local cmp = require("cmp")
-      cmp.setup {
-        mapping = {
-          ["<C-p>"] = cmp.mapping.select_prev_item(),
-          ["<C-n>"] = cmp.mapping.select_next_item(),
-          ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          ["<C-Space>"] = cmp.mapping.complete(),
-          ["<C-e>"] = cmp.mapping.close(),
-          ["<CR>"] = cmp.mapping.confirm {
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = true
-          }
-        },
-        sources = {
-          { name = "buffer" },
-          { name = "calc" },
-          { name = "nvim_lsp" },
-          { name = "nvim_lua" },
-          { name = "treesitter" },
-        }
-      }
-    end
-  }
-  use { "hrsh7th/cmp-buffer" }
-  use { "hrsh7th/cmp-calc" }
-  use { "hrsh7th/cmp-nvim-lsp" }
-
-  use { "github/copilot.vim",
-    config = function ()
-      vim.g.copilot_no_tab_map = true
-      vim.g.coppilot_filetypes = {
-        ledger = false
-      }
-      vim.keymap.set("i", "<C-Right>", "copilot#Accept()", { noremap = true, silent = true, expr = true })
     end
   }
 
