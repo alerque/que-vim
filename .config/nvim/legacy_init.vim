@@ -17,7 +17,6 @@ function! DoRemote(arg)
     UpdateRemotePlugins
 endfunction
 
-Plug 'ntpeters/vim-better-whitespace'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdcommenter'
@@ -203,14 +202,6 @@ if has('gui_running')
 	set guiheadroom=0
 endif
 
-" Setup indent guides
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level = 1
-"let g:indent_guides_guide_size = 1
-let g:indent_guides_auto_colors = 0
-autocmd QueInit VimEnter,ColorScheme * highlight IndentGuidesOdd ctermbg=NONE
-autocmd QueInit VimEnter,ColorScheme * highlight IndentGuidesEven ctermbg=233
-
 " Shut up
 set noerrorbells visualbell t_vb=
 autocmd QueInit GUIEnter * set visualbell t_vb=
@@ -284,13 +275,6 @@ autocmd QueInit FileType gitcommit DiffGitCached | wincmd p
 
 " http://www.vimbits.com/bits/223
 autocmd QueInit VimResized * exe "normal! \<c-w>="
-
-" http://www.vimbits.com/bits/13
-if exists('+colorcolumn')
-	set colorcolumn=80
-else
-	autocmd QueInit BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-endif
 
 " http://www.vimbits.com/bits/176
 nmap <leader>o :echo 'Obsolete: use ]\<Space\> from vim-unimpaired'<Cr>

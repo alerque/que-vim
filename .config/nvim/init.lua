@@ -53,6 +53,8 @@ g.polyglot_disabled = {
   'rust',
 }
 
+o.colorcolumn = '80'
+
 -- Source legacy init.vim
 cmd(fmt("source %s/legacy_init.vim", fn.stdpath("config")))
 

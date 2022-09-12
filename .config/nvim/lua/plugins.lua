@@ -110,6 +110,32 @@ return require("packer").startup(function (use)
     end
   }
 
+  use { "lukas-reineke/indent-blankline.nvim",
+    config = function ()
+      vim.o.termguicolors = true
+      local function hl (group, opts) vim.api.nvim_set_hl(0, group, opts) end
+      hl("IndentBlanklineIndent1", { bg = "NONE", nocombine = true })
+      hl("IndentBlanklineIndent2", { link = "CursorColumn", nocombine = true })
+      require("indent_blankline").setup {
+        char = "",
+        char_highlight_list = {
+          "IndentBlanklineIndent1",
+          "IndentBlanklineIndent2",
+        },
+        space_char_highlight_list = {
+          "IndentBlanklineIndent1",
+          "IndentBlanklineIndent2",
+        },
+        buftype_exclude = { "terminal" },
+        filetype_exclude = { "help", "packer" },
+        show_current_context = true,
+        show_current_context_start = true,
+        show_first_indent_level = false,
+        show_trailing_blankline_indent = false,
+      }
+    end
+  }
+
   use { "nvim-treesitter/nvim-treesitter",
     config = function ()
       local treesitter = require("nvim-treesitter.configs")
