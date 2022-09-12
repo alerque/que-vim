@@ -11,7 +11,6 @@ return require("packer").startup(function(use)
 
   -- required by telescope
   use { "nvim-lua/telescope.nvim",
-    branch = "0.1.x",
     requires = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-fzy-native.nvim"
@@ -31,21 +30,25 @@ return require("packer").startup(function(use)
         })
       }
       telescope.load_extension("fzy_native")
-      vim.keymap.set("n", "!!", builtin.builtin, { noremap = true })
-      vim.keymap.set("n", "!b", builtin.buffers, { noremap = true })
-      vim.keymap.set("n", "!c", builtin.commands, { noremap = true })
-      vim.keymap.set("n", "!f", builtin.find_files, { noremap = true })
-      vim.keymap.set("n", "!F", builtin.git_files, { noremap = true })
-      vim.keymap.set("n", "!g", builtin.live_grep, { noremap = true })
-      vim.keymap.set("v", "!g", builtin.grep_string, { noremap = true })
-      vim.keymap.set("n", "!h", builtin.command_history, { noremap = true })
-      vim.keymap.set("n", "!m", builtin.marks, { noremap = true })
-      vim.keymap.set("n", "!s", builtin.search_history, { noremap = true })
-      vim.keymap.set("n", "!t", builtin.tags, { noremap = true })
-      vim.keymap.set("n", "!p", builtin.registers, { noremap = true })
-      vim.keymap.set("n", "!q", builtin.quickfix, { noremap = true })
-      vim.keymap.set("n", "!z", builtin.spell_suggest, { noremap = true })
-      vim.keymap.set("v", "!z", builtin.spell_suggest, { noremap = true })
+      local map = function (mode, l, r)
+        local opts = { noremap = true, silent = true }
+        vim.keymap.set(mode, l, r, opts)
+      end
+      map("n", "!!", builtin.builtin)
+      map("n", "!b", builtin.buffers)
+      map("n", "!c", builtin.commands)
+      map("n", "!f", builtin.find_files)
+      map("n", "!F", builtin.git_files)
+      map("n", "!g", builtin.live_grep)
+      map("v", "!g", builtin.grep_string)
+      map("n", "!h", builtin.command_history)
+      map("n", "!m", builtin.marks)
+      map("n", "!s", builtin.search_history)
+      map("n", "!t", builtin.tags)
+      map("n", "!p", builtin.registers)
+      map("n", "!q", builtin.quickfix)
+      map("n", "!z", builtin.spell_suggest)
+      map("v", "!z", builtin.spell_suggest)
     end
   }
 
@@ -136,26 +139,29 @@ return require("packer").startup(function(use)
     },
     config = function()
       local lspconfig = require("lspconfig")
-      local on_attach = function(_, _)
+      local on_attach = function(_, buffnr)
         vim.o.omnifunc = "v:lua.vim.lsp.omnifunc"
-        local opts = { noremap = true, silent = true }
-        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-        vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
-        vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
-        vim.keymap.set('n', '<leader>wl', function () print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, opts)
-        vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
-        vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-        vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
-        vim.keymap.set('n', '<leader>e', vim.lsp.diagnostic.show_line_diagnostics, opts)
-        vim.keymap.set('n', '[d', vim.lsp.diagnostic.goto_prev, opts)
-        vim.keymap.set('n', ']d', vim.lsp.diagnostic.goto_next, opts)
-        vim.keymap.set('n', '<leader>q', vim.lsp.diagnostic.set_loclist, opts)
-        vim.keymap.set('n', '<leader>so', require('telescope.builtin').lsp_document_symbols, opts)
+        local map = function (mode, l, r)
+          local opts = { noremap = true, silent = true, buffer = buffnr }
+          vim.keymap.set(mode, l, r, opts)
+        end
+        map('n', 'gD', vim.lsp.buf.declaration)
+        map('n', 'gd', vim.lsp.buf.definition)
+        map('n', 'K', vim.lsp.buf.hover)
+        map('n', 'gi', vim.lsp.buf.implementation)
+        map('n', '<C-k>', vim.lsp.buf.signature_help)
+        map('n', '<leader>wa', vim.lsp.buf.add_workspace_folder)
+        map('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder)
+        map('n', '<leader>wl', function () print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end)
+        map('n', '<leader>D', vim.lsp.buf.type_definition)
+        map('n', '<leader>rn', vim.lsp.buf.rename)
+        map('n', 'gr', vim.lsp.buf.references)
+        map('n', '<leader>ca', vim.lsp.buf.code_action)
+        map('n', '<leader>e', vim.lsp.diagnostic.show_line_diagnostics)
+        map('n', '[d', vim.lsp.diagnostic.goto_prev)
+        map('n', ']d', vim.lsp.diagnostic.goto_next)
+        map('n', '<leader>q', vim.lsp.diagnostic.set_loclist)
+        map('n', '<leader>so', require('telescope.builtin').lsp_document_symbols)
         vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
       end
       local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -213,8 +219,7 @@ return require("packer").startup(function(use)
     end
   }
 
-  use {
-    "NvChad/nvim-colorizer.lua",
+  use { "NvChad/nvim-colorizer.lua",
     config = function ()
       vim.o.termguicolors = true
       require("colorizer").setup {
@@ -239,4 +244,3 @@ return require("packer").startup(function(use)
   }
 
 end)
-
