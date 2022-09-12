@@ -243,4 +243,32 @@ return require("packer").startup(function(use)
     end
   }
 
+  use { "lewis6991/gitsigns.nvim",
+    config = function ()
+      require("gitsigns").setup {
+        on_attach = function (buffnr)
+          local gs = package.loaded.gitsigns
+          local map = function (mode, l, r)
+            local opts = { noremap = true, silent = true, buffer = buffnr }
+            vim.keymap.set(mode, l, r, opts)
+          end
+          map({"n", "v"}, "<leader>hs", gs.stage_hunk)
+          map({"n", "v"}, "<leader>hr", gs.reset_hunk)
+          map("n", "]c", gs.next_hunk)
+          map("n", "[c", gs.prev_hunk)
+          map("n", "<leader>hb", gs.blame_line)
+          map("n", "<leader>hd", gs.diffthis)
+          map("n", "<leader>hp", gs.preview_hunk)
+          map("n", "<leader>hR", gs.reset_buffer)
+          map("n", "<leader>hu", gs.undo_stage_hunk)
+          map("n", "<leader>htd", gs.toggle_deleted)
+          map("n", "<leader>htb", gs.toggle_current_line_blame)
+          map("n", "<leader>hth", gs.toggle_linehl)
+        end,
+        numhl = true,
+        word_diff = true
+      }
+    end
+  }
+
 end)

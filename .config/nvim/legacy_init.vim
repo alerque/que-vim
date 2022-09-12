@@ -24,7 +24,6 @@ Plug 'ntpeters/vim-better-whitespace'
 " Plug 'sdanielf/vim-stdtabs'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdcommenter'
 Plug 'vim-syntastic/syntastic'
 "Plug 'jcf/vim-latex'
@@ -219,9 +218,6 @@ let g:indent_guides_start_level = 1
 let g:indent_guides_auto_colors = 0
 autocmd QueInit VimEnter,ColorScheme * highlight IndentGuidesOdd ctermbg=NONE
 autocmd QueInit VimEnter,ColorScheme * highlight IndentGuidesEven ctermbg=233
-
-" Show leader as typed (used for gitgutter)
-set showcmd
 
 " Shut up
 set noerrorbells visualbell t_vb=
@@ -693,10 +689,6 @@ let g:NERDDefaultAlign = 'left'
 let g:NERDAltDelims_c = 1
 " let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 let s:spacePreStr = ' '
-
-" Force GitGutter to always show the sign column
-set signcolumn=yes
-let g:gitgutter_highlight_linenrs = 1
 
 " Unset F option from campatability mode so we can use Alt keys in keymaps
 set cpoptions-=F
