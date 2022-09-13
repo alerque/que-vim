@@ -160,6 +160,7 @@ return require("packer").startup(function (use)
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-calc",
+      "hrsh7th/cmp-copilot",
       "L3MON4D3/LuaSnip",
     },
     config = function ()
@@ -194,6 +195,7 @@ return require("packer").startup(function (use)
           { name = "path" },
           { name = "buffer" },
           { name = "calc" },
+          { name = "copilot" },
         }
       }
     end
@@ -234,44 +236,41 @@ return require("packer").startup(function (use)
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
       local servers = { 'rust_analyzer', 'pyright', 'sumneko_lua' }
-      for _, lsp in ipairs(servers) do
-        lspconfig[lsp].setup {
-          on_attach = on_attach,
-          capabilities = capabilities,
-        }
-      end
       local runtime_path = vim.split(package.path, ';')
       -- table.insert(runtime_path, 'lua/?.lua')
       -- table.insert(runtime_path, 'lua/?/init.lua')
-      -- vim.tbl_deep_extend("force", lspconfig.sumneko_lua.setup, {
-      lspconfig.sumneko_lua.setup {
+      local defaults = {
         on_attach = on_attach,
         capabilities = capabilities,
         settings = {
           Lua = {
             runtime = {
-              version = 'LuaJIT',
+              version = "LuaJIT",
               path = runtime_path
             },
             diagnostics = {
-              globals = { 'vim' },
+              globals = { "vim" }
             },
             workspace = {
               library = vim.api.nvim_get_runtime_file("", true),
+              checkThirdParty = false
             },
             completion = {
               -- callSnippet = "Both",
-              displayContext = 2,
+              displayContext = 2
             },
             hint = {
-              enable = true,
+              enable = true
             },
             telemetry = {
-              enable = false,
+              enable = false
             }
           }
         }
       }
+      for _, lsp in ipairs(servers) do
+        lspconfig[lsp].setup(defaults)
+      end
       vim.o.completeopt = 'menuone,noselect'
     end
   }
@@ -279,13 +278,13 @@ return require("packer").startup(function (use)
   use { "github/copilot.vim",
     config = function ()
       vim.g.copilot_no_tab_map = true
-      vim.g.coppilot_filetypes = {
+      vim.g.copilot_filetypes = {
         ledger = false
       }
-      vim.keymap.set("i", "<C-Right>", "copilot#Accept()", { noremap = true, silent = true, expr = true })
+      -- Switched to cmp-copilot
+      -- vim.keymap.set("i", "<C-Right>", "copilot#Accept()", { noremap = true, silent = true, expr = true })
     end
   }
-
 
   use { "justinmk/molokai",
     config = function ()
