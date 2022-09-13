@@ -77,7 +77,6 @@ Plug 'zhimsel/vim-stay'
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
 Plug 'w0rp/ale'
 Plug 'FooSoft/vim-argwrap'
-Plug 'ledger/vim-ledger'
 Plug 'andymass/vim-matchup'
 Plug 'Konfekt/vim-sentence-chopper'
 Plug 'Konfekt/FastFold'
@@ -737,27 +736,6 @@ let g:titlecase_map_keys = 0
 nmap <leader>gt <Plug>Titlecase
 vmap <leader>gt <Plug>Titlecase
 nmap <leader>gT <Plug>TitlecaseLine
-
-" Ledger stuff
-let g:ledger_maxwidth = 80
-let g:ledger_align_at = 50
-let g:ledger_default_commodity = '₺'
-let g:ledger_decimal_sep = ','
-let g:ledger_detailed_first = 1
-let g:ledger_fold_blanks = 1
-let g:ledger_bin = 'hledger'
-let g:ledger_extra_options = '-x'
-let g:ledger_accounts_generate = 0
-let g:ledger_accounts_cmd = 'make _vim_accounts'
-let g:ledger_descriptions_cmd = 'make _vim_descriptions'
-
-autocmd QueInit FileType ledger noremap <buffer> <Leader>h vip:!hledger -f- print -x<Cr> <bar> vip:LedgerAlign<Cr>
-autocmd QueInit FileType ledger inoremap <buffer> <silent> <Tab> <C-r>=ledger#autocomplete_and_align()<Cr>
-autocmd QueInit FileType ledger vnoremap <buffer> <silent> <Tab> :LedgerAlign<Cr>
-autocmd QueInit FileType ledger SpeedDatingFormat %Y-%m-%d
-autocmd QueInit FileType ledger inoremap <buffer> <silent> <C-t> <Esc>A  ₺<Esc>:LedgerAlign<Cr>A
-autocmd QueInit FileType ledger inoremap <buffer> <silent> <C-d> <Esc>A  $<Esc>:LedgerAlign<Cr>A
-autocmd QueInit FileType ledger set noet
 
 " Matchup
 let g:matchup_matchparen_deferred = 1

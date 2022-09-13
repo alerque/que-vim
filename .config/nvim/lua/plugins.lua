@@ -345,4 +345,43 @@ return require("packer").startup(function (use)
     end
   }
 
+  use { "ledger/vim-ledger",
+    ft = { "ledger" },
+    config = function ()
+      local cmp = require("cmp")
+      cmp.setup.buffer { sources = { { name = "calc" } } }
+      local g = vim.g
+      g.ledger_maxwidth = 80
+      g.ledger_align_at = 50
+      g.ledger_default_commodity = '₺'
+      g.ledger_decimal_sep = ","
+      g.ledger_detailed_first = 1
+      g.ledger_fold_blanks = 1
+      g.ledger_bin = "hledger"
+      g.ledger_extra_options = "-x"
+      g.ledger_accounts_generate = 0
+      g.ledger_accounts_cmd = "make _vim_accounts"
+      g.ledger_descriptions_cmd = "make _vim_descriptions"
+      local function map (mode, l, r) vim.keymap.set(mode, l, r, { noremap = true, buffer = true, silent = true }) end
+      local function autocmd (func) vim.api.nvim_create_autocmd("FileType", { pattern = "ledger", callback = func }) end
+      autocmd(function ()
+        vim.opt.expandtab = true
+        vim.cmd [[SpeedDatingFormat %Y-%m-%d]]
+        local function start_commodity (symbol)
+          vim.cmd([[normal! A  ]] .. symbol)
+          vim.call("ledger#align_commodity")
+          vim.cmd("startinsert!")
+        end
+        map("i", "<C-t>", function () start_commodity("₺") end)
+        map("i", "<C-d>", function () start_commodity("$") end)
+        map("i", "<C-e>", function () start_commodity("€") end)
+        map("i", "<C-l>", function () start_commodity("₤") end)
+        map("i", "<C-b>", function () start_commodity("BTC") end)
+        map("i", "<C-n>", [[<C-r>=ledger#autocomplete_and_align()<Cr>]])
+        map({ "i", "n" }, "<Leader>n", [[vap:LedgerAlign<Cr>{yE}po<Esc>E]])
+        map({ "i", "n" }, "<Leader>f", [[gqap]])
+      end)
+    end
+  }
+
 end)
