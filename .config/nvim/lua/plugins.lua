@@ -384,4 +384,6 @@ return require("packer").startup(function (use)
     end
   }
 
+  use { "sile-typesetter/vim-sile" }
+
 end)

@@ -51,7 +51,6 @@ Plug 'preservim/vim-wheel'
 Plug 'preservim/vim-wordchipper'
 Plug 'rbonvall/vim-textobj-latex'
 Plug 'haya14busa/vim-textobj-function-syntax'
-Plug 'sile-typesetter/vim-sile'
 Plug '907th/vim-auto-save'
 Plug 'lervag/vimtex'
 Plug 'gisraptor/vim-lilypond-integrator', { 'for': 'lilypond' }
