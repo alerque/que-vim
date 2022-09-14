@@ -80,4 +80,6 @@ end
 
 local plugins = require("plugins")
 
+map({'n', 'i'}, "<Leader>a", vim.lsp.buf.code_action, { noremap = true, silent = true })
+
 cmd("autocmd BufWritePost plugins.lua source <afile> | PackerSync")
