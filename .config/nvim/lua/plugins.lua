@@ -157,10 +157,13 @@ return require("packer").startup(function (use)
     requires = {
       "hrsh7th/cmp-nvim-lua",
       "hrsh7th/cmp-nvim-lsp",
+      "ray-x/cmp-treesitter",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-calc",
       "hrsh7th/cmp-omni",
+      "uga-rosa/cmp-dictionary",
+      "f3fora/cmp-spell",
       "hrsh7th/cmp-copilot",
       "L3MON4D3/LuaSnip",
     },
@@ -195,6 +198,8 @@ return require("packer").startup(function (use)
           { name = "treesitter" },
           { name = "path" },
           { name = "buffer" },
+          { name = "dictionary" },
+          { name = "spell" },
           { name = "calc" },
           { name = "copilot" },
         }
