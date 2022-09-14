@@ -4,6 +4,7 @@ local fn = vim.fn
 local g = vim.g
 local map = vim.keymap.set
 local o = vim.o
+local opt = vim.opt
 
 local fmt = string.format
 
@@ -54,6 +55,18 @@ g.polyglot_disabled = {
 }
 
 o.colorcolumn = '80'
+
+g.neovide_remember_window_size = false
+
+local function resize_guifont (delta)
+  local guifont = vim.split(o.guifont, ":h")
+  local face, size = guifont[1], tonumber(guifont[2])
+  size = size + delta
+  o.guifont = ("%s:h%s"):format(face, size)
+end
+
+map({'n', 'i'}, "<C-+>", function() resize_guifont(1)  end, { noremap = true, silent = true })
+map({'n', 'i'}, "<C-->", function() resize_guifont(-1) end, { noremap = true, silent = true })
 
 -- Source legacy init.vim
 cmd(fmt("source %s/legacy_init.vim", fn.stdpath("config")))
