@@ -13,7 +13,8 @@ return require("packer").startup(function (use)
   use { "nvim-lua/telescope.nvim",
     requires = {
       "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope-fzy-native.nvim"
+      "nvim-telescope/telescope-fzy-native.nvim",
+      "nvim-telescope/telescope-project.nvim"
     },
     config = function ()
       local telescope = require("telescope")
@@ -27,15 +28,24 @@ return require("packer").startup(function (use)
               ["<C-h>"] = "select_horizontal"
             }
           }
-        })
+        }),
+        extensions = {
+          project = {
+            base_dirs = {
+              { "~/projects", maxdepth = 2 }
+            }
+          }
+        }
       }
       telescope.load_extension("fzy_native")
+      telescope.load_extension("project")
       local map = function (mode, l, r)
         vim.keymap.set(mode, l, r, { noremap = true, silent = true })
       end
       map("n", "!!", builtin.builtin)
       map("n", "!b", builtin.buffers)
       map("n", "!c", builtin.commands)
+      map("n", "!C", telescope.extensions.project.project)
       map("n", "!f", builtin.find_files)
       map("n", "!F", builtin.git_files)
       map("n", "!g", builtin.live_grep)
