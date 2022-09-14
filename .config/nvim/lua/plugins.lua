@@ -84,6 +84,8 @@ return require("packer").startup(function (use)
 
   use { "tpope/vim-endwise" }
 
+  use { "tpope/vim-sleuth" }
+
   use { "tpope/vim-fugitive",
     config = function ()
       local map = function (mode, l, r)
@@ -363,6 +365,20 @@ return require("packer").startup(function (use)
         numhl = true,
         word_diff = true
       }
+    end
+  }
+
+  use { "gpanders/editorconfig.nvim",
+    config = function ()
+      -- Add custom spelling language property
+      -- Two options seen in the wild do the same thing
+      vim.g.editorconfig_properties = { "locale_language", "spell_language" }
+      local ecp = require("editorconfig").properties
+      local function spelllang (bufnr, val)
+        vim.bo[bufnr].spelllang = val
+      end
+      ecp.locale_language = spelllang
+      ecp.spell_language = spelllang
     end
   }
 

@@ -54,7 +54,7 @@ g.polyglot_disabled = {
   'rust',
 }
 
-o.colorcolumn = '80'
+o.colorcolumn = '+1' -- match o.textwidth
 
 g.neovide_remember_window_size = false
 

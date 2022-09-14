@@ -31,7 +31,6 @@ Plug 'junegunn/limelight.vim'
 " Plug 'tommcdo/vim-exchange'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'LucHermitte/lh-vim-lib' | Plug 'LucHermitte/local_vimrc'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'mg979/vim-visual-multi'
@@ -79,7 +78,6 @@ Plug 'FooSoft/vim-argwrap'
 Plug 'andymass/vim-matchup'
 Plug 'Konfekt/vim-sentence-chopper'
 Plug 'Konfekt/FastFold'
-Plug 'Konfekt/vim-DetectSpellLang', { 'for': g:prose_filetypes }
 Plug 'Konfekt/vim-unicode-homoglyphs', { 'for': g:prose_filetypes }
 Plug 'Konfekt/vim-smartbraces'
 Plug 'Konfekt/vim-select-replace'
@@ -269,9 +267,6 @@ autocmd QueInit VimResized * exe "normal! \<c-w>="
 nmap <leader>o :echo 'Obsolete: use ]\<Space\> from vim-unimpaired'<Cr>
 nmap <leader>O :echo 'Obsolete: use [\<Space\> from vim-unimpaired'<Cr>
 
-" http://www.vimbits.com/bits/229
-autocmd QueInit BufRead COMMIT_EDITMSG setlocal spell!
-
 " http://www.vimbits.com/bits/125
 "nnoremap ; :
 
@@ -345,12 +340,6 @@ autocmd QueInit BufWritePre,FileWritePre *.gpg
 autocmd QueInit BufWritePost,FileWritePost *.gpg
 			\ silent u |
 			\ setlocal nobin
-
-" Set default vimchant language to turkish (requires hunspell-tr)
-let g:vimchant_spellcheck_lang = 'tr'
-
-let g:detectspelllang_langs = {}
-let g:detectspelllang_langs.aspell = [ "en_US", "tr_TR" ]
 
 " Alternate insert mode with Turkish-F keyboard emulation (from Programer's Dvorak)
 " See: http://vim.wikia.com/wiki/Insert-mode_only_Caps_Lock
@@ -745,9 +734,6 @@ let g:punctuation_marks = '.;:?!'
 let g:latexindent = 0
 onoremap <silent> . :<c-u>call search('\v\C%(%([^[:digit:]IVX]\|[)''"])\zs[.]\|[,;:!?])[[:space:])''"]\|[.,;:!?]$','W')<CR>
 
-" Spellcheck language guesser
-let g:guesslang_langs = [ 'en', 'tr', 'ru' ]
-
 " This is useful but slows down big files a lot
 let g:is_homoglyph_on = 0
 
@@ -790,7 +776,7 @@ function! OnUIEnter(event) abort
     set showtabline=0
     set laststatus=0
     set spell
-    " set spelllang=en
+    set spelllang=en,tr
     AutoSaveToggle
     nnoremap <Esc><Esc> :call firenvim#focus_page()<CR>
     nnoremap <C-z> :call firenvim#hide_frame()<CR>
