@@ -112,7 +112,7 @@ return require("packer").startup(function (use)
 
   use { "lukas-reineke/indent-blankline.nvim",
     config = function ()
-      vim.o.termguicolors = true
+      vim.opt.termguicolors = true
       local function hl (group, opts) vim.api.nvim_set_hl(0, group, opts) end
       hl("IndentBlanklineIndent1", { bg = "NONE", nocombine = true })
       hl("IndentBlanklineIndent2", { link = "CursorColumn", nocombine = true })
@@ -216,7 +216,7 @@ return require("packer").startup(function (use)
     config = function ()
       local lspconfig = require("lspconfig")
       local on_attach = function (_, buffnr)
-        -- vim.o.omnifunc = "v:lua.vim.lsp.omnifunc"
+        -- vim.opt.omnifunc = "v:lua.vim.lsp.omnifunc"
         local map = function (mode, l, r)
           vim.keymap.set(mode, l, r, { noremap = true, silent = true, buffer = buffnr })
         end
@@ -277,7 +277,7 @@ return require("packer").startup(function (use)
       for _, lsp in ipairs(servers) do
         lspconfig[lsp].setup(defaults)
       end
-      vim.o.completeopt = 'menuone,noselect'
+      vim.opt.completeopt = { "menuone", "noselect" }
     end
   }
 
@@ -301,7 +301,7 @@ return require("packer").startup(function (use)
 
   use { "NvChad/nvim-colorizer.lua",
     config = function ()
-      vim.o.termguicolors = true
+      vim.opt.termguicolors = true
       require("colorizer").setup {
         filetypes = {
           "*",
@@ -325,7 +325,7 @@ return require("packer").startup(function (use)
 
   use { "lewis6991/gitsigns.nvim",
     config = function ()
-      vim.o.signcolumn = "yes"
+      vim.opt.signcolumn = "yes"
       require("gitsigns").setup {
         on_attach = function (buffnr)
           local gs = package.loaded.gitsigns
@@ -354,7 +354,6 @@ return require("packer").startup(function (use)
   use { "ledger/vim-ledger",
     ft = { "ledger" },
     config = function ()
-      vim.opt.iskeyword:append(":")
       local cmp = require("cmp")
       cmp.setup.buffer {
         completion = {
@@ -383,7 +382,8 @@ return require("packer").startup(function (use)
       local function map (mode, l, r) vim.keymap.set(mode, l, r, { noremap = true, buffer = true, silent = true }) end
       local function autocmd (func) vim.api.nvim_create_autocmd("FileType", { pattern = "ledger", callback = func }) end
       autocmd(function ()
-        vim.opt.expandtab = true
+        vim.opt_local.expandtab = true
+        vim.opt_local.iskeyword:append(":")
         vim.cmd [[SpeedDatingFormat %Y-%m-%d]]
         local function start_commodity (symbol)
           vim.cmd([[normal! A  ]] .. symbol)
