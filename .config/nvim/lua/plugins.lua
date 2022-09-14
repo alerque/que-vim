@@ -160,6 +160,7 @@ return require("packer").startup(function (use)
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-calc",
+      "hrsh7th/cmp-omni",
       "hrsh7th/cmp-copilot",
       "L3MON4D3/LuaSnip",
     },
@@ -210,7 +211,7 @@ return require("packer").startup(function (use)
     config = function ()
       local lspconfig = require("lspconfig")
       local on_attach = function (_, buffnr)
-        vim.o.omnifunc = "v:lua.vim.lsp.omnifunc"
+        -- vim.o.omnifunc = "v:lua.vim.lsp.omnifunc"
         local map = function (mode, l, r)
           vim.keymap.set(mode, l, r, { noremap = true, silent = true, buffer = buffnr })
         end
@@ -348,8 +349,20 @@ return require("packer").startup(function (use)
   use { "ledger/vim-ledger",
     ft = { "ledger" },
     config = function ()
+      vim.opt.iskeyword:append(":")
       local cmp = require("cmp")
-      cmp.setup.buffer { sources = { { name = "calc" } } }
+      cmp.setup.buffer {
+        completion = {
+          keyword_length = 2,
+          keyword_pattern = [[.*]]
+        },
+        sources = {
+          { name = "omni" },
+          -- { name = "buffer" },
+          -- { name = "spell" },
+          { name = "calc" }
+        }
+      }
       local g = vim.g
       g.ledger_maxwidth = 80
       g.ledger_align_at = 50
@@ -378,7 +391,7 @@ return require("packer").startup(function (use)
         map("i", "<C-l>", function () start_commodity("₤") end)
         map("i", "<C-b>", function () start_commodity("BTC") end)
         map("i", "<C-n>", [[<C-r>=ledger#autocomplete_and_align()<Cr>]])
-        map({ "i", "n" }, "<Leader>n", [[vap:LedgerAlign<Cr>{yE}po<Esc>E]])
+        map({ "i", "n" }, "<Leader>n", [[<Esc>vap:LedgerAlign<Cr>{yE}po<Esc>E]])
         map({ "i", "n" }, "<Leader>f", [[gqap]])
       end)
     end
