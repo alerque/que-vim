@@ -415,6 +415,8 @@ return require("packer").startup(function (use)
       autocmd(function ()
         vim.opt_local.expandtab = true
         vim.opt_local.iskeyword:append(":")
+        vim.opt_local.formatprg = ("%s -f - print -x"):format(g.ledger_bin)
+        vim.opt_local.formatexpr = nil
         vim.cmd [[SpeedDatingFormat %Y-%m-%d]]
         local function start_commodity (symbol)
           vim.cmd([[normal! A  ]] .. symbol)
@@ -427,7 +429,7 @@ return require("packer").startup(function (use)
         map("i", "<C-l>", function () start_commodity("₤") end)
         map("i", "<C-b>", function () start_commodity("BTC") end)
         map("i", "<C-n>", [[<C-r>=ledger#autocomplete_and_align()<Cr>]])
-        map({ "i", "n" }, "<Leader>n", [[<Esc>vap:LedgerAlign<Cr>{yE}po<Esc>E]])
+        map({ "i", "n" }, "<Leader>n", [[<Esc>gqipkvip:LedgerAlign<Cr>{yE}pE]])
         map({ "i", "n" }, "<Leader>f", [[gqap]])
       end)
     end
