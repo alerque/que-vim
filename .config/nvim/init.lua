@@ -56,6 +56,9 @@ g.polyglot_disabled = {
 
 o.colorcolumn = '+1' -- match o.textwidth
 
+g.loaded_perl_provider = 0
+g.loaded_ruby_provider = 0
+
 -- Default indent style when no filetype specific style guide is in place
 o.tabstop = 4
 o.shiftwidth = 4
