@@ -83,18 +83,13 @@ Plug 'Konfekt/vim-smartbraces'
 Plug 'Konfekt/vim-select-replace'
 Plug 'glts/vim-magnum'
 Plug 'glts/vim-radical'
-Plug 'projectfluent/fluent.vim'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'haya14busa/vim-asterisk'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'stefandtw/quickfix-reflector.vim'
-Plug 'tridactyl/vim-tridactyl'
-Plug 'ekalinin/Dockerfile.vim'
 " Enabled by vim-polyglot, see https://github.com/tbastos/vim-lua/issues/14
 " Plug 'tbastos/vim-lua'
-Plug 'leafo/moonscript-vim'
 Plug 'junegunn/vader.vim'
-Plug 'egberts/vim-syntax-bind-named'
 
 call plug#end()
 

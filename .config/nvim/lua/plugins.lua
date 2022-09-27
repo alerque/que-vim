@@ -437,4 +437,14 @@ return require("packer").startup(function (use)
 
   use { "sile-typesetter/vim-sile" }
 
+  use { "projectfluent/fluent.vim" }
+
+  use { "leafo/moonscript-vim" }
+
+  use { "egberts/vim-syntax-bind-named" }
+
+  use { "ekalinin/Dockerfile.vim" }
+
+  use { "tridactyl/vim-tridactyl" }
+
 end)
