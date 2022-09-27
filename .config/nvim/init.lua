@@ -56,6 +56,14 @@ g.polyglot_disabled = {
 
 o.colorcolumn = '+1' -- match o.textwidth
 
+-- Default indent style when no filetype specific style guide is in place
+o.tabstop = 4
+o.shiftwidth = 4
+o.shiftround = true
+o.expandtab = false
+o.cindent = true
+o.autoindent = true
+
 g.neovide_remember_window_size = false
 
 local function resize_guifont (delta)

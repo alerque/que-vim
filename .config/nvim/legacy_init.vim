@@ -96,14 +96,6 @@ call plug#end()
 " Return to regularly scheduled Git configuration
 unlet $GIT_CONFIG_NOSYSTEM
 
-" Default indent style when no filetype specific style guide is in place
-set tabstop=4
-set shiftwidth=4
-set shiftround
-set noexpandtab
-set cindent
-set autoindent
-
 " Don't wrap long lines by default (override for prose file types & Goyo mode)
 set nowrap
 
