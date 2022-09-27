@@ -474,10 +474,6 @@ let g:auto_save_events = [ 'CursorHold', 'CursorHoldI', 'CompleteDone', 'InsertL
 let g:auto_save_silent = 1
 nmap <Leader>s :AutoSaveToggle<Cr>
 
-" Explicitly enable True Color and cursor features for Neovim
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-
 " Map Markdown Footnotes manually because its default of <leader>+f is taken
 " inoreabbrev [] <c-o>:exe "normal \<Plug>AddVimFootnote"<cr>
 autocmd QueInit FileType markdown,pandoc imap <buffer> ^^ <Plug>AddVimFootnote
