@@ -400,7 +400,7 @@ return require("packer").startup(function (use)
       }
       local g = vim.g
       g.ledger_maxwidth = 80
-      g.ledger_align_at = 50
+      g.ledger_align_at = 63
       g.ledger_default_commodity = '₺'
       g.ledger_decimal_sep = '.,'
       g.ledger_align_last = true
