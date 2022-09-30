@@ -402,7 +402,8 @@ return require("packer").startup(function (use)
       g.ledger_maxwidth = 80
       g.ledger_align_at = 50
       g.ledger_default_commodity = '₺'
-      g.ledger_decimal_sep = ","
+      g.ledger_decimal_sep = '.,'
+      g.ledger_align_last = true
       g.ledger_detailed_first = 1
       g.ledger_fold_blanks = 1
       g.ledger_bin = "hledger"
@@ -416,7 +417,7 @@ return require("packer").startup(function (use)
         vim.opt_local.expandtab = true
         vim.opt_local.iskeyword:append(":")
         vim.opt_local.formatprg = ("%s -f - print -x"):format(g.ledger_bin)
-        vim.opt_local.formatexpr = nil
+        -- vim.opt_local.formatexpr = nil
         vim.cmd [[SpeedDatingFormat %Y-%m-%d]]
         local function start_commodity (symbol)
           vim.cmd([[normal! A  ]] .. symbol)
