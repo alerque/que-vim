@@ -437,6 +437,13 @@ return require("packer").startup(function (use)
         map("i", "<C-n>", [[<C-r>=ledger#autocomplete_and_align()<Cr>]])
         map({ "i", "n" }, "<Leader>n", [[<Esc>gqipkvip:LedgerAlign<Cr>{yE}pE]])
         map({ "i", "n" }, "<Leader>f", [[gqap]])
+        map({ "i", "n" }, "<Leader>p", function ()
+          local formatexpr = vim.o.formatexpr
+          vim.o.formatexpr = nil
+          vim.cmd [[normal! gqap]]
+          vim.o.formatexpr = formatexpr
+          vim.cmd [[normal! kgqap]]
+        end)
       end)
     end
   }
