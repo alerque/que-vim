@@ -452,7 +452,7 @@ return require("packer").startup(function (use)
         map({ "i", "n" }, "<Leader>p", function ()
           local formatexpr = vim.o.formatexpr
           vim.o.formatexpr = nil
-          vim.cmd [[normal! gqap]]
+          vim.cmd [[normal! gqip]]
           vim.o.formatexpr = formatexpr
           vim.cmd [[normal! kgqap]]
         end)
