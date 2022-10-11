@@ -1,7 +1,7 @@
 " Alternate insert mode with Russian JCUKEN keyboard emulation (from Dvorak)
 " See: http://vim.wikia.com/wiki/Insert-mode_only_Caps_Lock
 " See: http://vi.stackexchange.com/q/2260/267
-let b:keymap_name = "dvp2jcu"
+let b:keymap_name = "jcu"
 
 loadkeymap
 ; й
@@ -49,10 +49,10 @@ G Г
 C Ш
 R Щ
 L З
-? /
+? Х
 " ¿ ?
 ^ Ъ
-| Х
+"| |
 A Ф
 O Ы
 E В
