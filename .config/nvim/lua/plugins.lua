@@ -461,6 +461,15 @@ return require("packer").startup(function (use)
     end
   }
 
+  use { "https://git.sr.ht/~soywod/himalaya-vim",
+    requires = {
+      "nvim-lua/telescope.nvim"
+    },
+    config = function ()
+      vim.g.himalaya_folder_picker = "telescope"
+    end
+  }
+
   use { "sile-typesetter/vim-sile" }
 
   use { "projectfluent/fluent.vim" }
