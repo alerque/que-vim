@@ -81,15 +81,15 @@ end
 map({'n', 'i'}, "<C-+>", function() resize_guifont(1)  end, { noremap = true, silent = true })
 map({'n', 'i'}, "<C-->", function() resize_guifont(-1) end, { noremap = true, silent = true })
 
-map({'i', 'c'}, "<A-e>", function()
-  opt.keymap = nil
-end, { noremap = true, silent = true })
-map({'i', 'c'}, "<A-u>", function()
-  opt.keymap = "dvp2ptf"
-end, { noremap = true, silent = true })
-map({'i', 'c'}, "<A-i>", function()
-  opt.keymap = "dvp2jcu"
-end, { noremap = true, silent = true })
+local kr = { noremap = true, silent = true }
+local km = function (keymap)
+  opt.keymap = keymap
+  o.iminsert = 1
+
+end
+map({'i', 'c'}, "<A-e>", function() km(nil) end, kr)
+map({'i', 'c'}, "<A-u>", function() km("dvp2ptf") end, kr)
+map({'i', 'c'}, "<A-i>", function() km("dvp2jcu") end, kr)
 
 -- Source legacy init.vim
 cmd(fmt("source %s/legacy_init.vim", fn.stdpath("config")))
