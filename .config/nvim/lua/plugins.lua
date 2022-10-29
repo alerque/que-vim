@@ -328,12 +328,13 @@ return require("packer").startup(function (use)
     end
   }
 
-  use { "NvChad/nvim-colorizer.lua",
+  use { "nvchad/nvim-colorizer.lua",
     config = function ()
       vim.opt.termguicolors = true
       require("colorizer").setup {
         filetypes = {
           "*",
+          "!ledger",
           "!markdown",
           "!pandoc",
           "!vim-plug",
