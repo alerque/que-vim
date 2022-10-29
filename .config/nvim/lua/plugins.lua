@@ -269,8 +269,7 @@ return require("packer").startup(function (use)
         map('n', '<leader>so', require('telescope.builtin').lsp_document_symbols)
         vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
       end
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
       local servers = { 'rust_analyzer', 'pyright', 'sumneko_lua' }
       local runtime_path = vim.split(package.path, ';')
       -- table.insert(runtime_path, 'lua/?.lua')
