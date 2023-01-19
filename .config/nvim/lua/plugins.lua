@@ -194,7 +194,6 @@ return require("packer").startup(function (use)
       "hrsh7th/cmp-omni",
       "uga-rosa/cmp-dictionary",
       "f3fora/cmp-spell",
-      "hrsh7th/cmp-copilot",
       "L3MON4D3/LuaSnip",
     },
     config = function ()
@@ -230,8 +229,7 @@ return require("packer").startup(function (use)
           { name = "buffer" },
           { name = "dictionary" },
           { name = "spell" },
-          { name = "calc" },
-          { name = "copilot" },
+          { name = "calc" }
         }
       }
     end
@@ -307,17 +305,6 @@ return require("packer").startup(function (use)
         lspconfig[lsp].setup(defaults)
       end
       vim.opt.completeopt = { "menuone", "noselect" }
-    end
-  }
-
-  use { "github/copilot.vim",
-    config = function ()
-      vim.g.copilot_no_tab_map = true
-      vim.g.copilot_filetypes = {
-        ledger = false
-      }
-      -- Switched to cmp-copilot
-      -- vim.keymap.set("i", "<C-Right>", "copilot#Accept()", { noremap = true, silent = true, expr = true })
     end
   }
 
