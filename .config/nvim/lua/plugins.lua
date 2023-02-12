@@ -268,7 +268,7 @@ return require("packer").startup(function (use)
         vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
       end
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
-      local servers = { 'rust_analyzer', 'pyright', 'sumneko_lua' }
+      local servers = { 'rust_analyzer', 'pyright', 'lua_ls' }
       local runtime_path = vim.split(package.path, ';')
       -- table.insert(runtime_path, 'lua/?.lua')
       -- table.insert(runtime_path, 'lua/?/init.lua')
