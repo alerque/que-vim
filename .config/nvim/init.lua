@@ -105,4 +105,7 @@ local plugins = require("plugins")
 
 map({'n', 'i'}, "<Leader>a", vim.lsp.buf.code_action, { noremap = true, silent = true })
 
+-- Alternative paste from select mode that doesn't clobber register
+map("x", "<Leader>p", "\"_dP")
+
 cmd("autocmd BufWritePost plugins.lua source <afile> | PackerSync")
