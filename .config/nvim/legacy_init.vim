@@ -506,6 +506,7 @@ let g:tagbar_type_pandoc = {
 
 let g:markdown_fenced_languages = g:markdown_embeded
 let g:pandoc#syntax#codeblocks#embeds#langs = g:markdown_embeded
+let g:vim_markdown_folding_disabled = 1
 
 " I use fenced div more than definition lists, see https://github.com/vim-pandoc/vim-pandoc-syntax/issues/236
 let g:pandoc#syntax#use_definition_lists = 0
