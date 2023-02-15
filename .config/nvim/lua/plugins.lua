@@ -459,6 +459,8 @@ return require("packer").startup(function (use)
 
   use { "sile-typesetter/vim-sile" }
 
+  use { "https://gitlab.com/rwx.gg/abnf" }
+
   use { "projectfluent/fluent.vim" }
 
   use { "leafo/moonscript-vim" }
