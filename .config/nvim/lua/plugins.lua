@@ -457,6 +457,65 @@ return require("packer").startup(function (use)
     end
   }
 
+  use { "preservim/nerdcommenter",
+    config = function ()
+      vim.g.NERDSpaceDelims = 1
+      vim.g.NERDCompactSexyComs = 1
+      vim.g.NERDDefaultAlign = "left"
+      vim.g.NERDAltDelims_c = 1
+    end
+  }
+
+  use { "preservim/vim-indent-guides",
+    config = function ()
+      vim.g.indent_guides_enable_on_vim_startup = true
+    end
+  }
+
+  use { "preservim/vimux",
+    config = function ()
+      vim.g.VimuxOrientation = "h"
+      vim.g.VimuxUseNearest = true
+      vim.keymap.set("n", "<leader>p", ":VimuxPromptCommand<Cr>", { noremap = true, silent = true })
+    end
+  }
+
+  use { "jtdowney/vimux-cargo",
+    requires = {
+      "preservim/vimux"
+    }
+  }
+
+  use { "preservim/vim-pencil",
+    config = function ()
+      -- vim.g.pencil#wrapModeDefault = 'soft'
+      -- vim.g.pencil#concealcursor = 'nc'
+      -- vim.g.pencil#conceallevel = 0
+    end
+  }
+
+  use { "preservim/vim-colors-pencil" }
+
+  use { "preservim/vim-lexical",
+    config = function ()
+      -- vim.g.lexical#spell = 1
+    end
+  }
+
+  use { "preservim/vim-wordy" }
+
+  use { "preservim/vim-textobj-sentence" }
+
+  use { "preservim/vim-textobj-quote",
+    config = function ()
+      vim.keymap.set({"n", "i"}, "<leader>e", ":ToggleEducate<CR>", { noremap = true, silent = true })
+    end
+  }
+
+  use { "preservim/vim-wheel" }
+
+  use { "preservim/vim-wordchipper" }
+
   use { "sile-typesetter/vim-sile" }
 
   use { "https://gitlab.com/rwx.gg/abnf" }

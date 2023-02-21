@@ -19,7 +19,6 @@ endfunction
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'preservim/nerdcommenter'
 Plug 'vim-syntastic/syntastic'
 "Plug 'jcf/vim-latex'
 "Plug 'git://git.code.sf.net/p/atp-vim/code'
@@ -29,25 +28,14 @@ Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 " Plug 'tommcdo/vim-exchange'
-Plug 'preservim/vim-indent-guides'
 Plug 'LucHermitte/lh-vim-lib' | Plug 'LucHermitte/local_vimrc'
 Plug 'junegunn/fzf.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'mg979/vim-visual-multi'
-Plug 'preservim/vimux'
-Plug 'jtdowney/vimux-cargo'
 Plug 'swekaj/php-foldexpr.vim'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-function'
-Plug 'preservim/vim-pencil'
-Plug 'preservim/vim-colors-pencil'
-Plug 'preservim/vim-lexical'
-Plug 'preservim/vim-wordy'
-Plug 'preservim/vim-textobj-sentence'
-Plug 'preservim/vim-textobj-quote'
-Plug 'preservim/vim-wheel'
-Plug 'preservim/vim-wordchipper'
 Plug 'rbonvall/vim-textobj-latex'
 Plug 'haya14busa/vim-textobj-function-syntax'
 Plug '907th/vim-auto-save'
@@ -423,12 +411,6 @@ endfunction
 nnoremap <Leader>n :set number relativenumber!<Cr>
 nnoremap <Leader>N :set nonumber norelativenumber<Cr>
 
-" Configure Vimux
-let g:VimuxOrientation = 'h'
-let VimuxUseNearest = 1
-nnoremap <leader>p :VimuxPromptCommand<Cr>
-" nnoremap <leader>l :VimuxRunLastCommand<Cr>
-
 set timeout timeoutlen=3000
 set nottimeout
 
@@ -459,10 +441,6 @@ function! QueProse()
 	inoremap <buffer> <expr> <C-e> wordchipper#chipWith('dE')
 	inoremap <buffer> <expr> <C-w> wordchipper#chipWith('dB')
 endfunction
-let g:lexical#spell = 1
-let g:pencil#wrapModeDefault = 'soft'
-let g:pencil#concealcursor = 'nc'
-let g:pencil#conceallevel = 0
 let prose_filetypes = join(g:prose_filetypes, ',')
 execute 'autocmd QueInit FileType ' . prose_filetypes . ' call QueProse()'
 
@@ -592,17 +570,7 @@ let g:rust_conceal = 1
 syn match rustRightArrowTail contained "-" conceal cchar=⟼
 syn match rustFatRightArrowTail contained "=" conceal cchar=⟾
 
-" Mapping to toggle educate (smart quote) mode from vim-textobj-quote
-map <Leader>e :ToggleEducate<CR>
-
 autocmd QueInit VimEnter * if &diff | execute 'windo set wrap' | endif
-
-let g:NERDSpaceDelims = 1
-let g:NERDCompactSexyComs = 1
-let g:NERDDefaultAlign = 'left'
-let g:NERDAltDelims_c = 1
-" let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
-let s:spacePreStr = ' '
 
 " Unset F option from campatability mode so we can use Alt keys in keymaps
 set cpoptions-=F
