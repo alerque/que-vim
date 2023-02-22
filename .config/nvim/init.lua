@@ -69,6 +69,17 @@ o.expandtab = false
 o.cindent = true
 o.autoindent = true
 
+-- Add some UTF8 character pairs that should match
+-- See also vim-unimpaired in plugins
+opt.matchpairs:append{ "�:�" }
+opt.matchpairs:append{ "«:»" }
+opt.matchpairs:append{ "‹:›" }
+opt.matchpairs:append{ "►:◄" }
+
+-- Highlight matching brackets
+-- See also vim-matchup in plugins
+o.showmatch = true
+
 g.neovide_remember_window_size = false
 
 local function resize_guifont (delta)

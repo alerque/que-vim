@@ -62,7 +62,6 @@ Plug 'zhimsel/vim-stay'
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
 Plug 'w0rp/ale'
 Plug 'FooSoft/vim-argwrap'
-Plug 'andymass/vim-matchup'
 Plug 'Konfekt/vim-sentence-chopper'
 Plug 'Konfekt/FastFold'
 Plug 'Konfekt/vim-unicode-homoglyphs', { 'for': g:prose_filetypes }
@@ -236,18 +235,8 @@ autocmd QueInit FileType gitcommit DiffGitCached | wincmd p
 " http://www.vimbits.com/bits/223
 autocmd QueInit VimResized * exe "normal! \<c-w>="
 
-" http://www.vimbits.com/bits/176
-nmap <leader>o :echo 'Obsolete: use ]\<Space\> from vim-unimpaired'<Cr>
-nmap <leader>O :echo 'Obsolete: use [\<Space\> from vim-unimpaired'<Cr>
-
 " http://www.vimbits.com/bits/125
 "nnoremap ; :
-
-" Add some UTF8 character pairs that should match
-set matchpairs+=�:�
-set matchpairs+=«:»
-set matchpairs+=‹:›
-set matchpairs+=►:◄
 
 " Use system clipboard for anonymous register
 set clipboard+=unnamedplus
@@ -277,9 +266,6 @@ set history=1000
 
 " Show ruller at bottom
 set ruler
-
-" Highlight matchign brackets
-set showmatch
 
 " Setup sneak (in leu of EasyMotion)
 let g:sneak#label = 1
@@ -671,10 +657,6 @@ let g:titlecase_map_keys = 0
 nmap <leader>gt <Plug>Titlecase
 vmap <leader>gt <Plug>Titlecase
 nmap <leader>gT <Plug>TitlecaseLine
-
-" Matchup
-let g:matchup_matchparen_deferred = 1
-let g:matchup_matchparen_hi_surround_always = 1
 
 " Sentence chopper
 let g:punctuation_marks = '.;:?!'

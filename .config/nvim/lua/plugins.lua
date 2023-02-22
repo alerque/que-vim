@@ -89,6 +89,13 @@ return require("packer").startup(function (use)
 
   use { "tpope/vim-unimpaired" }
 
+  use { "andymass/vim-matchup",
+    config = function ()
+    vim.g.matchup_matchparen_deferred = true
+    vim.g.matchup_matchparen_hi_surround_always = true
+    end
+  }
+
   use { "tpope/vim-abolish" }
 
   use { "tpope/vim-speeddating" }
