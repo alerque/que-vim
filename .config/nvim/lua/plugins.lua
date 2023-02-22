@@ -488,9 +488,9 @@ return require("packer").startup(function (use)
 
   use { "preservim/vim-pencil",
     config = function ()
-      -- vim.g.pencil#wrapModeDefault = 'soft'
-      -- vim.g.pencil#concealcursor = 'nc'
-      -- vim.g.pencil#conceallevel = 0
+      vim.g["pencil#wrapModeDefault"] = "soft"
+      vim.g["pencil#concealcursor"] = "nc"
+      vim.g["pencil#conceallevel"] = false
     end
   }
 
@@ -498,7 +498,7 @@ return require("packer").startup(function (use)
 
   use { "preservim/vim-lexical",
     config = function ()
-      -- vim.g.lexical#spell = 1
+      vim.g["lexical#spell"] = true
     end
   }
 
