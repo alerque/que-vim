@@ -82,6 +82,8 @@ o.showmatch = true
 
 g.neovide_remember_window_size = false
 
+local nosi = { noremap = true, silent = true }
+
 local function resize_guifont (delta)
   local guifont = vim.split(o.guifont, ":h")
   local face, size = guifont[1], tonumber(guifont[2])
@@ -89,18 +91,17 @@ local function resize_guifont (delta)
   o.guifont = ("%s:h%s"):format(face, size)
 end
 
-map({'n', 'i'}, "<C-+>", function() resize_guifont(1)  end, { noremap = true, silent = true })
-map({'n', 'i'}, "<C-->", function() resize_guifont(-1) end, { noremap = true, silent = true })
+map({'n', 'i'}, "<C-+>", function() resize_guifont(1)  end, nosi)
+map({'n', 'i'}, "<C-->", function() resize_guifont(-1) end, nosi)
 
-local kr = { noremap = true, silent = true }
 local km = function (keymap)
   opt.keymap = keymap
   o.iminsert = 1
 
 end
-map({'i', 'c'}, "<A-e>", function() km(nil) end, kr)
-map({'i', 'c'}, "<A-u>", function() km("dvp2ptf") end, kr)
-map({'i', 'c'}, "<A-i>", function() km("dvp2jcu") end, kr)
+map({'i', 'c'}, "<A-e>", function() km(nil) end, nosi)
+map({'i', 'c'}, "<A-u>", function() km("dvp2ptf") end, nosi)
+map({'i', 'c'}, "<A-i>", function() km("dvp2jcu") end, nosi)
 
 -- Source legacy init.vim
 cmd(fmt("source %s/legacy_init.vim", fn.stdpath("config")))
@@ -114,7 +115,7 @@ end
 
 local plugins = require("plugins")
 
-map({'n', 'i'}, "<Leader>a", vim.lsp.buf.code_action, { noremap = true, silent = true })
+map({'n', 'i'}, "<Leader>a", vim.lsp.buf.code_action, nosi)
 
 -- Alternative pastes from visual mode
 -- See also ReplaceWithRegister plugin
