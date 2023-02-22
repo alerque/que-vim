@@ -94,11 +94,19 @@ end
 map({'n', 'i'}, "<C-+>", function() resize_guifont(1)  end, nosi)
 map({'n', 'i'}, "<C-->", function() resize_guifont(-1) end, nosi)
 
+-- Unset F option from campatability mode so we can use Alt keys in keymaps
+opt.cpoptions:remove("F")
+
+-- Alternate insert mode with Turkish-F keyboard emulation (from Programer's Dvorak)
+-- See: http://vim.wikia.com/wiki/Insert-mode_only_Caps_Lock
+-- See: http://vi.stackexchange.com/q/2260/267
 local km = function (keymap)
   opt.keymap = keymap
   o.iminsert = 1
-
 end
+o.imsearch = -1
+opt.keymap = "dvp2ptf"
+o.imsearch = 0
 map({'i', 'c'}, "<A-e>", function() km(nil) end, nosi)
 map({'i', 'c'}, "<A-u>", function() km("dvp2ptf") end, nosi)
 map({'i', 'c'}, "<A-i>", function() km("dvp2jcu") end, nosi)

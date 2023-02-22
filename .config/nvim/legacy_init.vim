@@ -288,24 +288,6 @@ autocmd QueInit BufWritePost,FileWritePost *.gpg
 			\ silent u |
 			\ setlocal nobin
 
-" Alternate insert mode with Turkish-F keyboard emulation (from Programer's Dvorak)
-" See: http://vim.wikia.com/wiki/Insert-mode_only_Caps_Lock
-" See: http://vi.stackexchange.com/q/2260/267
-set imsearch=-1
-set keymap=dvp2ptf
-set iminsert=0
-"autocmd InsertLeave * set iminsert=0
-"nnoremap <leader>i :set iminsert=1<Cr>i
-"nnoremap <leader>I :set iminsert=1<Cr>I
-"nnoremap <leader>a :set iminsert=1<Cr>a
-"nnoremap <leader>A :set iminsert=1<Cr>A
-"nnoremap <leader>c :set iminsert=1<Cr>c
-"nnoremap <leader>C :set iminsert=1<Cr>C
-"nnoremap <leader>r :set iminsert=1<Cr>r
-"nnoremap <leader>R :set iminsert=1<Cr>R
-"nnoremap <leader>o :set iminsert=1<Cr>o
-"nnoremap <leader>O :set iminsert=1<Cr>O
-
 :highlight Cursor guifg=NONE guibg=Green
 :highlight lCursor guifg=NONE guibg=Cyan
 
@@ -533,9 +515,6 @@ syn match rustRightArrowTail contained "-" conceal cchar=⟼
 syn match rustFatRightArrowTail contained "=" conceal cchar=⟾
 
 autocmd QueInit VimEnter * if &diff | execute 'windo set wrap' | endif
-
-" Unset F option from campatability mode so we can use Alt keys in keymaps
-set cpoptions-=F
 
 " Set file encoding, first checking for byte order mark, then seeing if UTF8
 " works. Adds Windows' Turkish encoding to defaults as check if Latin 1 fails.
