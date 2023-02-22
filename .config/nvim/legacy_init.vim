@@ -72,7 +72,6 @@ Plug 'glts/vim-magnum'
 Plug 'glts/vim-radical'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'haya14busa/vim-asterisk'
-Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'stefandtw/quickfix-reflector.vim'
 " Enabled by vim-polyglot, see https://github.com/tbastos/vim-lua/issues/14
 " Plug 'tbastos/vim-lua'
@@ -338,9 +337,6 @@ set iminsert=0
 
 " Autocompile latex
 ":autocmd BufWritePost *.tex silent execute ":!(arara % 2>&1; evince ../basili/<afile>:r-okuma.pdf) &"
-
-" Map for pasting register 0
-xnoremap <leader>p "0p
 
 " Map tab at start of line to indent commands
 "imap <tab> <c-t>

@@ -105,7 +105,9 @@ local plugins = require("plugins")
 
 map({'n', 'i'}, "<Leader>a", vim.lsp.buf.code_action, { noremap = true, silent = true })
 
--- Alternative paste from select mode that doesn't clobber register
-map("x", "<Leader>p", "\"_dP")
+-- Alternative pastes from visual mode
+-- See also ReplaceWithRegister plugin
+map("x", "<Leader>p", [["_dP]]) -- don't clobber unnamed register
+map("x", "<Leader>P", [["0p]]) -- when you did clobber unnamed register
 
 cmd("autocmd BufWritePost plugins.lua source <afile> | PackerSync")

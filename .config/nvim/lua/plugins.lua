@@ -476,7 +476,7 @@ return require("packer").startup(function (use)
     config = function ()
       vim.g.VimuxOrientation = "h"
       vim.g.VimuxUseNearest = true
-      vim.keymap.set("n", "<leader>p", ":VimuxPromptCommand<Cr>", { noremap = true, silent = true })
+      vim.keymap.set("n", "<Leader>p", ":VimuxPromptCommand<Cr>", { noremap = true, silent = true })
     end
   }
 
@@ -529,5 +529,14 @@ return require("packer").startup(function (use)
   use { "ekalinin/Dockerfile.vim" }
 
   use { "tridactyl/vim-tridactyl" }
+
+  use { "inkarkat/vim-ReplaceWithRegister",
+    requires = {
+      "tpope/vim-repeat",
+      "inkarkat/vim-ingo-library",
+      "inkarkat/vim-visualrepeat"
+    },
+    -- see also alternative register paste maps in init.vim
+  }
 
 end)
