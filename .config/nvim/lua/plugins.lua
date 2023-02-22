@@ -98,7 +98,17 @@ return require("packer").startup(function (use)
 
   use { "tpope/vim-abolish" }
 
-  use { "tpope/vim-speeddating" }
+  use { "tpope/vim-speeddating",
+    lazy = false,
+    config = function ()
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "*",
+        callback = function ()
+          vim.cmd [[SpeedDatingFormat %Y%m%d]]
+        end
+      })
+    end
+  }
 
   use { "tpope/vim-characterize" }
 
@@ -519,6 +529,18 @@ return require("packer").startup(function (use)
     end
   }
 
+  use { "FooSoft/vim-argwrap",
+    config = function ()
+      vim.keymap.set("n", "<Leader>w", ":ArgWrap<Cr>", { noremap = true, silent = true })
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "vim",
+        callback = function ()
+          vim.b.argwrap_line_prefix = "\\ "
+        end
+      })
+    end
+  }
+
   use { "preservim/vim-wheel" }
 
   use { "preservim/vim-wordchipper" }
@@ -539,11 +561,22 @@ return require("packer").startup(function (use)
 
   use { "inkarkat/vim-ReplaceWithRegister",
     requires = {
-      "tpope/vim-repeat",
       "inkarkat/vim-ingo-library",
-      "inkarkat/vim-visualrepeat"
+      "inkarkat/vim-visualrepeat",
+      "tpope/vim-repeat"
     },
     -- see also alternative register paste maps in init.vim
   }
+
+  use { "glts/vim-radical",
+    requires = {
+      "glts/vim-magnum",
+      "tpope/vim-repeat"
+    }
+  }
+
+  use { "stefandtw/quickfix-reflector.vim" }
+
+  use { "junegunn/vader.vim" }
 
 end)

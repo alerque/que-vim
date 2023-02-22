@@ -61,20 +61,15 @@ Plug 'christoomey/vim-titlecase'
 Plug 'zhimsel/vim-stay'
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
 Plug 'w0rp/ale'
-Plug 'FooSoft/vim-argwrap'
 Plug 'Konfekt/vim-sentence-chopper'
 Plug 'Konfekt/FastFold'
 Plug 'Konfekt/vim-unicode-homoglyphs', { 'for': g:prose_filetypes }
 Plug 'Konfekt/vim-smartbraces'
 Plug 'Konfekt/vim-select-replace'
-Plug 'glts/vim-magnum'
-Plug 'glts/vim-radical'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'haya14busa/vim-asterisk'
-Plug 'stefandtw/quickfix-reflector.vim'
 " Enabled by vim-polyglot, see https://github.com/tbastos/vim-lua/issues/14
 " Plug 'tbastos/vim-lua'
-Plug 'junegunn/vader.vim'
 
 call plug#end()
 
@@ -477,10 +472,6 @@ let g:commonmark#extensions#all = 1
 if exists(':SpeedDatingFormat')
 	autocmd QueInit User * SpeedDatingFormat %Y%m%d
 endif
-
-" Bindings for argwrap
-nmap <Leader>w :ArgWrap<Cr>
-autocmd QueInit FileType vim :let b:argwrap_line_prefix = '\ '
 
 aug mutt_mail
 	au!
