@@ -541,9 +541,15 @@ return require("packer").startup(function (use)
     end
   }
 
+  use { "djoshea/vim-autoread" }
+
+  use { "zhimsel/vim-stay" }
+
   use { "preservim/vim-wheel" }
 
   use { "preservim/vim-wordchipper" }
+
+  use { "pangloss/vim-javascript" }
 
   use { "sile-typesetter/vim-sile" }
 
@@ -567,6 +573,8 @@ return require("packer").startup(function (use)
     },
     -- see also alternative register paste maps in init.vim
   }
+
+  use { "machakann/vim-highlightedyank" }
 
   use { "glts/vim-radical",
     requires = {

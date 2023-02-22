@@ -121,4 +121,10 @@ map({'n', 'i'}, "<Leader>a", vim.lsp.buf.code_action, { noremap = true, silent =
 map("x", "<Leader>p", [["_dP]]) -- don't clobber unnamed register
 map("x", "<Leader>P", [["0p]]) -- when you did clobber unnamed register
 
+-- Delete without using unnamed buffer
+map({"n", "x"}, "<leader>x", [["_x]])
+
+-- Use system clipboard for anonymous register
+opt.clipboard:append("unnamedplus")
+
 cmd("autocmd BufWritePost plugins.lua source <afile> | PackerSync")

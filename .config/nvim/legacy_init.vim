@@ -54,11 +54,7 @@ Plug 'preservim/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'rust-lang/rust.vim'
 Plug 'equalsraf/neovim-gui-shim'
-Plug 'machakann/vim-highlightedyank'
-Plug 'pangloss/vim-javascript'
-Plug 'djoshea/vim-autoread'
 Plug 'christoomey/vim-titlecase'
-Plug 'zhimsel/vim-stay'
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
 Plug 'w0rp/ale'
 Plug 'Konfekt/vim-sentence-chopper'
@@ -233,9 +229,6 @@ autocmd QueInit VimResized * exe "normal! \<c-w>="
 " http://www.vimbits.com/bits/125
 "nnoremap ; :
 
-" Use system clipboard for anonymous register
-set clipboard+=unnamedplus
-
 " Enable backspace over indent,eol,start,etc
 set backspace=indent,eol,start
 
@@ -403,9 +396,6 @@ nnoremap <silent> <A-w> :TmuxNavigateLeft<cr>
 "     execute g:private_keys
 " catch
 " endtry
-
-" Shortcut to delete withoud clobbering the registers
-nnoremap <leader>x "_x
 
 " Setup plugins for editing prose
 function! QueProse()
