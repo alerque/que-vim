@@ -398,25 +398,25 @@ return require("packer").startup(function (use)
           { name = "calc" }
         }
       }
-      local g = vim.g
-      g.ledger_maxwidth = 80
-      g.ledger_align_at = 63
-      g.ledger_default_commodity = '₺'
-      g.ledger_decimal_sep = '.,'
-      g.ledger_align_last = true
-      g.ledger_detailed_first = 1
-      g.ledger_fold_blanks = 1
-      g.ledger_bin = "hledger"
-      g.ledger_extra_options = "-x"
-      g.ledger_accounts_generate = 0
-      g.ledger_accounts_cmd = "make _vim_accounts"
-      g.ledger_descriptions_cmd = "make _vim_descriptions"
+      vim.g.ledger_maxwidth = 80
+      vim.g.ledger_align_at = 63
+      vim.g.ledger_default_commodity = '₺'
+      vim.g.ledger_decimal_sep = '.,'
+      vim.g.ledger_align_last = true
+      vim.g.ledger_detailed_first = 1
+      vim.g.ledger_fold_blanks = 1
+      vim.g.ledger_bin = "hledger"
+      vim.g.ledger_fillstring = '    -'
+      vim.g.ledger_extra_options = "-x"
+      vim.g.ledger_accounts_generate = 0
+      vim.g.ledger_accounts_cmd = "cat _vim_accounts"
+      vim.g.ledger_descriptions_cmd = "cat _vim_descriptions"
       local function map (mode, l, r) vim.keymap.set(mode, l, r, { noremap = true, buffer = true, silent = true }) end
       local function autocmd (func) vim.api.nvim_create_autocmd("FileType", { pattern = "ledger", callback = func }) end
       autocmd(function ()
         vim.opt_local.expandtab = true
         vim.opt_local.iskeyword:append(":")
-        vim.opt_local.formatprg = ("%s -f - print -x"):format(g.ledger_bin)
+        vim.opt_local.formatprg = ("%s -f - print -x"):format(vim.g.ledger_bin)
         -- vim.opt_local.formatexpr = nil
         vim.cmd [[SpeedDatingFormat %Y-%m-%d]]
         local function start_commodity (symbol)
