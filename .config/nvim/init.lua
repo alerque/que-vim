@@ -106,7 +106,7 @@ local km = function (keymap)
 end
 o.imsearch = -1
 opt.keymap = "dvp2ptf"
-o.imsearch = 0
+o.iminsert = 0
 map({'i', 'c'}, "<A-e>", function() km(nil) end, nosi)
 map({'i', 'c'}, "<A-u>", function() km("dvp2ptf") end, nosi)
 map({'i', 'c'}, "<A-i>", function() km("dvp2jcu") end, nosi)
