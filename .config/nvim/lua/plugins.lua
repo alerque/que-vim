@@ -541,8 +541,6 @@ return require("packer").startup(function (use)
     end
   }
 
-  use { "djoshea/vim-autoread" }
-
   use { "zhimsel/vim-stay" }
 
   use { "preservim/vim-wheel" }
