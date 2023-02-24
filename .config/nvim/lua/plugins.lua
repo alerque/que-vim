@@ -399,6 +399,76 @@ return require("packer").startup(function (use)
     end
   }
 
+  use { "glacambre/firenvim",
+    run = function ()
+      vim.fn["firenvim#install"](0)
+    end,
+    config = function ()
+      vim.api.nvim_create_autocmd("UIEnter", {
+        callback = function ()
+          local client = vim.api.nvim_get_chan_info(vim.v.event.chan).client
+          if client ~= nil and client.name == "Firenvim" then
+            vim.o.guifont = "Hack Nerd Font:h12"
+            vim.g.syntastic_skip_checks = true
+            vim.o.showtabline = false
+            vim.o.laststatus = false
+            vim.o.spell = true
+            vim.opt.spelllang = { "en", "tr" }
+          end
+        end
+      })
+      local localSettings = {
+        [".*"] = {
+          priority = 0,
+          selector = 'textarea, div[role="textbox"]',
+          takeover = 'once'
+        }
+      }
+      local function never (pattern)
+        local site = localSettings[pattern]
+        if not site then site = {} end
+        site.priority = 1
+        site.takeover = "never"
+      end
+      local function markdown (pattern, ft)
+        local site = localSettings[pattern]
+        if not site then site = {} end
+        site.content = ft or "markdown"
+      end
+      never("https://app\\.element\\.io")
+      never("https://gab\\.com/")
+      never("https://twitter\\.com/")
+      never("https://tweetdeck\\.twitter\\.com/")
+      never("https://.*stackoverflow\\.com/")
+      never("https://gitter\\.im")
+      never("https://mail\\.google\\.com/mail/")
+      never("https://keep\\.google\\.com/")
+      never("https://mastodon\\.social/")
+      never("https://mattermost\\.alerque\\.com/")
+      never("https://mattermost\\.coko\\.foundation/")
+      never("https://discord\\.com/")
+      never("https://app\\.slack\\.com/")
+      never("https://.*stackexchange\\.com/")
+      never("https://web.whatsapp.com/")
+      never("https://console.hetzner.cloud")
+      never("https://www.keybr.com")
+      markdown("github.com_*.txt")
+      markdown("gitlab.com_*.txt")
+      markdown("gitlab.alerque.com_*.txt", "pandoc")
+      markdown("gitter.im_*.txt")
+      vim.g.firenvim_config = {
+        globalSettings = {
+    --       ignoreKeys = {
+    --         all = "<C-Tab>"
+    --       },
+    --       ["<C-w>"] = "noop",
+    --       ["<C-n>"] = "default"
+        },
+        localSettings = localSettings
+      }
+    end
+  }
+
   use { "ledger/vim-ledger",
     ft = { "ledger" },
     config = function ()

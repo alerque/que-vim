@@ -62,7 +62,6 @@ Plug 'Konfekt/FastFold'
 Plug 'Konfekt/vim-unicode-homoglyphs', { 'for': g:prose_filetypes }
 Plug 'Konfekt/vim-smartbraces'
 Plug 'Konfekt/vim-select-replace'
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'haya14busa/vim-asterisk'
 " Enabled by vim-polyglot, see https://github.com/tbastos/vim-lua/issues/14
 " Plug 'tbastos/vim-lua'
@@ -643,129 +642,6 @@ xmap g{ <Plug>(smartbraces-OpenBrace)
 xmap g} <Plug>(smartbraces-CloseBrace)
 omap g{ <Plug>(smartbraces-OpenBrace)
 omap g} <Plug>(smartbraces-CloseBrace)
-
-" Configure Firenvim. To enable in Firefox install plugin from:
-" https://addons.mozilla.org/en-US/firefox/addon/firenvim/
-" Plus setup system with:
-" $ nvim --headless "+call firenvim#install(0) | q"
-function! s:IsFirenvimActive(event) abort
-  if !exists('*nvim_get_chan_info')
-    return 0
-  endif
-  let l:ui = nvim_get_chan_info(a:event.chan)
-  return has_key(l:ui, 'client') &&
-      \ has_key(l:ui.client, 'name') &&
-      \ l:ui.client.name =~? 'Firenvim'
-endfunction
-
-function! OnUIEnter(event) abort
-  if s:IsFirenvimActive(a:event)
-    set guifont=Hack\ Nerd\ Font:h12
-    let g:syntastic_skip_checks = 1
-    set showtabline=0
-    set laststatus=0
-    set spell
-    set spelllang=en,tr
-    AutoSaveToggle
-    nnoremap <Esc><Esc> :call firenvim#focus_page()<CR>
-    nnoremap <C-z> :call firenvim#hide_frame()<CR>
-    nnoremap <C-z> :call firenvim#hide_frame()<CR>
-  endif
-endfunction
-
-autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
-
-let s:fc = {}
-let s:fc['.*'] = {
-			\ 'priority': 0,
-			\ 'selector': 'textarea, div[role="textbox"]',
-			\ 'takeover': 'once',
-			\ }
-let s:fc['https://app\.element\.io'] = {
-			\ 'priority': 1 ,
-			\ 'takeover': 'never',
-			\ }
-let s:fc['https://gab\.com/'] = {
-			\ 'priority': 1 ,
-			\ 'takeover': 'never',
-			\ }
-let s:fc['https://twitter\.com/'] = {
-			\ 'priority': 1 ,
-			\ 'takeover': 'never',
-			\ }
-let s:fc['https://tweetdeck\.twitter\.com/'] = {
-			\ 'priority': 1 ,
-			\ 'takeover': 'never',
-			\ }
-let s:fc['https://.*stackoverflow\.com/'] = {
-			\ 'priority': 1 ,
-			\ 'takeover': 'never',
-			\ }
-let s:fc['https://gitter\.im'] = {
-			\ 'priority': 1 ,
-			\ 'takeover': 'never',
-			\ }
-let s:fc['https://mail\.google\.com/mail/'] = {
-			\ 'priority': 1 ,
-			\ 'takeover': 'never',
-			\ }
-let s:fc['https://keep\.google\.com/'] = {
-			\ 'priority': 1 ,
-			\ 'takeover': 'never',
-			\ }
-let s:fc['https://mastodon\.social/'] = {
-			\ 'priority': 1 ,
-			\ 'takeover': 'never',
-			\ }
-let s:fc['https://mattermost\.alerque\.com/'] = {
-			\ 'priority': 1 ,
-			\ 'takeover': 'never',
-			\ }
-let s:fc['https://mattermost\.coko\.foundation/'] = {
-			\ 'priority': 1 ,
-			\ 'takeover': 'never',
-			\ }
-let s:fc['https://discord\.com/'] = {
-			\ 'priority': 1 ,
-			\ 'takeover': 'never',
-			\ }
-let s:fc['https://app\.slack\.com/'] = {
-			\ 'priority': 1 ,
-			\ 'takeover': 'never',
-			\ }
-let s:fc['https://.*stackexchange\.com/'] = {
-			\ 'priority': 1 ,
-			\ 'takeover': 'never',
-			\ }
-let s:fc['https://web.whatsapp.com/'] = {
-			\ 'priority': 1 ,
-			\ 'takeover': 'never',
-			\ }
-let s:fc['https://console.hetzner.cloud'] = {
-			\ 'priority': 1 ,
-			\ 'takeover': 'never',
-			\ }
-let s:fc['https://www.keybr.com'] = {
-			\ 'priority': 1 ,
-			\ 'takeover': 'never',
-			\ }
-
-let g:firenvim_config = {
-			\ 'globalSettings': {
-				\ 'ignoreKeys': {
-					\ 'all': ['<C-Tab>'],
-				\ },
-				\ '<C-w>': 'noop',
-				\ '<C-n>': 'default',
-			\ },
-			\ 'localSettings': s:fc,
-			\ }
-
-autocmd QueInit BufEnter github.com_*.txt set filetype=markdown
-autocmd QueInit BufEnter gitlab.com_*.txt set filetype=markdown
-autocmd QueInit BufEnter gitlab.alerque.com_*.txt set filetype=pandoc
-autocmd QueInit BufEnter gitter.im_*.txt set filetype=markdown | nnoremap <leader><Cr> write<Cr>:call firenvim#press_keys("<Lt>CR>")<cR>ggdGa
-
 
 " vim-asterisk bindings
 let g:asterisk#keeppos = 1
