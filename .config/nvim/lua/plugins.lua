@@ -385,20 +385,6 @@ return require("packer").startup(function (use)
     end
   }
 
-  use { "gpanders/editorconfig.nvim",
-    config = function ()
-      -- Add custom spelling language property
-      -- Two options seen in the wild do the same thing
-      vim.g.editorconfig_properties = { "locale_language", "spell_language" }
-      local ecp = require("editorconfig").properties
-      local function spelllang (bufnr, val)
-        vim.bo[bufnr].spelllang = val
-      end
-      ecp.locale_language = spelllang
-      ecp.spell_language = spelllang
-    end
-  }
-
   use { "glacambre/firenvim",
     run = function ()
       vim.fn["firenvim#install"](0)
