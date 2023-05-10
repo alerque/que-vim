@@ -325,6 +325,16 @@ return require("packer").startup(function (use)
     end
   }
 
+  use { "Exafunction/codeium.vim",
+    config = function ()
+      vim.g.codeium_disable_bindings = 1
+      vim.keymap.set('i', '<C-r>', function () return vim.fn['codeium#Accept']() end, { expr = true })
+      vim.keymap.set('i', '<C-h>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
+      vim.keymap.set('i', '<C-l>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
+      vim.keymap.set('i', '<C-Escape>', function() return vim.fn['codeium#Clear']() end, { expr = true })
+    end
+  }
+
   use { "justinmk/molokai",
     config = function ()
       vim.g.molokai_italic = 0
