@@ -634,6 +634,8 @@ return require("packer").startup(function (use)
 
   use { "tridactyl/vim-tridactyl" }
 
+  use { "NoahTheDuke/vim-just" }
+
   use { "inkarkat/vim-ReplaceWithRegister",
     requires = {
       "inkarkat/vim-ingo-library",
