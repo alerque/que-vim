@@ -596,7 +596,7 @@ return require("packer").startup(function (use)
 
   use { "preservim/vim-textobj-quote",
     config = function ()
-      vim.keymap.set({"n", "i"}, "<leader>e", ":ToggleEducate<CR>", { noremap = true, silent = true })
+      vim.keymap.set({"n", "i"}, "<leader>E", ":ToggleEducate<CR>", { noremap = true, silent = true })
     end
   }
 
