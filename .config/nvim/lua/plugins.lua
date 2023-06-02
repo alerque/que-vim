@@ -212,6 +212,7 @@ return require("packer").startup(function (use)
       "uga-rosa/cmp-dictionary",
       "f3fora/cmp-spell",
       "L3MON4D3/LuaSnip",
+      "kirasok/cmp-hledger",
     },
     config = function ()
       local cmp = require("cmp")
@@ -246,7 +247,7 @@ return require("packer").startup(function (use)
           { name = "buffer" },
           { name = "dictionary" },
           { name = "spell" },
-          { name = "calc" }
+          { name = "calc" },
         }
       }
     end
@@ -477,12 +478,14 @@ return require("packer").startup(function (use)
           keyword_pattern = [[.*]]
         },
         sources = {
-          { name = "omni" },
+          -- { name = "omni" },
+          { name = "hledger" },
           -- { name = "buffer" },
           -- { name = "spell" },
           { name = "calc" }
         }
       }
+      vim.g.ledger_is_hledger = true
       vim.g.ledger_maxwidth = 80
       vim.g.ledger_align_at = 63
       vim.g.ledger_default_commodity = '₺'
@@ -519,7 +522,7 @@ return require("packer").startup(function (use)
         map("i", "<C-l>", function () start_commodity("₤") end)
         map("i", "<C-k>", function () start_commodity("₸"); backtrack_commodity() end)
         map("i", "<C-b>", function () start_commodity("BTC") end)
-        map("i", "<C-n>", [[<C-r>=ledger#autocomplete_and_align()<Cr>]])
+        -- map("i", "<C-n>", [[<C-r>=ledger#autocomplete_and_align()<Cr>]])
         map({ "i", "n" }, "<Leader>n", [[<Esc>gqipkvip:LedgerAlign<Cr>{yE}pE]])
         map({ "i", "n" }, "<Leader>f", [[gqap]])
         map({ "i", "n" }, "<Leader>p", function ()
