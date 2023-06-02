@@ -51,12 +51,12 @@ Plug 'benekastah/neomake'
 Plug 'junegunn/vim-easy-align'
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 Plug 'preservim/tagbar'
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 Plug 'rust-lang/rust.vim'
 Plug 'equalsraf/neovim-gui-shim'
 Plug 'christoomey/vim-titlecase'
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 Plug 'Konfekt/vim-sentence-chopper'
 Plug 'Konfekt/FastFold'
 Plug 'Konfekt/vim-unicode-homoglyphs', { 'for': g:prose_filetypes }

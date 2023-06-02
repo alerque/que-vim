@@ -553,7 +553,7 @@ return require("packer").startup(function (use)
 
   use { "preservim/vim-indent-guides",
     config = function ()
-      vim.g.indent_guides_enable_on_vim_startup = true
+      -- vim.g.indent_guides_enable_on_vim_startup = true
     end
   }
 
@@ -565,11 +565,11 @@ return require("packer").startup(function (use)
     end
   }
 
-  use { "jtdowney/vimux-cargo",
-    requires = {
-      "preservim/vimux"
-    }
-  }
+  -- use { "jtdowney/vimux-cargo",
+  --   requires = {
+  --     "preservim/vimux"
+  --   }
+  -- }
 
   use { "preservim/vim-pencil",
     config = function ()
