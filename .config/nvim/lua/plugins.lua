@@ -652,4 +652,48 @@ return require("packer").startup(function (use)
 
   use { "junegunn/vader.vim" }
 
+  use { "nvim-neorg/neorg",
+    tag = "*",
+    -- ft = "norg",
+    after = {
+      "nvim-treesitter",
+      "telescope.nvim",
+    },
+    run = ":Neorg sync-parsers",
+    requires = {
+      "hrsh7th/nvim-cmp",
+      "nvim-lua/plenary.nvim",
+      "nvim-neorg/neorg-telescope",
+    },
+    config = function ()
+      require("neorg").setup {
+        load = {
+          ["core.defaults"] = {},
+          ["core.completion"] = {
+            config = {
+              engine = "nvim-cmp",
+            },
+          },
+          ["core.concealer"] = {},
+          ["core.dirman"] = {
+            config = {
+              workspaces = {
+                notes = "~/notes",
+              },
+            },
+          },
+          ["core.integrations.telescope"] = {},
+        },
+      }
+      require("cmp").setup.buffer {
+        sources = {
+          { name = "buffer" },
+          { name = "calc" },
+          { name = "neorg" },
+          { name = "spell" },
+        }
+      }
+    end,
+  }
+
 end)
