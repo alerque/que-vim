@@ -15,7 +15,7 @@ return require("packer").startup(function (use)
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-fzy-native.nvim",
       "nvim-telescope/telescope-project.nvim",
-      "nvim-telescope/telescope-ui-select.nvim"
+      "nvim-telescope/telescope-ui-select.nvim",
     },
     config = function ()
       local telescope = require("telescope")
@@ -185,8 +185,7 @@ return require("packer").startup(function (use)
 
   use { "nvim-treesitter/nvim-treesitter",
     config = function ()
-      local treesitter = require("nvim-treesitter.configs")
-      treesitter.setup {
+      treesitter = require("nvim-treesitter.configs").setup {
         highlight = {
           enabled = true,
         },
@@ -256,9 +255,7 @@ return require("packer").startup(function (use)
   use { "saadparwaiz1/cmp_luasnip" }
 
   use { "neovim/nvim-lspconfig",
-    requires = {
-      "hrsh7th/cmp-nvim-lsp"
-    },
+    requires = "hrsh7th/cmp-nvim-lsp",
     config = function ()
       local lspconfig = require("lspconfig")
       local on_attach = function (_, buffnr)
@@ -471,8 +468,7 @@ return require("packer").startup(function (use)
   use { "ledger/vim-ledger",
     ft = { "ledger" },
     config = function ()
-      local cmp = require("cmp")
-      cmp.setup.buffer {
+      require("cmp").setup.buffer {
         completion = {
           keyword_length = 2,
           keyword_pattern = [[.*]]
@@ -537,9 +533,7 @@ return require("packer").startup(function (use)
   }
 
   use { "https://git.sr.ht/~soywod/himalaya-vim",
-    requires = {
-      "nvim-lua/telescope.nvim"
-    },
+    requires = "nvim-lua/telescope.nvim",
     config = function ()
       vim.g.himalaya_folder_picker = "telescope"
     end
@@ -640,7 +634,7 @@ return require("packer").startup(function (use)
     requires = {
       "inkarkat/vim-ingo-library",
       "inkarkat/vim-visualrepeat",
-      "tpope/vim-repeat"
+      "tpope/vim-repeat",
     },
     -- see also alternative register paste maps in init.vim
   }
@@ -650,7 +644,7 @@ return require("packer").startup(function (use)
   use { "glts/vim-radical",
     requires = {
       "glts/vim-magnum",
-      "tpope/vim-repeat"
+      "tpope/vim-repeat",
     }
   }
 
