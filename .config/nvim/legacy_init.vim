@@ -152,7 +152,6 @@ if has('gui_running')
 
 	"set guioptions=mraAeigt
 	set guioptions=
-	set guiheadroom=0
 endif
 
 " Shut up
