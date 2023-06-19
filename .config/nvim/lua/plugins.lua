@@ -470,20 +470,7 @@ return require("packer").startup(function (use)
 
   use { "ledger/vim-ledger",
     ft = { "ledger" },
-    config = function ()
-      require("cmp").setup.buffer {
-        completion = {
-          keyword_length = 2,
-          keyword_pattern = [[.*]]
-        },
-        sources = {
-          -- { name = "omni" },
-          { name = "hledger" },
-          -- { name = "buffer" },
-          -- { name = "spell" },
-          { name = "calc" }
-        }
-      }
+    setup = function ()
       vim.g.ledger_is_hledger = true
       vim.g.ledger_maxwidth = 80
       vim.g.ledger_align_at = 63
@@ -498,6 +485,21 @@ return require("packer").startup(function (use)
       vim.g.ledger_accounts_generate = 0
       vim.g.ledger_accounts_cmd = "cat _vim_accounts"
       vim.g.ledger_descriptions_cmd = "cat _vim_descriptions"
+    end,
+    config = function ()
+      require("cmp").setup.buffer {
+        completion = {
+          keyword_length = 2,
+          keyword_pattern = [[.*]]
+        },
+        sources = {
+          -- { name = "omni" },
+          { name = "hledger" },
+          -- { name = "buffer" },
+          -- { name = "spell" },
+          { name = "calc" }
+        }
+      }
       local function map (mode, l, r) vim.keymap.set(mode, l, r, { noremap = true, buffer = true, silent = true }) end
       local function autocmd (func) vim.api.nvim_create_autocmd("FileType", { pattern = "ledger", callback = func }) end
       autocmd(function ()
