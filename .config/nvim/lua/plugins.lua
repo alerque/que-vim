@@ -621,6 +621,8 @@ return require("packer").startup(function (use)
 
   use { "sile-typesetter/vim-sile" }
 
+  use {'kaarmu/typst.vim', ft = {'typst'}}
+
   use { "https://gitlab.com/rwx.gg/abnf" }
 
   use { "projectfluent/fluent.vim" }
