@@ -81,6 +81,7 @@ opt.matchpairs:append{ "►:◄" }
 o.showmatch = true
 
 g.neovide_remember_window_size = false
+g.neovide_refresh_rate = 60
 
 local nosi = { noremap = true, silent = true }
 
