@@ -599,6 +599,36 @@ return require("packer").startup(function (use)
     end
   }
 
+  use { "uga-rosa/translate.nvim",
+    setup = function ()
+      local readsecret = function ()
+        local home = os.getenv("HOME")
+        local secretfile = io.open(home .. "/.private/deepl_api.sh", 'r')
+        if not secretfile then return nil end
+        local secretsh = secretfile:read("*a")
+        secretfile:close()
+        return secretsh:match('.*"(.*)"')
+      end
+      vim.g.deepl_api_auth_key = os.getenv("DEEPL_AUTH_KEY") or readsecret()
+    end,
+    config = function ()
+      require("translate").setup {
+        default = {
+          command = "deepl_free",
+          output = "replace"
+        },
+        preset = {
+          output = {
+            split = {
+              append = true
+            }
+          }
+        }
+      }
+      vim.keymap.set("v", "t", ":Translate TR -source=en<Cr>", { noremap = true, silent = true })
+    end
+}
+
   use { "FooSoft/vim-argwrap",
     config = function ()
       vim.keymap.set("n", "<Leader>w", ":ArgWrap<Cr>", { noremap = true, silent = true })
