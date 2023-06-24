@@ -424,15 +424,15 @@ return require("packer").startup(function (use)
         }
       }
       local function never (pattern)
-        local site = localSettings[pattern]
-        if not site then site = {} end
+        local site = {}
         site.priority = 1
         site.takeover = "never"
+        localSettings[pattern] = site
       end
       local function markdown (pattern, ft)
-        local site = localSettings[pattern]
-        if not site then site = {} end
+        local site = {}
         site.content = ft or "markdown"
+        localSettings[pattern] = site
       end
       never("https://mattermost\\.alerque\\.com")
       never("https://mattermost\\.coko\\.foundation")
