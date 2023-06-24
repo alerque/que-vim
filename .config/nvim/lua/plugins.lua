@@ -324,11 +324,13 @@ return require("packer").startup(function (use)
   }
 
   use { "Exafunction/codeium.vim",
-    config = function ()
+    setup = function()
       vim.g.codeium_filetypes = {
         ledger = false,
       }
       vim.g.codeium_disable_bindings = 1
+    end,
+    config = function ()
       vim.keymap.set('i', '<C-r>', function () return vim.fn['codeium#Accept']() end, { expr = true })
       vim.keymap.set('i', '<C-h>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
       vim.keymap.set('i', '<C-l>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
