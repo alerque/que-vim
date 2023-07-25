@@ -67,7 +67,6 @@ return require("packer").startup(function (use)
   }
 
   use({
-    disable = true,
     "folke/noice.nvim",
     event = "VimEnter",
     config = function()
