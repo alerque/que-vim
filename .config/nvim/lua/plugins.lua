@@ -419,6 +419,7 @@ return require("packer").startup(function (use)
       local localSettings = {
         [".*"] = {
           priority = 0,
+          cmdline = 'neovim',
           selector = 'textarea, div[role="textbox"]',
           takeover = 'once'
         }
