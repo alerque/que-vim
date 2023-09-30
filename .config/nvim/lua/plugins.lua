@@ -162,23 +162,20 @@ return require("packer").startup(function (use)
       local function hl (group, opts) vim.api.nvim_set_hl(0, group, opts) end
       hl("IndentBlanklineIndent1", { bg = "NONE", nocombine = true })
       hl("IndentBlanklineIndent2", { link = "CursorColumn", nocombine = true })
-      require("indent_blankline").setup {
+      local hooks = require("ibl.hooks")
+      require("ibl").setup {
         char = "",
-        char_highlight_list = {
+        highlight = {
           "IndentBlanklineIndent1",
           "IndentBlanklineIndent2",
         },
-        space_char_highlight_list = {
-          "IndentBlanklineIndent1",
-          "IndentBlanklineIndent2",
+        exclude = {
+          buftypes = { "terminal" },
+          filetypes = { "help", "packer" }
         },
-        buftype_exclude = { "terminal" },
-        filetype_exclude = { "help", "packer" },
-        show_current_context = true,
-        show_current_context_start = true,
-        show_first_indent_level = false,
-        show_trailing_blankline_indent = false,
+        remove_blankline_trail = true,
       }
+      hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
     end
   }
 
