@@ -85,14 +85,42 @@ return require("packer").startup(function (use)
       'nvim-tree/nvim-web-devicons',
       opt = true
     },
-      require("lualine").setup {
+    config = function ()
+      local lualine = require("lualine")
+      local function macro ()
+          local recording_register = vim.fn.reg_recording()
+          if recording_register == "" then
+              return ""
+          else
+              return "Recording @" .. recording_register
+          end
+      end
+      vim.api.nvim_create_autocmd("RecordingEnter", {
+        callback = function ()
+          lualine.refresh {
+            place = { "statusline" }
+          }
+        end
+      })
+      vim.api.nvim_create_autocmd("RecordingLeave", {
+        callback = function ()
+          local timer = vim.loop.new_timer()
+          timer:start(50, 0, vim.schedule_wrap(function ()
+            lualine.refresh {
+              place = { "statusline" }
+            }
+          end))
+        end
+      })
+      lualine.setup {
         options = {
           theme = "molokai"
         },
         sections = {
-          lualine_a = { "mode", "%{PencilMode()}", "%{g:auto_save == 1}" }
+          lualine_a = { "mode", macro, "%{PencilMode()}", "%{g:auto_save == 1}" }
         }
       }
+    end
   }
 
   use {
