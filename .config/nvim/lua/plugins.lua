@@ -113,11 +113,17 @@ return require("packer").startup(function (use)
         end
       })
       lualine.setup {
-        options = {
-          theme = "molokai"
-        },
+        options = { theme = "molokai", },
         sections = {
-          lualine_a = { "mode", macro, "%{PencilMode()}", "%{g:auto_save == 1}" }
+          lualine_a = {
+            "mode",
+            -- function ()
+            --   if not vim.b.pencil_wrap_mode then return "offpops" end
+            --   return vim.api.nvim_command_output("PencilMode") or "notme"
+            -- end,
+            macro,
+            function () return vim.g.auto_save ~= 0 and "󰸧" or "" end -- "%{g:auto_save == 1}"
+          }
         }
       }
     end
