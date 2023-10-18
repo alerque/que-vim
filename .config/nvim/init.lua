@@ -54,12 +54,20 @@ g.polyglot_disabled = {
   'rust',
 }
 
-o.colorcolumn = '+1' -- match o.textwidth
+g.loaded_perl_provider = 0
+g.loaded_ruby_provider = 0
+
+-- Setup UI preferences
+-- g.mapleader = ","
+-- g.maplocalleader = ","
+o.mouse = "a"
+
+o.errorbells = false
+o.visualbell = true
 
 o.termguicolors = true
 
-g.loaded_perl_provider = 0
-g.loaded_ruby_provider = 0
+o.colorcolumn = "+1" -- match o.textwidth
 
 -- Default indent style when no filetype specific style guide is in place
 o.tabstop = 4

@@ -143,21 +143,13 @@ endif
 set noerrorbells visualbell t_vb=
 autocmd QueInit GUIEnter * set visualbell t_vb=
 
-" Highlight current line
-set nocursorline
-
 " Disable cursorline when entering diff mode
 " https://vi.stackexchange.com/a/12852/267
 au OptionSet diff let &cul=!v:option_new
 au OptionSet diff set nofoldenable
 
-" Set split separator to Unicode box drawing character
-set fillchars=vert:│
-
 " Match split background to tmux scheme
 autocmd QueInit VimEnter,ColorScheme * highlight VertSplit cterm=NONE ctermfg=Green ctermbg=NONE
-
-map Q <Nop>
 
 " Shortcut to vim-eunuch's SudoWrite
 cmap w!! SudoWrite
@@ -166,8 +158,6 @@ cmap w!! SudoWrite
 let g:atp_ProjectScript = 0
 let g:tex_flavor = 'latex'
 let g:atp_developer = 1
-
-set mouse=a
 
 " http://www.vimbits.com/bits/20
 vnoremap < <gv
@@ -179,9 +169,6 @@ nnoremap k gk
 
 " http://www.vimbits.com/bits/21
 noremap <silent><Leader>/ :nohlsearch<CR>
-
-" http://www.vimbits.com/bits/90
-"let mapleader = ','
 
 " http://www.vimbits.com/bits/92
 nnoremap <silent> n nzz
