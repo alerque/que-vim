@@ -190,23 +190,27 @@ return require("packer").startup(function (use)
   use { "lukas-reineke/indent-blankline.nvim",
     config = function ()
       vim.opt.termguicolors = true
-      local function hl (group, opts) vim.api.nvim_set_hl(0, group, opts) end
-      hl("IndentBlanklineIndent1", { bg = "NONE", nocombine = true })
-      hl("IndentBlanklineIndent2", { link = "CursorColumn", nocombine = true })
+      local highlight = {
+        "CursorColumn",
+        "Whitespace"
+      }
       require("ibl").setup {
-        -- char = "",
-        -- highlight = {
-        --   "IndentBlanklineIndent1",
-        --   "IndentBlanklineIndent2",
-        -- },
         exclude = {
           buftypes = { "terminal" },
           filetypes = { "help", "packer" }
         },
-        -- remove_blankline_trail = true,
+        indent = {
+          highlight = highlight,
+          char = ""
+        },
+        whitespace = {
+          highlight = highlight,
+          remove_blankline_trail = false
+        },
+        scope = {
+          enabled = false
+        }
       }
-      local hooks = require("ibl.hooks")
-      hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
     end
   }
 
@@ -579,12 +583,6 @@ return require("packer").startup(function (use)
       vim.g.NERDCompactSexyComs = 1
       vim.g.NERDDefaultAlign = "left"
       vim.g.NERDAltDelims_c = 1
-    end
-  }
-
-  use { "preservim/vim-indent-guides",
-    config = function ()
-      -- vim.g.indent_guides_enable_on_vim_startup = true
     end
   }
 
