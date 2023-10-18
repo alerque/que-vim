@@ -66,7 +66,8 @@ return require("packer").startup(function (use)
     end
   }
 
-  use({
+  use {
+    -- disable = true,
     "folke/noice.nvim",
     event = "VimEnter",
     config = function()
@@ -76,7 +77,7 @@ return require("packer").startup(function (use)
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
     }
-  })
+  }
 
   use {
     "nvim-lualine/lualine.nvim",
@@ -438,17 +439,21 @@ return require("packer").startup(function (use)
             vim.g.syntastic_skip_checks = true
             vim.o.showtabline = false
             vim.o.laststatus = false
+            vim.o.wrap = true
             vim.o.spell = true
             vim.opt.spelllang = { "en", "tr" }
+            -- AutoSaveToggle
+            vim.keymap.set("n", "<Esc><Esc>", "<Cmd>call firenvim#focus_page()<Cr>", {})
+            vim.keymap.set("n", "<C-z>", "<Cmd>call firenvim#hide_frame()<Cr>", {})
           end
         end
       })
       local localSettings = {
         [".*"] = {
           priority = 0,
-          cmdline = 'neovim',
+          cmdline = "neovim",
           selector = 'textarea, div[role="textbox"]',
-          takeover = 'once'
+          takeover = "once"
         }
       }
       local function never (pattern)
