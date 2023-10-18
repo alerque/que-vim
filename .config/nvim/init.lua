@@ -58,8 +58,8 @@ g.loaded_perl_provider = 0
 g.loaded_ruby_provider = 0
 
 -- Setup UI preferences
--- g.mapleader = ","
--- g.maplocalleader = ","
+g.mapleader = ","
+g.maplocalleader = ","
 o.mouse = "a"
 
 o.errorbells = false
