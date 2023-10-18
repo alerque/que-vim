@@ -78,6 +78,37 @@ return require("packer").startup(function (use)
     }
   })
 
+  use {
+    "nvim-lualine/lualine.nvim",
+    requires = {
+      'nvim-tree/nvim-web-devicons',
+      opt = true
+    },
+      require("lualine").setup {
+        options = {
+          theme = "molokai"
+        },
+        sections = {
+          lualine_a = { "mode", "%{PencilMode()}", "%{g:auto_save == 1}" }
+        }
+      }
+  }
+
+  use {
+    "akinsho/bufferline.nvim",
+    requires = "nvim-tree/nvim-web-devicons",
+    config = function ()
+      vim.opt.termguicolors = true
+      require("bufferline").setup {
+        options = {
+          separator_style = "slant",
+          show_close_icon = false,
+          show_buffer_close_icons = false,
+        }
+      }
+    end
+  }
+
   use { "tpope/vim-repeat" }
 
   use { "tpope/vim-sensible" }

@@ -17,8 +17,6 @@ function! DoRemote(arg)
     UpdateRemotePlugins
 endfunction
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-syntastic/syntastic'
 "Plug 'jcf/vim-latex'
 "Plug 'git://git.code.sf.net/p/atp-vim/code'
@@ -119,19 +117,6 @@ xmap <Leader>l <Plug>(Limelight)
 
 " Setup status bar
 set laststatus=2
-
-" Configure airline to use powerline patched fonts and manage the tabbar too
-let g:airline_theme = 'molokai'
-let g:airline_powerline_fonts = 1
-let g:airline_skip_empty_sections = 0
-let g:airline#extensions#whitespace#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-let g:airline#extensions#wordcount#filetypes = g:prose_filetypes
-if exists('airline#section#create_right')
-	let g:airline_section_y =
-				\ airline#section#create_right(['%{PencilMode()}', '%{g:auto_save == 1}'])
-endif
 
 " Hide instead of unload abandoned buffers, showing them in airline
 set hidden
