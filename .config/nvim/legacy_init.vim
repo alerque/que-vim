@@ -157,9 +157,6 @@ set fillchars=vert:│
 " Match split background to tmux scheme
 autocmd QueInit VimEnter,ColorScheme * highlight VertSplit cterm=NONE ctermfg=Green ctermbg=NONE
 
-map - <Leader>cn
-map _ <Leader>cu
-
 map Q <Nop>
 
 " Shortcut to vim-eunuch's SudoWrite

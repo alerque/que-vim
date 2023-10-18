@@ -583,11 +583,16 @@ return require("packer").startup(function (use)
   }
 
   use { "preservim/nerdcommenter",
-    config = function ()
+    setup = function ()
+      vim.g.NERDCreateDefaultMappings = 0
       vim.g.NERDSpaceDelims = 1
       vim.g.NERDCompactSexyComs = 1
       vim.g.NERDDefaultAlign = "left"
       vim.g.NERDAltDelims_c = 1
+    end,
+    config = function ()
+      vim.keymap.set({ "n", "x" }, "-", "<Plug>NERDCommenterNested", {})
+      vim.keymap.set({ "n", "x" }, "_", "<Plug>NERDCommenterUncomment", {})
     end
   }
 
