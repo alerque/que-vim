@@ -400,10 +400,17 @@ return require("packer").startup(function (use)
     end
   }
 
-  use { "justinmk/molokai",
+  use { "tanvirtin/monokai.nvim",
     config = function ()
-      vim.g.molokai_italic = 0
-      vim.cmd [[colorscheme molokai]]
+      local monokai = require("monokai")
+      local moloque = monokai.classic
+      moloque.name = "moloque"
+      moloque.base2 = "#1B1D1E" -- Normal
+      moloque.base3 = "#293739" -- CursorColumn
+      monokai.setup {
+        italics = false,
+        palette = moloque
+      }
     end
   }
 
