@@ -514,6 +514,9 @@ nmap i :set nopaste<Cr>i
 " Do and insert results of fancy math equations via python
 :command! -nargs=+ Calc :r! python -c 'from math import *; print (<args>)'
 
+" Change default ]h mapping from vim-markdown so it can be used for gitsigns
+map ]H <Plug>Markdown_MoveToCurHeader
+
 " Map space to page down in normal mode
 map <space> <C-d>
 
