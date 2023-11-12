@@ -547,6 +547,17 @@ return require("packer").startup(function (use)
     end
   }
 
+  use { "davidsierradz/cmp-conventionalcommits",
+    ft = { "gitcommit" },
+    config = function ()
+      require("cmp").setup.buffer {
+        sources = require("cmp_conventionalcommits").sources(
+          {{ name = 'conventionalcommits' }},
+          {{ name = 'buffer' }}),
+      }
+    end
+  }
+
   use { "ledger/vim-ledger",
     ft = { "ledger" },
     setup = function ()
