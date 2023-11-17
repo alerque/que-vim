@@ -515,7 +515,10 @@ nmap i :set nopaste<Cr>i
 :command! -nargs=+ Calc :r! python -c 'from math import *; print (<args>)'
 
 " Change default ]h mapping from vim-markdown so it can be used for gitsigns
+" map ]H <Plug>Markdown_MoveToNextHeader
+" map [H <Plug>Markdown_MoveToPreviousHeader
 map ]H <Plug>Markdown_MoveToCurHeader
+" map [H <Plug>Markdown_MoveToParentHeader
 
 " Map space to page down in normal mode
 map <space> <C-d>
