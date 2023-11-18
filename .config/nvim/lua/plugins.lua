@@ -16,6 +16,7 @@ return require("packer").startup(function (use)
       "nvim-telescope/telescope-fzy-native.nvim",
       "nvim-telescope/telescope-project.nvim",
       "nvim-telescope/telescope-ui-select.nvim",
+      "tiagovla/scope.nvim",
     },
     config = function ()
       local telescope = require("telescope")
@@ -44,11 +45,12 @@ return require("packer").startup(function (use)
       telescope.load_extension("fzy_native")
       telescope.load_extension("project")
       telescope.load_extension("ui-select")
+      telescope.load_extension("scope")
       local map = function (mode, l, r)
         vim.keymap.set(mode, l, r, { noremap = true, silent = true })
       end
       map("n", "!!", builtin.builtin)
-      map("n", "!b", builtin.buffers)
+      map("n", "!b", telescope.extensions.scope.buffers)
       map("n", "!c", builtin.commands)
       map("n", "!f", builtin.git_files)
       map("n", "!F", builtin.find_files)
@@ -145,9 +147,9 @@ return require("packer").startup(function (use)
   }
 
   use {
-    "backdround/tabscope.nvim",
+    "tiagovla/scope.nvim",
     config = function ()
-      require("tabscope").setup {
+      require("scope").setup {
       }
     end
   }
