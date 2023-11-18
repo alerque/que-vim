@@ -118,9 +118,6 @@ xmap <Leader>l <Plug>(Limelight)
 " Setup status bar
 set laststatus=2
 
-" Hide instead of unload abandoned buffers, showing them in airline
-set hidden
-
 " Do some special things for GVim/MacVim only
 if has('gui_running')
 	" See ginit.vim for GoNVIM config

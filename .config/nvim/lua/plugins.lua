@@ -144,6 +144,14 @@ return require("packer").startup(function (use)
     end
   }
 
+  use {
+    "backdround/tabscope.nvim",
+    config = function ()
+      require("tabscope").setup {
+      }
+    end
+  }
+
   use { "tpope/vim-repeat" }
 
   use { "tpope/vim-sensible" }
