@@ -400,6 +400,7 @@ let g:vim_markdown_folding_disabled = 1
 
 " I use fenced div more than definition lists, see https://github.com/vim-pandoc/vim-pandoc-syntax/issues/236
 let g:pandoc#syntax#use_definition_lists = 0
+let g:pandoc#spell#enabled = 0
 
 " Configure CommonMark syntax
 let g:commonmark#extensions#all = 1
