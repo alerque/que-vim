@@ -401,6 +401,7 @@ return require("packer").startup(function (use)
   }
 
   use { "Exafunction/codeium.nvim",
+    disable = true,
     requires = {
       "nvim-lua/plenary.nvim",
       "hrsh7th/nvim-cmp",
