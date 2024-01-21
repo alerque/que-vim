@@ -73,7 +73,9 @@ return require("packer").startup(function (use)
     "folke/noice.nvim",
     event = "VimEnter",
     config = function()
+      if not vim.g.started_by_firenvim then
       require("noice").setup()
+      end
     end,
     requires = {
       "MunifTanjim/nui.nvim",
