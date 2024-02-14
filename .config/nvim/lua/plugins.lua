@@ -363,27 +363,37 @@ return require("packer").startup(function (use)
       end
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
       local servers = { 'rust_analyzer', 'pyright', 'lua_ls' }
-      local runtime_path = vim.split(package.path, ';')
-      -- table.insert(runtime_path, 'lua/?.lua')
-      -- table.insert(runtime_path, 'lua/?/init.lua')
-      local defaults = {
+      local common_settings = {
         on_attach = on_attach,
         capabilities = capabilities,
-        settings = {
+      }
+      local lsp_specific_settings = {
+        lua_ls = {
+          on_init = function (client)
+            local path = client.workspace_folders[1].name
+            if not vim.loop.fs_stat(path.."/.luarc.json") and not vim.loop.fs_stat(path.."/.luarc.jsonc") then
+              client.config.settings = vim.tbl_deep_extend("force", client.config.settings, {
           Lua = {
             runtime = {
-              version = "LuaJIT",
-              path = runtime_path
+                    version = "LuaJIT"
             },
             diagnostics = {
+                    enable = false,
               globals = { "vim" }
             },
             workspace = {
-              library = vim.api.nvim_get_runtime_file("", true),
-              checkThirdParty = false
-            },
+                    checkThirdParty = false,
+                    library = vim.api.nvim_get_runtime_file("", true)
+                  }
+                }
+              })
+              client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+            end
+            return true
+          end,
+          settings = {
+            Lua = {
             completion = {
-              -- callSnippet = "Both",
               displayContext = 2
             },
             hint = {
@@ -395,8 +405,12 @@ return require("packer").startup(function (use)
           }
         }
       }
+      }
       for _, lsp in ipairs(servers) do
-        lspconfig[lsp].setup(defaults)
+        if lsp_specific_settings[lsp] then
+          vim.tbl_deep_extend("force", common_settings, lsp_specific_settings[lsp])
+        end
+        lspconfig[lsp].setup(common_settings)
       end
       vim.opt.completeopt = { "menuone", "noselect" }
     end
