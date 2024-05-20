@@ -772,6 +772,8 @@ return require("packer").startup(function (use)
 
   use { "https://gitlab.com/rwx.gg/abnf" }
 
+  use { "r-bar/ebnf.vim" }
+
   use { "projectfluent/fluent.vim" }
 
   use { "leafo/moonscript-vim" }
