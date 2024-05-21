@@ -142,6 +142,10 @@ map("x", "<Leader>P", [["0p]]) -- when you did clobber unnamed register
 -- Delete without using unnamed buffer
 map({"n", "x"}, "<leader>x", [["_x]])
 
+-- Adapt nerdcommenter muscle memory to NeoVIM 0.10 built in tooling
+map({"n"}, "-", [[1gcc]], { remap = true })
+map({"v"}, "-", [[gc]], { remap = true })
+
 -- Use system clipboard for anonymous register
 opt.clipboard:append("unnamedplus")
 
