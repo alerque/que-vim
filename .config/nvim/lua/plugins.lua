@@ -344,13 +344,13 @@ return require("packer").startup(function (use)
         end
         map('n', 'gD', vim.lsp.buf.declaration)
         map('n', 'gd', vim.lsp.buf.definition)
-        map('n', 'K', vim.lsp.buf.hover)
-        map('n', 'gi', vim.lsp.buf.implementation)
+        -- map('n', 'K', vim.lsp.buf.hover)
         map('n', '<C-k>', vim.lsp.buf.signature_help)
-        map('n', '<leader>wa', vim.lsp.buf.add_workspace_folder)
-        map('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder)
-        map('n', '<leader>wl', function () print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end)
-        map('n', '<leader>D', vim.lsp.buf.type_definition)
+        map('n', 'gi', vim.lsp.buf.implementation)
+        map('n', 'gt', vim.lsp.buf.type_definition)
+        -- map('n', '<leader>wa', vim.lsp.buf.add_workspace_folder)
+        -- map('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder)
+        -- map('n', '<leader>wl', function () print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end)
         map('n', '<leader>rn', vim.lsp.buf.rename)
         map('n', 'gr', vim.lsp.buf.references)
         map('n', '<leader>ca', vim.lsp.buf.code_action)
@@ -371,24 +371,18 @@ return require("packer").startup(function (use)
         lua_ls = {
           on_init = function (client)
             local path = client.workspace_folders[1].name
-            if not vim.loop.fs_stat(path.."/.luarc.json") and not vim.loop.fs_stat(path.."/.luarc.jsonc") then
-              client.config.settings = vim.tbl_deep_extend("force", client.config.settings, {
-          Lua = {
+            if not vim.loop.fs_stat(path.."/.luarc.json") or vim.loop.fs_stat(path.."/.luarc.jsonc") then
+              return
+            end
+            client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings, {
             runtime = {
                     version = "LuaJIT"
             },
-            diagnostics = {
-                    enable = false,
-              globals = { "vim" }
-            },
             workspace = {
                     checkThirdParty = false,
-                    library = vim.api.nvim_get_runtime_file("", true)
-                  }
+                library = vim.env.VIMRUNTIME
                 }
               })
-              client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
-            end
             return true
           end,
           settings = {
