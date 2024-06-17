@@ -589,7 +589,7 @@ return require("packer").startup(function (use)
     ft = { "gitcommit" },
     config = function ()
       require("cmp").setup.buffer {
-        sources = require("cmp_conventionalcommits").sources(
+        sources = require("cmp").config.sources(
           {{ name = 'conventionalcommits' }},
           {{ name = 'buffer' }}),
       }
