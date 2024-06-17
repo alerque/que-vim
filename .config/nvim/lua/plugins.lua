@@ -493,6 +493,18 @@ return require("packer").startup(function (use)
       vim.fn["firenvim#install"](0)
     end,
     config = function ()
+      local max_height = 60
+      local id = vim.api.nvim_create_augroup("ExpandLinesOnTextChanged", { clear = true })
+      vim.api.nvim_create_autocmd({"TextChanged", "TextChangedI"}, {
+        group = id,
+        callback = function(ev)
+          local height = vim.api.nvim_win_text_height(0, {}).all
+          height = height + 3
+          if height > vim.o.lines and height < max_height then
+            vim.o.lines = height
+          end
+        end
+      })
       vim.api.nvim_create_autocmd("UIEnter", {
         callback = function ()
           local client = vim.api.nvim_get_chan_info(vim.v.event.chan).client
