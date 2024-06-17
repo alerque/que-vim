@@ -347,7 +347,7 @@ return require("packer").startup(function (use)
         -- map('n', 'K', vim.lsp.buf.hover)
         map('n', '<C-k>', vim.lsp.buf.signature_help)
         map('n', 'gi', vim.lsp.buf.implementation)
-        map('n', 'gt', vim.lsp.buf.type_definition)
+        map('n', '<leader>gt', vim.lsp.buf.type_definition)
         -- map('n', '<leader>wa', vim.lsp.buf.add_workspace_folder)
         -- map('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder)
         -- map('n', '<leader>wl', function () print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end)
@@ -375,30 +375,30 @@ return require("packer").startup(function (use)
               return
             end
             client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings, {
-            runtime = {
-                    version = "LuaJIT"
-            },
-            workspace = {
-                    checkThirdParty = false,
+              runtime = {
+                version = "LuaJIT"
+              },
+              workspace = {
+                checkThirdParty = false,
                 library = vim.env.VIMRUNTIME
-                }
-              })
+              }
+            })
             return true
           end,
           settings = {
             Lua = {
-            completion = {
-              displayContext = 2
-            },
-            hint = {
-              enable = true
-            },
-            telemetry = {
-              enable = false
+              completion = {
+                displayContext = 2
+              },
+              hint = {
+                enable = true
+              },
+              telemetry = {
+                enable = false
+              }
             }
           }
         }
-      }
       }
       for _, lsp in ipairs(servers) do
         if lsp_specific_settings[lsp] then
