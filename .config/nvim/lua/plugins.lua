@@ -69,12 +69,12 @@ return require("packer").startup(function (use)
   }
 
   use {
-    -- disable = true,
+    disable = true,
     "folke/noice.nvim",
     event = "VimEnter",
     config = function()
       if not vim.g.started_by_firenvim then
-      require("noice").setup()
+        require("noice").setup()
       end
     end,
     requires = {
