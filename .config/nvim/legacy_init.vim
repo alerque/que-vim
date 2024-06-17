@@ -343,18 +343,18 @@ nnoremap <silent> <A-w> :TmuxNavigateLeft<cr>
 " catch
 " endtry
 
-" Setup plugins for editing prose
-function! QueProse()
-	call lexical#init()
-	call textobj#sentence#init()
-	call textobj#quote#init({ 'educate': 0 })
-	call pencil#init()
-	nnoremap <buffer> <silent> <leader>W :NextWordy<cr>
-	inoremap <buffer> <expr> <C-e> wordchipper#chipWith('dE')
-	inoremap <buffer> <expr> <C-w> wordchipper#chipWith('dB')
-endfunction
-let prose_filetypes = join(g:prose_filetypes, ',')
-execute 'autocmd QueInit FileType ' . prose_filetypes . ' call QueProse()'
+" " Setup plugins for editing prose
+" function! QueProse()
+"     call lexical#init()
+"     call textobj#sentence#init()
+"     call textobj#quote#init({ 'educate': 0 })
+"     call pencil#init()
+"     nnoremap <buffer> <silent> <leader>W :NextWordy<cr>
+"     inoremap <buffer> <expr> <C-e> wordchipper#chipWith('dE')
+"     inoremap <buffer> <expr> <C-w> wordchipper#chipWith('dB')
+" endfunction
+" let prose_filetypes = join(g:prose_filetypes, ',')
+" execute 'autocmd QueInit FileType ' . prose_filetypes . ' call QueProse()'
 
 " Setup autosave plugin, off by default, enable with :AutoSaveToggle
 let g:auto_save = 0
@@ -651,7 +651,8 @@ let g:strip_only_modified_lines = 1
 
 au BufNewFile,BufRead git-revise-todo       setf gitrebase
 
-
 set laststatus=3
+
+set nospell
 
 " vim: ts=4:sw=4:et

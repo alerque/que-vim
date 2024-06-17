@@ -287,7 +287,7 @@ return require("packer").startup(function (use)
       "hrsh7th/cmp-calc",
       "hrsh7th/cmp-omni",
       "uga-rosa/cmp-dictionary",
-      "f3fora/cmp-spell",
+      -- "f3fora/cmp-spell",
       "L3MON4D3/LuaSnip",
       "kirasok/cmp-hledger",
     },
@@ -314,7 +314,7 @@ return require("packer").startup(function (use)
         sources = {
           -- { name = "emoji" }
           { name = "path" },
-          { name = "spell" },
+          -- { name = "spell" },
           -- { name = "tags" },
           { name = "nvim_lua" },
           { name = "luasnip" },
@@ -323,9 +323,9 @@ return require("packer").startup(function (use)
           { name = "path" },
           { name = "buffer" },
           { name = "dictionary" },
-          { name = "spell" },
           { name = "calc" },
           { name = "codeium" },
+          -- { name = "neorg" },
         }
       }
     end
@@ -502,8 +502,9 @@ return require("packer").startup(function (use)
             vim.o.showtabline = false
             vim.o.laststatus = false
             vim.o.wrap = true
-            vim.o.spell = true
-            vim.opt.spelllang = { "en", "tr" }
+            -- vim.o.spell = true
+            -- vim.opt.spelllang = { "en", "tr" }
+            -- vim.cmd [[Codeium Off]]
             -- AutoSaveToggle
             vim.keymap.set("n", "<Esc><Esc>", "<Cmd>call firenvim#focus_page()<Cr>", {})
             vim.keymap.set("n", "<C-z>", "<Cmd>call firenvim#hide_frame()<Cr>", {})
@@ -555,6 +556,7 @@ return require("packer").startup(function (use)
       markdown("gitlab.com_*.txt")
       markdown("gitlab.alerque.com_*.txt", "pandoc")
       markdown("gitter.im_*.txt")
+      -- set filetype=markdown | nnoremap <leader><Cr> write<Cr>:call firenvim#press_keys("<Lt>CR>")<cR>ggdGa
       vim.g.firenvim_config = {
         globalSettings = {
     --       ignoreKeys = {
@@ -682,7 +684,7 @@ return require("packer").startup(function (use)
 
   use { "preservim/vim-lexical",
     config = function ()
-      vim.g["lexical#spell"] = true
+      vim.g["lexical#spell"] = false
     end
   }
 
