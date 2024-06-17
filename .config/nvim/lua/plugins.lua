@@ -673,14 +673,6 @@ return require("packer").startup(function (use)
     end
   }
 
-  use { "preservim/vimux",
-    config = function ()
-      vim.g.VimuxOrientation = "h"
-      vim.g.VimuxUseNearest = true
-      vim.keymap.set("n", "<Leader>p", ":VimuxPromptCommand<Cr>", { noremap = true, silent = true })
-    end
-  }
-
   -- use { "jtdowney/vimux-cargo",
   --   requires = {
   --     "preservim/vimux"
