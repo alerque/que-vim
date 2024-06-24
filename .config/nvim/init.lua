@@ -96,17 +96,17 @@ g.neovide_refresh_rate = 60
 
 local nosi = { noremap = true, silent = true }
 
-local function resize_guifont(delta)
+local function resize_guifont (delta)
    local guifont = vim.split(o.guifont, ":h")
    local face, size = guifont[1], tonumber(guifont[2])
    size = size + delta
    o.guifont = ("%s:h%s"):format(face, size)
 end
 
-map({ "n", "i" }, "<C-+>", function()
+map({ "n", "i" }, "<C-+>", function ()
    resize_guifont(1)
 end, nosi)
-map({ "n", "i" }, "<C-->", function()
+map({ "n", "i" }, "<C-->", function ()
    resize_guifont(-1)
 end, nosi)
 
@@ -116,20 +116,20 @@ opt.cpoptions:remove("F")
 -- Alternate insert mode with Turkish-F keyboard emulation (from Programer's Dvorak)
 -- See: http://vim.wikia.com/wiki/Insert-mode_only_Caps_Lock
 -- See: http://vi.stackexchange.com/q/2260/267
-local km = function(keymap)
+local km = function (keymap)
    opt.keymap = keymap
    o.iminsert = 1
 end
 o.imsearch = -1
 opt.keymap = "dvp2ptf"
 o.iminsert = 0
-map({ "i", "c" }, "<A-e>", function()
+map({ "i", "c" }, "<A-e>", function ()
    km(nil)
 end, nosi)
-map({ "i", "c" }, "<A-u>", function()
+map({ "i", "c" }, "<A-u>", function ()
    km("dvp2ptf")
 end, nosi)
-map({ "i", "c" }, "<A-i>", function()
+map({ "i", "c" }, "<A-i>", function ()
    km("dvp2jcu")
 end, nosi)
 
