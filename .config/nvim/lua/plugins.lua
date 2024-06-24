@@ -630,6 +630,7 @@ return require("packer").startup(function (use)
    use({
       "ledger/vim-ledger",
       ft = { "ledger" },
+      after = "nvim-cmp",
       setup = function ()
          vim.g.ledger_is_hledger = true
          vim.g.ledger_maxwidth = 80
