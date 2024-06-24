@@ -19,6 +19,7 @@ return require("packer").startup(function (use)
          "nvim-telescope/telescope-project.nvim",
          "nvim-telescope/telescope-ui-select.nvim",
          "tiagovla/scope.nvim",
+         -- "nvim-neorg/neorg-telescope",
       },
       config = function ()
          local telescope = require("telescope")
@@ -440,301 +441,6 @@ return require("packer").startup(function (use)
    })
 
    use({
-      "akinsho/bufferline.nvim",
-      requires = "nvim-tree/nvim-web-devicons",
-      config = function ()
-         vim.opt.termguicolors = true
-         require("bufferline").setup({
-            options = {
-               separator_style = "slant",
-               show_close_icon = false,
-               show_buffer_close_icons = false,
-            },
-         })
-      end,
-   })
-
-   use({
-      "tiagovla/scope.nvim",
-      config = function ()
-         require("scope").setup({})
-      end,
-   })
-
-   use({ "tpope/vim-repeat" })
-
-   use({ "tpope/vim-sensible" })
-
-   use({ "tpope/vim-eunuch" })
-
-   use({ "tpope/vim-tbone" })
-
-   use({ "tpope/vim-unimpaired" })
-
-   use({
-      "andymass/vim-matchup",
-      config = function ()
-         vim.g.matchup_matchparen_deferred = true
-         vim.g.matchup_matchparen_hi_surround_always = true
-      end,
-   })
-
-   use({ "tpope/vim-abolish" })
-
-   use({
-      "tpope/vim-speeddating",
-      lazy = false,
-      config = function ()
-         vim.api.nvim_create_autocmd("FileType", {
-            pattern = "*",
-            callback = function ()
-               vim.cmd([[SpeedDatingFormat %Y%m%d]])
-            end,
-         })
-      end,
-   })
-
-   use({ "tpope/vim-characterize" })
-
-   use({ "tpope/vim-endwise" })
-
-   use({ "tpope/vim-sleuth" })
-
-   use({
-      "tpope/vim-fugitive",
-      config = function ()
-         local map = function (mode, l, r)
-            vim.keymap.set(mode, l, r, { noremap = true, silent = true })
-         end
-         map("n", "<leader>gb", ":Git blame<CR>")
-         map("n", "<leader>gc", ":Git commit<CR>")
-         map("n", "<leader>gl", ":Git log<CR>")
-         map("n", "<leader>gw", ":Gwrite<CR>")
-         map("n", "<leader>gs", ":Git status!<CR>")
-         map("n", "<leader>gd", ":Gvdiffsplit!<CR>")
-      end,
-   })
-
-   use({ "tpope/vim-rhubarb" })
-
-   -- Forked from tpope to work with vim-textobj-quote
-   use({ "alerque/vim-surround" })
-
-   use({ "rbong/vim-buffest" })
-
-   use({
-      "shumphrey/fugitive-gitlab.vim",
-      after = "vim-fugitive",
-      config = function ()
-         vim.g.fugitive_gitlab_domains = { "https://gitlab.com", "https://gitlab.alerque.com" }
-         vim.g.fugitive_gitlab_ssh_user = "gitlab"
-      end,
-   })
-
-   use({ "tommcdo/vim-fugitive-blame-ext", after = "vim-fugitive" })
-
-   use({
-      "gcmt/wildfire.vim",
-      config = function ()
-         vim.g.wildfire_objects = {
-            "i'",
-            'i"',
-            "iq",
-            "aq",
-            "iQ",
-            "aQ",
-            "i)",
-            "i }",
-            "i}",
-            "i<",
-            "if",
-            "af",
-            "it",
-            "at",
-            "ip",
-            "ae",
-         }
-      end,
-   })
-
-   use({
-      "lukas-reineke/indent-blankline.nvim",
-      config = function ()
-         vim.opt.termguicolors = true
-         local highlight = {
-            "CursorColumn",
-            "Whitespace",
-         }
-         require("ibl").setup({
-            exclude = {
-               buftypes = { "terminal" },
-               filetypes = { "help", "packer" },
-            },
-            indent = {
-               highlight = highlight,
-               char = "",
-            },
-            whitespace = {
-               highlight = highlight,
-               remove_blankline_trail = false,
-            },
-            scope = {
-               enabled = false,
-            },
-         })
-      end,
-   })
-
-   use({
-      "nvim-treesitter/nvim-treesitter",
-      config = function ()
-         treesitter = require("nvim-treesitter.configs").setup({
-            highlight = {
-               enabled = true,
-            },
-         })
-      end,
-   })
-
-   use({ "rafamadriz/friendly-snippets", module = { "cmp", "cmp_nvim_lsp" }, event = "InsertEnter" })
-
-   use({
-      "hrsh7th/nvim-cmp",
-      after = "friendly-snippets",
-      requires = {
-         "hrsh7th/cmp-nvim-lua",
-         "hrsh7th/cmp-nvim-lsp",
-         "ray-x/cmp-treesitter",
-         "hrsh7th/cmp-buffer",
-         "hrsh7th/cmp-path",
-         "hrsh7th/cmp-calc",
-         "hrsh7th/cmp-omni",
-         "uga-rosa/cmp-dictionary",
-         "f3fora/cmp-spell",
-         "L3MON4D3/LuaSnip",
-         "kirasok/cmp-hledger",
-      },
-      config = function ()
-         local cmp = require("cmp")
-         cmp.setup({
-            snippet = {
-               expand = function (args)
-                  require("luasnip").lsp_expand(args.body)
-               end,
-            },
-            mapping = {
-               ["<C-p>"] = cmp.mapping.select_prev_item(),
-               ["<C-n>"] = cmp.mapping.select_next_item(),
-               ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-               ["<C-f>"] = cmp.mapping.scroll_docs(4),
-               ["<C-e>"] = cmp.mapping.close(),
-               -- ["<Tab>"] = cmp.mapping.complete(),
-               ["<Tab>"] = cmp.mapping.confirm({
-                  behavior = cmp.ConfirmBehavior.Replace,
-                  select = true,
-               }),
-            },
-            sources = {
-               -- { name = "emoji" }
-               { name = "path" },
-               { name = "spell" },
-               -- { name = "tags" },
-               { name = "nvim_lua" },
-               { name = "luasnip" },
-               { name = "nvim_lsp" },
-               { name = "treesitter" },
-               { name = "path" },
-               { name = "buffer" },
-               { name = "dictionary" },
-               { name = "spell" },
-               { name = "calc" },
-               { name = "codeium" },
-            },
-         })
-      end,
-   })
-
-   use({ "saadparwaiz1/cmp_luasnip" })
-
-   use({
-      "neovim/nvim-lspconfig",
-      requires = "hrsh7th/cmp-nvim-lsp",
-      config = function ()
-         local lspconfig = require("lspconfig")
-         local on_attach = function (_, buffnr)
-            -- vim.opt.omnifunc = "v:lua.vim.lsp.omnifunc"
-            local map = function (mode, l, r)
-               vim.keymap.set(mode, l, r, { noremap = true, silent = true, buffer = buffnr })
-            end
-            map("n", "gD", vim.lsp.buf.declaration)
-            map("n", "gd", vim.lsp.buf.definition)
-            -- map('n', 'K', vim.lsp.buf.hover)
-            map("n", "<C-k>", vim.lsp.buf.signature_help)
-            map("n", "gi", vim.lsp.buf.implementation)
-            map("n", "gt", vim.lsp.buf.type_definition)
-            -- map('n', '<leader>wa', vim.lsp.buf.add_workspace_folder)
-            -- map('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder)
-            -- map('n', '<leader>wl', function () print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end)
-            map("n", "<leader>rn", vim.lsp.buf.rename)
-            map("n", "gr", vim.lsp.buf.references)
-            map("n", "<leader>ca", vim.lsp.buf.code_action)
-            -- map('n', '<leader>e', vim.lsp.diagnostic.show_line_diagnostics)
-            -- map('n', '[d', vim.lsp.diagnostic.goto_prev)
-            -- map('n', ']d', vim.lsp.diagnostic.goto_next)
-            -- map('n', '<leader>q', vim.lsp.diagnostic.set_loclist)
-            map("n", "<leader>so", require("telescope.builtin").lsp_document_symbols)
-            vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
-         end
-         local capabilities = require("cmp_nvim_lsp").default_capabilities()
-         local servers = { "rust_analyzer", "pyright", "lua_ls" }
-         local common_settings = {
-            on_attach = on_attach,
-            capabilities = capabilities,
-         }
-         local lsp_specific_settings = {
-            lua_ls = {
-               on_init = function (client)
-                  local path = client.workspace_folders[1].name
-                  if not vim.loop.fs_stat(path .. "/.luarc.json") or vim.loop.fs_stat(path .. "/.luarc.jsonc") then
-                     return
-                  end
-                  client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings, {
-                     runtime = {
-                        version = "LuaJIT",
-                     },
-                     workspace = {
-                        checkThirdParty = false,
-                        library = vim.env.VIMRUNTIME,
-                     },
-                  })
-                  return true
-               end,
-               settings = {
-                  Lua = {
-                     completion = {
-                        displayContext = 2,
-                     },
-                     hint = {
-                        enable = true,
-                     },
-                     telemetry = {
-                        enable = false,
-                     },
-                  },
-               },
-            },
-         }
-         for _, lsp in ipairs(servers) do
-            if lsp_specific_settings[lsp] then
-               vim.tbl_deep_extend("force", common_settings, lsp_specific_settings[lsp])
-            end
-            lspconfig[lsp].setup(common_settings)
-         end
-         vim.opt.completeopt = { "menuone", "noselect" }
-      end,
-   })
-
-   use({
       "Exafunction/codeium.nvim",
       disable = true,
       requires = {
@@ -743,6 +449,76 @@ return require("packer").startup(function (use)
       },
       config = function ()
          require("codeium").setup({})
+      end,
+   })
+
+   use({
+      "tanvirtin/monokai.nvim",
+      config = function ()
+         local monokai = require("monokai")
+         local moloque = monokai.classic
+         moloque.name = "moloque"
+         moloque.base2 = "#1B1D1E" -- Normal
+         moloque.base3 = "#293739" -- CursorColumn
+         monokai.setup({
+            italics = false,
+            palette = moloque,
+         })
+      end,
+   })
+
+   use({
+      "nvchad/nvim-colorizer.lua",
+      config = function ()
+         vim.opt.termguicolors = true
+         require("colorizer").setup({
+            filetypes = {
+               "*",
+               "!ledger",
+               "!markdown",
+               "!pandoc",
+               "!vim-plug",
+               "!gitcommit",
+               css = {
+                  rgb_fn = true,
+                  hsl_fn = true,
+                  css_fn = true,
+               },
+            },
+            user_default_options = {
+               mode = "virtualtext",
+               virtualtext = "■",
+            },
+         })
+      end,
+   })
+
+   use({
+      "lewis6991/gitsigns.nvim",
+      config = function ()
+         vim.opt.signcolumn = "yes"
+         require("gitsigns").setup({
+            on_attach = function (buffnr)
+               local gs = package.loaded.gitsigns
+               local map = function (mode, l, r)
+                  vim.keymap.set(mode, l, r, { noremap = true, silent = true, buffer = buffnr })
+               end
+               map({ "n", "v" }, "<leader>hs", gs.stage_hunk)
+               map({ "n", "v" }, "<leader>hr", gs.reset_hunk)
+               map("n", "]h", gs.next_hunk)
+               map("n", "[h", gs.prev_hunk)
+               map("n", "<leader>hb", gs.blame_line)
+               map("n", "<leader>hd", gs.diffthis)
+               map("n", "<leader>hp", gs.preview_hunk)
+               map("n", "<leader>hR", gs.reset_buffer)
+               map("n", "<leader>hu", gs.undo_stage_hunk)
+               map("n", "<leader>htd", gs.toggle_deleted)
+               map("n", "<leader>htb", gs.toggle_current_line_blame)
+               map("n", "<leader>hth", gs.toggle_linehl)
+            end,
+            numhl = true,
+            word_diff = true,
+         })
       end,
    })
 
@@ -852,120 +628,91 @@ return require("packer").startup(function (use)
    })
 
    use({
-      "lewis6991/gitsigns.nvim",
-      config = function ()
-         vim.opt.signcolumn = "yes"
-         require("gitsigns").setup({
-            on_attach = function (buffnr)
-               local gs = package.loaded.gitsigns
-               local map = function (mode, l, r)
-                  vim.keymap.set(mode, l, r, { noremap = true, silent = true, buffer = buffnr })
-               end
-               map({ "n", "v" }, "<leader>hs", gs.stage_hunk)
-               map({ "n", "v" }, "<leader>hr", gs.reset_hunk)
-               map("n", "]h", gs.next_hunk)
-               map("n", "[h", gs.prev_hunk)
-               map("n", "<leader>hb", gs.blame_line)
-               map("n", "<leader>hd", gs.diffthis)
-               map("n", "<leader>hp", gs.preview_hunk)
-               map("n", "<leader>hR", gs.reset_buffer)
-               map("n", "<leader>hu", gs.undo_stage_hunk)
-               map("n", "<leader>htd", gs.toggle_deleted)
-               map("n", "<leader>htb", gs.toggle_current_line_blame)
-               map("n", "<leader>hth", gs.toggle_linehl)
-            end,
-            numhl = true,
-            word_diff = true,
-         })
-      end,
-   })
-
-   use({
-      "glacambre/firenvim",
-      run = function ()
-         vim.fn["firenvim#install"](0)
+      "ledger/vim-ledger",
+      ft = { "ledger" },
+      setup = function ()
+         vim.g.ledger_is_hledger = true
+         vim.g.ledger_maxwidth = 80
+         vim.g.ledger_align_at = 63
+         vim.g.ledger_default_commodity = "₺"
+         vim.g.ledger_decimal_sep = ".,"
+         vim.g.ledger_align_last = true
+         vim.g.ledger_detailed_first = 1
+         vim.g.ledger_fold_blanks = 1
+         vim.g.ledger_bin = "hledger"
+         vim.g.ledger_fillstring = "    -"
+         vim.g.ledger_extra_options = "-x"
+         vim.g.ledger_accounts_generate = 0
+         vim.g.ledger_accounts_cmd = "cat _vim_accounts"
+         vim.g.ledger_descriptions_cmd = "cat _vim_descriptions"
       end,
       config = function ()
-         vim.api.nvim_create_autocmd("UIEnter", {
-            callback = function ()
-               local client = vim.api.nvim_get_chan_info(vim.v.event.chan).client
-               if client ~= nil and client.name == "Firenvim" then
-                  vim.o.guifont = "Hack Nerd Font:h12"
-                  vim.g.syntastic_skip_checks = true
-                  vim.o.showtabline = false
-                  vim.o.laststatus = false
-                  vim.o.wrap = true
-                  vim.o.spell = true
-                  vim.opt.spelllang = { "en", "tr" }
-                  -- AutoSaveToggle
-                  vim.keymap.set("n", "<Esc><Esc>", "<Cmd>call firenvim#focus_page()<Cr>", {})
-                  vim.keymap.set("n", "<C-z>", "<Cmd>call firenvim#hide_frame()<Cr>", {})
-               end
-            end,
+         require("cmp").setup.buffer({
+            completion = {
+               keyword_length = 2,
+               keyword_pattern = [[.*]],
+            },
+            sources = {
+               -- { name = "omni" },
+               { name = "hledger" },
+               -- { name = "buffer" },
+               -- { name = "spell" },
+               { name = "calc" },
+            },
          })
-         local localSettings = {
-            [".*"] = {
-               priority = 0,
-               cmdline = "neovim",
-               selector = 'textarea, div[role="textbox"]',
-               takeover = "once",
-            },
-         }
-         local function never (pattern)
-            local site = {}
-            site.priority = 1
-            site.takeover = "never"
-            localSettings[pattern] = site
+         local function map (mode, l, r)
+            vim.keymap.set(mode, l, r, { noremap = true, buffer = true, silent = true })
          end
-         local function markdown (pattern, ft)
-            local site = {}
-            site.content = ft or "markdown"
-            localSettings[pattern] = site
+         local function autocmd (func)
+            vim.api.nvim_create_autocmd("FileType", { pattern = "ledger", callback = func })
          end
-         never("https://mattermost\\.alerque\\.com")
-         never("https://mattermost\\.coko\\.foundation")
-         never("https://discord\\.com")
-         never("https://app\\.element\\.io")
-         never("https://gab\\.com")
-         never("https://gitter\\.im")
-         never("https://grep\\.app")
-         never("https://www\\.google\\.com/search")
-         never("https://keep\\.google\\.com")
-         never("https://mail\\.google\\.com/mail")
-         never("https://console\\.hetzner\\.cloud")
-         never("https://www\\.keybr\\.com")
-         never("https://mastodon\\.social")
-         never("https://mattermost\\.alerque\\.com")
-         never("https://mattermost\\.coko\\.foundation")
-         never("https://app\\.slack\\.com")
-         never("https://.*stackexchange\\.com")
-         never("https://.*stackoverflow\\.com")
-         never("https://tweetdeck\\.twitter\\.com")
-         never("https://typo\\.social")
-         never("https://twitter\\.com")
-         never("https://web\\.whatsapp\\.com")
-         markdown("github.com_*.txt")
-         markdown("gitlab.com_*.txt")
-         markdown("gitlab.alerque.com_*.txt", "pandoc")
-         markdown("gitter.im_*.txt")
-         vim.g.firenvim_config = {
-            globalSettings = {
-               --       ignoreKeys = {
-               --         all = "<C-Tab>"
-               --       },
-               --       ["<C-w>"] = "noop",
-               --       ["<C-n>"] = "default"
-            },
-            localSettings = localSettings,
-         }
+         autocmd(function ()
+            vim.opt_local.expandtab = true
+            vim.opt_local.iskeyword:append(":")
+            vim.opt_local.formatprg = ("%s -f - print -x"):format(vim.g.ledger_bin)
+            -- vim.opt_local.formatexpr = nil
+            vim.cmd([[SpeedDatingFormat %Y-%m-%d]])
+            local function start_commodity (symbol)
+               vim.cmd([[normal! A  ]] .. symbol)
+               vim.call("ledger#align_commodity")
+               vim.cmd("startinsert!")
+            end
+            local function backtrack_commodity ()
+               local rr = vim.api.nvim_replace_termcodes("<Left><Left>", true, false, true)
+               vim.api.nvim_feedkeys(rr, "m", true)
+            end
+            map("i", "<C-t>", function ()
+               start_commodity("₺")
+            end)
+            map("i", "<C-d>", function ()
+               start_commodity("$")
+            end)
+            map("i", "<C-e>", function ()
+               start_commodity("€")
+            end)
+            map("i", "<C-l>", function ()
+               start_commodity("₤")
+            end)
+            map("i", "<C-k>", function ()
+               start_commodity("₸")
+               backtrack_commodity()
+            end)
+            map("i", "<C-b>", function ()
+               start_commodity("BTC")
+            end)
+            -- map("i", "<C-n>", [[<C-r>=ledger#autocomplete_and_align()<Cr>]])
+            map({ "i", "n" }, "<Leader>n", [[<Esc>gqipkvip:LedgerAlign<Cr>{yE}pE]])
+            map({ "i", "n" }, "<Leader>f", [[gqap]])
+            map({ "i", "n" }, "<Leader>p", function ()
+               local formatexpr = vim.o.formatexpr
+               vim.o.formatexpr = nil
+               vim.cmd([[normal! gqip]])
+               vim.o.formatexpr = formatexpr
+               vim.cmd([[normal! kgqap]])
+            end)
+         end)
       end,
    })
-
-   -- use { "jtdowney/vimux-cargo",
-   --   requires = {
-   --     "preservim/vimux"
-   --   }
-   -- }
 
    use({
       "https://git.sr.ht/~soywod/himalaya-vim",
@@ -982,13 +729,6 @@ return require("packer").startup(function (use)
          vim.g.VimuxOrientation = "h"
          vim.g.VimuxUseNearest = true
          vim.keymap.set("n", "<Leader>p", ":VimuxPromptCommand<Cr>", { noremap = true, silent = true })
-      end,
-   })
-
-   use({
-      "preservim/vim-lexical",
-      config = function ()
-         vim.g["lexical#spell"] = false
       end,
    })
 
