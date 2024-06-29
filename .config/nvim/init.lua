@@ -117,7 +117,8 @@ opt.cpoptions:remove("F")
 -- See: http://vim.wikia.com/wiki/Insert-mode_only_Caps_Lock
 -- See: http://vi.stackexchange.com/q/2260/267
 local km = function (keymap)
-   opt.keymap = keymap
+   -- Unsetting this in newer NeoVIM requires more than nil
+   opt.keymap = keymap and keymap or ""
    o.iminsert = 1
 end
 o.imsearch = -1
