@@ -318,7 +318,6 @@ return require("packer").startup(function (use)
          "uga-rosa/cmp-dictionary",
          -- "f3fora/cmp-spell",
          "L3MON4D3/LuaSnip",
-         "kirasok/cmp-hledger",
       },
       config = function ()
          local cmp = require("cmp")
@@ -630,7 +629,10 @@ return require("packer").startup(function (use)
    use({
       "ledger/vim-ledger",
       ft = { "ledger" },
-      after = "nvim-cmp",
+      requires = {
+         "hrsh7th/nvim-cmp",
+         "kirasok/cmp-hledger",
+      },
       setup = function ()
          vim.g.ledger_is_hledger = true
          vim.g.ledger_maxwidth = 80
@@ -664,53 +666,48 @@ return require("packer").startup(function (use)
          local function map (mode, l, r)
             vim.keymap.set(mode, l, r, { noremap = true, buffer = true, silent = true })
          end
-         local function autocmd (func)
-            vim.api.nvim_create_autocmd("FileType", { pattern = "ledger", callback = func })
+         vim.opt_local.expandtab = true
+         vim.opt_local.iskeyword:append(":")
+         vim.opt_local.formatprg = ("%s -f - print -x"):format(vim.g.ledger_bin)
+         -- vim.opt_local.formatexpr = nil
+         vim.cmd([[SpeedDatingFormat %Y-%m-%d]])
+         local function start_commodity (symbol)
+            vim.cmd([[normal! A  ]] .. symbol)
+            vim.call("ledger#align_commodity")
+            vim.cmd("startinsert!")
          end
-         autocmd(function ()
-            vim.opt_local.expandtab = true
-            vim.opt_local.iskeyword:append(":")
-            vim.opt_local.formatprg = ("%s -f - print -x"):format(vim.g.ledger_bin)
-            -- vim.opt_local.formatexpr = nil
-            vim.cmd([[SpeedDatingFormat %Y-%m-%d]])
-            local function start_commodity (symbol)
-               vim.cmd([[normal! A  ]] .. symbol)
-               vim.call("ledger#align_commodity")
-               vim.cmd("startinsert!")
-            end
-            local function backtrack_commodity ()
-               local rr = vim.api.nvim_replace_termcodes("<Left><Left>", true, false, true)
-               vim.api.nvim_feedkeys(rr, "m", true)
-            end
-            map("i", "<C-t>", function ()
-               start_commodity("₺")
-            end)
-            map("i", "<C-d>", function ()
-               start_commodity("$")
-            end)
-            map("i", "<C-e>", function ()
-               start_commodity("€")
-            end)
-            map("i", "<C-l>", function ()
-               start_commodity("₤")
-            end)
-            map("i", "<C-k>", function ()
-               start_commodity("₸")
-               backtrack_commodity()
-            end)
-            map("i", "<C-b>", function ()
-               start_commodity("BTC")
-            end)
-            -- map("i", "<C-n>", [[<C-r>=ledger#autocomplete_and_align()<Cr>]])
-            map({ "i", "n" }, "<Leader>n", [[<Esc>gqipkvip:LedgerAlign<Cr>{yE}pE]])
-            map({ "i", "n" }, "<Leader>f", [[gqap]])
-            map({ "i", "n" }, "<Leader>p", function ()
-               local formatexpr = vim.o.formatexpr
-               vim.o.formatexpr = nil
-               vim.cmd([[normal! gqip]])
-               vim.o.formatexpr = formatexpr
-               vim.cmd([[normal! kgqap]])
-            end)
+         local function backtrack_commodity ()
+            local rr = vim.api.nvim_replace_termcodes("<Left><Left>", true, false, true)
+            vim.api.nvim_feedkeys(rr, "m", true)
+         end
+         map("i", "<C-t>", function ()
+            start_commodity("₺")
+         end)
+         map("i", "<C-d>", function ()
+            start_commodity("$")
+         end)
+         map("i", "<C-e>", function ()
+            start_commodity("€")
+         end)
+         map("i", "<C-l>", function ()
+            start_commodity("₤")
+         end)
+         map("i", "<C-k>", function ()
+            start_commodity("₸")
+            backtrack_commodity()
+         end)
+         map("i", "<C-b>", function ()
+            start_commodity("BTC")
+         end)
+         -- map("i", "<C-n>", [[<C-r>=ledger#autocomplete_and_align()<Cr>]])
+         map({ "i", "n" }, "<Leader>n", [[<Esc>gqipkvip:LedgerAlign<Cr>{yE}pE]])
+         map({ "i", "n" }, "<Leader>f", [[gqap]])
+         map({ "i", "n" }, "<Leader>p", function ()
+            local formatexpr = vim.o.formatexpr
+            vim.o.formatexpr = nil
+            vim.cmd([[normal! gqip]])
+            vim.o.formatexpr = formatexpr
+            vim.cmd([[normal! kgqap]])
          end)
       end,
    })
