@@ -19,6 +19,7 @@ return require("packer").startup(function (use)
          "nvim-telescope/telescope-project.nvim",
          "nvim-telescope/telescope-ui-select.nvim",
          "tiagovla/scope.nvim",
+         "debugloop/telescope-undo.nvim",
          -- "nvim-neorg/neorg-telescope",
       },
       config = function ()
@@ -43,6 +44,8 @@ return require("packer").startup(function (use)
                      { "~/projects/ahit", maxdepth = 1 },
                   },
                },
+               undo = {
+               },
             },
             ["ui-select"] = {
                -- require("telescope.themes").get_dropdown { }
@@ -52,6 +55,7 @@ return require("packer").startup(function (use)
          telescope.load_extension("project")
          telescope.load_extension("ui-select")
          telescope.load_extension("scope")
+         telescope.load_extension("undo")
          local map = function (mode, l, r)
             vim.keymap.set(mode, l, r, { noremap = true, silent = true })
          end
@@ -68,6 +72,7 @@ return require("packer").startup(function (use)
          map("n", "!t", builtin.tags)
          map("n", "!p", telescope.extensions.project.project)
          map("n", "!q", builtin.quickfix)
+         map("n", "!u", telescope.extensions.undo.undo)
          map("n", "!r", builtin.registers)
          map("n", "!z", builtin.spell_suggest)
          map("v", "!z", builtin.spell_suggest)
