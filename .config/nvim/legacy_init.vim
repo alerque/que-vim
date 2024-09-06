@@ -17,7 +17,6 @@ function! DoRemote(arg)
     UpdateRemotePlugins
 endfunction
 
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'justinmk/vim-sneak'
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/goyo.vim'
@@ -325,14 +324,6 @@ nnoremap <Leader>N :set nonumber norelativenumber<Cr>
 
 set timeout timeoutlen=3000
 set nottimeout
-
-" Configure tmux navigator to use alt instead of control to match my tmux
-let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <A-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
-nnoremap <silent> <A-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <A-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <A-w> :TmuxNavigateLeft<cr>
 
 " try
 "     let g:private_keys = system('gpg --use-agent --decrypt --quiet --no-tty --batch $HOME/.private/keys.vim.gpg')

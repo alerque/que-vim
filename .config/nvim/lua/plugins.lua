@@ -19,6 +19,26 @@ return require("packer").startup(function (use)
    -- "Plug 'git://git.code.sf.net/p/atp-vim/code'
 
    use({
+      "christoomey/vim-tmux-navigator",
+      setup = function ()
+         vim.g.tmux_navigator_no_mappings = 1
+      end,
+      config = function ()
+         -- use alt instead of control to match my tmux
+         local function map (l, r)
+            vim.keymap.set({ "n", "c" }, l, function ()
+               vim.cmd(r)
+            end, { noremap = true, silent = true })
+         end
+         map("<A-h>", "TmuxNavigateLeft")
+         map("<A-l>", "TmuxNavigateRight")
+         map("<A-j>", "TmuxNavigateDown")
+         map("<A-k>", "TmuxNavigateUp")
+         map("<A-w>", "TmuxNavigateLeft")
+      end,
+   })
+
+   use({
       "kyazdani42/nvim-web-devicons",
       config = function ()
          require("nvim-web-devicons").setup({
