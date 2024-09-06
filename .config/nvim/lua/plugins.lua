@@ -39,6 +39,15 @@ return require("packer").startup(function (use)
    })
 
    use({
+      "justinmk/vim-sneak",
+      setup = function ()
+         vim.g["sneak#label"] = 1
+         vim.g["sneak#use_ic_scs"] = 1
+         vim.g["sneak#target_labels"] = "aoeuiypqjkxsnthdfgcrlbmwvzAOEUIYPQJKXSNTHDFGCRLBMWVZ"
+      end,
+   })
+
+   use({
       "kyazdani42/nvim-web-devicons",
       config = function ()
          require("nvim-web-devicons").setup({

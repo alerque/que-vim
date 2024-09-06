@@ -17,7 +17,6 @@ function! DoRemote(arg)
     UpdateRemotePlugins
 endfunction
 
-Plug 'justinmk/vim-sneak'
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -214,11 +213,6 @@ set history=1000
 
 " Show ruller at bottom
 set ruler
-
-" Setup sneak (in leu of EasyMotion)
-let g:sneak#label = 1
-let g:sneak#use_ic_scs = 1
-let g:sneak#target_labels = 'aoeuiypqjkxsnthdfgcrlbmwvzAOEUIYPQJKXSNTHDFGCRLBMWVZ'
 
 " Setup editing of GPG encrypted files with safe*er* defaults than otherwise
 set backupskip+=*.gpg
