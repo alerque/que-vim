@@ -63,9 +63,6 @@ unlet $GIT_CONFIG_NOSYSTEM
 set list
 set listchars=tab:⇥\ ,trail:␠,nbsp:⍽
 
-" Setup status bar
-set laststatus=2
-
 " Do some special things for GVim/MacVim only
 if has('gui_running')
 	" See ginit.vim for GoNVIM config
@@ -83,10 +80,6 @@ if has('gui_running')
 	"set guioptions=mraAeigt
 	set guioptions=
 endif
-
-" Shut up
-set noerrorbells visualbell t_vb=
-autocmd QueInit GUIEnter * set visualbell t_vb=
 
 " Disable cursorline when entering diff mode
 " https://vi.stackexchange.com/a/12852/267
@@ -576,7 +569,5 @@ endfunction
 let g:strip_only_modified_lines = 1
 
 au BufNewFile,BufRead git-revise-todo       setf gitrebase
-
-set laststatus=3
 
 " vim: ts=4:sw=4:et

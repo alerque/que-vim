@@ -63,8 +63,14 @@ opt.mouse = "a"
 
 opt.errorbells = false
 opt.visualbell = true
+vim.api.nvim_create_autocmd("GUIEnter", {
+   callback = function ()
+      opt.visualbell = true
+   end,
+})
 
 opt.termguicolors = true
+opt.laststatus = 3
 
 opt.colorcolumn = "+1" -- match opt.textwidth
 
