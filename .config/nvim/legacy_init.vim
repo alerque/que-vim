@@ -579,6 +579,4 @@ au BufNewFile,BufRead git-revise-todo       setf gitrebase
 
 set laststatus=3
 
-set nospell
-
 " vim: ts=4:sw=4:et

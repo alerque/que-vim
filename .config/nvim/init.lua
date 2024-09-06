@@ -3,7 +3,6 @@ local execute = vim.api.nvim_command
 local fn = vim.fn
 local g = vim.g
 local map = vim.keymap.set
-local o = vim.o
 local opt = vim.opt
 
 local fmt = string.format
@@ -60,25 +59,24 @@ g.loaded_ruby_provider = 0
 -- Setup UI preferences
 g.mapleader = ","
 g.maplocalleader = ","
-o.mouse = "a"
+opt.mouse = "a"
 
-o.errorbells = false
-o.visualbell = true
+opt.errorbells = false
+opt.visualbell = true
 
-o.termguicolors = true
+opt.termguicolors = true
 
-o.colorcolumn = "+1" -- match o.textwidth
+opt.colorcolumn = "+1" -- match opt.textwidth
 
 opt.spell = false
-o.spell = false
 
 -- Default indent style when no filetype specific style guide is in place
-o.tabstop = 4
-o.shiftwidth = 4
-o.shiftround = true
-o.expandtab = false
-o.cindent = true
-o.autoindent = true
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.shiftround = true
+opt.expandtab = false
+opt.cindent = true
+opt.autoindent = true
 
 -- Add some UTF8 character pairs that should match
 -- See also vim-unimpaired in plugins
@@ -89,7 +87,7 @@ opt.matchpairs:append({ "►:◄" })
 
 -- Highlight matching brackets
 -- See also vim-matchup in plugins
-o.showmatch = true
+opt.showmatch = true
 
 g.neovide_remember_window_size = false
 g.neovide_refresh_rate = 60
@@ -100,7 +98,7 @@ local function resize_guifont (delta)
    local guifont = vim.split(o.guifont, ":h")
    local face, size = guifont[1], tonumber(guifont[2])
    size = size + delta
-   o.guifont = ("%s:h%s"):format(face, size)
+   opt.guifont = ("%s:h%s"):format(face, size)
 end
 
 map({ "n", "i" }, "<C-+>", function ()
@@ -119,11 +117,11 @@ opt.cpoptions:remove("F")
 local km = function (keymap)
    -- Unsetting this in newer NeoVIM requires more than nil
    opt.keymap = keymap and keymap or ""
-   o.iminsert = 1
+   opt.iminsert = 1
 end
-o.imsearch = -1
+opt.imsearch = -1
 opt.keymap = "dvp2ptf"
-o.iminsert = 0
+opt.iminsert = 0
 map({ "i", "c" }, "<A-e>", function ()
    km(nil)
 end, nosi)
