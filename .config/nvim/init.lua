@@ -137,6 +137,9 @@ end, nosi)
 -- Source legacy init.vim
 cmd(fmt("source %s/legacy_init.vim", fn.stdpath("config")))
 
+-- Don't wrap long lines by default (override for prose file types & Goyo mode)
+opt.wrap = false
+
 -- Bootstrap packer
 local install_path = fmt("%s/site/pack/packer/start/packer.nvim", fn.stdpath("data"))
 if fn.empty(fn.glob(install_path)) > 0 then

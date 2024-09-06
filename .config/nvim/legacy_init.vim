@@ -17,8 +17,6 @@ function! DoRemote(arg)
     UpdateRemotePlugins
 endfunction
 
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 " Plug 'tommcdo/vim-exchange'
 Plug 'LucHermitte/lh-vim-lib' | Plug 'LucHermitte/local_vimrc'
 Plug 'terryma/vim-multiple-cursors'
@@ -61,51 +59,9 @@ call plug#end()
 " Return to regularly scheduled Git configuration
 unlet $GIT_CONFIG_NOSYSTEM
 
-" Don't wrap long lines by default (override for prose file types & Goyo mode)
-set nowrap
-
 " Set custom list characters
 set list
 set listchars=tab:⇥\ ,trail:␠,nbsp:⍽
-
-" Setup discraction free mode including tmux integration
-let g:goyo_width = '90%'
-" let g:goyo_height = '100%'
-let g:goyo_margin_top = 2
-let g:goyo_margin_bottom = 2
-nnoremap <Leader>r :Goyo<CR>
-
-function! s:goyo_enter()
-	silent !tmux set status off
-	silent !tmux resize-pane -Z
-	set noshowmode
-	set noshowcmd
-	set wrap
-	set nolist
-	set scrolloff=999
-endfunction
-
-function! s:goyo_leave()
-	silent !tmux set status on
-	silent !tmux resize-pane -Z
-	set showmode
-	set showcmd
-	set nowrap
-	set list
-	set scrolloff=2
-endfunction
-
-autocmd QueInit User GoyoEnter nested call <SID>goyo_enter()
-autocmd QueInit User GoyoLeave nested call <SID>goyo_leave()
-autocmd QueInit User GoyoEnter Limelight
-autocmd QueInit User GoyoLeave Limelight!
-
-" " Setup extra color focus tools to integrate with distraction free mode
-let g:limelight_default_coefficient = 0.6
-let g:limelight_priority = -1
-" let g:limelight_paragraph_span = 1
-nmap <Leader>l <Plug>(Limelight)
-xmap <Leader>l <Plug>(Limelight)
 
 " Setup status bar
 set laststatus=2

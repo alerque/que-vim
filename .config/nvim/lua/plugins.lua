@@ -60,6 +60,74 @@ return require("packer").startup(function (use)
    })
 
    use({
+      "junegunn/goyo.vim",
+      setup = function ()
+         vim.g.goyo_width = "90%"
+         -- vim.g.goyo_height = "100%"
+         vim.g.goyo_margin_top = 2
+         vim.g.goyo_margin_bottom = 2
+      end,
+      config = function ()
+         vim.keymap.set("n", "<Leader>r", function ()
+            vim.cmd([[Goyo]])
+         end, { noremap = true, silent = true })
+         vim.api.nvim_create_autocmd("User", {
+            pattern = "GoyoEnter",
+            nested = true,
+            callback = function ()
+               vim.cmd([[silent !tmux set status off]])
+               vim.cmd([[silent !tmux resize-pane -Z]])
+               vim.opt.showmode = false
+               vim.opt.showcmd = false
+               vim.opt.wrap = true
+               vim.opt.list = false
+               vim.opt.scrolloff = 999
+            end,
+         })
+         vim.api.nvim_create_autocmd("User", {
+            pattern = "GoyoLeave",
+            nested = true,
+            callback = function ()
+               vim.cmd([[silent !tmux set status on]])
+               vim.cmd([[silent !tmux resize-pane -Z]])
+               vim.opt.showmode = true
+               vim.opt.showcmd = true
+               vim.opt.wrap = false
+               vim.opt.list = true
+               vim.opt.scrolloff = 2
+            end,
+         })
+      end,
+   })
+
+   use({
+      "junegunn/limelight.vim",
+      setup = function ()
+         -- extra color focus settings to integrate with distraction free mode
+         vim.g.limelight_default_coefficient = 0.6
+         vim.g.limelight_priority = -1
+         -- vim.g.limelight_paragraph_span = 1
+      end,
+      config = function ()
+         vim.keymap.set({ "n", "x" }, "<Leader>l", function ()
+            vim.cmd([[Limelight!!]])
+         end)
+         vim.api.nvim_create_autocmd("User", {
+            pattern = "GoyoEnter",
+            callback = function ()
+               vim.cmd([[Limelight]])
+            end,
+         })
+         vim.api.nvim_create_autocmd("User", {
+            pattern = "GoyoLeave",
+            callback = function ()
+               vim.cmd([[Limelight!]])
+            end,
+         })
+      end,
+   })
+
+   use({
       "kyazdani42/nvim-web-devicons",
       config = function ()
          require("nvim-web-devicons").setup({
