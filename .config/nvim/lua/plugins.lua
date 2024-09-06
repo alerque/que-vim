@@ -2,6 +2,23 @@ return require("packer").startup(function (use)
    use({ "wbthomason/packer.nvim" })
 
    use({
+      "vim-syntastic/syntastic",
+      setup = function ()
+         vim.g.syntastic_check_on_open = 0
+         vim.g.syntastic_check_on_wq = 0
+         vim.g.syntastic_aggregate_errors = 1
+         vim.g.syntastic_error_symbol = "✗"
+         vim.g.syntastic_warning_symbol = "⚠"
+         vim.g.syntastic_ignore_files =
+            { "^/usr/", "*node_modules*", "*vendor*", "*build*", "*LOCAL*", "*BASE", "*REMOTE*" }
+         vim.g.syntastic_quiet_messages = { level = "[]", file = { "*_LOCAL_*", "*_BASE_*", "*_REMOTE_*" } }
+      end,
+   })
+
+   -- "Plug 'jcf/vim-latex'
+   -- "Plug 'git://git.code.sf.net/p/atp-vim/code'
+
+   use({
       "kyazdani42/nvim-web-devicons",
       config = function ()
          require("nvim-web-devicons").setup({
