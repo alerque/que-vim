@@ -749,7 +749,7 @@ return require("packer").startup(function (use)
    use({
       "preservim/vim-lexical",
       config = function ()
-         vim.g["lexical#spell"] = true
+         vim.g["lexical#spell"] = false
       end,
    })
 
