@@ -47,6 +47,10 @@ return require("packer").startup(function (use)
       end,
    })
 
+   use({ "sheerun/vim-polyglot" })
+   -- " Enabled by vim-polyglot, see https://github.com/tbastos/vim-lua/issues/14
+   -- " Plug 'tbastos/vim-lua'
+
    use({
       "kyazdani42/nvim-web-devicons",
       config = function ()

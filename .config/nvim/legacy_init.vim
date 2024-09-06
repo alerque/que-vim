@@ -17,7 +17,6 @@ function! DoRemote(arg)
     UpdateRemotePlugins
 endfunction
 
-Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 " Plug 'tommcdo/vim-exchange'
@@ -56,8 +55,6 @@ Plug 'Konfekt/vim-unicode-homoglyphs', { 'for': g:prose_filetypes }
 Plug 'Konfekt/vim-smartbraces'
 Plug 'Konfekt/vim-select-replace'
 Plug 'haya14busa/vim-asterisk'
-" Enabled by vim-polyglot, see https://github.com/tbastos/vim-lua/issues/14
-" Plug 'tbastos/vim-lua'
 
 call plug#end()
 
