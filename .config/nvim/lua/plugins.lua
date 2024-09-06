@@ -44,8 +44,7 @@ return require("packer").startup(function (use)
                      { "~/projects/ahit", maxdepth = 1 },
                   },
                },
-               undo = {
-               },
+               undo = {},
             },
             ["ui-select"] = {
                -- require("telescope.themes").get_dropdown { }
