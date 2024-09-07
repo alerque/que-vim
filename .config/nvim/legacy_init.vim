@@ -37,7 +37,6 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-criticmarkup', { 'for': g:prose_filetypes }
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': g:markdown_filetypes }
 Plug 'vim-pandoc/vim-markdownfootnotes', { 'for': g:markdown_filetypes }
-Plug 'benekastah/neomake'
 Plug 'junegunn/vim-easy-align'
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 Plug 'preservim/tagbar'
