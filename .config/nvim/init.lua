@@ -114,6 +114,10 @@ map({ "n", "i" }, "<C-->", function ()
    resize_guifont(-1)
 end, nosi)
 
+map({ "n" }, "<Leader>bo", function ()
+   vim.cmd([[%bd|e#|bd#]])
+end)
+
 -- Unset F option from campatability mode so we can use Alt keys in keymaps
 opt.cpoptions:remove("F")
 
