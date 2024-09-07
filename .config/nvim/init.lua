@@ -142,29 +142,17 @@ map({ "i", "c" }, "<A-i>", function ()
    km("dvp2jcu")
 end, nosi)
 
--- Source legacy init.vim
-cmd(fmt("source %s/legacy_init.vim", fn.stdpath("config")))
-
 -- Don't wrap long lines by default (override for prose file types & Goyo mode)
 opt.wrap = false
 
+-- Source legacy init.vim
+cmd(fmt("source %s/legacy_init.vim", fn.stdpath("config")))
+
 -- Bootstrap packer
-local ensure_packer = function ()
-   local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-   if fn.empty(fn.glob(install_path)) > 0 then
-      fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
-      vim.cmd([[packadd packer.nvim]])
-      return true
-   end
-   return false
-end
-local packer_bootstrap = ensure_packer()
+require("config.packer")
 
-local _ = require("plugins")
-
-if packer_bootstrap then
-   require("packer").sync()
-end
+-- Bootstrap lazy.nvim
+require("config.lazy")
 
 map({ "n", "i" }, "<Leader>a", vim.lsp.buf.code_action, nosi)
 
@@ -184,11 +172,8 @@ map({ "v" }, "-", [[gc]], { remap = true })
 opt.clipboard:append("unnamedplus")
 
 vim.api.nvim_create_autocmd("BufWritePost", {
-   pattern = { "lua/plugins.lua", "init.lua" },
+   pattern = { "init.lua" },
    callback = function (event)
       vim.cmd(("source %s"):format(event.file))
-      if event.file == "lua/plugins.lua" then
-         vim.cmd("PackerSync")
-      end
    end,
 })
