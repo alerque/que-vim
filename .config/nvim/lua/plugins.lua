@@ -164,10 +164,9 @@ return require("packer").startup(function (use)
             extensions = {
                project = {
                   base_dirs = {
-                     { "~/projects", maxdepth = 3 },
-                     { "~/projects/ipk", maxdepth = 2 },
-                     { "~/projects/ccm", maxdepth = 1 },
-                     { "~/projects/ahit", maxdepth = 1 },
+                     { "~/projects", maxdepth = 2 },
+                     { "~/projects/ipk/ceviriler", maxdepth = 1 },
+                     { "~/projects/ipk/siteler", maxdepth = 1 },
                   },
                },
                undo = {},
