@@ -101,7 +101,7 @@ g.neovide_refresh_rate = 60
 local nosi = { noremap = true, silent = true }
 
 local function resize_guifont (delta)
-   local guifont = vim.split(o.guifont, ":h")
+   local guifont = vim.split(vim.o.guifont, ":h")
    local face, size = guifont[1], tonumber(guifont[2])
    size = size + delta
    opt.guifont = ("%s:h%s"):format(face, size)
