@@ -152,7 +152,7 @@ cmd(fmt("source %s/legacy_init.vim", fn.stdpath("config")))
 require("config.packer")
 
 -- Bootstrap lazy.nvim
-require("config.lazy")
+-- require("config.lazy")
 
 -- Bootstrap rocks.nvim
 require("config.rocks")
