@@ -154,6 +154,9 @@ require("config.packer")
 -- Bootstrap lazy.nvim
 require("config.lazy")
 
+-- Bootstrap rocks.nvim
+require("config.rocks")
+
 map({ "n", "i" }, "<Leader>a", vim.lsp.buf.code_action, nosi)
 
 -- Alternative pastes from visual mode
