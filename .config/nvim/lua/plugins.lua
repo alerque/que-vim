@@ -672,13 +672,13 @@ return require("packer").startup(function (use)
             callback = function ()
                local client = vim.api.nvim_get_chan_info(vim.v.event.chan).client
                if client ~= nil and client.name == "Firenvim" then
-                  vim.o.guifont = "Hack Nerd Font:h12"
-                  vim.g.syntastic_skip_checks = true
-                  vim.o.showtabline = false
-                  vim.o.laststatus = false
-                  vim.o.wrap = true
-                  -- vim.o.spell = true
-                  -- vim.opt.spelllang = { "en", "tr" }
+                  vim.opt.guifont = "Hack Nerd Font:h12"
+                  vim.g.syntastic_skip_checks = 1
+                  vim.opt.showtabline = 0
+                  vim.opt.laststatus = 0
+                  vim.opt.wrap = true
+                  vim.opt.spell = true
+                  vim.opt.spelllang = { "en", "tr" }
                   -- vim.cmd [[Codeium Off]]
                   -- AutoSaveToggle
                   vim.keymap.set("n", "<Esc><Esc>", "<Cmd>call firenvim#focus_page()<Cr>", {})
