@@ -1,4 +1,4 @@
-return require("packer").startup(function (use)
+local function my_plugins (use)
    use("wbthomason/packer.nvim")
 
    use({
@@ -982,4 +982,14 @@ return require("packer").startup(function (use)
    use("stefandtw/quickfix-reflector.vim")
 
    use("junegunn/vader.vim")
-end)
+end
+
+return require("packer").startup({
+   my_plugins,
+   config = {
+      display = { compact = true },
+      -- See ~/.cache/nvim/packer.nvim.log
+      -- log = { level = "debug" },
+      autoremove = true,
+   },
+})
