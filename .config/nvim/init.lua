@@ -174,4 +174,12 @@ map({ "v" }, "-", [[gc]], { remap = true })
 -- Use system clipboard for anonymous register
 opt.clipboard:append("unnamedplus")
 
-cmd("autocmd BufWritePost plugins.lua source <afile> | PackerSync")
+vim.api.nvim_create_autocmd("BufWritePost", {
+   pattern = { "lua/plugins.lua", "init.lua" },
+   callback = function (event)
+      vim.cmd(("source %s"):format(event.file))
+      if event.file == "lua/plugins.lua" then
+         vim.cmd("PackerSync")
+      end
+   end,
+})
