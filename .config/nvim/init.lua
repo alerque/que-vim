@@ -149,13 +149,22 @@ cmd(fmt("source %s/legacy_init.vim", fn.stdpath("config")))
 opt.wrap = false
 
 -- Bootstrap packer
-local install_path = fmt("%s/site/pack/packer/start/packer.nvim", fn.stdpath("data"))
-if fn.empty(fn.glob(install_path)) > 0 then
-   fn.system({ "git", "clone", "https://github.com/wbthomason/packer.nvim", install_path })
-   execute("packadd packer.nvim")
+local ensure_packer = function ()
+   local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+   if fn.empty(fn.glob(install_path)) > 0 then
+      fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+      vim.cmd([[packadd packer.nvim]])
+      return true
+   end
+   return false
 end
+local packer_bootstrap = ensure_packer()
 
-local plugins = require("plugins")
+local _ = require("plugins")
+
+if packer_bootstrap then
+   require("packer").sync()
+end
 
 map({ "n", "i" }, "<Leader>a", vim.lsp.buf.code_action, nosi)
 

@@ -1,5 +1,5 @@
 return require("packer").startup(function (use)
-   use({ "wbthomason/packer.nvim" })
+   use("wbthomason/packer.nvim")
 
    use({
       "vim-syntastic/syntastic",
@@ -296,15 +296,15 @@ return require("packer").startup(function (use)
       end,
    })
 
-   use({ "tpope/vim-repeat" })
+   use("tpope/vim-repeat")
 
-   use({ "tpope/vim-sensible" })
+   use("tpope/vim-sensible")
 
-   use({ "tpope/vim-eunuch" })
+   use("tpope/vim-eunuch")
 
-   use({ "tpope/vim-tbone" })
+   use("tpope/vim-tbone")
 
-   use({ "tpope/vim-unimpaired" })
+   use("tpope/vim-unimpaired")
 
    use({
       "andymass/vim-matchup",
@@ -314,7 +314,7 @@ return require("packer").startup(function (use)
       end,
    })
 
-   use({ "tpope/vim-abolish" })
+   use("tpope/vim-abolish")
 
    use({
       "tpope/vim-speeddating",
@@ -329,11 +329,11 @@ return require("packer").startup(function (use)
       end,
    })
 
-   use({ "tpope/vim-characterize" })
+   use("tpope/vim-characterize")
 
-   use({ "tpope/vim-endwise" })
+   use("tpope/vim-endwise")
 
-   use({ "tpope/vim-sleuth" })
+   use("tpope/vim-sleuth")
 
    use({
       "tpope/vim-fugitive",
@@ -350,12 +350,12 @@ return require("packer").startup(function (use)
       end,
    })
 
-   use({ "tpope/vim-rhubarb" })
+   use("tpope/vim-rhubarb")
 
    -- Forked from tpope to work with vim-textobj-quote
-   use({ "alerque/vim-surround" })
+   use("alerque/vim-surround")
 
-   use({ "rbong/vim-buffest" })
+   use("rbong/vim-buffest")
 
    use({
       "shumphrey/fugitive-gitlab.vim",
@@ -488,7 +488,7 @@ return require("packer").startup(function (use)
       end,
    })
 
-   use({ "saadparwaiz1/cmp_luasnip" })
+   use("saadparwaiz1/cmp_luasnip")
 
    use({
       "neovim/nvim-lspconfig",
@@ -868,7 +868,7 @@ return require("packer").startup(function (use)
       end,
    })
 
-   use({ "preservim/vim-colors-pencil" })
+   use("preservim/vim-colors-pencil")
 
    use({
       "preservim/vim-lexical",
@@ -877,9 +877,9 @@ return require("packer").startup(function (use)
       end,
    })
 
-   use({ "preservim/vim-wordy" })
+   use("preservim/vim-wordy")
 
-   use({ "preservim/vim-textobj-sentence" })
+   use("preservim/vim-textobj-sentence")
 
    use({
       "preservim/vim-textobj-quote",
@@ -934,33 +934,33 @@ return require("packer").startup(function (use)
       end,
    })
 
-   use({ "zhimsel/vim-stay" })
+   use("zhimsel/vim-stay")
 
-   use({ "preservim/vim-wheel" })
+   use("preservim/vim-wheel")
 
-   use({ "preservim/vim-wordchipper" })
+   use("preservim/vim-wordchipper")
 
-   use({ "pangloss/vim-javascript" })
+   use("pangloss/vim-javascript")
 
-   use({ "sile-typesetter/vim-sile" })
+   use("sile-typesetter/vim-sile")
 
    use({ "kaarmu/typst.vim", ft = { "typst" } })
 
-   use({ "https://gitlab.com/rwx.gg/abnf" })
+   use("https://gitlab.com/rwx.gg/abnf")
 
-   use({ "r-bar/ebnf.vim" })
+   use("r-bar/ebnf.vim")
 
-   use({ "projectfluent/fluent.vim" })
+   use("projectfluent/fluent.vim")
 
-   use({ "leafo/moonscript-vim" })
+   use("leafo/moonscript-vim")
 
-   use({ "egberts/vim-syntax-bind-named" })
+   use("egberts/vim-syntax-bind-named")
 
-   use({ "ekalinin/Dockerfile.vim" })
+   use("ekalinin/Dockerfile.vim")
 
-   use({ "tridactyl/vim-tridactyl" })
+   use("tridactyl/vim-tridactyl")
 
-   use({ "NoahTheDuke/vim-just" })
+   use("NoahTheDuke/vim-just")
 
    use({
       "inkarkat/vim-ReplaceWithRegister",
@@ -972,14 +972,14 @@ return require("packer").startup(function (use)
       -- see also alternative register paste maps in init.vim
    })
 
-   use({ "machakann/vim-highlightedyank" })
+   use("machakann/vim-highlightedyank")
 
    use({ "glts/vim-radical", requires = {
       "glts/vim-magnum",
       "tpope/vim-repeat",
    } })
 
-   use({ "stefandtw/quickfix-reflector.vim" })
+   use("stefandtw/quickfix-reflector.vim")
 
-   use({ "junegunn/vader.vim" })
+   use("junegunn/vader.vim")
 end)
