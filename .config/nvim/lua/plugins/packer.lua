@@ -830,7 +830,7 @@ local function my_plugins (use)
          end)
          -- map("i", "<C-n>", [[<C-r>=ledger#autocomplete_and_align()<Cr>]])
          map({ "i", "n" }, "<Leader>n", [[<Esc>gqipkvip:LedgerAlign<Cr>{yE}pE]])
-         map({ "i", "n" }, "<Leader>f", [[gqap]])
+         map({ "i", "n" }, "<Leader>f", [[vap:'<,'>!./bin/normalize.zsh<Cr>gqap]])
          map({ "i", "n" }, "<Leader>p", function ()
             local formatexpr = vim.o.formatexpr
             vim.o.formatexpr = nil
