@@ -16,7 +16,7 @@ if packer_bootstrap then
 end
 
 vim.api.nvim_create_autocmd("BufWritePost", {
-   pattern = { "lua/plugins/packer.lua" },
+   pattern = { "*/plugins/packer.lua" },
    callback = function (event)
       vim.cmd(("source %s"):format(event.file))
       vim.cmd([[PackerSync]])
