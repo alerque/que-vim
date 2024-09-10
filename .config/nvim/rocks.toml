@@ -4,6 +4,7 @@
 "rocks.nvim" = "2.40.0"
 "rocks-git.nvim" = "2.2.0"
 "rocks-config.nvim" = "2.2.0"
+"decasify.nvim" = "dev"
 
 [plugins.neomake]
 git = "benekastah/neomake"
