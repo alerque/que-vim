@@ -49,7 +49,6 @@ Plug 'meain/vim-package-info', { 'do': 'npm install' }
 Plug 'Konfekt/vim-sentence-chopper'
 Plug 'Konfekt/FastFold'
 Plug 'Konfekt/vim-unicode-homoglyphs', { 'for': g:prose_filetypes }
-Plug 'Konfekt/vim-smartbraces'
 Plug 'Konfekt/vim-select-replace'
 Plug 'haya14busa/vim-asterisk'
 
@@ -523,15 +522,6 @@ let g:multi_cursor_exit_from_insert_mode = 0
 let g:VM_mouse_mappings = 1
 let g:VM_skip_shorter_lines = 1
 let g:VM_skip_empty_lines = 1
-
-" Configure smartbrace key so it doesn't clobber vim default
-" See https://github.com/Konfekt/vim-smartbraces/issues/4
-nmap g{ <Plug>(smartbraces-OpenBrace)
-nmap g} <Plug>(smartbraces-CloseBrace)
-xmap g{ <Plug>(smartbraces-OpenBrace)
-xmap g} <Plug>(smartbraces-CloseBrace)
-omap g{ <Plug>(smartbraces-OpenBrace)
-omap g} <Plug>(smartbraces-CloseBrace)
 
 " vim-asterisk bindings
 let g:asterisk#keeppos = 1

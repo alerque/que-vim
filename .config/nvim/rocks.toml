@@ -10,5 +10,9 @@
 git = "benekastah/neomake"
 branch = "master"
 
+[plugins.smartbraces]
+git = "Konfekt/vim-smartbraces"
+branch = "master"
+
 [config]
 plugins_dir = "rocks"
