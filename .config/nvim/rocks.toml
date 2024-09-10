@@ -9,3 +9,6 @@
 [plugins.neomake]
 git = "benekastah/neomake"
 branch = "master"
+
+[config]
+plugins_dir = "rocks"
