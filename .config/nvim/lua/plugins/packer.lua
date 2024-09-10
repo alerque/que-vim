@@ -795,6 +795,7 @@ local function my_plugins (use)
          local function map (mode, l, r)
             vim.keymap.set(mode, l, r, { noremap = true, buffer = true, silent = true })
          end
+         vim.opt.colorcolumn = "60"
          vim.opt_local.expandtab = true
          vim.opt_local.iskeyword:append(":")
          vim.opt_local.formatprg = ("%s -f - print -x"):format(vim.g.ledger_bin)
