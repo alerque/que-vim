@@ -10,10 +10,9 @@
 git = "benekastah/neomake"
 branch = "master"
 
-# Using fork until docs fix merges: https://github.com/Konfekt/vim-smartbraces/pull/6
 [plugins.smartbraces]
-git = "alerque/vim-smartbraces"
-branch = "patch-1"
+git = "Konfekt/vim-smartbraces"
+branch = "master"
 
 [config]
 plugins_dir = "rocks"
