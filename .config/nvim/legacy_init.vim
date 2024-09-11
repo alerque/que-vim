@@ -46,7 +46,6 @@ Plug 'equalsraf/neovim-gui-shim'
 Plug 'christoomey/vim-titlecase'
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
 " Plug 'w0rp/ale'
-Plug 'Konfekt/vim-sentence-chopper'
 Plug 'Konfekt/FastFold'
 Plug 'Konfekt/vim-unicode-homoglyphs', { 'for': g:prose_filetypes }
 Plug 'Konfekt/vim-select-replace'
@@ -505,11 +504,6 @@ let g:titlecase_map_keys = 0
 nmap <leader>gt <Plug>Titlecase
 vmap <leader>gt <Plug>Titlecase
 nmap <leader>gT <Plug>TitlecaseLine
-
-" Sentence chopper
-let g:punctuation_marks = '.;:?!'
-let g:latexindent = 0
-onoremap <silent> . :<c-u>call search('\v\C%(%([^[:digit:]IVX]\|[)''"])\zs[.]\|[,;:!?])[[:space:])''"]\|[.,;:!?]$','W')<CR>
 
 " This is useful but slows down big files a lot
 let g:is_homoglyph_on = 0

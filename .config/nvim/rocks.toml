@@ -14,5 +14,9 @@ branch = "master"
 git = "Konfekt/vim-smartbraces"
 branch = "master"
 
+[plugins.sentence-chopper]
+git = "Konfekt/vim-sentence-chopper"
+branch = "master"
+
 [config]
 plugins_dir = "rocks"
