@@ -46,7 +46,6 @@ Plug 'equalsraf/neovim-gui-shim'
 Plug 'christoomey/vim-titlecase'
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
 " Plug 'w0rp/ale'
-Plug 'Konfekt/FastFold'
 Plug 'Konfekt/vim-unicode-homoglyphs', { 'for': g:prose_filetypes }
 Plug 'Konfekt/vim-select-replace'
 Plug 'haya14busa/vim-asterisk'

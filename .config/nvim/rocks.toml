@@ -10,6 +10,10 @@
 git = "benekastah/neomake"
 branch = "master"
 
+[plugins.fastfold]
+git = "Konfekt/FastFold"
+branch = "master"
+
 [plugins.smartbraces]
 git = "Konfekt/vim-smartbraces"
 branch = "master"
