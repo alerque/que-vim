@@ -175,7 +175,7 @@ map({ "v" }, "-", [[gc]], { remap = true })
 opt.clipboard:append("unnamedplus")
 
 vim.api.nvim_create_autocmd("BufWritePost", {
-   pattern = { "init.lua" },
+   pattern = { "*/lua/init.lua" },
    callback = function (event)
       vim.cmd(("source %s"):format(event.file))
    end,
