@@ -152,6 +152,7 @@ local function my_plugins (use)
          local telescope = require("telescope")
          local builtin = require("telescope.builtin")
          local theme = require("telescope.themes").get_ivy({})
+         local project_actions = require("telescope._extensions.project.actions")
          telescope.setup({
             defaults = vim.tbl_deep_extend("force", theme, {
                mappings = {
@@ -168,6 +169,10 @@ local function my_plugins (use)
                      { "~/projects/ipk/ceviriler", maxdepth = 1 },
                      { "~/projects/ipk/siteler", maxdepth = 1 },
                   },
+                  on_project_selected = function (prompt_bufnr)
+                     project_actions.change_working_directory(prompt_bufnr, false)
+                     builtin.git_files()
+                  end,
                },
                undo = {},
             },
