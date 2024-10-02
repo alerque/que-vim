@@ -14,6 +14,10 @@ branch = "master"
 git = "Konfekt/FastFold"
 branch = "master"
 
+[plugins.match-visual]
+git = "aaron-p1/match-visual.nvim"
+branch = "main"
+
 [plugins.smartbraces]
 git = "Konfekt/vim-smartbraces"
 branch = "master"
