@@ -1,29 +1,34 @@
 [rocks]
 
 [plugins]
-"rocks.nvim" = "2.40.0"
-"rocks-git.nvim" = "2.2.0"
-"rocks-config.nvim" = "2.2.0"
+"rocks.nvim" = "2.41.1"
+"rocks-git.nvim" = "2.5.1"
+"rocks-config.nvim" = "3.0.0"
 "decasify.nvim" = "0.8.0"
 
 [plugins.neomake]
 git = "benekastah/neomake"
+rev = "584f882b9f991245374e7e7d7d1f78bae90b7a35"
 branch = "master"
 
 [plugins.fastfold]
 git = "Konfekt/FastFold"
+rev = "5.3"
 branch = "master"
 
 [plugins.match-visual]
 git = "aaron-p1/match-visual.nvim"
+rev = "98540e79c151126187907278ff5bc61823edcebc"
 branch = "main"
 
 [plugins.smartbraces]
 git = "Konfekt/vim-smartbraces"
+rev = "fd4857019c6e2e61257c140a3af6a4bae0b86845"
 branch = "master"
 
 [plugins.sentence-chopper]
 git = "Konfekt/vim-sentence-chopper"
+rev = "1.5"
 branch = "master"
 
 [config]
