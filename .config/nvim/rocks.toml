@@ -16,6 +16,10 @@ git = "Konfekt/FastFold"
 rev = "5.3"
 branch = "master"
 
+[plugins.lsp-lines]
+git = "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
+branch = "main"
+
 [plugins.match-visual]
 git = "aaron-p1/match-visual.nvim"
 rev = "98540e79c151126187907278ff5bc61823edcebc"
