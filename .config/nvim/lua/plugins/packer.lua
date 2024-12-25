@@ -745,6 +745,9 @@ local function my_plugins (use)
          markdown("gitlab.com_*.txt")
          markdown("gitlab.alerque.com_*.txt", "pandoc")
          markdown("gitter.im_*.txt")
+         localSettings["github.com"] = {
+            selector = "textarea:not(#pull_request_review_body)",
+         }
          -- set filetype=markdown | nnoremap <leader><Cr> write<Cr>:call firenvim#press_keys("<Lt>CR>")<cR>ggdGa
          vim.g.firenvim_config = {
             globalSettings = {
