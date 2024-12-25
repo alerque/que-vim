@@ -35,5 +35,9 @@ git = "Konfekt/vim-sentence-chopper"
 rev = "1.5"
 branch = "master"
 
+[plugins.stylua]
+git = "ckipp01/stylua-nvim"
+branch = "main"
+
 [config]
 plugins_dir = "rocks"
