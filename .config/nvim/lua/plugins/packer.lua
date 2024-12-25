@@ -533,6 +533,13 @@ local function my_plugins (use)
          }
          local lsp_specific_settings = {
             lua_ls = {
+               commands = {
+                  Format = {
+                     function ()
+                        require("stylua-nvim").format_file()
+                     end,
+                  },
+               },
                on_init = function (client)
                   local path = client.workspace_folders[1].name
                   if not vim.loop.fs_stat(path .. "/.luarc.json") or vim.loop.fs_stat(path .. "/.luarc.jsonc") then
