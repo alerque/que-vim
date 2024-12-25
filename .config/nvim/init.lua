@@ -11,6 +11,7 @@ local rtp = vim.split(package.path, ";")
 
 -- Group some filetypes for use in selectively loading plugins
 g.markdown_filetypes = {
+   "djot",
    "markdown",
    "mkd",
    "pandoc",
