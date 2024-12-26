@@ -29,6 +29,9 @@ do
    )
 end
 
+-- Don't download vendored LuaRocks
+vim.g.luarocks_binary = "/usr/bin/luarocks"
+
 -- If rocks.nvim is not installed then install it!
 if not pcall(require, "rocks") then
    local rocks_location = vim.fs.joinpath(vim.fn.stdpath("cache"), "rocks.nvim")
