@@ -1,9 +1,9 @@
 [rocks]
 
 [plugins]
-"rocks.nvim" = "2.41.1"
-"rocks-git.nvim" = "2.5.1"
-"rocks-config.nvim" = "3.0.0"
+"rocks.nvim" = "2.43.0"
+"rocks-git.nvim" = "2.5.2"
+"rocks-config.nvim" = "3.1.0"
 "decasify.nvim" = "0.8.0"
 
 [plugins.neomake]
@@ -18,6 +18,7 @@ branch = "master"
 
 [plugins.lsp-lines]
 git = "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
+rev = "v3.0.0"
 branch = "main"
 
 [plugins.match-visual]
@@ -27,7 +28,7 @@ branch = "main"
 
 [plugins.smartbraces]
 git = "Konfekt/vim-smartbraces"
-rev = "fd4857019c6e2e61257c140a3af6a4bae0b86845"
+rev = "e576898c59d206c95f44813667961f48ca025b05"
 branch = "master"
 
 [plugins.sentence-chopper]
@@ -37,6 +38,7 @@ branch = "master"
 
 [plugins.stylua]
 git = "ckipp01/stylua-nvim"
+rev = "ce59a353f02938cba3e0285e662fcd3901cd270f"
 branch = "main"
 
 [config]
