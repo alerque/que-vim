@@ -4,7 +4,7 @@
 "rocks.nvim" = "2.43.1"
 "rocks-git.nvim" = "2.5.2"
 "rocks-config.nvim" = "3.1.0"
-"decasify.nvim" = "0.8.0"
+"decasify.nvim" = "0.9.1"
 
 [plugins.neomake]
 git = "benekastah/neomake"
@@ -28,7 +28,7 @@ branch = "main"
 
 [plugins.smartbraces]
 git = "Konfekt/vim-smartbraces"
-rev = "fd4857019c6e2e61257c140a3af6a4bae0b86845"
+rev = "369617a10673ad8a38b108309ef068f8c4f0ecba"
 branch = "master"
 
 [plugins.sentence-chopper]
