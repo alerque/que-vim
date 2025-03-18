@@ -1,10 +1,10 @@
 [rocks]
 
 [plugins]
-"rocks.nvim" = "2.43.1"
-"rocks-git.nvim" = "2.5.2"
+"rocks.nvim" = "2.44.0"
+"rocks-git.nvim" = "2.5.3"
 "rocks-config.nvim" = "3.1.0"
-"decasify.nvim" = "0.9.1"
+"decasify.nvim" = "0.10.1"
 
 [plugins.neomake]
 git = "benekastah/neomake"
@@ -43,7 +43,7 @@ branch = "main"
 
 [plugins.augment]
 git = "augmentcode/augment.vim"
-rev = "v0.22.0"
+rev = "v0.24.0"
 branch = "main"
 
 [config]
