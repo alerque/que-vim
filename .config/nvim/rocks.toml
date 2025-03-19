@@ -43,7 +43,7 @@ branch = "main"
 
 [plugins.augment]
 git = "augmentcode/augment.vim"
-rev = "v0.24.0"
+rev = "v0.25.1"
 branch = "main"
 
 [config]
