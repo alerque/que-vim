@@ -21,6 +21,11 @@ git = "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
 rev = "v3.0.0"
 branch = "main"
 
+[plugins.monokai-nightasty]
+git = "polirritmico/monokai-nightasty.nvim"
+rev = "8182c45dcaf82e7316cfda6d439ee8ad783ae594"
+branch = "main"
+
 [plugins.match-visual]
 git = "aaron-p1/match-visual.nvim"
 rev = "98540e79c151126187907278ff5bc61823edcebc"
