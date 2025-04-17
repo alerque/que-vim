@@ -33,7 +33,7 @@ branch = "main"
 
 [plugins.smartbraces]
 git = "Konfekt/vim-smartbraces"
-rev = "369617a10673ad8a38b108309ef068f8c4f0ecba"
+rev = "e576898c59d206c95f44813667961f48ca025b05"
 branch = "master"
 
 [plugins.sentence-chopper]
