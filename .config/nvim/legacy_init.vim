@@ -39,7 +39,6 @@ Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': g:markdown_filetypes }
 Plug 'vim-pandoc/vim-markdownfootnotes', { 'for': g:markdown_filetypes }
 Plug 'junegunn/vim-easy-align'
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
-Plug 'preservim/tagbar'
 " Plug 'ludovicchabant/vim-gutentags'
 " Plug 'rust-lang/rust.vim'
 Plug 'equalsraf/neovim-gui-shim'
@@ -298,24 +297,6 @@ autocmd QueInit FileType markdown,pandoc nmap <buffer> <Leader>@ <Plug>ReturnFro
 xmap gA <Plug>(EasyAlign)
 nmap gA <Plug>(EasyAlign)
 
-" Mapping to pull up ctags based navigator
-nmap \t :TagbarToggle<CR>
-
-" Add support for markdown files in tagbar.
-let g:tagbar_type_pandoc = {
-    \ 'ctagstype': 'markdown',
-    \ 'ctagsbin' : 'markdown2ctags',
-    \ 'ctagsargs' : '-f - --sort=yes',
-    \ 'kinds' : [
-        \ 's:sections',
-        \ 'i:images'
-    \ ],
-    \ 'sro' : '|',
-    \ 'kind2scope' : {
-        \ 's' : 'section',
-    \ },
-    \ 'sort': 0,
-	\ }
 
 let g:markdown_fenced_languages = g:markdown_embeded
 let g:pandoc#syntax#codeblocks#embeds#langs = g:markdown_embeded

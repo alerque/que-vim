@@ -6,6 +6,10 @@
 "rocks-config.nvim" = "3.1.0"
 "decasify.nvim" = "0.10.1"
 
+[plugins.tagbar]
+git = "preservim/tagbar"
+branch = "master"
+
 [plugins.neomake]
 git = "benekastah/neomake"
 rev = "584f882b9f991245374e7e7d7d1f78bae90b7a35"
