@@ -43,7 +43,6 @@ Plug 'preservim/tagbar'
 " Plug 'ludovicchabant/vim-gutentags'
 " Plug 'rust-lang/rust.vim'
 Plug 'equalsraf/neovim-gui-shim'
-Plug 'christoomey/vim-titlecase'
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
 " Plug 'w0rp/ale'
 Plug 'Konfekt/vim-unicode-homoglyphs', { 'for': g:prose_filetypes }
@@ -497,12 +496,6 @@ set nofoldenable
 
 " Setup extras in JS syntax plugin
 let g:javascript_plugin_jsdoc = 1
-
-" Default title case key bindings conflict with tab control
-let g:titlecase_map_keys = 0
-nmap <leader>gt <Plug>Titlecase
-vmap <leader>gt <Plug>Titlecase
-nmap <leader>gT <Plug>TitlecaseLine
 
 " This is useful but slows down big files a lot
 let g:is_homoglyph_on = 0
