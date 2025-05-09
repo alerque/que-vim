@@ -50,10 +50,11 @@ git = "ckipp01/stylua-nvim"
 rev = "ce59a353f02938cba3e0285e662fcd3901cd270f"
 branch = "main"
 
-# [plugins.augment]
-# git = "augmentcode/augment.vim"
-# rev = "v0.27.0"
-# branch = "main"
+[plugins.augment]
+git = "augmentcode/augment.vim"
+rev = "v0.28.0"
+branch = "main"
+opt = true
 
 [config]
 plugins_dir = "rocks"
