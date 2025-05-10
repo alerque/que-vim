@@ -3,12 +3,14 @@
 [plugins]
 "rocks.nvim" = "2.44.0"
 "rocks-git.nvim" = "2.5.3"
-"rocks-config.nvim" = "3.1.0"
+"rocks-config.nvim" = "3.1.1"
 "decasify.nvim" = "0.10.1"
 
 [plugins.tagbar]
 git = "preservim/tagbar"
+rev = "8de7694c0aeda253073098bbc9fb890b2902ddb8"
 branch = "master"
+ignore_tags = true
 
 [plugins.neomake]
 git = "benekastah/neomake"
@@ -29,6 +31,7 @@ branch = "main"
 git = "polirritmico/monokai-nightasty.nvim"
 rev = "8182c45dcaf82e7316cfda6d439ee8ad783ae594"
 branch = "main"
+ignore_tags = true
 
 [plugins.match-visual]
 git = "aaron-p1/match-visual.nvim"
@@ -38,8 +41,8 @@ branch = "main"
 [plugins.smartbraces]
 git = "Konfekt/vim-smartbraces"
 rev = "e576898c59d206c95f44813667961f48ca025b05"
-ignore_tags = true
 branch = "master"
+ignore_tags = true
 
 [plugins.sentence-chopper]
 git = "Konfekt/vim-sentence-chopper"
