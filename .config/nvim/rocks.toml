@@ -56,9 +56,9 @@ branch = "main"
 
 [plugins.augment]
 git = "augmentcode/augment.vim"
-rev = "v0.28.0"
-branch = "main"
+rev = "v0.31.0"
 opt = true
+branch = "main"
 
 [config]
 plugins_dir = "rocks"
