@@ -550,6 +550,9 @@ local function my_plugins (use)
                         version = "LuaJIT",
                      },
                      workspace = {
+                        didChangeWatchedFiles = {
+                           dynamicRegistration = true,
+                        },
                         checkThirdParty = false,
                         library = vim.env.VIMRUNTIME,
                      },
