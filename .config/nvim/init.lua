@@ -1,13 +1,6 @@
-local cmd = vim.cmd
-local execute = vim.api.nvim_command
-local fn = vim.fn
 local g = vim.g
 local map = vim.keymap.set
 local opt = vim.opt
-
-local fmt = string.format
-
-local rtp = vim.split(package.path, ";")
 
 -- Group some filetypes for use in selectively loading plugins
 g.markdown_filetypes = {
@@ -147,7 +140,7 @@ end, nosi)
 opt.wrap = false
 
 -- Source legacy init.vim
-cmd(fmt("source %s/legacy_init.vim", fn.stdpath("config")))
+vim.cmd(string.format("source %s/legacy_init.vim", vim.fn.stdpath("config")))
 
 -- Bootstrap packer
 require("config.packer")
