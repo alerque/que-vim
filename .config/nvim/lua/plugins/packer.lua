@@ -431,13 +431,7 @@ local function my_plugins (use)
    use({
       "nvim-treesitter/nvim-treesitter",
       branch = "main",
-      config = function ()
-         treesitter = require("nvim-treesitter.configs").setup({
-            highlight = {
-               enabled = true,
-            },
-         })
-      end,
+      lazy = false,
    })
 
    use({ "rafamadriz/friendly-snippets", module = { "cmp", "cmp_nvim_lsp" }, event = "InsertEnter" })
