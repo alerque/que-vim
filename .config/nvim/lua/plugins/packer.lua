@@ -521,7 +521,7 @@ local function my_plugins (use)
             vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
          end
          local capabilities = require("cmp_nvim_lsp").default_capabilities()
-         local servers = { "rust_analyzer", "pyright", "lua_ls" }
+         local servers = { "rust_analyzer", "pyright", "lua_ls", "just" }
          local common_settings = {
             on_attach = on_attach,
             capabilities = capabilities,
