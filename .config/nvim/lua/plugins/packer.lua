@@ -434,11 +434,8 @@ local function my_plugins (use)
       lazy = false,
    })
 
-   use({ "rafamadriz/friendly-snippets", module = { "cmp", "cmp_nvim_lsp" }, event = "InsertEnter" })
-
    use({
       "hrsh7th/nvim-cmp",
-      after = "friendly-snippets",
       requires = {
          "hrsh7th/cmp-nvim-lua",
          "hrsh7th/cmp-nvim-lsp",
@@ -449,16 +446,10 @@ local function my_plugins (use)
          "hrsh7th/cmp-omni",
          "uga-rosa/cmp-dictionary",
          -- "f3fora/cmp-spell",
-         "L3MON4D3/LuaSnip",
       },
       config = function ()
          local cmp = require("cmp")
          cmp.setup({
-            snippet = {
-               expand = function (args)
-                  require("luasnip").lsp_expand(args.body)
-               end,
-            },
             mapping = {
                ["<C-p>"] = cmp.mapping.select_prev_item(),
                ["<C-n>"] = cmp.mapping.select_next_item(),
@@ -477,7 +468,6 @@ local function my_plugins (use)
                -- { name = "spell" },
                -- { name = "tags" },
                { name = "nvim_lua" },
-               { name = "luasnip" },
                { name = "nvim_lsp" },
                { name = "treesitter" },
                { name = "path" },
@@ -490,8 +480,6 @@ local function my_plugins (use)
          })
       end,
    })
-
-   use("saadparwaiz1/cmp_luasnip")
 
    use({
       "neovim/nvim-lspconfig",
