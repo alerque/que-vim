@@ -19,8 +19,9 @@ branch = "master"
 
 [plugins.fastfold]
 git = "Konfekt/FastFold"
-rev = "5.3"
+rev = "c1ddfa1a0e00316d1161ce11438ec980348b8cb9"
 branch = "master"
+ignore_tags = true
 
 [plugins.lsp-lines]
 git = "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
