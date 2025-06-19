@@ -8,7 +8,7 @@
 
 [plugins.tagbar]
 git = "preservim/tagbar"
-rev = "8de7694c0aeda253073098bbc9fb890b2902ddb8"
+rev = "2ef4ecba94440fcf8a8c692a0f2b36b332f1f0f2"
 branch = "master"
 ignore_tags = true
 
