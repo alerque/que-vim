@@ -5,6 +5,7 @@
 "rocks-git.nvim" = "2.5.3"
 "rocks-config.nvim" = "3.1.1"
 "decasify.nvim" = "0.10.1"
+"conform.nvim" = "9.0.0"
 
 [plugins.tagbar]
 git = "preservim/tagbar"
