@@ -7,6 +7,10 @@
 "decasify.nvim" = "0.10.1"
 "conform.nvim" = "9.0.0"
 
+[plugins.guttermarks]
+git = "dimtion/guttermarks.nvim"
+branch = "main"
+
 [plugins.tagbar]
 git = "preservim/tagbar"
 rev = "2ef4ecba94440fcf8a8c692a0f2b36b332f1f0f2"
