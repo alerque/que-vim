@@ -485,7 +485,6 @@ local function my_plugins (use)
       "neovim/nvim-lspconfig",
       requires = "hrsh7th/cmp-nvim-lsp",
       config = function ()
-         local lspconfig = require("lspconfig")
          local on_attach = function (_, buffnr)
             -- vim.opt.omnifunc = "v:lua.vim.lsp.omnifunc"
             local map = function (mode, l, r)
@@ -557,11 +556,10 @@ local function my_plugins (use)
                },
             },
          }
-         for _, lsp in ipairs(servers) do
-            if lsp_specific_settings[lsp] then
-               vim.tbl_deep_extend("force", common_settings, lsp_specific_settings[lsp])
+         for _, ls_id in ipairs(servers) do
+            if lsp_specific_settings[ls_id] then
+               vim.lsp.config(ls_id, vim.tbl_deep_extend("force", common_settings, lsp_specific_settings[ls_id]))
             end
-            lspconfig[lsp].setup(common_settings)
          end
          vim.opt.completeopt = { "menuone", "noselect" }
       end,
