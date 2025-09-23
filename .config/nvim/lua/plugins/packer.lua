@@ -432,6 +432,16 @@ local function my_plugins (use)
       "nvim-treesitter/nvim-treesitter",
       branch = "main",
       lazy = false,
+      config = function ()
+         local treesitter = require("nvim-treesitter")
+         treesitter.setup({
+            -- Use syntax highlighting from vim-just over treesitter implementation
+            highlight = {
+               enable = true,
+               disable = { "just" },
+            },
+         })
+      end,
    })
 
    use({
@@ -927,7 +937,7 @@ local function my_plugins (use)
 
    use("tridactyl/vim-tridactyl")
 
-   use("NoahTheDuke/vim-just")
+   use({ "NoahTheDuke/vim-just", ft = { "just" } })
 
    use({
       "inkarkat/vim-ReplaceWithRegister",
