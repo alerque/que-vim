@@ -1,25 +1,24 @@
 [rocks]
 
 [plugins]
-"rocks.nvim" = "2.45.0"
-"rocks-git.nvim" = "2.5.3"
-"rocks-config.nvim" = "3.1.1"
+"rocks.nvim" = "2.46.1"
+"rocks-git.nvim" = "2.5.6"
+"rocks-config.nvim" = "3.1.2"
 "decasify.nvim" = "0.10.1"
-"conform.nvim" = "9.0.0"
+"conform.nvim" = "9.1.0"
 
 [plugins.guttermarks]
 git = "dimtion/guttermarks.nvim"
+rev = "1ff87f5933bd1cb2c7b7daea25d166b90d9d93c0"
 branch = "main"
 
 [plugins.tagbar]
 git = "preservim/tagbar"
-rev = "2ef4ecba94440fcf8a8c692a0f2b36b332f1f0f2"
 branch = "master"
 ignore_tags = true
 
 [plugins.neomake]
 git = "benekastah/neomake"
-rev = "584f882b9f991245374e7e7d7d1f78bae90b7a35"
 branch = "master"
 
 [plugins.fastfold]
@@ -62,7 +61,7 @@ branch = "main"
 
 [plugins.augment]
 git = "augmentcode/augment.vim"
-rev = "v0.31.0"
+rev = "v0.37.0"
 opt = true
 branch = "main"
 
