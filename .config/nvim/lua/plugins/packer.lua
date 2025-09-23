@@ -508,7 +508,18 @@ local function my_plugins (use)
             vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
          end
          local capabilities = require("cmp_nvim_lsp").default_capabilities()
-         local servers = { "rust_analyzer", "pyright", "lua_ls", "just" }
+         local servers = {
+            "clangd",
+            -- "dockerls",
+            "just",
+            "lua_ls",
+            "marksman",
+            "pyright",
+            "ruff",
+            "rust_analyzer",
+            "stylua",
+            "taplo",
+         }
          local common_settings = {
             on_attach = on_attach,
             capabilities = capabilities,
@@ -554,6 +565,25 @@ local function my_plugins (use)
                      },
                   },
                },
+            },
+            marksman = {
+               filetypes = { "markdown", "pandoc" },
+            },
+            pyright = {
+               -- Avoid conflict with ruff's organizer
+               disabaleOrganizeImports = true,
+            },
+            python = {
+               -- Avoid conflict with ruff's linting
+               ignore = { "*" },
+            },
+            ruff = {
+               on_attach = function (client, bufnr)
+                  client.server_capabilities.hoverProvider = false
+               end,
+            },
+            stylua = {
+               root_markers = { ".stylua.toml", "stylua.toml", ".editorconfig" },
             },
          }
          for _, ls_id in ipairs(servers) do
