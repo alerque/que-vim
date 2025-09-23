@@ -507,8 +507,13 @@ local function my_plugins (use)
             map("n", "<leader>so", require("telescope.builtin").lsp_document_symbols)
             vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
          end
-         local capabilities = require("cmp_nvim_lsp").default_capabilities()
-         local servers = {
+         vim.lsp.config("*", {
+            on_attach = on_attach,
+            capabilities = require("cmp_nvim_lsp").default_capabilities(),
+            root_markers = { ".git" },
+         })
+         -- See lsp/*.lua for per-server config overrides
+         vim.lsp.enable({
             "clangd",
             -- "dockerls",
             "just",
@@ -519,78 +524,7 @@ local function my_plugins (use)
             "rust_analyzer",
             "stylua",
             "taplo",
-         }
-         local common_settings = {
-            on_attach = on_attach,
-            capabilities = capabilities,
-         }
-         local lsp_specific_settings = {
-            lua_ls = {
-               commands = {
-                  Format = {
-                     function ()
-                        require("stylua-nvim").format_file()
-                     end,
-                  },
-               },
-               on_init = function (client)
-                  local path = client.workspace_folders[1].name
-                  if not vim.loop.fs_stat(path .. "/.luarc.json") or vim.loop.fs_stat(path .. "/.luarc.jsonc") then
-                     return
-                  end
-                  client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings, {
-                     runtime = {
-                        version = "LuaJIT",
-                     },
-                     workspace = {
-                        didChangeWatchedFiles = {
-                           dynamicRegistration = true,
-                        },
-                        checkThirdParty = false,
-                        library = vim.env.VIMRUNTIME,
-                     },
-                  })
-                  return true
-               end,
-               settings = {
-                  Lua = {
-                     completion = {
-                        displayContext = 2,
-                     },
-                     hint = {
-                        enable = true,
-                     },
-                     telemetry = {
-                        enable = false,
-                     },
-                  },
-               },
-            },
-            marksman = {
-               filetypes = { "markdown", "pandoc" },
-            },
-            pyright = {
-               -- Avoid conflict with ruff's organizer
-               disabaleOrganizeImports = true,
-            },
-            python = {
-               -- Avoid conflict with ruff's linting
-               ignore = { "*" },
-            },
-            ruff = {
-               on_attach = function (client, bufnr)
-                  client.server_capabilities.hoverProvider = false
-               end,
-            },
-            stylua = {
-               root_markers = { ".stylua.toml", "stylua.toml", ".editorconfig" },
-            },
-         }
-         for _, ls_id in ipairs(servers) do
-            if lsp_specific_settings[ls_id] then
-               vim.lsp.config(ls_id, vim.tbl_deep_extend("force", common_settings, lsp_specific_settings[ls_id]))
-            end
-         end
+         })
          vim.opt.completeopt = { "menuone", "noselect" }
       end,
    })
