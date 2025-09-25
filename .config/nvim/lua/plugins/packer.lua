@@ -478,7 +478,14 @@ local function my_plugins (use)
                -- { name = "spell" },
                -- { name = "tags" },
                { name = "nvim_lua" },
-               { name = "nvim_lsp" },
+               {
+                  name = "nvim_lsp",
+                  option = {
+                     markdown_oxide = {
+                        keyword_pattern = [[\(\k\| \|\/\|#\)\+]],
+                     },
+                  },
+               },
                { name = "treesitter" },
                { name = "path" },
                { name = "buffer" },
@@ -528,6 +535,7 @@ local function my_plugins (use)
             -- "dockerls",
             "just",
             "lua_ls",
+            "markdown_oxide",
             "marksman",
             "pyright",
             "ruff",
