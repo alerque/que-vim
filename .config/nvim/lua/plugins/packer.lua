@@ -815,9 +815,9 @@ local function my_plugins (use)
             start_commodity("BTC")
          end)
          -- map("i", "<C-n>", [[<C-r>=ledger#autocomplete_and_align()<Cr>]])
-         map({ "i", "n" }, "<Leader>n", [[<Esc>gqipkvip:LedgerAlign<Cr>{yE}pE]])
-         map({ "i", "n" }, "<Leader>f", [[vap:'<,'>!./bin/normalize.zsh<Cr>gqap]])
-         map({ "i", "n" }, "<Leader>p", function ()
+         map("n", "<Leader>n", [[<Esc>gqipkvip:LedgerAlign<Cr>{yE}pE]])
+         map("n", "<Leader>f", [[vap:'<,'>!./bin/normalize.zsh<Cr>gqap]])
+         map("n", "<Leader>p", function ()
             local formatexpr = vim.o.formatexpr
             vim.o.formatexpr = nil
             vim.cmd([[normal! gqip]])
