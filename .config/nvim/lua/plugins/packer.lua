@@ -542,6 +542,7 @@ local function my_plugins (use)
             "rust_analyzer",
             "stylua",
             "taplo",
+            "tinymist",
          })
          vim.opt.completeopt = { "menuone", "noselect" }
       end,
