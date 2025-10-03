@@ -946,8 +946,6 @@ local function my_plugins (use)
 
    use("tridactyl/vim-tridactyl")
 
-   use({ "NoahTheDuke/vim-just", ft = { "just" } })
-
    use({
       "inkarkat/vim-ReplaceWithRegister",
       requires = {

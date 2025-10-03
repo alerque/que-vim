@@ -45,6 +45,11 @@ git = "aaron-p1/match-visual.nvim"
 rev = "98540e79c151126187907278ff5bc61823edcebc"
 branch = "main"
 
+[plugins.vim-just]
+git = "NoahTheDuke/vim-just"
+rev = "19a7f07c16f010f6c0a3eb74041787bb6e460fbb"
+branch = "main"
+
 [plugins.smartbraces]
 git = "Konfekt/vim-smartbraces"
 rev = "e576898c59d206c95f44813667961f48ca025b05"
