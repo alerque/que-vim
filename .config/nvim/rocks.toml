@@ -14,7 +14,7 @@ branch = "main"
 
 [plugins.tagbar]
 git = "preservim/tagbar"
-rev = "2ef4ecba94440fcf8a8c692a0f2b36b332f1f0f2"
+rev = "7bfffca1f121afb7a9e38747500bf5270e006bb1"
 branch = "master"
 ignore_tags = true
 
@@ -42,12 +42,12 @@ ignore_tags = true
 
 [plugins.match-visual]
 git = "aaron-p1/match-visual.nvim"
-rev = "98540e79c151126187907278ff5bc61823edcebc"
+rev = "c1e14a9a28772f7c2e9332243c1557ab51a3c9d7"
 branch = "main"
 
 [plugins.vim-just]
 git = "NoahTheDuke/vim-just"
-rev = "19a7f07c16f010f6c0a3eb74041787bb6e460fbb"
+rev = "c13e317dda76ea01c2521cbed2a5c552a96951bd"
 branch = "main"
 
 [plugins.smartbraces]
@@ -68,7 +68,7 @@ branch = "main"
 
 [plugins.augment]
 git = "augmentcode/augment.vim"
-rev = "v0.41.0"
+rev = "v0.42.0"
 opt = true
 branch = "main"
 
