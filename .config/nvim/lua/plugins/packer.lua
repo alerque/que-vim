@@ -48,9 +48,10 @@ local function my_plugins (use)
    })
 
    use({
+      disable = true,
       "sheerun/vim-polyglot",
       setup = function ()
-         vim.g.polyglot_disabled = { "lua" }
+         vim.g.polyglot_disabled = { "lua", "just" }
       end,
    })
 
