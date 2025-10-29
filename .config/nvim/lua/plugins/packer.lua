@@ -764,66 +764,72 @@ local function my_plugins (use)
          vim.g.ledger_descriptions_cmd = "cat _vim_descriptions"
       end,
       config = function ()
-         require("cmp").setup.buffer({
-            completion = {
-               keyword_length = 2,
-               keyword_pattern = [[.*]],
-            },
-            sources = {
-               -- { name = "omni" },
-               { name = "hledger" },
-               -- { name = "buffer" },
-               -- { name = "spell" },
-               { name = "calc" },
-            },
+         vim.api.nvim_create_autocmd("FileType", {
+            pattern = "ledger",
+            callback = function ()
+               require("cmp").setup.buffer({
+                  completion = {
+                     keyword_length = 2,
+                     keyword_pattern = [[.*]],
+                  },
+                  sources = {
+                     -- { name = "omni" },
+                     { name = "hledger" },
+                     -- { name = "buffer" },
+                     -- { name = "spell" },
+                     { name = "calc" },
+                  },
+               })
+               local function map (mode, l, r)
+                  vim.keymap.set(mode, l, r, { noremap = true, buffer = true, silent = true })
+               end
+               vim.opt.colorcolumn = "60"
+               vim.opt_local.expandtab = true
+               vim.opt_local.iskeyword:append(":")
+               vim.opt_local.formatprg = ("%s -f - print -x"):format(vim.g.ledger_bin)
+               -- vim.opt_local.formatexpr = nil
+               vim.cmd([[SpeedDatingFormat %Y-%m-%d]])
+               local function start_commodity (symbol)
+                  vim.cmd([[normal! A  ]] .. symbol)
+                  vim.call("ledger#align_commodity")
+                  vim.cmd("startinsert!")
+               end
+               local function backtrack_commodity ()
+                  local rr = vim.api.nvim_replace_termcodes("<Left><Left>", true, false, true)
+                  vim.api.nvim_feedkeys(rr, "m", true)
+               end
+               map("i", "<C-t>", function ()
+                  start_commodity("₺")
+               end)
+               map("i", "<C-d>", function ()
+                  start_commodity("$")
+               end)
+               map("i", "<C-e>", function ()
+                  start_commodity("€")
+               end)
+               map("i", "<C-l>", function ()
+                  start_commodity("£")
+               end)
+               map("i", "<C-k>", function ()
+                  start_commodity("₸")
+                  backtrack_commodity()
+               end)
+               map("i", "<C-b>", function ()
+                  start_commodity("BTC")
+               end)
+               -- map("i", "<C-n>", [[<C-r>=ledger#autocomplete_and_align()<Cr>]])
+               map("n", "<Leader>n", [[<Esc>gqipkvip:LedgerAlign<Cr>{yE}pE]])
+               map("n", "<Leader>f", [[vap:'<,'>!./bin/normalize.zsh<Cr>gqap]])
+               map("n", "<Leader>p", function ()
+                  local formatexpr = vim.o.formatexpr
+                  vim.o.formatexpr = nil
+                  vim.cmd([[normal! gqip]])
+                  vim.o.formatexpr = formatexpr
+                  vim.cmd([[normal! kgqap]])
+               end)
+            end,
+            desc = "Ledger filetype setup (apply per-buffer mappings and options)",
          })
-         local function map (mode, l, r)
-            vim.keymap.set(mode, l, r, { noremap = true, buffer = true, silent = true })
-         end
-         vim.opt.colorcolumn = "60"
-         vim.opt_local.expandtab = true
-         vim.opt_local.iskeyword:append(":")
-         vim.opt_local.formatprg = ("%s -f - print -x"):format(vim.g.ledger_bin)
-         -- vim.opt_local.formatexpr = nil
-         vim.cmd([[SpeedDatingFormat %Y-%m-%d]])
-         local function start_commodity (symbol)
-            vim.cmd([[normal! A  ]] .. symbol)
-            vim.call("ledger#align_commodity")
-            vim.cmd("startinsert!")
-         end
-         local function backtrack_commodity ()
-            local rr = vim.api.nvim_replace_termcodes("<Left><Left>", true, false, true)
-            vim.api.nvim_feedkeys(rr, "m", true)
-         end
-         map("i", "<C-t>", function ()
-            start_commodity("₺")
-         end)
-         map("i", "<C-d>", function ()
-            start_commodity("$")
-         end)
-         map("i", "<C-e>", function ()
-            start_commodity("€")
-         end)
-         map("i", "<C-l>", function ()
-            start_commodity("£")
-         end)
-         map("i", "<C-k>", function ()
-            start_commodity("₸")
-            backtrack_commodity()
-         end)
-         map("i", "<C-b>", function ()
-            start_commodity("BTC")
-         end)
-         -- map("i", "<C-n>", [[<C-r>=ledger#autocomplete_and_align()<Cr>]])
-         map("n", "<Leader>n", [[<Esc>gqipkvip:LedgerAlign<Cr>{yE}pE]])
-         map("n", "<Leader>f", [[vap:'<,'>!./bin/normalize.zsh<Cr>gqap]])
-         map("n", "<Leader>p", function ()
-            local formatexpr = vim.o.formatexpr
-            vim.o.formatexpr = nil
-            vim.cmd([[normal! gqip]])
-            vim.o.formatexpr = formatexpr
-            vim.cmd([[normal! kgqap]])
-         end)
       end,
    })
 
