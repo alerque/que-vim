@@ -4,12 +4,12 @@
 "rocks.nvim" = "2.46.1"
 "rocks-git.nvim" = "2.5.6"
 "rocks-config.nvim" = "3.1.2"
-"decasify.nvim" = "0.10.1"
+"decasify.nvim" = "0.11.1"
 "conform.nvim" = "9.1.0"
 
 [plugins.guttermarks]
 git = "dimtion/guttermarks.nvim"
-rev = "70ec53afdd985c5158d1ecfaacb59634f9d7071f"
+rev = "fb8aa3f552a10f37cc095409b2676a202ef5bd2b"
 branch = "main"
 
 [plugins.tagbar]
@@ -36,7 +36,7 @@ branch = "main"
 
 [plugins.monokai-nightasty]
 git = "polirritmico/monokai-nightasty.nvim"
-rev = "8182c45dcaf82e7316cfda6d439ee8ad783ae594"
+rev = "91b0798334534394d77b0b6e6089fe0655b241b3"
 branch = "main"
 ignore_tags = true
 
