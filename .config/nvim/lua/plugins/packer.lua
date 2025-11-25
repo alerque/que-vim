@@ -534,6 +534,7 @@ local function my_plugins (use)
          vim.lsp.enable({
             "clangd",
             -- "dockerls",
+            "harper_ls",
             "just",
             "lua_ls",
             "markdown_oxide",
