@@ -4,7 +4,7 @@
 "rocks.nvim" = "2.46.1"
 "rocks-git.nvim" = "2.5.6"
 "rocks-config.nvim" = "3.1.2"
-"decasify.nvim" = "0.11.1"
+"decasify.nvim" = "0.11.2"
 "conform.nvim" = "9.1.0"
 
 [plugins.guttermarks]
