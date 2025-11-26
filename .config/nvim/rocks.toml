@@ -72,5 +72,9 @@ rev = "v0.42.0"
 opt = true
 branch = "main"
 
+[plugins.vim-teal]
+git = "teal-language/vim-teal"
+branch = "master"
+
 [config]
 plugins_dir = "rocks"
