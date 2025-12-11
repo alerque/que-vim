@@ -2,14 +2,14 @@
 
 [plugins]
 "rocks.nvim" = "2.46.1"
-"rocks-git.nvim" = "2.5.6"
+"rocks-git.nvim" = "2.5.7"
 "rocks-config.nvim" = "3.1.2"
 "decasify.nvim" = "0.11.2"
 "conform.nvim" = "9.1.0"
 
 [plugins.guttermarks]
 git = "dimtion/guttermarks.nvim"
-rev = "fb8aa3f552a10f37cc095409b2676a202ef5bd2b"
+rev = "aaa67cdd90500a9073ee083bd090788d3ecd88e4"
 branch = "main"
 
 [plugins.tagbar]
@@ -47,7 +47,7 @@ branch = "main"
 
 [plugins.vim-just]
 git = "NoahTheDuke/vim-just"
-rev = "c13e317dda76ea01c2521cbed2a5c552a96951bd"
+rev = "11b0f3177e2854cafa0c4baef5329e7d0f0dccbd"
 branch = "main"
 
 [plugins.smartbraces]
@@ -68,7 +68,7 @@ branch = "main"
 
 [plugins.augment]
 git = "augmentcode/augment.vim"
-rev = "v0.42.0"
+rev = "v0.43.0"
 opt = true
 branch = "main"
 
