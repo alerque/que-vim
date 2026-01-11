@@ -1,7 +1,7 @@
 [rocks]
 
 [plugins]
-"rocks.nvim" = "2.46.1"
+"rocks.nvim" = "2.47.0"
 "rocks-git.nvim" = "2.5.7"
 "rocks-config.nvim" = "3.1.2"
 "decasify.nvim" = "0.11.2"
@@ -41,7 +41,7 @@ branch = "main"
 
 [plugins.monokai-nightasty]
 git = "polirritmico/monokai-nightasty.nvim"
-rev = "91b0798334534394d77b0b6e6089fe0655b241b3"
+rev = "8be5e1c6e1d59873505e81b161e923264dfa5c1a"
 branch = "main"
 ignore_tags = true
 
@@ -73,12 +73,13 @@ branch = "main"
 
 [plugins.augment]
 git = "augmentcode/augment.vim"
-rev = "v0.43.0"
+rev = "v0.45.0"
 opt = true
 branch = "main"
 
 [plugins.vim-teal]
 git = "teal-language/vim-teal"
+rev = "a416397cf7aad7b03ef53fd3d9847fd764bcbfee"
 branch = "master"
 
 [config]
