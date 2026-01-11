@@ -762,6 +762,7 @@ local function my_plugins (use)
          vim.g.ledger_fillstring = "    -"
          vim.g.ledger_extra_options = "-x"
          vim.g.ledger_accounts_generate = 0
+         vim.g.ledger_fuzzy_account_completion = 1
          vim.g.ledger_accounts_cmd = "cat _vim_accounts"
          vim.g.ledger_descriptions_cmd = "cat _vim_descriptions"
       end,
