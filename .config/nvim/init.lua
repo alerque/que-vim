@@ -112,10 +112,10 @@ map({ "n" }, "<Leader>bo", function ()
    vim.cmd([[%bd|e#|bd#]])
 end)
 
--- Unset F option from campatability mode so we can use Alt keys in keymaps
+-- Unset F option from compatibility mode so we can use Alt keys in keymaps
 opt.cpoptions:remove("F")
 
--- Alternate insert mode with Turkish-F keyboard emulation (from Programer's Dvorak)
+-- Alternate insert mode with Turkish-F keyboard emulation (from Programmer's Dvorak)
 -- See: http://vim.wikia.com/wiki/Insert-mode_only_Caps_Lock
 -- See: http://vi.stackexchange.com/q/2260/267
 local km = function (keymap)
