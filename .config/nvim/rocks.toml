@@ -7,6 +7,11 @@
 "decasify.nvim" = "0.11.2"
 "conform.nvim" = "9.1.0"
 
+[plugins.nvim-bacon]
+git = "Canop/nvim-bacon"
+rev = "76eea518e3a34274be08938f38919840c3d19dcb"
+branch = "main"
+
 [plugins.guttermarks]
 git = "dimtion/guttermarks.nvim"
 rev = "aaa67cdd90500a9073ee083bd090788d3ecd88e4"
