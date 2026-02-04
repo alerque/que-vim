@@ -535,6 +535,7 @@ local function my_plugins (use)
             "clangd",
             -- "dockerls",
             "harper_ls",
+            "hledger_lsp",
             "just",
             "lua_ls",
             "markdown_oxide",
