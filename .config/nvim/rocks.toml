@@ -1,10 +1,10 @@
 [rocks]
 
 [plugins]
-"rocks.nvim" = "2.47.0"
-"rocks-git.nvim" = "2.5.7"
-"rocks-config.nvim" = "3.1.2"
-"decasify.nvim" = "0.11.2"
+"rocks.nvim" = "2.47.4"
+"rocks-git.nvim" = "2.5.10"
+"rocks-config.nvim" = "3.2.0"
+"decasify.nvim" = "0.11.3"
 "conform.nvim" = "9.1.0"
 
 [plugins.nvim-bacon]
@@ -73,7 +73,7 @@ branch = "main"
 
 [plugins.augment]
 git = "augmentcode/augment.vim"
-rev = "v0.45.0"
+rev = "v0.46.0"
 opt = true
 branch = "main"
 
