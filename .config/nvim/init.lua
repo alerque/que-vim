@@ -89,6 +89,8 @@ opt.matchpairs:append({ "►:◄" })
 -- See also vim-matchup in plugins
 opt.showmatch = true
 
+opt.nrformats:append({ "unsigned" })
+
 g.neovide_remember_window_size = false
 g.neovide_refresh_rate = 60
 
