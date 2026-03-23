@@ -40,7 +40,6 @@ Plug 'vim-pandoc/vim-markdownfootnotes', { 'for': g:markdown_filetypes }
 Plug 'junegunn/vim-easy-align'
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 " Plug 'ludovicchabant/vim-gutentags'
-" Plug 'rust-lang/rust.vim'
 Plug 'equalsraf/neovim-gui-shim'
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
 " Plug 'w0rp/ale'
@@ -366,10 +365,6 @@ nnoremap <C-e> <Esc>
 vnoremap <C-e> <Esc>gV
 onoremap <C-e> <Esc>
 inoremap <C-e> <Esc>`^
-
-" Configure Rust.vim
-let g:rustfmt_autosave = 1
-let g:rust_conceal = 1
 
 syn match rustRightArrowTail contained "-" conceal cchar=⟼
 syn match rustFatRightArrowTail contained "=" conceal cchar=⟾

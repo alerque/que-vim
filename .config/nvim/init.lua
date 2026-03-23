@@ -141,6 +141,12 @@ end, nosi)
 -- Don't wrap long lines by default (override for prose file types & Goyo mode)
 opt.wrap = false
 
+-- For ft_rust.txt
+g.rustfmt_autosave = 0
+g.rustfmt_conceal = 1
+-- Requires https://github.com/rust-lang/rust.vim/pull/532
+g.rustfmt_options = '--edition 2024'
+
 -- Source legacy init.vim
 vim.cmd(string.format("source %s/legacy_init.vim", vim.fn.stdpath("config")))
 

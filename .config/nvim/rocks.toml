@@ -5,7 +5,6 @@
 "rocks-git.nvim" = "2.5.10"
 "rocks-config.nvim" = "3.2.0"
 "decasify.nvim" = "0.11.3"
-"conform.nvim" = "9.1.0"
 
 [plugins.nvim-bacon]
 git = "Canop/nvim-bacon"
@@ -31,6 +30,12 @@ branch = "master"
 [plugins.fastfold]
 git = "Konfekt/FastFold"
 rev = "c1ddfa1a0e00316d1161ce11438ec980348b8cb9"
+branch = "master"
+ignore_tags = true
+
+[plugins.conform]
+git = "stevearc/conform.nvim"
+rev = "086a40dc7ed8242c03be9f47fbcee68699cc2395"
 branch = "master"
 ignore_tags = true
 
