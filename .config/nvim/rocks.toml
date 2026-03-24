@@ -1,5 +1,9 @@
 [rocks]
 
+[config]
+plugins_dir = "rocks"
+luarocks_binary = "/usr/bin/luarocks"
+
 [plugins]
 "rocks.nvim" = "2.47.4"
 "rocks-git.nvim" = "2.5.10"
@@ -87,6 +91,3 @@ branch = "main"
 git = "teal-language/vim-teal"
 rev = "a416397cf7aad7b03ef53fd3d9847fd764bcbfee"
 branch = "master"
-
-[config]
-plugins_dir = "rocks"
