@@ -542,7 +542,8 @@ local function my_plugins (use)
             "marksman",
             "pyright",
             "ruff",
-            "rust_analyzer",
+            -- see rustacean config
+            -- "rust_analyzer",
             "stylua",
             "taplo",
             "tinymist",
