@@ -9,7 +9,7 @@ luarocks_binary = "/usr/bin/luarocks"
 "rocks-git.nvim" = "2.5.10"
 "rocks-config.nvim" = "3.2.0"
 "decasify.nvim" = "0.11.3"
-rustaceanvim = "8.0.4"
+rustaceanvim = "9.0.1"
 
 [plugins.nvim-bacon]
 git = "Canop/nvim-bacon"
