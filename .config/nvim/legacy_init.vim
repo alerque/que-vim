@@ -27,7 +27,6 @@ Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-function'
 Plug 'rbonvall/vim-textobj-latex'
 Plug 'haya14busa/vim-textobj-function-syntax'
-Plug '907th/vim-auto-save'
 Plug 'alerque/vim-commonmark', { 'do': 'make' }
 Plug 'godlygeek/tabular' " required for preservim/vim-markdown
 Plug 'preservim/vim-markdown', { 'for': g:markdown_filetypes }
@@ -266,14 +265,6 @@ set nottimeout
 " endfunction
 " let prose_filetypes = join(g:prose_filetypes, ',')
 " execute 'autocmd QueInit FileType ' . prose_filetypes . ' call QueProse()'
-
-" Setup autosave plugin, off by default, enable with :AutoSaveToggle
-let g:auto_save = 0
-let g:auto_save_in_insert_mode = 1
-let g:auto_save_events = [ 'InsertLeave', 'TextChanged' ]
-let g:auto_save_events = [ 'CursorHold', 'CursorHoldI', 'CompleteDone', 'InsertLeave' ]
-let g:auto_save_silent = 1
-nmap <Leader>s :AutoSaveToggle<Cr>
 
 " Map Markdown Footnotes manually because its default of <leader>+f is taken
 " inoreabbrev [] <c-o>:exe "normal \<Plug>AddVimFootnote"<cr>
