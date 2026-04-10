@@ -79,9 +79,6 @@ endif
 au OptionSet diff let &cul=!v:option_new
 au OptionSet diff set nofoldenable
 
-" Match split background to tmux scheme
-autocmd QueInit VimEnter,ColorScheme * highlight VertSplit cterm=NONE ctermfg=Green ctermbg=NONE
-
 " Shortcut to vim-eunuch's SudoWrite
 cmap w!! SudoWrite
 

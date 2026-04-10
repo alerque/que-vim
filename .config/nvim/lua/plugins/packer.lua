@@ -565,21 +565,6 @@ local function my_plugins (use)
    })
 
    use({
-      "tanvirtin/monokai.nvim",
-      config = function ()
-         local monokai = require("monokai")
-         local moloque = monokai.classic
-         moloque.name = "moloque"
-         moloque.base2 = "#1B1D1E" -- Normal
-         moloque.base3 = "#293739" -- CursorColumn
-         monokai.setup({
-            italics = false,
-            palette = moloque,
-         })
-      end,
-   })
-
-   use({
       "nvchad/nvim-colorizer.lua",
       config = function ()
          vim.opt.termguicolors = true
