@@ -39,7 +39,6 @@ Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': g:markdown_filetypes }
 Plug 'vim-pandoc/vim-markdownfootnotes', { 'for': g:markdown_filetypes }
 " Plug 'ludovicchabant/vim-gutentags'
 Plug 'equalsraf/neovim-gui-shim'
-Plug 'meain/vim-package-info', { 'do': 'npm install' }
 " Plug 'w0rp/ale'
 Plug 'Konfekt/vim-unicode-homoglyphs', { 'for': g:prose_filetypes }
 
