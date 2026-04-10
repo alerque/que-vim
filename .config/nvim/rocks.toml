@@ -31,6 +31,10 @@ git = "dimtion/guttermarks.nvim"
 rev = "d4f300042f0a3c91be7bfb12e819c12151061420"
 branch = "main"
 
+[plugins.multicursor]
+git = "jake-stewart/multicursor.nvim"
+branch = "main"
+
 [plugins.nvim-lilypond-suite]
 git = "martineausimon/nvim-lilypond-suite"
 branch = "main"

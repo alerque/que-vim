@@ -19,8 +19,6 @@ endfunction
 
 " Plug 'tommcdo/vim-exchange'
 Plug 'LucHermitte/lh-vim-lib' | Plug 'LucHermitte/local_vimrc'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'mg979/vim-visual-multi'
 Plug 'swekaj/php-foldexpr.vim'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
@@ -451,15 +449,6 @@ let g:javascript_plugin_jsdoc = 1
 
 " This is useful but slows down big files a lot
 let g:is_homoglyph_on = 0
-
-" Configure multiple cursor plugin to be more aggressive
-let g:multi_cursor_exit_from_visual_mode = 0
-let g:multi_cursor_exit_from_insert_mode = 0
-
-" vim-visual-multi configuration
-let g:VM_mouse_mappings = 1
-let g:VM_skip_shorter_lines = 1
-let g:VM_skip_empty_lines = 1
 
 set diffopt+=iwhite
 set diffexpr=DiffW()
