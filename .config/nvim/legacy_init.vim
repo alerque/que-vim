@@ -45,7 +45,6 @@ Plug 'meain/vim-package-info', { 'do': 'npm install' }
 " Plug 'w0rp/ale'
 Plug 'Konfekt/vim-unicode-homoglyphs', { 'for': g:prose_filetypes }
 Plug 'Konfekt/vim-select-replace'
-Plug 'haya14busa/vim-asterisk'
 
 call plug#end()
 
@@ -481,19 +480,6 @@ let g:multi_cursor_exit_from_insert_mode = 0
 let g:VM_mouse_mappings = 1
 let g:VM_skip_shorter_lines = 1
 let g:VM_skip_empty_lines = 1
-
-" vim-asterisk bindings
-let g:asterisk#keeppos = 1
-
-nmap *  <Plug>(asterisk-z*)
-nmap #  <Plug>(asterisk-z#)
-nmap g* <Plug>(asterisk-gz*)
-nmap g# <Plug>(asterisk-gz#)
-
-xmap *  <Plug>(asterisk-z*)
-xmap #  <Plug>(asterisk-z#)
-xmap g* <Plug>(asterisk-gz*)
-xmap g# <Plug>(asterisk-gz#)
 
 omap *  <plug>(vim-select-replace-star)
 omap g* <plug>(vim-select-replace-g-star)

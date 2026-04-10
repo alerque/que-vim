@@ -11,6 +11,10 @@ luarocks_binary = "/usr/bin/luarocks"
 "decasify.nvim" = "0.11.3"
 rustaceanvim = "9.0.1"
 
+[plugins.asterisk]
+git = "yuki-yano/asterisk.nvim"
+branch = "main"
+
 [plugins.nvim-bacon]
 git = "Canop/nvim-bacon"
 rev = "76eea518e3a34274be08938f38919840c3d19dcb"
