@@ -37,7 +37,6 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-criticmarkup', { 'for': g:prose_filetypes }
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': g:markdown_filetypes }
 Plug 'vim-pandoc/vim-markdownfootnotes', { 'for': g:markdown_filetypes }
-Plug 'junegunn/vim-easy-align'
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 " Plug 'ludovicchabant/vim-gutentags'
 Plug 'equalsraf/neovim-gui-shim'
@@ -287,11 +286,6 @@ autocmd QueInit FileType markdown,pandoc imap <buffer> ^^ <Plug>AddVimFootnote
 autocmd QueInit FileType markdown,pandoc nmap <buffer> <Leader>^ <Plug>AddVimFootnote
 autocmd QueInit FileType markdown,pandoc imap <buffer> @@ <Plug>ReturnFromFootnote
 autocmd QueInit FileType markdown,pandoc nmap <buffer> <Leader>@ <Plug>ReturnFromFootnote
-
-" Mappings for Easy Alignment plugin
-xmap gA <Plug>(EasyAlign)
-nmap gA <Plug>(EasyAlign)
-
 
 let g:markdown_fenced_languages = g:markdown_embeded
 let g:pandoc#syntax#codeblocks#embeds#langs = g:markdown_embeded
