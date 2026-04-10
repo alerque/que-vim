@@ -37,7 +37,6 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-criticmarkup', { 'for': g:prose_filetypes }
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': g:markdown_filetypes }
 Plug 'vim-pandoc/vim-markdownfootnotes', { 'for': g:markdown_filetypes }
-Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 " Plug 'ludovicchabant/vim-gutentags'
 Plug 'equalsraf/neovim-gui-shim'
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
