@@ -290,6 +290,7 @@ local function my_plugins (use)
          vim.opt.termguicolors = true
          require("bufferline").setup({
             options = {
+               themable = true,
                separator_style = "slant",
                show_close_icon = false,
                show_buffer_close_icons = false,
@@ -404,7 +405,6 @@ local function my_plugins (use)
    use({
       "lukas-reineke/indent-blankline.nvim",
       config = function ()
-         vim.opt.termguicolors = true
          local highlight = {
             "CursorColumn",
             "Whitespace",

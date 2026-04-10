@@ -55,6 +55,12 @@ g.mapleader = ","
 g.maplocalleader = ","
 opt.mouse = "a"
 
+opt.background = "dark" -- colorscheme set later via plugin, this starts in the right mode
+opt.termguicolors = true -- tell colorschemes and plugins to prefer more advanced colors
+
+opt.laststatus = 3 -- only final pane has statusline
+opt.colorcolumn = "+1" -- match opt.textwidth
+
 opt.errorbells = false
 opt.visualbell = true
 vim.api.nvim_create_autocmd("GUIEnter", {
@@ -62,11 +68,6 @@ vim.api.nvim_create_autocmd("GUIEnter", {
       opt.visualbell = true
    end,
 })
-
-opt.termguicolors = true
-opt.laststatus = 3
-
-opt.colorcolumn = "+1" -- match opt.textwidth
 
 opt.spell = false
 

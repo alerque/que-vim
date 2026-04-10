@@ -1,19 +1,18 @@
-vim.opt.background = "dark"
-vim.opt.termguicolors = true
+local nightasty = require("monokai-nightasty")
 
 local opts = {
    dark_style_background = "#1B1D1E",
-   on_highlights = function (hl, _)
-      hl["@attribute.builtin"].italic = false
-      hl["@constructor"].italic = false
-      hl["@keyword"].italic = false
-      hl["@keyword.function"].italic = false
-      hl["@markup.quote"].italic = false
-      hl["@tag.attribute"].italic = false
-      hl["@variable.builtin"].italic = false
-      hl["@variable.member"].italic = false
-      hl["@variable.parameter"].italic = false
-      hl["MatchParen"].underline = false
+   on_highlights = function (highlights, _)
+      highlights["@attribute.builtin"].italic = false
+      highlights["@constructor"].italic = false
+      highlights["@keyword"].italic = false
+      highlights["@keyword.function"].italic = false
+      highlights["@markup.quote"].italic = false
+      highlights["@tag.attribute"].italic = false
+      highlights["@variable.builtin"].italic = false
+      highlights["@variable.member"].italic = false
+      highlights["@variable.parameter"].italic = false
+      highlights["MatchParen"].underline = false
    end,
    cache = true,
    auto_enable_plugins = false,
@@ -21,7 +20,7 @@ local opts = {
       ["bufferline.nvim"] = true,
       ["gitsigns.nvim"] = true,
       ["indent-blankline.nvim"] = true,
-      ["lualine"] = false,
+      ["lualine"] = true,
       ["noice"] = false,
       ["nvim-cmp"] = true,
       ["telescope.nvim"] = true,
@@ -30,5 +29,5 @@ local opts = {
    },
 }
 
-require("monokai-nightasty").setup(opts)
-require("monokai-nightasty").load()
+nightasty.setup(opts)
+nightasty.load()
