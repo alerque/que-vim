@@ -1,7 +1,7 @@
 local nightasty = require("monokai-nightasty")
 
 local opts = {
-   dark_style_background = "#1B1D1E",
+   dark_style_background = "#0f0f0e",
    on_highlights = function (highlights, _)
       highlights["@attribute.builtin"].italic = false
       highlights["@constructor"].italic = false
