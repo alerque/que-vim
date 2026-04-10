@@ -105,3 +105,7 @@ branch = "main"
 git = "teal-language/vim-teal"
 rev = "a416397cf7aad7b03ef53fd3d9847fd764bcbfee"
 branch = "master"
+
+[plugins.vimetex]
+git = "lervag/vimtex"
+branch = "master"
