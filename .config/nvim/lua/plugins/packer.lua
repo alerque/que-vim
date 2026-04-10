@@ -629,7 +629,7 @@ local function my_plugins (use)
          local id = vim.api.nvim_create_augroup("ExpandLinesOnTextChanged", { clear = true })
          vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI" }, {
             group = id,
-            callback = function (ev)
+            callback = function (_)
                local height = vim.api.nvim_win_text_height(0, {}).all
                height = height + 3
                if height > vim.o.lines and height < max_height then
