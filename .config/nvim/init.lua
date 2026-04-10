@@ -151,14 +151,14 @@ g.rustfmt_options = '--edition 2024'
 -- Source legacy init.vim
 vim.cmd(string.format("source %s/legacy_init.vim", vim.fn.stdpath("config")))
 
+-- Bootstrap rocks.nvim
+require("config.rocks")
+
 -- Bootstrap packer
 require("config.packer")
 
 -- Bootstrap lazy.nvim
 -- require("config.lazy")
-
--- Bootstrap rocks.nvim
-require("config.rocks")
 
 map({ "n", "i" }, "<Leader>a", vim.lsp.buf.code_action, nosi)
 
