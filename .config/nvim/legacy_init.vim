@@ -43,7 +43,6 @@ Plug 'equalsraf/neovim-gui-shim'
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
 " Plug 'w0rp/ale'
 Plug 'Konfekt/vim-unicode-homoglyphs', { 'for': g:prose_filetypes }
-Plug 'Konfekt/vim-select-replace'
 
 call plug#end()
 
@@ -474,11 +473,6 @@ let g:multi_cursor_exit_from_insert_mode = 0
 let g:VM_mouse_mappings = 1
 let g:VM_skip_shorter_lines = 1
 let g:VM_skip_empty_lines = 1
-
-omap *  <plug>(vim-select-replace-star)
-omap g* <plug>(vim-select-replace-g-star)
-omap #  <plug>(vim-select-replace-hash)
-omap g# <plug>(vim-select-replace-g-hash)
 
 set diffopt+=iwhite
 set diffexpr=DiffW()
