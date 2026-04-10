@@ -29,7 +29,6 @@ Plug 'rbonvall/vim-textobj-latex'
 Plug 'haya14busa/vim-textobj-function-syntax'
 Plug '907th/vim-auto-save'
 Plug 'lervag/vimtex'
-Plug 'gisraptor/vim-lilypond-integrator', { 'for': 'lilypond' }
 Plug 'alerque/vim-commonmark', { 'do': 'make' }
 Plug 'godlygeek/tabular' " required for preservim/vim-markdown
 Plug 'preservim/vim-markdown', { 'for': g:markdown_filetypes }
