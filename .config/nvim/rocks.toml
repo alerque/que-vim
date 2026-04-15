@@ -5,21 +5,22 @@ plugins_dir = "rocks"
 luarocks_binary = "/usr/bin/luarocks"
 
 [plugins]
-"rocks.nvim" = "2.47.4"
+"rocks.nvim" = "2.47.5"
 "rocks-git.nvim" = "2.5.10"
 "rocks-config.nvim" = "3.2.0"
 "decasify.nvim" = "0.11.3"
-rustaceanvim = "9.0.1"
-"haskell-tools.nvim" = "8.1.1"
+rustaceanvim = "9.0.2"
+"haskell-tools.nvim" = "9.0.1"
 "package-info.nvim" = "2.0"
 
 [plugins.asterisk]
 git = "yuki-yano/asterisk.nvim"
+rev = "09d4300383234e574c7a34f29456d77ca726cbaa"
 branch = "main"
 
 [plugins.crates]
 git = "saecki/crates.nvim"
-tag = "v0.7.1"
+rev = "v0.7.1"
 
 [plugins.nvim-bacon]
 git = "Canop/nvim-bacon"
@@ -33,10 +34,12 @@ branch = "main"
 
 [plugins.multicursor]
 git = "jake-stewart/multicursor.nvim"
+rev = "704b99f10a72cc05d370cfeb294ff83412a8ab55"
 branch = "main"
 
 [plugins.nvim-lilypond-suite]
 git = "martineausimon/nvim-lilypond-suite"
+rev = "a1a313fd6028a196cc9aaa8c8501838fe8cc8e2a"
 branch = "main"
 
 [plugins.tagbar]
@@ -112,4 +115,5 @@ branch = "master"
 
 [plugins.vimetex]
 git = "lervag/vimtex"
+rev = "v2.17"
 branch = "master"
