@@ -2,7 +2,14 @@ local nightasty = require("monokai-nightasty")
 
 local opts = {
    dark_style_background = "#0f0f0e",
-   on_highlights = function (highlights, _)
+   on_highlights = function (highlights, colors)
+      highlights["CursorColumn"].bg = colors.bg_dark
+      highlights["IblIndent"].fg = colors.magenta
+      highlights["IblScope"].fg = colors.cyan
+      highlights["IblWhitespace"].fg = colors.yellow
+      highlights["IblIndent"].bg = colors.red
+      highlights["IblScope"].fg = colors.green
+      highlights["IblWhitespace"].bg = colors.blue
       highlights["@attribute.builtin"].italic = false
       highlights["@constructor"].italic = false
       highlights["@keyword"].italic = false
