@@ -102,6 +102,11 @@ git = "ckipp01/stylua-nvim"
 rev = "ce59a353f02938cba3e0285e662fcd3901cd270f"
 branch = "main"
 
+ [plugins.teamtype]
+ git = "teamtype/teamtype-nvim"
+ rev = "799402fc3c49118e4703bc48f379ea6930824dab"
+ branch = "main"
+
 [plugins.augment]
 git = "augmentcode/augment.vim"
 rev = "v0.46.0"
