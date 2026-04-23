@@ -1,5 +1,8 @@
 local rocks_config = {
    rocks_path = vim.env.HOME .. "/.local/share/nvim/rocks",
+
+   -- C≈em²: Don't download vendored LuaRocks
+   luarocks_binary = "/usr/bin/luarocks",
 }
 
 vim.g.rocks_nvim = rocks_config
@@ -21,9 +24,6 @@ local luarocks_cpath = {
 package.cpath = package.cpath .. ";" .. table.concat(luarocks_cpath, ";")
 
 vim.opt.runtimepath:append(vim.fs.joinpath(rocks_config.rocks_path, "lib", "luarocks", "rocks-5.1", "rocks.nvim", "*"))
-
--- C≈em²: Don't download vendored LuaRocks
-vim.g.luarocks_binary = "/usr/bin/luarocks"
 
 -- If rocks.nvim is not installed then install it!
 if not pcall(require, "rocks") then
