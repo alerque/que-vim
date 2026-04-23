@@ -32,7 +32,8 @@ vim.keymap.set("n", "<C-LeftMouse>", mc.handleMouse)
 vim.keymap.set("n", "<C-LeftDrag>", mc.handleMouseDrag)
 vim.keymap.set("n", "<C-LeftRelease>", mc.handleMouseRelease)
 
-vim.keymap.set({ "n", "x" }, "<C-q>", mc.toggleAllCursors, { desc = "Toggle multi-cursor mode" })
+-- vim.keymap.set({ "n", "x" }, "<C-q>", mc.toggleAllCursors, { desc = "Toggle multi-cursor mode" })
+vim.keymap.set({ "n", "x" }, "<c-q>", mc.toggleCursor, { desc = "Deactivate link to current cursor" })
 
 mc.addKeymapLayer(function (layerSet)
    layerSet({ "n", "x" }, "<Left>", mc.prevCursor)
