@@ -22,6 +22,14 @@ require("conform").setup({
          lsp_format = "fallback",
       },
    },
+   formatters = {
+      rustfmt = {
+         options = {
+            nightly = true,
+            -- default_edition = "2024",
+         },
+      },
+   },
 })
 
 vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
