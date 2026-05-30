@@ -5,11 +5,11 @@ plugins_dir = "rocks"
 luarocks_binary = "/usr/bin/luarocks"
 
 [plugins]
-"rocks.nvim" = "2.48.0"
+"rocks.nvim" = "2.49.0"
 "rocks-git.nvim" = "2.5.10"
 "rocks-config.nvim" = "3.2.0"
 "decasify.nvim" = "0.11.3"
-rustaceanvim = "9.0.3"
+rustaceanvim = "9.0.4"
 "haskell-tools.nvim" = "9.0.2"
 "package-info.nvim" = "2.0"
 
