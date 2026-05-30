@@ -1,9 +1,3 @@
-require("conform").formatters.rustfmt = {
-   options = {
-      default_edition = "2024",
-   },
-}
-
 require("conform").setup({
    format_on_save = {
       timeout_ms = 500,
@@ -26,7 +20,7 @@ require("conform").setup({
       rustfmt = {
          options = {
             nightly = true,
-            -- default_edition = "2024",
+            default_edition = "2024",
          },
       },
    },
