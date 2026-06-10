@@ -492,7 +492,6 @@ local function my_plugins (use)
                { name = "buffer" },
                { name = "dictionary" },
                { name = "calc" },
-               { name = "codeium" },
                -- { name = "neorg" },
             },
          })
@@ -545,22 +544,10 @@ local function my_plugins (use)
             -- see rustacean config
             -- "rust_analyzer",
             "stylua",
-            "taplo",
+            -- "taplo",
             "tinymist",
          })
          vim.opt.completeopt = { "menuone", "noselect" }
-      end,
-   })
-
-   use({
-      "Exafunction/codeium.nvim",
-      disable = true,
-      requires = {
-         "nvim-lua/plenary.nvim",
-         "hrsh7th/nvim-cmp",
-      },
-      config = function ()
-         require("codeium").setup({})
       end,
    })
 
