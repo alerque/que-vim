@@ -1,1 +1,1 @@
-vim.keymap.set({ "n"}, "<leader>t", [[:TagbarToggle<Cr>]])
+vim.keymap.set({ "n" }, "<leader>t", [[:TagbarToggle<Cr>]])
