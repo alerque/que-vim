@@ -492,7 +492,11 @@ local function my_plugins (use)
                { name = "buffer" },
                { name = "dictionary" },
                { name = "calc" },
+               -- { name = "minuet" }, -- LLM
                -- { name = "neorg" },
+            },
+            performance = {
+               fetching_timeout = 3000, -- for LLM completions
             },
          })
       end,

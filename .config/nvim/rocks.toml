@@ -12,7 +12,11 @@ luarocks_binary = "/usr/bin/luarocks"
 rustaceanvim = "9.0.5"
 "haskell-tools.nvim" = "10.0.0"
 "package-info.nvim" = "2.0"
-"minuet-ai.nvim" = "0.9.0"
+
+[plugins.minuet-ai]
+name = "minuet-ai.nvim"
+rev = "0.9.0"
+opt = true
 
 [plugins.asterisk]
 git = "yuki-yano/asterisk.nvim"
