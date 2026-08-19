@@ -10,7 +10,7 @@ luarocks_binary = "/usr/bin/luarocks"
 "rocks-config.nvim" = "3.2.0"
 "decasify.nvim" = "0.11.3"
 rustaceanvim = "9.0.5"
-"haskell-tools.nvim" = "10.0.0"
+"haskell-tools.nvim" = "10.0.1"
 "package-info.nvim" = "2.0"
 
 [plugins.minuet-ai]
@@ -109,7 +109,7 @@ branch = "main"
 
 [plugins.augment]
 git = "augmentcode/augment.vim"
-rev = "v0.46.0"
+rev = "v0.48.1"
 opt = true
 branch = "main"
 
@@ -120,5 +120,5 @@ branch = "master"
 
 [plugins.vimetex]
 git = "lervag/vimtex"
-rev = "v2.17"
+rev = "v2.18"
 branch = "master"
