@@ -6,10 +6,10 @@ luarocks_binary = "/usr/bin/luarocks"
 
 [plugins]
 "rocks.nvim" = "2.49.0"
-"rocks-git.nvim" = "2.5.10"
+"rocks-git.nvim" = "2.6.0"
 "rocks-config.nvim" = "3.2.0"
 "decasify.nvim" = "0.11.3"
-rustaceanvim = "9.0.5"
+rustaceanvim = "9.2.0"
 "haskell-tools.nvim" = "10.0.1"
 "package-info.nvim" = "2.0"
 
