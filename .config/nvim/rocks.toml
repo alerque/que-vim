@@ -5,12 +5,12 @@ plugins_dir = "rocks"
 luarocks_binary = "/usr/bin/luarocks"
 
 [plugins]
-"rocks.nvim" = "2.49.0"
+"rocks.nvim" = "2.49.1"
 "rocks-git.nvim" = "2.6.0"
 "rocks-config.nvim" = "3.2.0"
 "decasify.nvim" = "0.11.4"
 rustaceanvim = "9.2.1"
-"haskell-tools.nvim" = "10.0.1"
+"haskell-tools.nvim" = "11.0.0"
 "package-info.nvim" = "2.0"
 
 [plugins.minuet-ai]
